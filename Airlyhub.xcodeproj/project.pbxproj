@@ -1,0 +1,685 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2E7B19AE2EFFDF41009A3021 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 2E7B19AD2EFFDF41009A3021 /* RxCocoa */; };
+		2E7B19B02EFFDF41009A3021 /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = 2E7B19AF2EFFDF41009A3021 /* RxRelay */; };
+		2E7B19B22EFFDF41009A3021 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 2E7B19B12EFFDF41009A3021 /* RxSwift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		2E4AB0A52EFFC7FB0076BBB5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2E4AB0862EFFC7F90076BBB5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2E4AB08D2EFFC7F90076BBB5;
+			remoteInfo = Airlyhub;
+		};
+		2E4AB0AF2EFFC7FB0076BBB5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2E4AB0862EFFC7F90076BBB5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2E4AB08D2EFFC7F90076BBB5;
+			remoteInfo = Airlyhub;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		2E4AB08E2EFFC7F90076BBB5 /* Airlyhub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Airlyhub.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2E4AB0A42EFFC7FB0076BBB5 /* AirlyhubTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AirlyhubTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2E4AB0AE2EFFC7FB0076BBB5 /* AirlyhubUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AirlyhubUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		2E4AB0B62EFFC7FB0076BBB5 /* Exceptions for "Airlyhub" folder in "Airlyhub" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 2E4AB08D2EFFC7F90076BBB5 /* Airlyhub */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		2E4AB0902EFFC7F90076BBB5 /* Airlyhub */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				2E4AB0B62EFFC7FB0076BBB5 /* Exceptions for "Airlyhub" folder in "Airlyhub" target */,
+			);
+			path = Airlyhub;
+			sourceTree = "<group>";
+		};
+		2E4AB0A72EFFC7FB0076BBB5 /* AirlyhubTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = AirlyhubTests;
+			sourceTree = "<group>";
+		};
+		2E4AB0B12EFFC7FB0076BBB5 /* AirlyhubUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = AirlyhubUITests;
+			sourceTree = "<group>";
+		};
+		2E4AB0D82EFFCFAE0076BBB5 /* Modules */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		2E7B198D2EFFCFEA009A3021 /* Core */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Core;
+			sourceTree = "<group>";
+		};
+		2E7B198E2EFFD024009A3021 /* Resources */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Resources;
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2E4AB08B2EFFC7F90076BBB5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2E7B19B22EFFDF41009A3021 /* RxSwift in Frameworks */,
+				2E7B19B02EFFDF41009A3021 /* RxRelay in Frameworks */,
+				2E7B19AE2EFFDF41009A3021 /* RxCocoa in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2E4AB0A12EFFC7FB0076BBB5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2E4AB0AB2EFFC7FB0076BBB5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2E4AB0852EFFC7F90076BBB5 = {
+			isa = PBXGroup;
+			children = (
+				2E7B198E2EFFD024009A3021 /* Resources */,
+				2E7B198D2EFFCFEA009A3021 /* Core */,
+				2E4AB0D82EFFCFAE0076BBB5 /* Modules */,
+				2E4AB0902EFFC7F90076BBB5 /* Airlyhub */,
+				2E4AB0A72EFFC7FB0076BBB5 /* AirlyhubTests */,
+				2E4AB0B12EFFC7FB0076BBB5 /* AirlyhubUITests */,
+				2E7B19AC2EFFDF41009A3021 /* Frameworks */,
+				2E4AB08F2EFFC7F90076BBB5 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		2E4AB08F2EFFC7F90076BBB5 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2E4AB08E2EFFC7F90076BBB5 /* Airlyhub.app */,
+				2E4AB0A42EFFC7FB0076BBB5 /* AirlyhubTests.xctest */,
+				2E4AB0AE2EFFC7FB0076BBB5 /* AirlyhubUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2E7B19AC2EFFDF41009A3021 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		2E4AB08D2EFFC7F90076BBB5 /* Airlyhub */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2E4AB0B72EFFC7FB0076BBB5 /* Build configuration list for PBXNativeTarget "Airlyhub" */;
+			buildPhases = (
+				2E4AB08A2EFFC7F90076BBB5 /* Sources */,
+				2E4AB08B2EFFC7F90076BBB5 /* Frameworks */,
+				2E4AB08C2EFFC7F90076BBB5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				2E4AB0902EFFC7F90076BBB5 /* Airlyhub */,
+				2E4AB0D82EFFCFAE0076BBB5 /* Modules */,
+				2E7B198D2EFFCFEA009A3021 /* Core */,
+				2E7B198E2EFFD024009A3021 /* Resources */,
+			);
+			name = Airlyhub;
+			packageProductDependencies = (
+				2E7B19AD2EFFDF41009A3021 /* RxCocoa */,
+				2E7B19AF2EFFDF41009A3021 /* RxRelay */,
+				2E7B19B12EFFDF41009A3021 /* RxSwift */,
+			);
+			productName = Airlyhub;
+			productReference = 2E4AB08E2EFFC7F90076BBB5 /* Airlyhub.app */;
+			productType = "com.apple.product-type.application";
+		};
+		2E4AB0A32EFFC7FB0076BBB5 /* AirlyhubTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2E4AB0BC2EFFC7FB0076BBB5 /* Build configuration list for PBXNativeTarget "AirlyhubTests" */;
+			buildPhases = (
+				2E4AB0A02EFFC7FB0076BBB5 /* Sources */,
+				2E4AB0A12EFFC7FB0076BBB5 /* Frameworks */,
+				2E4AB0A22EFFC7FB0076BBB5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2E4AB0A62EFFC7FB0076BBB5 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				2E4AB0A72EFFC7FB0076BBB5 /* AirlyhubTests */,
+			);
+			name = AirlyhubTests;
+			packageProductDependencies = (
+			);
+			productName = AirlyhubTests;
+			productReference = 2E4AB0A42EFFC7FB0076BBB5 /* AirlyhubTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		2E4AB0AD2EFFC7FB0076BBB5 /* AirlyhubUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2E4AB0BF2EFFC7FB0076BBB5 /* Build configuration list for PBXNativeTarget "AirlyhubUITests" */;
+			buildPhases = (
+				2E4AB0AA2EFFC7FB0076BBB5 /* Sources */,
+				2E4AB0AB2EFFC7FB0076BBB5 /* Frameworks */,
+				2E4AB0AC2EFFC7FB0076BBB5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2E4AB0B02EFFC7FB0076BBB5 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				2E4AB0B12EFFC7FB0076BBB5 /* AirlyhubUITests */,
+			);
+			name = AirlyhubUITests;
+			packageProductDependencies = (
+			);
+			productName = AirlyhubUITests;
+			productReference = 2E4AB0AE2EFFC7FB0076BBB5 /* AirlyhubUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		2E4AB0862EFFC7F90076BBB5 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 2610;
+				LastUpgradeCheck = 2610;
+				TargetAttributes = {
+					2E4AB08D2EFFC7F90076BBB5 = {
+						CreatedOnToolsVersion = 26.1.1;
+					};
+					2E4AB0A32EFFC7FB0076BBB5 = {
+						CreatedOnToolsVersion = 26.1.1;
+						TestTargetID = 2E4AB08D2EFFC7F90076BBB5;
+					};
+					2E4AB0AD2EFFC7FB0076BBB5 = {
+						CreatedOnToolsVersion = 26.1.1;
+						TestTargetID = 2E4AB08D2EFFC7F90076BBB5;
+					};
+				};
+			};
+			buildConfigurationList = 2E4AB0892EFFC7F90076BBB5 /* Build configuration list for PBXProject "Airlyhub" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 2E4AB0852EFFC7F90076BBB5;
+			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				2E7B19AB2EFFDF1D009A3021 /* XCRemoteSwiftPackageReference "RxSwift" */,
+			);
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 2E4AB08F2EFFC7F90076BBB5 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				2E4AB08D2EFFC7F90076BBB5 /* Airlyhub */,
+				2E4AB0A32EFFC7FB0076BBB5 /* AirlyhubTests */,
+				2E4AB0AD2EFFC7FB0076BBB5 /* AirlyhubUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		2E4AB08C2EFFC7F90076BBB5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2E4AB0A22EFFC7FB0076BBB5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2E4AB0AC2EFFC7FB0076BBB5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2E4AB08A2EFFC7F90076BBB5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2E4AB0A02EFFC7FB0076BBB5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2E4AB0AA2EFFC7FB0076BBB5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		2E4AB0A62EFFC7FB0076BBB5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2E4AB08D2EFFC7F90076BBB5 /* Airlyhub */;
+			targetProxy = 2E4AB0A52EFFC7FB0076BBB5 /* PBXContainerItemProxy */;
+		};
+		2E4AB0B02EFFC7FB0076BBB5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2E4AB08D2EFFC7F90076BBB5 /* Airlyhub */;
+			targetProxy = 2E4AB0AF2EFFC7FB0076BBB5 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		2E4AB0B82EFFC7FB0076BBB5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 43P5X3R33K;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Airlyhub/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Airlyhub;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.travel";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIStatusBarStyle = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = airly.Airlyhub;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		2E4AB0B92EFFC7FB0076BBB5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 43P5X3R33K;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Airlyhub/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Airlyhub;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.travel";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIStatusBarStyle = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = airly.Airlyhub;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		2E4AB0BA2EFFC7FB0076BBB5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 43P5X3R33K;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.1;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		2E4AB0BB2EFFC7FB0076BBB5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 43P5X3R33K;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.1;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		2E4AB0BD2EFFC7FB0076BBB5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 43P5X3R33K;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = airly.AirlyhubTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Airlyhub.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Airlyhub";
+			};
+			name = Debug;
+		};
+		2E4AB0BE2EFFC7FB0076BBB5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 43P5X3R33K;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = airly.AirlyhubTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Airlyhub.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Airlyhub";
+			};
+			name = Release;
+		};
+		2E4AB0C02EFFC7FB0076BBB5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 43P5X3R33K;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = airly.AirlyhubUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Airlyhub;
+			};
+			name = Debug;
+		};
+		2E4AB0C12EFFC7FB0076BBB5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 43P5X3R33K;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = airly.AirlyhubUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Airlyhub;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2E4AB0892EFFC7F90076BBB5 /* Build configuration list for PBXProject "Airlyhub" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2E4AB0BA2EFFC7FB0076BBB5 /* Debug */,
+				2E4AB0BB2EFFC7FB0076BBB5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2E4AB0B72EFFC7FB0076BBB5 /* Build configuration list for PBXNativeTarget "Airlyhub" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2E4AB0B82EFFC7FB0076BBB5 /* Debug */,
+				2E4AB0B92EFFC7FB0076BBB5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2E4AB0BC2EFFC7FB0076BBB5 /* Build configuration list for PBXNativeTarget "AirlyhubTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2E4AB0BD2EFFC7FB0076BBB5 /* Debug */,
+				2E4AB0BE2EFFC7FB0076BBB5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2E4AB0BF2EFFC7FB0076BBB5 /* Build configuration list for PBXNativeTarget "AirlyhubUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2E4AB0C02EFFC7FB0076BBB5 /* Debug */,
+				2E4AB0C12EFFC7FB0076BBB5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		2E7B19AB2EFFDF1D009A3021 /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveX/RxSwift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.9.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		2E7B19AD2EFFDF41009A3021 /* RxCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2E7B19AB2EFFDF1D009A3021 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxCocoa;
+		};
+		2E7B19AF2EFFDF41009A3021 /* RxRelay */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2E7B19AB2EFFDF1D009A3021 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxRelay;
+		};
+		2E7B19B12EFFDF41009A3021 /* RxSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2E7B19AB2EFFDF1D009A3021 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 2E4AB0862EFFC7F90076BBB5 /* Project object */;
+}
