@@ -9,6 +9,6 @@ import UIKit
 
 enum AppRouter {
     static func createRootModule() -> UIViewController {
-        return LoginRouter.createModule()
+        return LoginBuilder.createModule()
     }
 }

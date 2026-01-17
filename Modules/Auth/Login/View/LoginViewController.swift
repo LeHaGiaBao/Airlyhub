@@ -9,10 +9,8 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-final class LoginViewController: UIViewController {
-
+final class LoginViewController: BaseViewController {
     var presenter: LoginPresenterProtocol!
-    let disposeBag = DisposeBag()
 
     private let loginButton = UIButton()
 

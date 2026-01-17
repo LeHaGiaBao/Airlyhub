@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2E5C009E2F1B922C001A3677 /* UILabelExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5C009D2F1B922C001A3677 /* UILabelExtension.swift */; };
 		2E7B19AE2EFFDF41009A3021 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 2E7B19AD2EFFDF41009A3021 /* RxCocoa */; };
 		2E7B19B02EFFDF41009A3021 /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = 2E7B19AF2EFFDF41009A3021 /* RxRelay */; };
 		2E7B19B22EFFDF41009A3021 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 2E7B19B12EFFDF41009A3021 /* RxSwift */; };
@@ -33,6 +34,7 @@
 		2E4AB08E2EFFC7F90076BBB5 /* Airlyhub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Airlyhub.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E4AB0A42EFFC7FB0076BBB5 /* AirlyhubTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AirlyhubTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E4AB0AE2EFFC7FB0076BBB5 /* AirlyhubUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AirlyhubUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2E5C009D2F1B922C001A3677 /* UILabelExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabelExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -69,14 +71,19 @@
 			path = Modules;
 			sourceTree = "<group>";
 		};
-		2E7B198D2EFFCFEA009A3021 /* Core */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = Core;
-			sourceTree = "<group>";
-		};
 		2E7B198E2EFFD024009A3021 /* Resources */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		2EC570F02F00146C00D67853 /* Localization */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Localization;
+			sourceTree = "<group>";
+		};
+		2EC570F62F0015AC00D67853 /* Common */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Common;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -112,14 +119,16 @@
 		2E4AB0852EFFC7F90076BBB5 = {
 			isa = PBXGroup;
 			children = (
+				2E5C00962F1B8E8F001A3677 /* UIKit */,
+				2EC570F62F0015AC00D67853 /* Common */,
 				2E7B198E2EFFD024009A3021 /* Resources */,
-				2E7B198D2EFFCFEA009A3021 /* Core */,
 				2E4AB0D82EFFCFAE0076BBB5 /* Modules */,
 				2E4AB0902EFFC7F90076BBB5 /* Airlyhub */,
 				2E4AB0A72EFFC7FB0076BBB5 /* AirlyhubTests */,
 				2E4AB0B12EFFC7FB0076BBB5 /* AirlyhubUITests */,
 				2E7B19AC2EFFDF41009A3021 /* Frameworks */,
 				2E4AB08F2EFFC7F90076BBB5 /* Products */,
+				2EC570F02F00146C00D67853 /* Localization */,
 			);
 			sourceTree = "<group>";
 		};
@@ -131,6 +140,14 @@
 				2E4AB0AE2EFFC7FB0076BBB5 /* AirlyhubUITests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		2E5C00962F1B8E8F001A3677 /* UIKit */ = {
+			isa = PBXGroup;
+			children = (
+				2E5C009D2F1B922C001A3677 /* UILabelExtension.swift */,
+			);
+			path = UIKit;
 			sourceTree = "<group>";
 		};
 		2E7B19AC2EFFDF41009A3021 /* Frameworks */ = {
@@ -158,8 +175,9 @@
 			fileSystemSynchronizedGroups = (
 				2E4AB0902EFFC7F90076BBB5 /* Airlyhub */,
 				2E4AB0D82EFFCFAE0076BBB5 /* Modules */,
-				2E7B198D2EFFCFEA009A3021 /* Core */,
 				2E7B198E2EFFD024009A3021 /* Resources */,
+				2EC570F02F00146C00D67853 /* Localization */,
+				2EC570F62F0015AC00D67853 /* Common */,
 			);
 			name = Airlyhub;
 			packageProductDependencies = (
@@ -246,6 +264,7 @@
 			knownRegions = (
 				en,
 				Base,
+				vi,
 			);
 			mainGroup = 2E4AB0852EFFC7F90076BBB5;
 			minimizedProjectReferenceProxies = 1;
@@ -293,6 +312,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2E5C009E2F1B922C001A3677 /* UILabelExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
