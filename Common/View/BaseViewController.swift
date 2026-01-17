@@ -15,6 +15,7 @@ class BaseViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = AppColor.PrimaryColors.Gray.color25
+        overrideUserInterfaceStyle = .light
     }
     
     override func viewDidAppear(_ animated: Bool) {
