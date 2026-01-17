@@ -7,7 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2E5C009E2F1B922C001A3677 /* UILabelExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5C009D2F1B922C001A3677 /* UILabelExtension.swift */; };
+		2E5C009E2F1B922C001A3677 /* UILabel+Typography.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5C009D2F1B922C001A3677 /* UILabel+Typography.swift */; };
+		2E5C00A52F1BCA85001A3677 /* TypographyStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5C00A42F1BCA85001A3677 /* TypographyStyle.swift */; };
+		2E5C00A82F1BCAC1001A3677 /* ShadowToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5C00A72F1BCAC1001A3677 /* ShadowToken.swift */; };
+		2E5C00AC2F1BCB67001A3677 /* InterFontWeight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5C00AB2F1BCB67001A3677 /* InterFontWeight.swift */; };
+		2E5C00AE2F1BCBC2001A3677 /* ShadowLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5C00AD2F1BCBC2001A3677 /* ShadowLevel.swift */; };
+		2E5C00B02F1BCC17001A3677 /* ShadowProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5C00AF2F1BCC17001A3677 /* ShadowProvider.swift */; };
+		2E5C00B52F1BD7C7001A3677 /* UILabel+TypographyExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5C00B42F1BD7C7001A3677 /* UILabel+TypographyExample.swift */; };
+		2E5C00B72F1BD929001A3677 /* UIView+Shadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5C00B62F1BD929001A3677 /* UIView+Shadow.swift */; };
+		2E5C00BC2F1BDB36001A3677 /* UIView+ShadowExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5C00BB2F1BDB36001A3677 /* UIView+ShadowExample.swift */; };
+		2E5C00BE2F1BDBC3001A3677 /* ShadowContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5C00BD2F1BDBC3001A3677 /* ShadowContainerView.swift */; };
+		2E5C00C22F1BDC39001A3677 /* ShadowContainerExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5C00C12F1BDC39001A3677 /* ShadowContainerExample.swift */; };
 		2E7B19AE2EFFDF41009A3021 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 2E7B19AD2EFFDF41009A3021 /* RxCocoa */; };
 		2E7B19B02EFFDF41009A3021 /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = 2E7B19AF2EFFDF41009A3021 /* RxRelay */; };
 		2E7B19B22EFFDF41009A3021 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 2E7B19B12EFFDF41009A3021 /* RxSwift */; };
@@ -34,7 +44,17 @@
 		2E4AB08E2EFFC7F90076BBB5 /* Airlyhub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Airlyhub.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E4AB0A42EFFC7FB0076BBB5 /* AirlyhubTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AirlyhubTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E4AB0AE2EFFC7FB0076BBB5 /* AirlyhubUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AirlyhubUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		2E5C009D2F1B922C001A3677 /* UILabelExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabelExtension.swift; sourceTree = "<group>"; };
+		2E5C009D2F1B922C001A3677 /* UILabel+Typography.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Typography.swift"; sourceTree = "<group>"; };
+		2E5C00A42F1BCA85001A3677 /* TypographyStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypographyStyle.swift; sourceTree = "<group>"; };
+		2E5C00A72F1BCAC1001A3677 /* ShadowToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowToken.swift; sourceTree = "<group>"; };
+		2E5C00AB2F1BCB67001A3677 /* InterFontWeight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterFontWeight.swift; sourceTree = "<group>"; };
+		2E5C00AD2F1BCBC2001A3677 /* ShadowLevel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowLevel.swift; sourceTree = "<group>"; };
+		2E5C00AF2F1BCC17001A3677 /* ShadowProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowProvider.swift; sourceTree = "<group>"; };
+		2E5C00B42F1BD7C7001A3677 /* UILabel+TypographyExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+TypographyExample.swift"; sourceTree = "<group>"; };
+		2E5C00B62F1BD929001A3677 /* UIView+Shadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Shadow.swift"; sourceTree = "<group>"; };
+		2E5C00BB2F1BDB36001A3677 /* UIView+ShadowExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+ShadowExample.swift"; sourceTree = "<group>"; };
+		2E5C00BD2F1BDBC3001A3677 /* ShadowContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowContainerView.swift; sourceTree = "<group>"; };
+		2E5C00C12F1BDC39001A3677 /* ShadowContainerExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowContainerExample.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -145,9 +165,107 @@
 		2E5C00962F1B8E8F001A3677 /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
-				2E5C009D2F1B922C001A3677 /* UILabelExtension.swift */,
+				2E5C00B22F1BD7AD001A3677 /* Example */,
+				2E5C00A22F1BCA5F001A3677 /* DesignSystem */,
+				2E5C00A12F1BCA48001A3677 /* Extension */,
 			);
 			path = UIKit;
+			sourceTree = "<group>";
+		};
+		2E5C00A12F1BCA48001A3677 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				2E5C00B12F1BD799001A3677 /* UIView */,
+				2E5C00A92F1BCB41001A3677 /* UILabel */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		2E5C00A22F1BCA5F001A3677 /* DesignSystem */ = {
+			isa = PBXGroup;
+			children = (
+				2E5C00A62F1BCAAD001A3677 /* Shadow */,
+				2E5C00A32F1BCA73001A3677 /* Typography */,
+			);
+			path = DesignSystem;
+			sourceTree = "<group>";
+		};
+		2E5C00A32F1BCA73001A3677 /* Typography */ = {
+			isa = PBXGroup;
+			children = (
+				2E5C00A42F1BCA85001A3677 /* TypographyStyle.swift */,
+				2E5C00AB2F1BCB67001A3677 /* InterFontWeight.swift */,
+			);
+			path = Typography;
+			sourceTree = "<group>";
+		};
+		2E5C00A62F1BCAAD001A3677 /* Shadow */ = {
+			isa = PBXGroup;
+			children = (
+				2E5C00A72F1BCAC1001A3677 /* ShadowToken.swift */,
+				2E5C00AD2F1BCBC2001A3677 /* ShadowLevel.swift */,
+				2E5C00AF2F1BCC17001A3677 /* ShadowProvider.swift */,
+				2E5C00BD2F1BDBC3001A3677 /* ShadowContainerView.swift */,
+			);
+			path = Shadow;
+			sourceTree = "<group>";
+		};
+		2E5C00A92F1BCB41001A3677 /* UILabel */ = {
+			isa = PBXGroup;
+			children = (
+				2E5C009D2F1B922C001A3677 /* UILabel+Typography.swift */,
+			);
+			path = UILabel;
+			sourceTree = "<group>";
+		};
+		2E5C00B12F1BD799001A3677 /* UIView */ = {
+			isa = PBXGroup;
+			children = (
+				2E5C00B62F1BD929001A3677 /* UIView+Shadow.swift */,
+			);
+			path = UIView;
+			sourceTree = "<group>";
+		};
+		2E5C00B22F1BD7AD001A3677 /* Example */ = {
+			isa = PBXGroup;
+			children = (
+				2E5C00BF2F1BDC10001A3677 /* DesignSystem */,
+				2E5C00BA2F1BDB1F001A3677 /* UIView */,
+				2E5C00B32F1BD7B7001A3677 /* UILabel */,
+			);
+			path = Example;
+			sourceTree = "<group>";
+		};
+		2E5C00B32F1BD7B7001A3677 /* UILabel */ = {
+			isa = PBXGroup;
+			children = (
+				2E5C00B42F1BD7C7001A3677 /* UILabel+TypographyExample.swift */,
+			);
+			path = UILabel;
+			sourceTree = "<group>";
+		};
+		2E5C00BA2F1BDB1F001A3677 /* UIView */ = {
+			isa = PBXGroup;
+			children = (
+				2E5C00BB2F1BDB36001A3677 /* UIView+ShadowExample.swift */,
+			);
+			path = UIView;
+			sourceTree = "<group>";
+		};
+		2E5C00BF2F1BDC10001A3677 /* DesignSystem */ = {
+			isa = PBXGroup;
+			children = (
+				2E5C00C02F1BDC21001A3677 /* Shadow */,
+			);
+			path = DesignSystem;
+			sourceTree = "<group>";
+		};
+		2E5C00C02F1BDC21001A3677 /* Shadow */ = {
+			isa = PBXGroup;
+			children = (
+				2E5C00C12F1BDC39001A3677 /* ShadowContainerExample.swift */,
+			);
+			path = Shadow;
 			sourceTree = "<group>";
 		};
 		2E7B19AC2EFFDF41009A3021 /* Frameworks */ = {
@@ -312,7 +430,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2E5C009E2F1B922C001A3677 /* UILabelExtension.swift in Sources */,
+				2E5C00B72F1BD929001A3677 /* UIView+Shadow.swift in Sources */,
+				2E5C00AE2F1BCBC2001A3677 /* ShadowLevel.swift in Sources */,
+				2E5C00B52F1BD7C7001A3677 /* UILabel+TypographyExample.swift in Sources */,
+				2E5C009E2F1B922C001A3677 /* UILabel+Typography.swift in Sources */,
+				2E5C00AC2F1BCB67001A3677 /* InterFontWeight.swift in Sources */,
+				2E5C00A52F1BCA85001A3677 /* TypographyStyle.swift in Sources */,
+				2E5C00A82F1BCAC1001A3677 /* ShadowToken.swift in Sources */,
+				2E5C00C22F1BDC39001A3677 /* ShadowContainerExample.swift in Sources */,
+				2E5C00BE2F1BDBC3001A3677 /* ShadowContainerView.swift in Sources */,
+				2E5C00BC2F1BDB36001A3677 /* UIView+ShadowExample.swift in Sources */,
+				2E5C00B02F1BCC17001A3677 /* ShadowProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
