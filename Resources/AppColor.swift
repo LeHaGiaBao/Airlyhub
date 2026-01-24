@@ -26,46 +26,46 @@ struct AppColor {
         
         // MARK: - Primary Colors
         struct Primary {
-            static let color50 = UIColor(named: "PrimaryColor/Primary/50")
-            static let color100 = UIColor(named: "PrimaryColor/Primary/100")
-            static let color200 = UIColor(named: "PrimaryColor/Primary/200")
-            static let color300 = UIColor(named: "PrimaryColor/Primary/300")
-            static let color400 = UIColor(named: "PrimaryColor/Primary/400")
-            static let color500 = UIColor(named: "PrimaryColor/Primary/500")
-            static let color600 = UIColor(named: "PrimaryColor/Primary/600")
-            static let color700 = UIColor(named: "PrimaryColor/Primary/700")
-            static let color800 = UIColor(named: "PrimaryColor/Primary/800")
-            static let color900 = UIColor(named: "PrimaryColor/Primary/900")
+            static let color50 = UIColor(named: "blue50")
+            static let color100 = UIColor(named: "blue100")
+            static let color200 = UIColor(named: "blue200")
+            static let color300 = UIColor(named: "blue300")
+            static let color400 = UIColor(named: "blue400")
+            static let color500 = UIColor(named: "blue500")
+            static let color600 = UIColor(named: "blue600")
+            static let color700 = UIColor(named: "blue700")
+            static let color800 = UIColor(named: "blue800")
+            static let color900 = UIColor(named: "blue900")
         }
         
         // MARK: - Gray Colors
         struct Gray {
-            static let color25 = UIColor(named: "PrimaryColor/Gray/25")
-            static let color50 = UIColor(named: "PrimaryColor/Gray/50")
-            static let color100 = UIColor(named: "PrimaryColor/Gray/100")
-            static let color200 = UIColor(named: "PrimaryColor/Gray/200")
-            static let color300 = UIColor(named: "PrimaryColor/Gray/300")
-            static let color400 = UIColor(named: "PrimaryColor/Gray/400")
-            static let color500 = UIColor(named: "PrimaryColor/Gray/500")
-            static let color600 = UIColor(named: "PrimaryColor/Gray/600")
-            static let color700 = UIColor(named: "PrimaryColor/Gray/700")
-            static let color800 = UIColor(named: "PrimaryColor/Gray/800")
-            static let color900 = UIColor(named: "PrimaryColor/Gray/900")
+            static let color25 = UIColor(named: "gray25")
+            static let color50 = UIColor(named: "gray50")
+            static let color100 = UIColor(named: "gray100")
+            static let color200 = UIColor(named: "gray200")
+            static let color300 = UIColor(named: "gray300")
+            static let color400 = UIColor(named: "gray400")
+            static let color500 = UIColor(named: "gray500")
+            static let color600 = UIColor(named: "gray600")
+            static let color700 = UIColor(named: "gray700")
+            static let color800 = UIColor(named: "gray800")
+            static let color900 = UIColor(named: "gray900")
         }
         
         // MARK: - Error Colors
         
         struct Error {
-            static let color50 = UIColor(named: "PrimaryColor/Error/50")
-            static let color100 = UIColor(named: "PrimaryColor/Error/100")
-            static let color200 = UIColor(named: "PrimaryColor/Error/200")
-            static let color300 = UIColor(named: "PrimaryColor/Error/300")
-            static let color400 = UIColor(named: "PrimaryColor/Error/400")
-            static let color500 = UIColor(named: "PrimaryColor/Error/500")
-            static let color600 = UIColor(named: "PrimaryColor/Error/600")
-            static let color700 = UIColor(named: "PrimaryColor/Error/700")
-            static let color800 = UIColor(named: "PrimaryColor/Error/800")
-            static let color900 = UIColor(named: "PrimaryColor/Error/900")
+            static let color50 = UIColor(named: "error50")
+            static let color100 = UIColor(named: "error100")
+            static let color200 = UIColor(named: "error200")
+            static let color300 = UIColor(named: "error300")
+            static let color400 = UIColor(named: "error400")
+            static let color500 = UIColor(named: "error500")
+            static let color600 = UIColor(named: "error600")
+            static let color700 = UIColor(named: "error700")
+            static let color800 = UIColor(named: "error800")
+            static let color900 = UIColor(named: "error900")
             
             // Convenience properties
             static let light = color100
@@ -75,30 +75,30 @@ struct AppColor {
         
         // MARK: - Success Colors
         struct Success {
-            static let color50 = UIColor(named: "PrimaryColor/Success/50")
-            static let color100 = UIColor(named: "PrimaryColor/Success/100")
-            static let color200 = UIColor(named: "PrimaryColor/Success/200")
-            static let color300 = UIColor(named: "PrimaryColor/Success/300")
-            static let color400 = UIColor(named: "PrimaryColor/Success/400")
-            static let color500 = UIColor(named: "PrimaryColor/Success/500")
-            static let color600 = UIColor(named: "PrimaryColor/Success/600")
-            static let color700 = UIColor(named: "PrimaryColor/Success/700")
-            static let color800 = UIColor(named: "PrimaryColor/Success/800")
-            static let color900 = UIColor(named: "PrimaryColor/Success/900")
+            static let color50 = UIColor(named: "success50")
+            static let color100 = UIColor(named: "success100")
+            static let color200 = UIColor(named: "success200")
+            static let color300 = UIColor(named: "success300")
+            static let color400 = UIColor(named: "success400")
+            static let color500 = UIColor(named: "success500")
+            static let color600 = UIColor(named: "success600")
+            static let color700 = UIColor(named: "success700")
+            static let color800 = UIColor(named: "success800")
+            static let color900 = UIColor(named: "success900")
         }
         
         // MARK: - Warning Colors
         struct Warning {
-            static let color50 = UIColor(named: "PrimaryColor/Warning/50")
-            static let color100 = UIColor(named: "PrimaryColor/Warning/100")
-            static let color200 = UIColor(named: "PrimaryColor/Warning/200")
-            static let color300 = UIColor(named: "PrimaryColor/Warning/300")
-            static let color400 = UIColor(named: "PrimaryColor/Warning/400")
-            static let color500 = UIColor(named: "PrimaryColor/Warning/500")
-            static let color600 = UIColor(named: "PrimaryColor/Warning/600")
-            static let color700 = UIColor(named: "PrimaryColor/Warning/700")
-            static let color800 = UIColor(named: "PrimaryColor/Warning/800")
-            static let color900 = UIColor(named: "PrimaryColor/Warning/900")
+            static let color50 = UIColor(named: "warning50")
+            static let color100 = UIColor(named: "warning100")
+            static let color200 = UIColor(named: "warning200")
+            static let color300 = UIColor(named: "warning300")
+            static let color400 = UIColor(named: "warning400")
+            static let color500 = UIColor(named: "warning500")
+            static let color600 = UIColor(named: "warning600")
+            static let color700 = UIColor(named: "warning700")
+            static let color800 = UIColor(named: "warning800")
+            static let color900 = UIColor(named: "warning900")
         }
     }
     
@@ -107,60 +107,65 @@ struct AppColor {
         
         // MARK: Bluelight Colors
         struct Bluelight {
-            static let color50 = UIColor(named: "SecondaryColor/Bluelight/50")
-            static let color100 = UIColor(named: "SecondaryColor/Bluelight/100")
-            static let color200 = UIColor(named: "SecondaryColor/Bluelight/200")
-            static let color300 = UIColor(named: "SecondaryColor/Bluelight/300")
-            static let color400 = UIColor(named: "SecondaryColor/Bluelight/400")
-            static let color500 = UIColor(named: "SecondaryColor/Bluelight/500")
-            static let color600 = UIColor(named: "SecondaryColor/Bluelight/600")
-            static let color700 = UIColor(named: "SecondaryColor/Bluelight/700")
-            static let color800 = UIColor(named: "SecondaryColor/Bluelight/800")
-            static let color900 = UIColor(named: "SecondaryColor/Bluelight/900")
+            static let color50 = UIColor(named: "bluelight50")
+            static let color100 = UIColor(named: "bluelight100")
+            static let color200 = UIColor(named: "bluelight200")
+            static let color300 = UIColor(named: "bluelight300")
+            static let color400 = UIColor(named: "bluelight400")
+            static let color500 = UIColor(named: "bluelight500")
+            static let color600 = UIColor(named: "bluelight600")
+            static let color700 = UIColor(named: "bluelight700")
+            static let color800 = UIColor(named: "bluelight800")
+            static let color900 = UIColor(named: "bluelight900")
         }
         
         // MARK: Mint Colors
         struct Mint {
-            static let color50 = UIColor(named: "SecondaryColor/Mint/50")
-            static let color100 = UIColor(named: "SecondaryColor/Mint/100")
-            static let color200 = UIColor(named: "SecondaryColor/Mint/200")
-            static let color300 = UIColor(named: "SecondaryColor/Mint/300")
-            static let color400 = UIColor(named: "SecondaryColor/Mint/400")
-            static let color500 = UIColor(named: "SecondaryColor/Mint/500")
-            static let color600 = UIColor(named: "SecondaryColor/Mint/600")
-            static let color700 = UIColor(named: "SecondaryColor/Mint/700")
-            static let color800 = UIColor(named: "SecondaryColor/Mint/800")
-            static let color900 = UIColor(named: "SecondaryColor/Mint/900")
+            static let color50 = UIColor(named: "mint50")
+            static let color100 = UIColor(named: "mint100")
+            static let color200 = UIColor(named: "mint200")
+            static let color300 = UIColor(named: "mint300")
+            static let color400 = UIColor(named: "mint400")
+            static let color500 = UIColor(named: "mint500")
+            static let color600 = UIColor(named: "mint600")
+            static let color700 = UIColor(named: "mint700")
+            static let color800 = UIColor(named: "mint800")
+            static let color900 = UIColor(named: "mint900")
             
             static let main = color500
         }
         
         // MARK: Pink Colors
         struct Pink {
-            static let color50 = UIColor(named: "SecondaryColor/Pink/50")
-            static let color100 = UIColor(named: "SecondaryColor/Pink/100")
-            static let color200 = UIColor(named: "SecondaryColor/Pink/200")
-            static let color300 = UIColor(named: "SecondaryColor/Pink/300")
-            static let color400 = UIColor(named: "SecondaryColor/Pink/400")
-            static let color500 = UIColor(named: "SecondaryColor/Pink/500")
-            static let color600 = UIColor(named: "SecondaryColor/Pink/600")
-            static let color700 = UIColor(named: "SecondaryColor/Pink/700")
-            static let color800 = UIColor(named: "SecondaryColor/Pink/800")
-            static let color900 = UIColor(named: "SecondaryColor/Pink/900")
+            static let color50 = UIColor(named: "pink50")
+            static let color100 = UIColor(named: "pink100")
+            static let color200 = UIColor(named: "pink200")
+            static let color300 = UIColor(named: "pink300")
+            static let color400 = UIColor(named: "pink400")
+            static let color500 = UIColor(named: "pink500")
+            static let color600 = UIColor(named: "pink600")
+            static let color700 = UIColor(named: "pink700")
+            static let color800 = UIColor(named: "pink800")
+            static let color900 = UIColor(named: "pink900")
         }
         
         // MARK: Purple Colors
         struct Purple {
-            static let color50 = UIColor(named: "SecondaryColor/Purple/50")
-            static let color100 = UIColor(named: "SecondaryColor/Purple/100")
-            static let color200 = UIColor(named: "SecondaryColor/Purple/200")
-            static let color300 = UIColor(named: "SecondaryColor/Purple/300")
-            static let color400 = UIColor(named: "SecondaryColor/Purple/400")
-            static let color500 = UIColor(named: "SecondaryColor/Purple/500")
-            static let color600 = UIColor(named: "SecondaryColor/Purple/600")
-            static let color700 = UIColor(named: "SecondaryColor/Purple/700")
-            static let color800 = UIColor(named: "SecondaryColor/Purple/800")
-            static let color900 = UIColor(named: "SecondaryColor/Purple/900")
+            static let color50 = UIColor(named: "purple50")
+            static let color100 = UIColor(named: "purple100")
+            static let color200 = UIColor(named: "purple200")
+            static let color300 = UIColor(named: "purple300")
+            static let color400 = UIColor(named: "purple400")
+            static let color500 = UIColor(named: "purple500")
+            static let color600 = UIColor(named: "purple600")
+            static let color700 = UIColor(named: "purple700")
+            static let color800 = UIColor(named: "purple800")
+            static let color900 = UIColor(named: "purple900")
         }
+    }
+    
+    // MARK: - Base Colors
+    struct BaseColor {
+        static let backgroundColor = UIColor(named: "backgroundColor")
     }
 }

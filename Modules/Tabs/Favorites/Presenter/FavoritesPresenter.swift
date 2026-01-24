@@ -23,6 +23,6 @@ final class FavoritesPresenter: FavoritesPresenterProtocol {
     }
 
     func viewDidLoad() {
-        view?.showTitle("Favorites")
+        
     }
 }

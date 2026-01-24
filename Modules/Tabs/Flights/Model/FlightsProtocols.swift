@@ -8,7 +8,7 @@
 import Foundation
 
 protocol FlightsViewProtocol: AnyObject {
-    func showTitle(_ title: String)
+    
 }
 
 protocol FlightsPresenterProtocol {

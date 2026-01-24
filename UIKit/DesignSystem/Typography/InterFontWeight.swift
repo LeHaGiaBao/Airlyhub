@@ -15,10 +15,26 @@ public enum InterFontWeight {
     
     var fontName: String {
         switch self {
-        case .bold: return "Bold"
-        case .medium: return "Medium"
-        case .regular: return "Regular"
-        case .semibold: return "SemiBold"
+        case .bold: return "Inter-Bold"
+        case .medium: return "Inter-Medium"
+        case .regular: return "Inter-Regular"
+        case .semibold: return "Inter-SemiBold"
         }
+    }
+
+    var systemWeight: UIFont.Weight {
+        switch self {
+        case .bold: return .bold
+        case .medium: return .medium
+        case .regular: return .regular
+        case .semibold: return .semibold
+        }
+    }
+
+    func font(ofSize size: CGFloat) -> UIFont {
+        if let font = UIFont(name: fontName, size: size) {
+            return font
+        }
+        return UIFont.systemFont(ofSize: size, weight: systemWeight)
     }
 }

@@ -9,7 +9,7 @@ import UIKit
 
 final class FavoritesViewController: BaseViewController {
     var presenter: FavoritesPresenterProtocol!
-
+    
     private let titleLabel = UILabel()
 
     override func viewDidLoad() {
@@ -19,24 +19,24 @@ final class FavoritesViewController: BaseViewController {
     }
 
     private func setupUI() {
-        title = "Favorites"
-
-        titleLabel.translatesAutoresizingMaskIntoConstraints = false
-        titleLabel.textAlignment = .center
-        titleLabel.textColor = .label
-        titleLabel.font = .systemFont(ofSize: 20, weight: .semibold)
-
-        view.addSubview(titleLabel)
-
-        NSLayoutConstraint.activate([
-            titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            titleLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor)
-        ])
+        view.backgroundColor = .white
+        setupTitle()
     }
 }
 
 extension FavoritesViewController: FavoritesViewProtocol {
-    func showTitle(_ title: String) {
-        titleLabel.text = title
+    private func setupTitle() {
+        titleLabel.text = NSLocalizedString("favorites", comment: "")
+        titleLabel.textAlignment = .left
+        titleLabel.translatesAutoresizingMaskIntoConstraints = false
+        titleLabel.textColor = AppColor.PrimaryColors.Gray.color700
+        titleLabel.applyTypography(.displaySm(weight: .bold))
+
+        view.addSubview(titleLabel)
+        
+        NSLayoutConstraint.activate([
+            titleLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: CGFloat(98)),
+            titleLabel.leftAnchor.constraint(equalTo: view.leftAnchor, constant: CGFloat(20))
+        ])
     }
 }

@@ -9,8 +9,9 @@ import UIKit
 
 final class FlightsViewController: BaseViewController {
     var presenter: FlightsPresenterProtocol!
-
+    
     private let titleLabel = UILabel()
+    private let subTitleLabel = UILabel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,24 +20,40 @@ final class FlightsViewController: BaseViewController {
     }
 
     private func setupUI() {
-        title = "Flights"
-
-        titleLabel.translatesAutoresizingMaskIntoConstraints = false
-        titleLabel.textAlignment = .center
-        titleLabel.textColor = .label
-        titleLabel.font = .systemFont(ofSize: 20, weight: .semibold)
-
-        view.addSubview(titleLabel)
-
-        NSLayoutConstraint.activate([
-            titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            titleLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor)
-        ])
+        view.backgroundColor = .white
+        setupTitle()
+        setupSubTitle()
     }
 }
 
 extension FlightsViewController: FlightsViewProtocol {
-    func showTitle(_ title: String) {
-        titleLabel.text = title
+    private func setupTitle() {
+        titleLabel.text = NSLocalizedString("split_the_payment", comment: "")
+        titleLabel.textAlignment = .left
+        titleLabel.translatesAutoresizingMaskIntoConstraints = false
+        titleLabel.textColor = AppColor.PrimaryColors.Primary.color500
+        titleLabel.applyTypography(.displaySm(weight: .bold))
+
+        view.addSubview(titleLabel)
+        
+        NSLayoutConstraint.activate([
+            titleLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: CGFloat(98)),
+            titleLabel.leftAnchor.constraint(equalTo: view.leftAnchor, constant: CGFloat(20))
+        ])
+    }
+    
+    private func setupSubTitle() {
+        subTitleLabel.text = NSLocalizedString("with_other_passengers", comment: "")
+        subTitleLabel.textAlignment = .left
+        subTitleLabel.translatesAutoresizingMaskIntoConstraints = false
+        subTitleLabel.textColor = AppColor.PrimaryColors.Gray.color700
+        subTitleLabel.applyTypography(.displaySm(weight: .bold))
+
+        view.addSubview(subTitleLabel)
+        
+        NSLayoutConstraint.activate([
+            subTitleLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: CGFloat(4)),
+            subTitleLabel.leftAnchor.constraint(equalTo: view.leftAnchor, constant: CGFloat(20))
+        ])
     }
 }

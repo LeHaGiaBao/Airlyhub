@@ -8,7 +8,7 @@
 import Foundation
 
 protocol FavoritesViewProtocol: AnyObject {
-    func showTitle(_ title: String)
+    
 }
 
 protocol FavoritesPresenterProtocol {

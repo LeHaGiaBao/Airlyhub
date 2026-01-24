@@ -23,6 +23,6 @@ final class FlightsPresenter: FlightsPresenterProtocol {
     }
 
     func viewDidLoad() {
-        view?.showTitle("Flights")
+        
     }
 }
