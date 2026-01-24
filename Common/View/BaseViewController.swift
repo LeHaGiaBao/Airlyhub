@@ -15,7 +15,7 @@ class BaseViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = AppColor.PrimaryColors.Gray.color25
-        overrideUserInterfaceStyle = .light
+//        overrideUserInterfaceStyle = .light
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -26,9 +26,9 @@ class BaseViewController: UIViewController {
         return false
     }
     
-    override var preferredStatusBarUpdateAnimation: UIStatusBarAnimation {
-        return .fade
-    }
+//    override var preferredStatusBarUpdateAnimation: UIStatusBarAnimation {
+//        return .fade
+//    }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent

@@ -1,3 +1,7 @@
 "no_connection" = "Không có kết nối";
 "no_connection_des" = "Không có kết nối Internet, kiểm tra kết nối và thử lại";
 "try_again" = "Thử lại";
+"tab_explore" = "Khám phá";
+"tab_favorites" = "Yêu thích";
+"tab_flights" = "Chuyến bay";
+"tab_profile" = "Tài khoản";
