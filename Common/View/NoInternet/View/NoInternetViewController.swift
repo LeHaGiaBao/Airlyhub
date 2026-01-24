@@ -11,14 +11,13 @@ import UIKit
 final class NoInternetViewController: UIViewController, NoInternetProtocols {
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = AppColor.PrimaryColors.Primary.color500
     }
     
     func show() {
-        
+        view.backgroundColor = AppColor.PrimaryColors.Primary.color500
     }
     
     func hide() {
-        
+        view.backgroundColor = .clear
     }
 }

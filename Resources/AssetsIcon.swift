@@ -8,6 +8,16 @@
 import UIKit
 
 struct AssetsIcon {
+    // Tabs
+    static let exploreActive = UIImage(named: "ExploreActive")
+    static let exploreInactive = UIImage(named: "ExploreInactive")
+    static let flightsActive = UIImage(named: "FlightsActive")
+    static let flightsInactive = UIImage(named: "FlightsInactive")
+    static let favoritesActive = UIImage(named: "FavoritesActive")
+    static let favoritesInactive = UIImage(named: "FavoritesInactive")
+    static let profileActive = UIImage(named: "ProfileActive")
+    static let profileInactive = UIImage(named: "ProfileInactive")
+    
     static let plane = UIImage(systemName: "airplane")
     static let wifi = UIImage(systemName: "wifi")
 }
