@@ -87,12 +87,12 @@ enum AppRouter {
             selected.titlePositionAdjustment = UIOffset(horizontal: 0, vertical: 0)
             
             normal.titleTextAttributes = [
-                .font: UIFont.systemFont(ofSize: 11, weight: .regular),
+                .font: UIFont.systemFont(ofSize: 10, weight: .regular),
                 .foregroundColor: UIColor.systemGray
             ]
             selected.titleTextAttributes = [
-                .font: UIFont.systemFont(ofSize: 11, weight: .medium),
-                .foregroundColor: UIColor.systemBlue
+                .font: UIFont.systemFont(ofSize: 10, weight: .regular),
+                .foregroundColor: AppColor.PrimaryColors.Primary.color500 ?? UIColor.systemBlue
             ]
 
             tabBar.standardAppearance = appearance

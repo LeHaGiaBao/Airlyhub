@@ -75,6 +75,6 @@ enum TypographyStyle {
                 .textXs(let w):
             weight = w
         }
-        return UIFont(name: weight.fontName, size: fontSize) ?? UIFont.systemFont(ofSize: fontSize)
+        return weight.font(ofSize: fontSize)
     }
 }

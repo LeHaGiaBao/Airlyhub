@@ -23,6 +23,6 @@ final class ExplorePresenter: ExplorePresenterProtocol {
     }
 
     func viewDidLoad() {
-        view?.showTitle("Explore")
+        
     }
 }

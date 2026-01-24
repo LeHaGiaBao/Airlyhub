@@ -8,7 +8,6 @@
 import Foundation
 
 protocol ExploreViewProtocol: AnyObject {
-    func showTitle(_ title: String)
 }
 
 protocol ExplorePresenterProtocol {
