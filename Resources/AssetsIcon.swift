@@ -20,4 +20,10 @@ struct AssetsIcon {
     
     static let plane = UIImage(systemName: "airplane")
     static let wifi = UIImage(systemName: "wifi")
+    static let notifications = UIImage(systemName: "notifications")
+    static let tickets = UIImage(systemName: "tickets")
+    static let cards = UIImage(systemName: "cards")
+    static let services = UIImage(systemName: "services")
+    static let setting = UIImage(systemName: "setting")
+    static let logout = UIImage(systemName: "logout")
 }
