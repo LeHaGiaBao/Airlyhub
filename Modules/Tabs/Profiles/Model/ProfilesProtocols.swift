@@ -8,13 +8,20 @@
 import Foundation
 
 protocol ProfilesViewProtocol: AnyObject {
-    func showTitle(_ title: String)
+    func displayUser(_ user: UserProfile)
+    func displayMenu(_ items: [ProfilesMenuSection])
 }
 
-protocol ProfilesPresenterProtocol {
+protocol ProfilesPresenterProtocol: AnyObject {
     func viewDidLoad()
+    func didSelectMenuItem(_ item: ProfilesMenuItem)
 }
 
-protocol ProfilesInteractorProtocol {}
+protocol ProfilesInteractorProtocol: AnyObject {
+    func fetchUser() -> UserProfile
+    func fetchMenuItems() -> [ProfilesMenuSection]
+}
 
-protocol ProfilesRouterProtocol: AnyObject {}
+protocol ProfilesRouterProtocol: AnyObject {
+    func navigate(to item: ProfilesMenuItemType)
+}

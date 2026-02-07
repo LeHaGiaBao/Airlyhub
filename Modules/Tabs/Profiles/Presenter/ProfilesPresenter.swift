@@ -8,21 +8,27 @@
 import Foundation
 
 final class ProfilesPresenter: ProfilesPresenterProtocol {
-    private weak var view: ProfilesViewProtocol?
-    private let interactor: ProfilesInteractorProtocol
-    private let router: ProfilesRouterProtocol
-
-    init(
-        view: ProfilesViewProtocol,
-        interactor: ProfilesInteractorProtocol,
-        router: ProfilesRouterProtocol
-    ) {
+    weak var view: ProfilesViewProtocol?
+    let interactor: ProfilesInteractorProtocol
+    let router: ProfilesRouterProtocol
+    
+    init(view: ProfilesViewProtocol,
+         interactor: ProfilesInteractorProtocol,
+         router: ProfilesRouterProtocol) {
         self.view = view
         self.interactor = interactor
         self.router = router
     }
-
+    
     func viewDidLoad() {
-        view?.showTitle("Profiles")
+        let user = interactor.fetchUser()
+        let menu = interactor.fetchMenuItems()
+        
+        view?.displayUser(user)
+        view?.displayMenu(menu)
+    }
+    
+    func didSelectMenuItem(_ item: ProfilesMenuItem) {
+        router.navigate(to: item.type)
     }
 }
