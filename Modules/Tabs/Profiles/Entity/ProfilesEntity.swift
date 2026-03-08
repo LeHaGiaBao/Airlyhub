@@ -1,8 +1,8 @@
 //
-//  ProfileEntity.swift
+//  ProfilesEntity.swift
 //  Airlyhub
 //
-//  Created by Le Ha Gia Bao on 06/02/2026.
+//  Created by Le Ha Gia Bao on 08/03/2026.
 //
 
 import Foundation

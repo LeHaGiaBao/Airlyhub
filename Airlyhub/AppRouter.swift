@@ -35,7 +35,7 @@ enum AppRouter {
         )
         let favoritesNavigation = UINavigationController(rootViewController: favoritesViewController)
 
-        let profilesViewController = ProfilesBuilder.createModule()
+        let profilesViewController = ProfilesBuilder.build()
         profilesViewController.tabBarItem = UITabBarItem(
             title: NSLocalizedString("tab_profile", comment: ""),
             image: AssetsIcon.profileInactive,
