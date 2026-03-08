@@ -1,15 +1,15 @@
 //
-//  ProfilesViewController.swift
+//  ProfilesView.swift
 //  Airlyhub
 //
-//  Created by Le Ha Gia Bao on 24/01/2026.
+//  Created by Le Ha Gia Bao on 08/03/2026.
 //
 
 import UIKit
 
-final class ProfilesViewController: BaseViewController {
-    var presenter: ProfilesPresenterProtocol!
-
+final class ProfilesView: BaseViewController {
+    var presenter: ProfilesPresenterProtocol
+    
     // MARK: - Views
     private let headerContainerView = UIView()
     private let tableContainerView = UIView()
@@ -22,15 +22,20 @@ final class ProfilesViewController: BaseViewController {
     private let avatarImageView = UIImageView()
     private let nameLabel = UILabel()
     private let phoneLabel = UILabel()
-
-    // MARK: - Lifecycle
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    init(presenter: ProfilesPresenterProtocol) {
+        self.presenter = presenter
+        super.init(nibName: nil, bundle: nil)
         setupUI()
         setupHeaderContent()
-        presenter?.viewDidLoad()
+        updateUserProfile()
+        updateMenuItems()
     }
-
+    
     // MARK: - Setup UI
     private func setupUI() {
         view.backgroundColor = AppColor.PrimaryColors.Gray.color50
@@ -137,24 +142,22 @@ final class ProfilesViewController: BaseViewController {
         phoneLabel.applyTypography(.textSm(weight: .medium))
         phoneLabel.textColor = AppColor.PrimaryColors.Gray.color500
     }
-}
-
-// MARK: - View Protocol
-extension ProfilesViewController: ProfilesViewProtocol {
-    func displayUser(_ user: UserProfile) {
-        nameLabel.text = user.name
-        phoneLabel.text = user.phone
+    
+    private func updateUserProfile() {
+        let data = presenter.getUserProfile()
+        nameLabel.text = data.name
+        phoneLabel.text = data.phone
     }
-
-    func displayMenu(_ items: [ProfilesMenuSection]) {
-        menuItems = items
+    
+    private func updateMenuItems() {
+        let data = presenter.getMenuItems()
+        menuItems = data
         tableView.reloadData()
     }
 }
 
 // MARK: - TableView
-extension ProfilesViewController: UITableViewDataSource, UITableViewDelegate {
-
+extension ProfilesView: UITableViewDataSource, UITableViewDelegate {
     func numberOfSections(in tableView: UITableView) -> Int {
         return menuItems.count
     }
@@ -179,7 +182,20 @@ extension ProfilesViewController: UITableViewDataSource, UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let item = menuItems[indexPath.section].items[indexPath.row]
-        presenter.didSelectMenuItem(item)
+        switch item.type {
+        case .notifications:
+            presenter.navigateToNotifications()
+        case .tickets:
+            presenter.navigateToMyTickets()
+        case .cards:
+            presenter.navigateToMyCards()
+        case .customerService:
+            presenter.navigateToCustomerService()
+        case .settings:
+            presenter.navigateToSettings()
+        case .logout:
+            presenter.goToLogout()
+        }
         tableView.deselectRow(at: indexPath, animated: true)
     }
 }
