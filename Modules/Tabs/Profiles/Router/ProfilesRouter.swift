@@ -15,7 +15,7 @@ final class ProfilesRouter: ProfilesRouterProtocol {
         self.nav = nav
     }
     
-    func navigateToNotifications() -> Observable<NotificationsAction> {
+    func navigateToNotifications() -> Observable<NotificationsBuilderAction> {
         let builder = NotificationsBuilder()
         let (view, signal) = builder.build()
         view.hidesBottomBarWhenPushed = true
@@ -25,20 +25,44 @@ final class ProfilesRouter: ProfilesRouterProtocol {
         })
     }
     
-    func navigateToMyTickets() {
-        print("navigateToMyTickets")
+    func navigateToMyTickets() -> Observable<MyTicketsBuilderAction> {
+        let builder = MyTicketsBuilder()
+        let (view, signal) = builder.build()
+        view.hidesBottomBarWhenPushed = true
+        nav.pushViewController(view, animated: true)
+        return signal.do(onCompleted: { [weak self] in
+            self?.nav.popViewController(animated: true)
+        })
     }
     
-    func navigateToMyCards() {
-        print("navigateToMyCards")
+    func navigateToMyCards() -> Observable<MyCardsBuilderAction> {
+        let builder = MyCardsBuilder()
+        let (view, signal) = builder.build()
+        view.hidesBottomBarWhenPushed = true
+        nav.pushViewController(view, animated: true)
+        return signal.do(onCompleted: { [weak self] in
+            self?.nav.popViewController(animated: true)
+        })
     }
     
-    func navigateToCustomerService() {
-        print("navigateToCustomerService")
+    func navigateToCustomerService() -> Observable<CustomerServiceBuilderAction> {
+        let builder = CustomerServiceBuilder()
+        let (view, signal) = builder.build()
+        view.hidesBottomBarWhenPushed = true
+        nav.pushViewController(view, animated: true)
+        return signal.do(onCompleted: { [weak self] in
+            self?.nav.popViewController(animated: true)
+        })
     }
     
-    func navigateToSettings() {
-        print("navigateToSettings")
+    func navigateToSettings() -> Observable<SettingsBuilderAction> {
+        let builder = SettingsBuilder()
+        let (view, signal) = builder.build()
+        view.hidesBottomBarWhenPushed = true
+        nav.pushViewController(view, animated: true)
+        return signal.do(onCompleted: { [weak self] in
+            self?.nav.popViewController(animated: true)
+        })
     }
     
     func goToLogout() {

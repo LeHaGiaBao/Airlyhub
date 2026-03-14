@@ -187,16 +187,24 @@ extension ProfilesView: UITableViewDataSource, UITableViewDelegate {
         switch item.type {
         case .notifications:
             presenter.navigateToNotifications()
-                .subscribe()
-                .disposed(by: bag)
+                    .subscribe()
+                    .disposed(by: bag)
         case .tickets:
             presenter.navigateToMyTickets()
+                    .subscribe()
+                    .disposed(by: bag)
         case .cards:
             presenter.navigateToMyCards()
+                    .subscribe()
+                    .disposed(by: bag)
         case .customerService:
             presenter.navigateToCustomerService()
+                    .subscribe()
+                    .disposed(by: bag)
         case .settings:
             presenter.navigateToSettings()
+                    .subscribe()
+                    .disposed(by: bag)
         case .logout:
             presenter.goToLogout()
         }

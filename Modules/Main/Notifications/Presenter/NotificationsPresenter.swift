@@ -8,17 +8,17 @@
 import RxSwift
 
 final class NotificationsPresenter {
-    private var _notificationsAction = BehaviorSubject<NotificationsAction>(value: .cancel)
+    private var _notificationsBuilderAction = BehaviorSubject<NotificationsBuilderAction>(value: .cancel)
     private var hasCompleted = false
     
-    var notificationsAction: Observable<NotificationsAction> {
-        _notificationsAction.asObservable()
+    var notificationsBuilderAction: Observable<NotificationsBuilderAction> {
+        _notificationsBuilderAction.asObservable()
     }
     
     func dismiss() {
         guard !hasCompleted else { return }
         hasCompleted = true
-        _notificationsAction.onNext(.cancel)
-        _notificationsAction.onCompleted()
+        _notificationsBuilderAction.onNext(.cancel)
+        _notificationsBuilderAction.onCompleted()
     }
 }

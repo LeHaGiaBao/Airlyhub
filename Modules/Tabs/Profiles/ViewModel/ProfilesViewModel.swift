@@ -19,10 +19,10 @@ protocol ProfilesPresenterProtocol: AnyObject, ProfilesRouterProtocol {
 }
 
 protocol ProfilesRouterProtocol: AnyObject {
-    func navigateToNotifications() -> Observable<NotificationsAction>
-    func navigateToMyTickets()
-    func navigateToMyCards()
-    func navigateToCustomerService()
-    func navigateToSettings()
+    func navigateToNotifications() -> Observable<NotificationsBuilderAction>
+    func navigateToMyTickets() -> Observable<MyTicketsBuilderAction>
+    func navigateToMyCards() -> Observable<MyCardsBuilderAction>
+    func navigateToCustomerService() -> Observable<CustomerServiceBuilderAction>
+    func navigateToSettings() -> Observable<SettingsBuilderAction>
     func goToLogout()
 }
