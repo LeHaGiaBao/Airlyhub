@@ -15,7 +15,7 @@ final class ProfilesRouter: ProfilesRouterProtocol {
         self.nav = nav
     }
     
-    func navigateToNotifications() -> Observable<NotificationsAction> {
+    func navigateToNotifications() -> Observable<NotificationsBuilderAction> {
         let builder = NotificationsBuilder()
         let (view, signal) = builder.build()
         view.hidesBottomBarWhenPushed = true
@@ -25,7 +25,7 @@ final class ProfilesRouter: ProfilesRouterProtocol {
         })
     }
     
-    func navigateToMyTickets() -> Observable<MyTicketsAction> {
+    func navigateToMyTickets() -> Observable<MyTicketsBuilderAction> {
         let builder = MyTicketsBuilder()
         let (view, signal) = builder.build()
         view.hidesBottomBarWhenPushed = true
@@ -35,7 +35,7 @@ final class ProfilesRouter: ProfilesRouterProtocol {
         })
     }
     
-    func navigateToMyCards() -> Observable<MyCardsAction> {
+    func navigateToMyCards() -> Observable<MyCardsBuilderAction> {
         let builder = MyCardsBuilder()
         let (view, signal) = builder.build()
         view.hidesBottomBarWhenPushed = true
@@ -45,7 +45,7 @@ final class ProfilesRouter: ProfilesRouterProtocol {
         })
     }
     
-    func navigateToCustomerService() -> Observable<CustomerServiceAction> {
+    func navigateToCustomerService() -> Observable<CustomerServiceBuilderAction> {
         let builder = CustomerServiceBuilder()
         let (view, signal) = builder.build()
         view.hidesBottomBarWhenPushed = true
@@ -55,7 +55,7 @@ final class ProfilesRouter: ProfilesRouterProtocol {
         })
     }
     
-    func navigateToSettings() -> Observable<SettingsAction> {
+    func navigateToSettings() -> Observable<SettingsBuilderAction> {
         let builder = SettingsBuilder()
         let (view, signal) = builder.build()
         view.hidesBottomBarWhenPushed = true

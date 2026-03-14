@@ -8,17 +8,17 @@
 import RxSwift
 
 final class SettingsPresenter {
-    private var _settingsAction = BehaviorSubject<SettingsAction>(value: .cancel)
+    private var _settingsBuilderAction = BehaviorSubject<SettingsBuilderAction>(value: .cancel)
     private var hasCompleted = false
     
-    var settingsAction: Observable<SettingsAction> {
-        _settingsAction.asObservable()
+    var settingsBuilderAction: Observable<SettingsBuilderAction> {
+        _settingsBuilderAction.asObservable()
     }
     
     func dismiss() {
         guard !hasCompleted else { return }
         hasCompleted = true
-        _settingsAction.onNext(.cancel)
-        _settingsAction.onCompleted()
+        _settingsBuilderAction.onNext(.cancel)
+        _settingsBuilderAction.onCompleted()
     }
 }

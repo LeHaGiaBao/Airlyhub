@@ -8,17 +8,17 @@
 import RxSwift
 
 final class MyCardsPresenter {
-    private var _myCardsAction = BehaviorSubject<MyCardsAction>(value: .cancel)
+    private var _myCardsBuilderAction = BehaviorSubject<MyCardsBuilderAction>(value: .cancel)
     private var hasCompleted = false
     
-    var myCardsAction: Observable<MyCardsAction> {
-        _myCardsAction.asObservable()
+    var myCardsBuilderAction: Observable<MyCardsBuilderAction> {
+        _myCardsBuilderAction.asObservable()
     }
     
     func dismiss() {
         guard !hasCompleted else { return }
         hasCompleted = true
-        _myCardsAction.onNext(.cancel)
-        _myCardsAction.onCompleted()
+        _myCardsBuilderAction.onNext(.cancel)
+        _myCardsBuilderAction.onCompleted()
     }
 }

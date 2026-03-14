@@ -8,14 +8,14 @@
 import UIKit
 import RxSwift
 
-enum CustomerServiceAction {
+enum CustomerServiceBuilderAction {
     case cancel
 }
 
 final class CustomerServiceBuilder {
-    func build() -> (UIViewController, Observable<CustomerServiceAction>) {
+    func build() -> (UIViewController, Observable<CustomerServiceBuilderAction>) {
         let presenter = CustomerServicePresenter()
         let view = CustomerServiceView(presenter: presenter)
-        return (view, presenter.customerServiceAction)
+        return (view, presenter.customerServiceBuilderAction)
     }
 }

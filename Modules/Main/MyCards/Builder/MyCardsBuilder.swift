@@ -8,14 +8,14 @@
 import UIKit
 import RxSwift
 
-enum MyCardsAction {
+enum MyCardsBuilderAction {
     case cancel
 }
 
 final class MyCardsBuilder {
-    func build() -> (UIViewController, Observable<MyCardsAction>) {
+    func build() -> (UIViewController, Observable<MyCardsBuilderAction>) {
         let presenter = MyCardsPresenter()
         let view = MyCardsView(presenter: presenter)
-        return (view, presenter.myCardsAction)
+        return (view, presenter.myCardsBuilderAction)
     }
 }

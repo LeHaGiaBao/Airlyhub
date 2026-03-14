@@ -8,14 +8,14 @@
 import UIKit
 import RxSwift
 
-enum SettingsAction {
+enum SettingsBuilderAction {
     case cancel
 }
 
 final class SettingsBuilder {
-    func build() -> (UIViewController, Observable<SettingsAction>) {
+    func build() -> (UIViewController, Observable<SettingsBuilderAction>) {
         let presenter = SettingsPresenter()
         let view = SettingsView(presenter: presenter)
-        return (view, presenter.settingsAction)
+        return (view, presenter.settingsBuilderAction)
     }
 }

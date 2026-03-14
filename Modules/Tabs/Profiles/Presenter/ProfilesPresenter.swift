@@ -28,23 +28,23 @@ final class ProfilesPresenter: ProfilesPresenterProtocol {
 }
 
 extension ProfilesPresenter: ProfilesRouterProtocol {
-    func navigateToNotifications() -> Observable<NotificationsAction> {
+    func navigateToNotifications() -> Observable<NotificationsBuilderAction> {
         router.navigateToNotifications()
     }
     
-    func navigateToMyTickets() -> Observable<MyTicketsAction> {
+    func navigateToMyTickets() -> Observable<MyTicketsBuilderAction> {
         router.navigateToMyTickets()
     }
     
-    func navigateToMyCards() -> Observable<MyCardsAction> {
+    func navigateToMyCards() -> Observable<MyCardsBuilderAction> {
         router.navigateToMyCards()
     }
     
-    func navigateToCustomerService() -> Observable<CustomerServiceAction> {
+    func navigateToCustomerService() -> Observable<CustomerServiceBuilderAction> {
         router.navigateToCustomerService()
     }
     
-    func navigateToSettings() -> Observable<SettingsAction> {
+    func navigateToSettings() -> Observable<SettingsBuilderAction> {
         router.navigateToSettings()
     }
     

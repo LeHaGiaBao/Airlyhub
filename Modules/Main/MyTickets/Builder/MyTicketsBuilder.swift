@@ -8,14 +8,14 @@
 import UIKit
 import RxSwift
 
-enum MyTicketsAction {
+enum MyTicketsBuilderAction {
     case cancel
 }
 
 final class MyTicketsBuilder {
-    func build() -> (UIViewController, Observable<MyTicketsAction>) {
+    func build() -> (UIViewController, Observable<MyTicketsBuilderAction>) {
         let presenter = MyTicketsPresenter()
         let view = MyTicketsView(presenter: presenter)
-        return (view, presenter.myTicketsAction)
+        return (view, presenter.myTicketsBuilderAction)
     }
 }
