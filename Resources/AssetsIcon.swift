@@ -26,4 +26,5 @@ struct AssetsIcon {
     static let services = UIImage(named: "services")
     static let setting = UIImage(named: "setting")
     static let logout = UIImage(named: "logout")
+    static let arrowLeft = UIImage(named: "arrowLeft")
 }

@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import RxSwift
 
 protocol ProfilesInteractorProtocol: AnyObject {
     func fetchUser() -> UserProfile
@@ -18,7 +19,7 @@ protocol ProfilesPresenterProtocol: AnyObject, ProfilesRouterProtocol {
 }
 
 protocol ProfilesRouterProtocol: AnyObject {
-    func navigateToNotifications()
+    func navigateToNotifications() -> Observable<NotificationsAction>
     func navigateToMyTickets()
     func navigateToMyCards()
     func navigateToCustomerService()

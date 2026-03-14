@@ -6,9 +6,11 @@
 //
 
 import UIKit
+import RxSwift
 
 final class ProfilesView: BaseViewController {
     var presenter: ProfilesPresenterProtocol
+    private let bag = DisposeBag()
     
     // MARK: - Views
     private let headerContainerView = UIView()
@@ -185,6 +187,8 @@ extension ProfilesView: UITableViewDataSource, UITableViewDelegate {
         switch item.type {
         case .notifications:
             presenter.navigateToNotifications()
+                .subscribe()
+                .disposed(by: bag)
         case .tickets:
             presenter.navigateToMyTickets()
         case .cards:
@@ -199,3 +203,4 @@ extension ProfilesView: UITableViewDataSource, UITableViewDelegate {
         tableView.deselectRow(at: indexPath, animated: true)
     }
 }
+
