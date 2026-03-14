@@ -5,11 +5,24 @@
 //  Created by Le Ha Gia Bao on 08/03/2026.
 //
 
-import Foundation
+import UIKit
+import RxSwift
 
 final class ProfilesRouter: ProfilesRouterProtocol {
-    func navigateToNotifications() {
-        print("navigateToNotifications")
+    private let nav: UINavigationController
+    
+    init(nav: UINavigationController) {
+        self.nav = nav
+    }
+    
+    func navigateToNotifications() -> Observable<NotificationsAction> {
+        let builder = NotificationsBuilder()
+        let (view, signal) = builder.build()
+        view.hidesBottomBarWhenPushed = true
+        nav.pushViewController(view, animated: true)
+        return signal.do(onCompleted: { [weak self] in
+            self?.nav.popViewController(animated: true)
+        })
     }
     
     func navigateToMyTickets() {

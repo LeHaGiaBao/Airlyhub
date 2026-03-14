@@ -11,38 +11,33 @@ enum AppRouter {
     static func createRootModule() -> UIViewController {
         let tabBarController = UITabBarController()
 
-        let exploreViewController = ExploreBuilder.createModule()
-        exploreViewController.tabBarItem = UITabBarItem(
+        let exploreNavigation = ExploreBuilder.createModule()
+        exploreNavigation.tabBarItem = UITabBarItem(
             title: NSLocalizedString("tab_explore", comment: ""),
             image: AssetsIcon.exploreInactive,
             selectedImage: AssetsIcon.exploreActive
         )
-        let exploreNavigation = UINavigationController(rootViewController: exploreViewController)
 
-        let flightsViewController = FlightsBuilder.createModule()
-        flightsViewController.tabBarItem = UITabBarItem(
+        let flightsNavigation = FlightsBuilder.createModule()
+        flightsNavigation.tabBarItem = UITabBarItem(
             title: NSLocalizedString("tab_flights", comment: ""),
             image: AssetsIcon.flightsInactive,
             selectedImage: AssetsIcon.flightsActive
         )
-        let flightsNavigation = UINavigationController(rootViewController: flightsViewController)
 
-        let favoritesViewController = FavoritesBuilder.createModule()
-        favoritesViewController.tabBarItem = UITabBarItem(
+        let favoritesNavigation = FavoritesBuilder.createModule()
+        favoritesNavigation.tabBarItem = UITabBarItem(
             title: NSLocalizedString("tab_favorites", comment: ""),
             image: AssetsIcon.favoritesInactive,
             selectedImage: AssetsIcon.favoritesActive
         )
-        let favoritesNavigation = UINavigationController(rootViewController: favoritesViewController)
-
-        let profilesViewController = ProfilesBuilder.build()
-        profilesViewController.tabBarItem = UITabBarItem(
+        
+        let profilesNavigation = ProfilesBuilder.build()
+        profilesNavigation.tabBarItem = UITabBarItem(
             title: NSLocalizedString("tab_profile", comment: ""),
             image: AssetsIcon.profileInactive,
             selectedImage: AssetsIcon.profileActive
         )
-        let profilesNavigation = UINavigationController(rootViewController: profilesViewController)
-
         tabBarController.viewControllers = [
             exploreNavigation,
             flightsNavigation,

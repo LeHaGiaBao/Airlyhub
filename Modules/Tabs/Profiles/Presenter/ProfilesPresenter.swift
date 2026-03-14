@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import RxSwift
 
 final class ProfilesPresenter: ProfilesPresenterProtocol {
     let interactor: ProfilesInteractorProtocol
@@ -27,7 +28,7 @@ final class ProfilesPresenter: ProfilesPresenterProtocol {
 }
 
 extension ProfilesPresenter: ProfilesRouterProtocol {
-    func navigateToNotifications() {
+    func navigateToNotifications() -> Observable<NotificationsAction> {
         router.navigateToNotifications()
     }
     
