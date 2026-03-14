@@ -45,8 +45,14 @@ final class ProfilesRouter: ProfilesRouterProtocol {
         })
     }
     
-    func navigateToCustomerService() {
-        print("navigateToCustomerService")
+    func navigateToCustomerService() -> Observable<CustomerServiceAction> {
+        let builder = CustomerServiceBuilder()
+        let (view, signal) = builder.build()
+        view.hidesBottomBarWhenPushed = true
+        nav.pushViewController(view, animated: true)
+        return signal.do(onCompleted: { [weak self] in
+            self?.nav.popViewController(animated: true)
+        })
     }
     
     func navigateToSettings() {

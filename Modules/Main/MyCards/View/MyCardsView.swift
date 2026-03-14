@@ -18,7 +18,7 @@ final class MyCardsView: BaseViewController {
 
     init(presenter: MyCardsPresenter) {
         self.presenter = presenter
-        self.topNavigatorVC = TopNavigatorView(topNavigatorTile: "My cards")
+        self.topNavigatorVC = TopNavigatorView(topNavigatorTile: "My Cards")
         super.init(nibName: nil, bundle: nil)
     }
 

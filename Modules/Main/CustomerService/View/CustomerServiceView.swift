@@ -1,5 +1,5 @@
 //
-//  MyTicketsView.swift
+//  CustomerServiceView.swift
 //  Airlyhub
 //
 //  Created by Le Ha Gia Bao on 14/03/2026.
@@ -8,17 +8,17 @@
 import UIKit
 import SnapKit
 
-final class MyTicketsView: BaseViewController {
-    private let presenter: MyTicketsPresenter
+final class CustomerServiceView: BaseViewController {
+    private let presenter: CustomerServicePresenter
     private let topNavigatorVC: TopNavigatorView
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
-    init(presenter: MyTicketsPresenter) {
+    init(presenter: CustomerServicePresenter) {
         self.presenter = presenter
-        self.topNavigatorVC = TopNavigatorView(topNavigatorTile: "My Tickets")
+        self.topNavigatorVC = TopNavigatorView(topNavigatorTile: "Customer Service")
         super.init(nibName: nil, bundle: nil)
     }
 

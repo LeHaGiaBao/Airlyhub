@@ -40,7 +40,7 @@ extension ProfilesPresenter: ProfilesRouterProtocol {
         router.navigateToMyCards()
     }
     
-    func navigateToCustomerService() {
+    func navigateToCustomerService() -> Observable<CustomerServiceAction> {
         router.navigateToCustomerService()
     }
     

@@ -22,7 +22,7 @@ protocol ProfilesRouterProtocol: AnyObject {
     func navigateToNotifications() -> Observable<NotificationsAction>
     func navigateToMyTickets() -> Observable<MyTicketsAction>
     func navigateToMyCards() -> Observable<MyCardsAction>
-    func navigateToCustomerService()
+    func navigateToCustomerService() -> Observable<CustomerServiceAction>
     func navigateToSettings()
     func goToLogout()
 }
