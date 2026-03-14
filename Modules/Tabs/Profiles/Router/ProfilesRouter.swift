@@ -35,8 +35,14 @@ final class ProfilesRouter: ProfilesRouterProtocol {
         })
     }
     
-    func navigateToMyCards() {
-        print("navigateToMyCards")
+    func navigateToMyCards() -> Observable<MyCardsAction> {
+        let builder = MyCardsBuilder()
+        let (view, signal) = builder.build()
+        view.hidesBottomBarWhenPushed = true
+        nav.pushViewController(view, animated: true)
+        return signal.do(onCompleted: { [weak self] in
+            self?.nav.popViewController(animated: true)
+        })
     }
     
     func navigateToCustomerService() {

@@ -195,6 +195,8 @@ extension ProfilesView: UITableViewDataSource, UITableViewDelegate {
                     .disposed(by: bag)
         case .cards:
             presenter.navigateToMyCards()
+                    .subscribe()
+                    .disposed(by: bag)
         case .customerService:
             presenter.navigateToCustomerService()
         case .settings:

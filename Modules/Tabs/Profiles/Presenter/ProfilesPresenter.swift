@@ -36,7 +36,7 @@ extension ProfilesPresenter: ProfilesRouterProtocol {
         router.navigateToMyTickets()
     }
     
-    func navigateToMyCards() {
+    func navigateToMyCards() -> Observable<MyCardsAction> {
         router.navigateToMyCards()
     }
     
