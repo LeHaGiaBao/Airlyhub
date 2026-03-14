@@ -44,7 +44,7 @@ extension ProfilesPresenter: ProfilesRouterProtocol {
         router.navigateToCustomerService()
     }
     
-    func navigateToSettings() {
+    func navigateToSettings() -> Observable<SettingsAction> {
         router.navigateToSettings()
     }
     

@@ -203,6 +203,8 @@ extension ProfilesView: UITableViewDataSource, UITableViewDelegate {
                     .disposed(by: bag)
         case .settings:
             presenter.navigateToSettings()
+                    .subscribe()
+                    .disposed(by: bag)
         case .logout:
             presenter.goToLogout()
         }

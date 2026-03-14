@@ -23,6 +23,6 @@ protocol ProfilesRouterProtocol: AnyObject {
     func navigateToMyTickets() -> Observable<MyTicketsAction>
     func navigateToMyCards() -> Observable<MyCardsAction>
     func navigateToCustomerService() -> Observable<CustomerServiceAction>
-    func navigateToSettings()
+    func navigateToSettings() -> Observable<SettingsAction>
     func goToLogout()
 }
