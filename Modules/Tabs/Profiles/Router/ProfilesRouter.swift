@@ -25,8 +25,14 @@ final class ProfilesRouter: ProfilesRouterProtocol {
         })
     }
     
-    func navigateToMyTickets() {
-        print("navigateToMyTickets")
+    func navigateToMyTickets() -> Observable<MyTicketsAction> {
+        let builder = MyTicketsBuilder()
+        let (view, signal) = builder.build()
+        view.hidesBottomBarWhenPushed = true
+        nav.pushViewController(view, animated: true)
+        return signal.do(onCompleted: { [weak self] in
+            self?.nav.popViewController(animated: true)
+        })
     }
     
     func navigateToMyCards() {

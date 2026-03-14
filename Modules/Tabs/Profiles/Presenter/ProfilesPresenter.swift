@@ -32,7 +32,7 @@ extension ProfilesPresenter: ProfilesRouterProtocol {
         router.navigateToNotifications()
     }
     
-    func navigateToMyTickets() {
+    func navigateToMyTickets() -> Observable<MyTicketsAction> {
         router.navigateToMyTickets()
     }
     

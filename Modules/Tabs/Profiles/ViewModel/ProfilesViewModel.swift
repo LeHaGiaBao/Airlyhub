@@ -20,7 +20,7 @@ protocol ProfilesPresenterProtocol: AnyObject, ProfilesRouterProtocol {
 
 protocol ProfilesRouterProtocol: AnyObject {
     func navigateToNotifications() -> Observable<NotificationsAction>
-    func navigateToMyTickets()
+    func navigateToMyTickets() -> Observable<MyTicketsAction>
     func navigateToMyCards()
     func navigateToCustomerService()
     func navigateToSettings()
