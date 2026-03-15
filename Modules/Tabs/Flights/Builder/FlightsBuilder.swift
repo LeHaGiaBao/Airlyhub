@@ -8,7 +8,7 @@
 import UIKit
 
 final class FlightsBuilder: FlightsRouterProtocol {
-    static func createModule() -> UIViewController {
+    static func createModule(nav: UINavigationController) -> UIViewController {
         let view = FlightsViewController()
         let interactor = FlightsInteractor()
         let router = FlightsBuilder()

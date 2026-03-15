@@ -8,31 +8,31 @@
 import UIKit
 
 enum AppRouter {
-    static func createRootModule() -> UIViewController {
+    static func createRootModule(nav: UINavigationController) -> UIViewController {
         let tabBarController = UITabBarController()
 
-        let exploreNavigation = ExploreBuilder.createModule()
+        let exploreNavigation = ExploreBuilder.createModule(nav: nav)
         exploreNavigation.tabBarItem = UITabBarItem(
             title: NSLocalizedString("tab_explore", comment: ""),
             image: AssetsIcon.exploreInactive,
             selectedImage: AssetsIcon.exploreActive
         )
 
-        let flightsNavigation = FlightsBuilder.createModule()
+        let flightsNavigation = FlightsBuilder.createModule(nav: nav)
         flightsNavigation.tabBarItem = UITabBarItem(
             title: NSLocalizedString("tab_flights", comment: ""),
             image: AssetsIcon.flightsInactive,
             selectedImage: AssetsIcon.flightsActive
         )
 
-        let favoritesNavigation = FavoritesBuilder.createModule()
+        let favoritesNavigation = FavoritesBuilder.createModule(nav: nav)
         favoritesNavigation.tabBarItem = UITabBarItem(
             title: NSLocalizedString("tab_favorites", comment: ""),
             image: AssetsIcon.favoritesInactive,
             selectedImage: AssetsIcon.favoritesActive
         )
         
-        let profilesNavigation = ProfilesBuilder.build()
+        let profilesNavigation = ProfilesBuilder.createModule(nav: nav)
         profilesNavigation.tabBarItem = UITabBarItem(
             title: NSLocalizedString("tab_profile", comment: ""),
             image: AssetsIcon.profileInactive,

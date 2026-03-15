@@ -8,7 +8,7 @@
 import UIKit
 
 final class ExploreBuilder: ExploreRouterProtocol {
-    static func createModule() -> UIViewController {
+    static func createModule(nav: UINavigationController) -> UIViewController {
         let view = ExploreViewController()
         let interactor = ExploreInteractor()
         let router = ExploreBuilder()
