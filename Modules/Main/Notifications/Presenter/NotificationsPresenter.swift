@@ -7,9 +7,14 @@
 
 import RxSwift
 
-final class NotificationsPresenter {
+final class NotificationsPresenter: NotificationsPresenterProtocol {
     private var _notificationsBuilderAction = BehaviorSubject<NotificationsBuilderAction>(value: .cancel)
     private var hasCompleted = false
+    private let interactor: NotificationsInteractorProtocol
+    
+    init(interactor: NotificationsInteractorProtocol) {
+        self.interactor = interactor
+    }
     
     var notificationsBuilderAction: Observable<NotificationsBuilderAction> {
         _notificationsBuilderAction.asObservable()
@@ -20,5 +25,9 @@ final class NotificationsPresenter {
         hasCompleted = true
         _notificationsBuilderAction.onNext(.cancel)
         _notificationsBuilderAction.onCompleted()
+    }
+    
+    func getNotifications() -> [NotificationsEntity] {
+        return interactor.fetchNotifications()
     }
 }

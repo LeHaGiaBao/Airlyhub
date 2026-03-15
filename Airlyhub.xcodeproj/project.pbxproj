@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2E4900302F66753C0083B9A5 /* Text+Typography.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E49002F2F66753C0083B9A5 /* Text+Typography.swift */; };
 		2E49FDAA2F6576EC0083B9A5 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 2E49FDA92F6576EC0083B9A5 /* SnapKit */; };
 		2E5C009E2F1B922C001A3677 /* UILabel+Typography.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5C009D2F1B922C001A3677 /* UILabel+Typography.swift */; };
 		2E5C00A52F1BCA85001A3677 /* TypographyStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5C00A42F1BCA85001A3677 /* TypographyStyle.swift */; };
@@ -42,6 +43,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2E49002F2F66753C0083B9A5 /* Text+Typography.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Text+Typography.swift"; sourceTree = "<group>"; };
 		2E4AB08E2EFFC7F90076BBB5 /* Airlyhub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Airlyhub.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E4AB0A42EFFC7FB0076BBB5 /* AirlyhubTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AirlyhubTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E4AB0AE2EFFC7FB0076BBB5 /* AirlyhubUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AirlyhubUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -138,6 +140,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2E49002C2F66750C0083B9A5 /* SwiftUIKit */ = {
+			isa = PBXGroup;
+			children = (
+				2E5C00B12F1BD799001A3677 /* UIView */,
+				2E5C00A92F1BCB41001A3677 /* UILabel */,
+			);
+			path = SwiftUIKit;
+			sourceTree = "<group>";
+		};
+		2E49002D2F6675180083B9A5 /* SwiftUI */ = {
+			isa = PBXGroup;
+			children = (
+				2E49002E2F66752B0083B9A5 /* Text */,
+			);
+			path = SwiftUI;
+			sourceTree = "<group>";
+		};
+		2E49002E2F66752B0083B9A5 /* Text */ = {
+			isa = PBXGroup;
+			children = (
+				2E49002F2F66753C0083B9A5 /* Text+Typography.swift */,
+			);
+			path = Text;
+			sourceTree = "<group>";
+		};
 		2E4AB0852EFFC7F90076BBB5 = {
 			isa = PBXGroup;
 			children = (
@@ -177,8 +204,8 @@
 		2E5C00A12F1BCA48001A3677 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
-				2E5C00B12F1BD799001A3677 /* UIView */,
-				2E5C00A92F1BCB41001A3677 /* UILabel */,
+				2E49002D2F6675180083B9A5 /* SwiftUI */,
+				2E49002C2F66750C0083B9A5 /* SwiftUIKit */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -443,6 +470,7 @@
 				2E5C00A82F1BCAC1001A3677 /* ShadowToken.swift in Sources */,
 				2E5C00C22F1BDC39001A3677 /* ShadowContainerExample.swift in Sources */,
 				2E5C00BE2F1BDBC3001A3677 /* ShadowContainerView.swift in Sources */,
+				2E4900302F66753C0083B9A5 /* Text+Typography.swift in Sources */,
 				2E5C00BC2F1BDB36001A3677 /* UIView+ShadowExample.swift in Sources */,
 				2E5C00B02F1BCC17001A3677 /* ShadowProvider.swift in Sources */,
 			);
