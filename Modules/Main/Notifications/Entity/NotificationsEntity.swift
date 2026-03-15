@@ -6,3 +6,15 @@
 //
 
 import Foundation
+import UIKit
+
+struct NotificationItem {
+    let iconName: UIImage?
+    let title: String
+    let descscription: String
+}
+
+struct NotificationsEntity {
+    let date: String
+    let notificationItems: [NotificationItem]
+}

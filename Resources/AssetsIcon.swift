@@ -27,4 +27,10 @@ struct AssetsIcon {
     static let setting = UIImage(named: "setting")
     static let logout = UIImage(named: "logout")
     static let arrowLeft = UIImage(named: "arrowLeft")
+    
+    // Notifications
+    static let notiFlight = UIImage(named: "notiFlight")
+    static let notiCancel = UIImage(named: "notiCancel")
+    static let notiRefund = UIImage(named: "notiRefund")
+    static let notiWelcome = UIImage(named: "notiWelcome")
 }

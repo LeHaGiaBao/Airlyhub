@@ -14,7 +14,8 @@ enum NotificationsBuilderAction {
 
 final class NotificationsBuilder {
     func build() -> (UIViewController, Observable<NotificationsBuilderAction>) {
-        let presenter = NotificationsPresenter()
+        let interactor = NotificationsInteractor()
+        let presenter = NotificationsPresenter(interactor: interactor)
         let view = NotificationsView(presenter: presenter)
         return (view, presenter.notificationsBuilderAction)
     }

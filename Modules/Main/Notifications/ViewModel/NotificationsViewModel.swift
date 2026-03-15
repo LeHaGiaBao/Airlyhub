@@ -6,3 +6,12 @@
 //
 
 import Foundation
+import RxSwift
+
+protocol NotificationsInteractorProtocol: AnyObject {
+    func fetchNotifications() -> [NotificationsEntity]
+}
+
+protocol NotificationsPresenterProtocol: AnyObject {
+    func getNotifications() -> [NotificationsEntity]
+}
