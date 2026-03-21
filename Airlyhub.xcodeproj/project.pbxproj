@@ -31,6 +31,7 @@
 		2E00ADF92F6E8EBF00121724 /* FirebaseRemoteConfig in Frameworks */ = {isa = PBXBuildFile; productRef = 2E00ADF82F6E8EBF00121724 /* FirebaseRemoteConfig */; };
 		2E00ADFB2F6E8EBF00121724 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 2E00ADFA2F6E8EBF00121724 /* FirebaseStorage */; };
 		2E00ADFD2F6E8EBF00121724 /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 2E00ADFC2F6E8EBF00121724 /* FirebaseStorageCombine-Community */; };
+		2E00AE0B2F6E9B3400121724 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E00AE0A2F6E9B3400121724 /* UserModel.swift */; };
 		2E4900302F66753C0083B9A5 /* Text+Typography.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E49002F2F66753C0083B9A5 /* Text+Typography.swift */; };
 		2E49FDAA2F6576EC0083B9A5 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 2E49FDA92F6576EC0083B9A5 /* SnapKit */; };
 		2E5C009E2F1B922C001A3677 /* UILabel+Typography.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5C009D2F1B922C001A3677 /* UILabel+Typography.swift */; };
@@ -67,6 +68,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2E00AE0A2F6E9B3400121724 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		2E49002F2F66753C0083B9A5 /* Text+Typography.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Text+Typography.swift"; sourceTree = "<group>"; };
 		2E4AB08E2EFFC7F90076BBB5 /* Airlyhub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Airlyhub.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E4AB0A42EFFC7FB0076BBB5 /* AirlyhubTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AirlyhubTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -85,6 +87,21 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		2E00AE042F6E93F500121724 /* Exceptions for "Firebase" folder in "Airlyhub" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				AuthService.swift,
+				UserService.swift,
+			);
+			target = 2E4AB08D2EFFC7F90076BBB5 /* Airlyhub */;
+		};
+		2E00AE112F6E9C1C00121724 /* Exceptions for "Database" folder in "Airlyhub" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				FirestoreCollection.swift,
+			);
+			target = 2E4AB08D2EFFC7F90076BBB5 /* Airlyhub */;
+		};
 		2E4AB0B62EFFC7FB0076BBB5 /* Exceptions for "Airlyhub" folder in "Airlyhub" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
@@ -95,6 +112,32 @@
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
+		2E00AE012F6E93E400121724 /* Firebase */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				2E00AE042F6E93F500121724 /* Exceptions for "Firebase" folder in "Airlyhub" target */,
+			);
+			path = Firebase;
+			sourceTree = "<group>";
+		};
+		2E00AE0E2F6E9BFE00121724 /* Database */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				2E00AE112F6E9C1C00121724 /* Exceptions for "Database" folder in "Airlyhub" target */,
+			);
+			path = Database;
+			sourceTree = "<group>";
+		};
+		2E00AE342F6EAA0F00121724 /* View */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = View;
+			sourceTree = "<group>";
+		};
+		2E00AE392F6EAA2800121724 /* New Folder */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "New Folder";
+			sourceTree = "<group>";
+		};
 		2E4AB0902EFFC7F90076BBB5 /* Airlyhub */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
@@ -188,6 +231,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2E00AE002F6E934900121724 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				2E00AE392F6EAA2800121724 /* New Folder */,
+				2E00AE0E2F6E9BFE00121724 /* Database */,
+				2E00AE092F6E9B1100121724 /* Entity */,
+				2E00AE012F6E93E400121724 /* Firebase */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		2E00AE092F6E9B1100121724 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				2E00AE0A2F6E9B3400121724 /* UserModel.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
 		2E49002C2F66750C0083B9A5 /* SwiftUIKit */ = {
 			isa = PBXGroup;
 			children = (
@@ -216,6 +278,7 @@
 		2E4AB0852EFFC7F90076BBB5 = {
 			isa = PBXGroup;
 			children = (
+				2E00AE002F6E934900121724 /* Services */,
 				2E5C00962F1B8E8F001A3677 /* UIKit */,
 				2EC570F62F0015AC00D67853 /* Common */,
 				2E7B198E2EFFD024009A3021 /* Resources */,
@@ -245,6 +308,7 @@
 				2E5C00B22F1BD7AD001A3677 /* Example */,
 				2E5C00A22F1BCA5F001A3677 /* DesignSystem */,
 				2E5C00A12F1BCA48001A3677 /* Extension */,
+				2E00AE342F6EAA0F00121724 /* View */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -368,6 +432,7 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
+				2E00AE342F6EAA0F00121724 /* View */,
 				2E4AB0902EFFC7F90076BBB5 /* Airlyhub */,
 				2E4AB0D82EFFCFAE0076BBB5 /* Modules */,
 				2E7B198E2EFFD024009A3021 /* Resources */,
@@ -542,6 +607,7 @@
 				2E5C00A52F1BCA85001A3677 /* TypographyStyle.swift in Sources */,
 				2E5C00A82F1BCAC1001A3677 /* ShadowToken.swift in Sources */,
 				2E5C00C22F1BDC39001A3677 /* ShadowContainerExample.swift in Sources */,
+				2E00AE0B2F6E9B3400121724 /* UserModel.swift in Sources */,
 				2E5C00BE2F1BDBC3001A3677 /* ShadowContainerView.swift in Sources */,
 				2E4900302F66753C0083B9A5 /* Text+Typography.swift in Sources */,
 				2E5C00BC2F1BDB36001A3677 /* UIView+ShadowExample.swift in Sources */,

@@ -5,6 +5,7 @@
 //  Created by Le Ha Gia Bao on 27/12/2025.
 //
 
+import Foundation
 import RxSwift
 
 final class LoginPresenter: LoginPresenterProtocol {
@@ -25,16 +26,27 @@ final class LoginPresenter: LoginPresenterProtocol {
 
     func viewDidLoad() {}
 
-    func loginTapped(username: String, password: String) {
+    func loginTapped(email: String, password: String) {
+        let trimmed = email.trimmingCharacters(in: .whitespacesAndNewlines)
+        guard !trimmed.isEmpty, !password.isEmpty else {
+            view?.showError("Please enter email and password.")
+            return
+        }
+
         view?.showLoading()
 
-        interactor.login(username: username, password: password)
+        interactor.login(email: trimmed, password: password)
             .observe(on: MainScheduler.instance)
-            .subscribe(onNext: { [weak self] success in
-                self?.view?.hideLoading()
-                success ? self?.router.navigateToHome()
-                        : self?.view?.showError("Login failed")
-            })
+            .subscribe(
+                onNext: { [weak self] in
+                    self?.view?.hideLoading()
+                    self?.router.navigateToHome()
+                },
+                onError: { [weak self] error in
+                    self?.view?.hideLoading()
+                    self?.view?.showError(error.localizedDescription)
+                }
+            )
             .disposed(by: disposeBag)
     }
 }

@@ -10,8 +10,20 @@ import RxSwift
 
 final class LoginInteractor: LoginInteractorProtocol {
 
-    func login(username: String, password: String) -> Observable<Bool> {
-        return Observable.just(true)
-            .delay(.seconds(1), scheduler: MainScheduler.instance)
+    func login(email: String, password: String) -> Observable<Void> {
+        Observable.create { observer in
+            AuthService.shared.login(email: email, password: password) { result in
+                DispatchQueue.main.async {
+                    switch result {
+                    case .success:
+                        observer.onNext(())
+                        observer.onCompleted()
+                    case .failure(let error):
+                        observer.onError(error)
+                    }
+                }
+            }
+            return Disposables.create()
+        }
     }
 }

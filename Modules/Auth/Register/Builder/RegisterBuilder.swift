@@ -1,18 +1,18 @@
 //
-//  LoginBuilder.swift
+//  RegisterBuilder.swift
 //  Airlyhub
 //
-//  Created by Le Ha Gia Bao on 27/12/2025.
+//  Created by Le Ha Gia Bao on 21/03/2026.
 //
 
 import UIKit
 
-enum LoginBuilder {
+enum RegisterBuilder {
     static func createModule() -> UIViewController {
-        let view = LoginViewController()
-        let interactor = LoginInteractor()
-        let router = LoginRouter()
-        let presenter = LoginPresenter(
+        let view = RegisterViewController()
+        let interactor = RegisterInteractor()
+        let router = RegisterRouter()
+        let presenter = RegisterPresenter(
             view: view,
             interactor: interactor,
             router: router

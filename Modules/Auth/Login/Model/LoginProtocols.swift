@@ -16,11 +16,11 @@ protocol LoginViewProtocol: AnyObject {
 
 protocol LoginPresenterProtocol {
     func viewDidLoad()
-    func loginTapped(username: String, password: String)
+    func loginTapped(email: String, password: String)
 }
 
 protocol LoginInteractorProtocol {
-    func login(username: String, password: String) -> Observable<Bool>
+    func login(email: String, password: String) -> Observable<Void>
 }
 
 protocol LoginRouterProtocol {

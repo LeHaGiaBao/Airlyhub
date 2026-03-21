@@ -18,7 +18,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = scene as? UIWindowScene else { return }
         
         let window = UIWindow(windowScene: windowScene)
-        window.rootViewController = AppRouter.createRootModule(nav: UINavigationController())
+        if AuthService.shared.isLoggedIn() {
+            window.rootViewController = AppRouter.createRootModule(nav: UINavigationController())
+        } else {
+            let register = RegisterBuilder.createModule()
+            window.rootViewController = UINavigationController(rootViewController: register)
+        }
         window.makeKeyAndVisible()
         self.window = window
     }

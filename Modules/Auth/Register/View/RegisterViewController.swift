@@ -1,8 +1,8 @@
 //
-//  LoginViewController.swift
+//  RegisterViewController.swift
 //  Airlyhub
 //
-//  Created by Le Ha Gia Bao on 27/12/2025.
+//  Created by Le Ha Gia Bao on 21/03/2026.
 //
 
 import UIKit
@@ -10,11 +10,13 @@ import RxSwift
 import RxCocoa
 import SnapKit
 
-final class LoginViewController: BaseViewController {
-    var presenter: LoginPresenterProtocol!
+final class RegisterViewController: BaseViewController {
+    var presenter: RegisterPresenterProtocol!
 
+    private let nameTextField = UITextField()
     private let emailTextField = UITextField()
     private let passwordTextField = UITextField()
+    private let confirmPasswordTextField = UITextField()
     private let submitButton = UIButton(type: .system)
     private let activityIndicator = UIActivityIndicatorView(style: .medium)
 
@@ -27,28 +29,40 @@ final class LoginViewController: BaseViewController {
             .subscribe(onNext: { [weak self] in
                 guard let self else { return }
                 self.view.endEditing(true)
-                self.presenter.loginTapped(
+                self.presenter.registerTapped(
+                    name: self.nameTextField.text ?? "",
                     email: self.emailTextField.text ?? "",
-                    password: self.passwordTextField.text ?? ""
+                    password: self.passwordTextField.text ?? "",
+                    confirmPassword: self.confirmPasswordTextField.text ?? ""
                 )
             })
             .disposed(by: disposeBag)
     }
 
     private func setupUI() {
-        title = "Log in"
+        title = "Register"
+
+        nameTextField.placeholder = "Name"
+        nameTextField.autocapitalizationType = .words
+        nameTextField.borderStyle = .roundedRect
+        nameTextField.textContentType = .name
 
         emailTextField.placeholder = "Email"
         emailTextField.keyboardType = .emailAddress
         emailTextField.autocapitalizationType = .none
         emailTextField.autocorrectionType = .no
-        emailTextField.textContentType = .username
+        emailTextField.textContentType = .emailAddress
         emailTextField.borderStyle = .roundedRect
 
         passwordTextField.placeholder = "Password"
         passwordTextField.isSecureTextEntry = true
-        passwordTextField.textContentType = .password
+        passwordTextField.textContentType = .newPassword
         passwordTextField.borderStyle = .roundedRect
+
+        confirmPasswordTextField.placeholder = "Confirm password"
+        confirmPasswordTextField.isSecureTextEntry = true
+        confirmPasswordTextField.textContentType = .newPassword
+        confirmPasswordTextField.borderStyle = .roundedRect
 
         submitButton.setTitle("Submit", for: .normal)
         submitButton.titleLabel?.font = .systemFont(ofSize: 17, weight: .semibold)
@@ -56,8 +70,10 @@ final class LoginViewController: BaseViewController {
         activityIndicator.hidesWhenStopped = true
 
         let stack = UIStackView(arrangedSubviews: [
+            nameTextField,
             emailTextField,
             passwordTextField,
+            confirmPasswordTextField,
             submitButton,
             activityIndicator
         ])
@@ -73,17 +89,21 @@ final class LoginViewController: BaseViewController {
     }
 }
 
-extension LoginViewController: LoginViewProtocol {
+extension RegisterViewController: RegisterViewProtocol {
     func showLoading() {
+        nameTextField.isEnabled = false
         emailTextField.isEnabled = false
         passwordTextField.isEnabled = false
+        confirmPasswordTextField.isEnabled = false
         submitButton.isEnabled = false
         activityIndicator.startAnimating()
     }
 
     func hideLoading() {
+        nameTextField.isEnabled = true
         emailTextField.isEnabled = true
         passwordTextField.isEnabled = true
+        confirmPasswordTextField.isEnabled = true
         submitButton.isEnabled = true
         activityIndicator.stopAnimating()
     }

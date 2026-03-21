@@ -8,6 +8,15 @@
 import UIKit
 
 enum AppRouter {
+    static func setRootToMainTab(in window: UIWindow) {
+        window.rootViewController = createRootModule(nav: UINavigationController())
+    }
+
+    static func setRootToAuth(in window: UIWindow) {
+        let register = LoginBuilder.createModule()
+        window.rootViewController = UINavigationController(rootViewController: register)
+    }
+
     static func createRootModule(nav: UINavigationController) -> UIViewController {
         let tabBarController = UITabBarController()
 
