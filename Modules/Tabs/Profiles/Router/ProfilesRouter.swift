@@ -65,7 +65,26 @@ final class ProfilesRouter: ProfilesRouterProtocol {
         })
     }
     
-    func goToLogout() {
-        print("goToLogout")
+    func presentLogoutConfirmation(onConfirm: @escaping () -> Void) {
+        guard let host = nav.topViewController else { return }
+        let sheet = LogoutConfirmationBottomSheetViewController()
+        sheet.onLogout = { onConfirm() }
+        sheet.modalPresentationStyle = .overFullScreen
+        host.present(sheet, animated: false)
+    }
+
+    func navigateToAuth() {
+        guard let window = nav.view.window else { return }
+        AppRouter.setRootToAuth(in: window)
+    }
+
+    func showLogoutError(_ message: String) {
+        let alert = UIAlertController(
+            title: NSLocalizedString("logout", comment: ""),
+            message: message,
+            preferredStyle: .alert
+        )
+        alert.addAction(UIAlertAction(title: "OK", style: .default))
+        nav.topViewController?.present(alert, animated: true)
     }
 }

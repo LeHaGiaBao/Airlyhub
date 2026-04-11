@@ -25,6 +25,21 @@ final class ProfilesPresenter: ProfilesPresenterProtocol {
     func getMenuItems() -> [ProfilesMenuSection] {
         return interactor.fetchMenuItems()
     }
+
+    func goToLogout() {
+        router.presentLogoutConfirmation { [weak self] in
+            self?.performSignOut()
+        }
+    }
+
+    private func performSignOut() {
+        switch interactor.signOut() {
+        case .success:
+            router.navigateToAuth()
+        case .failure(let error):
+            router.showLogoutError(error.localizedDescription)
+        }
+    }
 }
 
 extension ProfilesPresenter: ProfilesRouterProtocol {
@@ -47,8 +62,16 @@ extension ProfilesPresenter: ProfilesRouterProtocol {
     func navigateToSettings() -> Observable<SettingsBuilderAction> {
         router.navigateToSettings()
     }
-    
-    func goToLogout() {
-        router.goToLogout()
+
+    func presentLogoutConfirmation(onConfirm: @escaping () -> Void) {
+        router.presentLogoutConfirmation(onConfirm: onConfirm)
+    }
+
+    func navigateToAuth() {
+        router.navigateToAuth()
+    }
+
+    func showLogoutError(_ message: String) {
+        router.showLogoutError(message)
     }
 }

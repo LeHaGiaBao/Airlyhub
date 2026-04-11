@@ -16,3 +16,5 @@
 "customer_service" = "Customer service";
 "settings" = "Settings";
 "logout" = "Logout";
+"logout_confirmation_title" = "Bạn có muốn đăng xuất khỏi ứng dụng?";
+"cancel" = "Hủy";

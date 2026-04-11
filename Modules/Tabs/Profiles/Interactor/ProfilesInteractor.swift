@@ -63,4 +63,13 @@ final class ProfilesInteractor: ProfilesInteractorProtocol {
                 ])
             ]
         }
+    
+    func signOut() -> Result<Void, Error> {
+        switch AuthService.shared.logout() {
+        case .success:
+            return .success(())
+        case .failure(let error):
+            return .failure(error)
+        }
+    }
 }

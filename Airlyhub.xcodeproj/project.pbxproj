@@ -31,19 +31,7 @@
 		2E00ADF92F6E8EBF00121724 /* FirebaseRemoteConfig in Frameworks */ = {isa = PBXBuildFile; productRef = 2E00ADF82F6E8EBF00121724 /* FirebaseRemoteConfig */; };
 		2E00ADFB2F6E8EBF00121724 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 2E00ADFA2F6E8EBF00121724 /* FirebaseStorage */; };
 		2E00ADFD2F6E8EBF00121724 /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 2E00ADFC2F6E8EBF00121724 /* FirebaseStorageCombine-Community */; };
-		2E4900302F66753C0083B9A5 /* Text+Typography.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E49002F2F66753C0083B9A5 /* Text+Typography.swift */; };
 		2E49FDAA2F6576EC0083B9A5 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 2E49FDA92F6576EC0083B9A5 /* SnapKit */; };
-		2E5C009E2F1B922C001A3677 /* UILabel+Typography.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5C009D2F1B922C001A3677 /* UILabel+Typography.swift */; };
-		2E5C00A52F1BCA85001A3677 /* TypographyStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5C00A42F1BCA85001A3677 /* TypographyStyle.swift */; };
-		2E5C00A82F1BCAC1001A3677 /* ShadowToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5C00A72F1BCAC1001A3677 /* ShadowToken.swift */; };
-		2E5C00AC2F1BCB67001A3677 /* InterFontWeight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5C00AB2F1BCB67001A3677 /* InterFontWeight.swift */; };
-		2E5C00AE2F1BCBC2001A3677 /* ShadowLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5C00AD2F1BCBC2001A3677 /* ShadowLevel.swift */; };
-		2E5C00B02F1BCC17001A3677 /* ShadowProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5C00AF2F1BCC17001A3677 /* ShadowProvider.swift */; };
-		2E5C00B52F1BD7C7001A3677 /* UILabel+TypographyExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5C00B42F1BD7C7001A3677 /* UILabel+TypographyExample.swift */; };
-		2E5C00B72F1BD929001A3677 /* UIView+Shadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5C00B62F1BD929001A3677 /* UIView+Shadow.swift */; };
-		2E5C00BC2F1BDB36001A3677 /* UIView+ShadowExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5C00BB2F1BDB36001A3677 /* UIView+ShadowExample.swift */; };
-		2E5C00BE2F1BDBC3001A3677 /* ShadowContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5C00BD2F1BDBC3001A3677 /* ShadowContainerView.swift */; };
-		2E5C00C22F1BDC39001A3677 /* ShadowContainerExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5C00C12F1BDC39001A3677 /* ShadowContainerExample.swift */; };
 		2E7B19AE2EFFDF41009A3021 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 2E7B19AD2EFFDF41009A3021 /* RxCocoa */; };
 		2E7B19B02EFFDF41009A3021 /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = 2E7B19AF2EFFDF41009A3021 /* RxRelay */; };
 		2E7B19B22EFFDF41009A3021 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 2E7B19B12EFFDF41009A3021 /* RxSwift */; };
@@ -67,21 +55,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		2E49002F2F66753C0083B9A5 /* Text+Typography.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Text+Typography.swift"; sourceTree = "<group>"; };
 		2E4AB08E2EFFC7F90076BBB5 /* Airlyhub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Airlyhub.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E4AB0A42EFFC7FB0076BBB5 /* AirlyhubTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AirlyhubTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E4AB0AE2EFFC7FB0076BBB5 /* AirlyhubUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AirlyhubUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		2E5C009D2F1B922C001A3677 /* UILabel+Typography.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Typography.swift"; sourceTree = "<group>"; };
-		2E5C00A42F1BCA85001A3677 /* TypographyStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypographyStyle.swift; sourceTree = "<group>"; };
-		2E5C00A72F1BCAC1001A3677 /* ShadowToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowToken.swift; sourceTree = "<group>"; };
-		2E5C00AB2F1BCB67001A3677 /* InterFontWeight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterFontWeight.swift; sourceTree = "<group>"; };
-		2E5C00AD2F1BCBC2001A3677 /* ShadowLevel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowLevel.swift; sourceTree = "<group>"; };
-		2E5C00AF2F1BCC17001A3677 /* ShadowProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowProvider.swift; sourceTree = "<group>"; };
-		2E5C00B42F1BD7C7001A3677 /* UILabel+TypographyExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+TypographyExample.swift"; sourceTree = "<group>"; };
-		2E5C00B62F1BD929001A3677 /* UIView+Shadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Shadow.swift"; sourceTree = "<group>"; };
-		2E5C00BB2F1BDB36001A3677 /* UIView+ShadowExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+ShadowExample.swift"; sourceTree = "<group>"; };
-		2E5C00BD2F1BDBC3001A3677 /* ShadowContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowContainerView.swift; sourceTree = "<group>"; };
-		2E5C00C12F1BDC39001A3677 /* ShadowContainerExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowContainerExample.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -128,9 +104,29 @@
 			path = Localization;
 			sourceTree = "<group>";
 		};
-		2EC570F62F0015AC00D67853 /* Common */ = {
+		AA100B002F000000AA100B00 /* Core */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = Common;
+			path = Core;
+			sourceTree = "<group>";
+		};
+		AA100C002F000000AA100C00 /* Data */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Data;
+			sourceTree = "<group>";
+		};
+		AA100D002F000000AA100D00 /* Domain */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		AA100E002F000000AA100E00 /* DesignSystems */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = DesignSystems;
+			sourceTree = "<group>";
+		};
+		AA1010002F000000AA101000 /* Utilities */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -188,36 +184,9 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2E49002C2F66750C0083B9A5 /* SwiftUIKit */ = {
-			isa = PBXGroup;
-			children = (
-				2E5C00B12F1BD799001A3677 /* UIView */,
-				2E5C00A92F1BCB41001A3677 /* UILabel */,
-			);
-			path = SwiftUIKit;
-			sourceTree = "<group>";
-		};
-		2E49002D2F6675180083B9A5 /* SwiftUI */ = {
-			isa = PBXGroup;
-			children = (
-				2E49002E2F66752B0083B9A5 /* Text */,
-			);
-			path = SwiftUI;
-			sourceTree = "<group>";
-		};
-		2E49002E2F66752B0083B9A5 /* Text */ = {
-			isa = PBXGroup;
-			children = (
-				2E49002F2F66753C0083B9A5 /* Text+Typography.swift */,
-			);
-			path = Text;
-			sourceTree = "<group>";
-		};
 		2E4AB0852EFFC7F90076BBB5 = {
 			isa = PBXGroup;
 			children = (
-				2E5C00962F1B8E8F001A3677 /* UIKit */,
-				2EC570F62F0015AC00D67853 /* Common */,
 				2E7B198E2EFFD024009A3021 /* Resources */,
 				2E4AB0D82EFFCFAE0076BBB5 /* Modules */,
 				2E4AB0902EFFC7F90076BBB5 /* Airlyhub */,
@@ -226,6 +195,11 @@
 				2E7B19AC2EFFDF41009A3021 /* Frameworks */,
 				2E4AB08F2EFFC7F90076BBB5 /* Products */,
 				2EC570F02F00146C00D67853 /* Localization */,
+				AA100B002F000000AA100B00 /* Core */,
+				AA100C002F000000AA100C00 /* Data */,
+				AA100D002F000000AA100D00 /* Domain */,
+				AA100E002F000000AA100E00 /* DesignSystems */,
+				AA1010002F000000AA101000 /* Utilities */,
 			);
 			sourceTree = "<group>";
 		};
@@ -237,112 +211,6 @@
 				2E4AB0AE2EFFC7FB0076BBB5 /* AirlyhubUITests.xctest */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		2E5C00962F1B8E8F001A3677 /* UIKit */ = {
-			isa = PBXGroup;
-			children = (
-				2E5C00B22F1BD7AD001A3677 /* Example */,
-				2E5C00A22F1BCA5F001A3677 /* DesignSystem */,
-				2E5C00A12F1BCA48001A3677 /* Extension */,
-			);
-			path = UIKit;
-			sourceTree = "<group>";
-		};
-		2E5C00A12F1BCA48001A3677 /* Extension */ = {
-			isa = PBXGroup;
-			children = (
-				2E49002D2F6675180083B9A5 /* SwiftUI */,
-				2E49002C2F66750C0083B9A5 /* SwiftUIKit */,
-			);
-			path = Extension;
-			sourceTree = "<group>";
-		};
-		2E5C00A22F1BCA5F001A3677 /* DesignSystem */ = {
-			isa = PBXGroup;
-			children = (
-				2E5C00A62F1BCAAD001A3677 /* Shadow */,
-				2E5C00A32F1BCA73001A3677 /* Typography */,
-			);
-			path = DesignSystem;
-			sourceTree = "<group>";
-		};
-		2E5C00A32F1BCA73001A3677 /* Typography */ = {
-			isa = PBXGroup;
-			children = (
-				2E5C00A42F1BCA85001A3677 /* TypographyStyle.swift */,
-				2E5C00AB2F1BCB67001A3677 /* InterFontWeight.swift */,
-			);
-			path = Typography;
-			sourceTree = "<group>";
-		};
-		2E5C00A62F1BCAAD001A3677 /* Shadow */ = {
-			isa = PBXGroup;
-			children = (
-				2E5C00A72F1BCAC1001A3677 /* ShadowToken.swift */,
-				2E5C00AD2F1BCBC2001A3677 /* ShadowLevel.swift */,
-				2E5C00AF2F1BCC17001A3677 /* ShadowProvider.swift */,
-				2E5C00BD2F1BDBC3001A3677 /* ShadowContainerView.swift */,
-			);
-			path = Shadow;
-			sourceTree = "<group>";
-		};
-		2E5C00A92F1BCB41001A3677 /* UILabel */ = {
-			isa = PBXGroup;
-			children = (
-				2E5C009D2F1B922C001A3677 /* UILabel+Typography.swift */,
-			);
-			path = UILabel;
-			sourceTree = "<group>";
-		};
-		2E5C00B12F1BD799001A3677 /* UIView */ = {
-			isa = PBXGroup;
-			children = (
-				2E5C00B62F1BD929001A3677 /* UIView+Shadow.swift */,
-			);
-			path = UIView;
-			sourceTree = "<group>";
-		};
-		2E5C00B22F1BD7AD001A3677 /* Example */ = {
-			isa = PBXGroup;
-			children = (
-				2E5C00BF2F1BDC10001A3677 /* DesignSystem */,
-				2E5C00BA2F1BDB1F001A3677 /* UIView */,
-				2E5C00B32F1BD7B7001A3677 /* UILabel */,
-			);
-			path = Example;
-			sourceTree = "<group>";
-		};
-		2E5C00B32F1BD7B7001A3677 /* UILabel */ = {
-			isa = PBXGroup;
-			children = (
-				2E5C00B42F1BD7C7001A3677 /* UILabel+TypographyExample.swift */,
-			);
-			path = UILabel;
-			sourceTree = "<group>";
-		};
-		2E5C00BA2F1BDB1F001A3677 /* UIView */ = {
-			isa = PBXGroup;
-			children = (
-				2E5C00BB2F1BDB36001A3677 /* UIView+ShadowExample.swift */,
-			);
-			path = UIView;
-			sourceTree = "<group>";
-		};
-		2E5C00BF2F1BDC10001A3677 /* DesignSystem */ = {
-			isa = PBXGroup;
-			children = (
-				2E5C00C02F1BDC21001A3677 /* Shadow */,
-			);
-			path = DesignSystem;
-			sourceTree = "<group>";
-		};
-		2E5C00C02F1BDC21001A3677 /* Shadow */ = {
-			isa = PBXGroup;
-			children = (
-				2E5C00C12F1BDC39001A3677 /* ShadowContainerExample.swift */,
-			);
-			path = Shadow;
 			sourceTree = "<group>";
 		};
 		2E7B19AC2EFFDF41009A3021 /* Frameworks */ = {
@@ -372,7 +240,11 @@
 				2E4AB0D82EFFCFAE0076BBB5 /* Modules */,
 				2E7B198E2EFFD024009A3021 /* Resources */,
 				2EC570F02F00146C00D67853 /* Localization */,
-				2EC570F62F0015AC00D67853 /* Common */,
+				AA100B002F000000AA100B00 /* Core */,
+				AA100C002F000000AA100C00 /* Data */,
+				AA100D002F000000AA100D00 /* Domain */,
+				AA100E002F000000AA100E00 /* DesignSystems */,
+				AA1010002F000000AA101000 /* Utilities */,
 			);
 			name = Airlyhub;
 			packageProductDependencies = (
@@ -534,18 +406,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2E5C00B72F1BD929001A3677 /* UIView+Shadow.swift in Sources */,
-				2E5C00AE2F1BCBC2001A3677 /* ShadowLevel.swift in Sources */,
-				2E5C00B52F1BD7C7001A3677 /* UILabel+TypographyExample.swift in Sources */,
-				2E5C009E2F1B922C001A3677 /* UILabel+Typography.swift in Sources */,
-				2E5C00AC2F1BCB67001A3677 /* InterFontWeight.swift in Sources */,
-				2E5C00A52F1BCA85001A3677 /* TypographyStyle.swift in Sources */,
-				2E5C00A82F1BCAC1001A3677 /* ShadowToken.swift in Sources */,
-				2E5C00C22F1BDC39001A3677 /* ShadowContainerExample.swift in Sources */,
-				2E5C00BE2F1BDBC3001A3677 /* ShadowContainerView.swift in Sources */,
-				2E4900302F66753C0083B9A5 /* Text+Typography.swift in Sources */,
-				2E5C00BC2F1BDB36001A3677 /* UIView+ShadowExample.swift in Sources */,
-				2E5C00B02F1BCC17001A3677 /* ShadowProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

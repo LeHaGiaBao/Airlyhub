@@ -16,3 +16,5 @@
 "customer_service" = "Customer service";
 "settings" = "Settings";
 "logout" = "Logout";
+"logout_confirmation_title" = "Do you want to log out of the app?";
+"cancel" = "Cancel";
