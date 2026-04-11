@@ -1,1 +1,13 @@
 Airlyhub/GoogleService-Info.plist
+
+# Tuist generated files
+*.xcodeproj
+*.xcworkspace
+!*.xcworkspace/contents.xcworkspacedata
+
+# Tuist dependencies cache
+Tuist/.build
+.tuist-server-cache
+
+# Derived files
+Derived/
