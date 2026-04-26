@@ -9,6 +9,12 @@
 "airplane_flight" = "airplane flight";
 "split_the_payment" = "Split the payment";
 "with_other_passengers" = "with other passengers";
+"flights_from_placeholder" = "From where?";
+"flights_to_placeholder" = "Where to?";
+"flights_departure_date" = "Date of departure";
+"flights_arrival_date" = "Date of arrival";
+"flights_passengers" = "Passengers";
+"flights_find" = "Find";
 "favorites" = "Favorites";
 "notifications" = "Notifications";
 "my_tickets" = "My tickets";

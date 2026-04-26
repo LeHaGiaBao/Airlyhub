@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 60;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -626,6 +626,10 @@
 		FD9EA16C2A5584E3D341899A /* grpc.xcframework */ = {isa = PBXFileReference; expectedSignature = "AppleDeveloperProgram:EQHXZ8M8AV:Google LLC"; lastKnownFileType = wrapper.xcframework; name = grpc.xcframework; path = "/Users/lehagiabao/Code/Airlyhub/Tuist/.build/artifacts/grpc-binary/grpc/grpc.xcframework"; sourceTree = "<absolute>"; };
 		FFF53717200E031AA0752C62 /* FlightsBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightsBuilder.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		2E81EE252F9E03D700CEA99F /* Components */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Components; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		3E70BB664EC006208ED3B03C /* Frameworks */ = {
@@ -1350,6 +1354,7 @@
 		7FD2F69E8B26804B0071705E /* View */ = {
 			isa = PBXGroup;
 			children = (
+				2E81EE252F9E03D700CEA99F /* Components */,
 				99503B30837C65ABA2F9B60C /* FlightsViewController.swift */,
 			);
 			path = View;
@@ -2014,6 +2019,9 @@
 			buildRules = (
 			);
 			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				2E81EE252F9E03D700CEA99F /* Components */,
 			);
 			name = Airlyhub;
 			packageProductDependencies = (
