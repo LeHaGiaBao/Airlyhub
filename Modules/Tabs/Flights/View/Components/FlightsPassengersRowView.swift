@@ -25,6 +25,7 @@ final class FlightsPassengersRowView: UIView {
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
+    
     private let viewStack: UIStackView = {
         let stack = UIStackView()
         stack.axis = .horizontal
@@ -33,6 +34,7 @@ final class FlightsPassengersRowView: UIView {
         stack.translatesAutoresizingMaskIntoConstraints = false
         return stack
     }()
+    
     private let leftStack: UIStackView = {
         let stack = UIStackView()
         stack.spacing = 12
@@ -40,6 +42,7 @@ final class FlightsPassengersRowView: UIView {
         stack.translatesAutoresizingMaskIntoConstraints = false
         return stack
     }()
+    
     private let stepperStack: UIStackView = {
         let stack = UIStackView()
         stack.spacing = 16
@@ -61,6 +64,7 @@ final class FlightsPassengersRowView: UIView {
         label.applyTypography(.textMd(weight: .regular))
         return label
     }()
+    
     private let countLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
@@ -68,11 +72,13 @@ final class FlightsPassengersRowView: UIView {
         label.applyTypography(.displayXs(weight: .medium))
         return label
     }()
+    
     private let decrementBtn: UIButton = {
         let button = UIButton()
         button.setImage(AssetsIcon.minus, for: .normal)
         return button
     }()
+    
     private let increaseBtn: UIButton = {
         let button = UIButton()
         button.setImage(AssetsIcon.plus, for: .normal)
@@ -122,19 +128,17 @@ extension FlightsPassengersRowView {
         addSubview(contentView)
         contentView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
+            make.height.equalTo(56)
         }
         
         contentView.addSubview(viewStack)
         viewStack.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
+            make.centerY.equalToSuperview()
+            make.left.equalToSuperview().offset(12)
             make.right.equalToSuperview().offset(-12)
-            make.height.equalTo(56)
         }
         viewStack.addArrangedSubview(leftStack)
         viewStack.addArrangedSubview(stepperStack)
-        leftStack.snp.makeConstraints { make in
-            make.left.equalToSuperview().offset(12)
-        }
         
         leftStack.addArrangedSubview(smileWink)
         leftStack.addArrangedSubview(titleLabel)

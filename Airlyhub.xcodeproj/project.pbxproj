@@ -62,13 +62,13 @@
 		2B4752A35E1BC750CBA52506 /* GoogleUtilities_GoogleUtilities_Logger.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E46C555D975CE7508716E2E5 /* GoogleUtilities_GoogleUtilities_Logger.bundle */; };
 		2D71C35E1008A52C32784DB2 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 963378B43DF8631981F773DB /* SystemConfiguration.framework */; };
 		2E1DC365A188D24430B14DB6 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12FE18162849E6FEB258E5E1 /* SettingsView.swift */; };
+		2E81EE2E2F9E695A00CEA99F /* UIView+FindController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E81EE2D2F9E695A00CEA99F /* UIView+FindController.swift */; };
 		2EA99963F2D62DB2CB3ED8E9 /* FirebaseFunctionsCombineSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F0B21CF4166DAB3F220E5FD /* FirebaseFunctionsCombineSwift.framework */; };
 		2EC325A815E77F458FB46CC0 /* ProfilesInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DF82C2222FA27713D1D3E91 /* ProfilesInteractor.swift */; };
 		2EF650329678BD4C29BF0562 /* ExploreBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DAF42F8083C70DF18C76A1 /* ExploreBuilder.swift */; };
 		30BCE1803878663BE4DE284A /* Firebase_FirebaseABTesting.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E03A1B760031CC62CA298629 /* Firebase_FirebaseABTesting.bundle */; };
 		3143300CC9DAFF109DB46E96 /* CustomerServiceEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB173AB0B2ECE360D87551D1 /* CustomerServiceEntity.swift */; };
 		3352B1FC157CD3530DC9CFEF /* NotificationsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29FC699C0C5CD1C681205DD1 /* NotificationsPresenter.swift */; };
-		33EB13031329D9516F34C96D /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 327B130132BA23E4DC8B84E4 /* BaseViewController.swift */; };
 		34AE768C43A00F34E57A81A0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9AB1AAABDC30296746FCD9EF /* GoogleService-Info.plist */; };
 		3573F63C1281CE143BA960A3 /* FirebaseDatabaseInternal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1EAFBE46F4EA69701D82A21C /* FirebaseDatabaseInternal.framework */; };
 		3709ECBEFF064F1B26606DFD /* FavoritesProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D61DCBDD9312659A84F96D1 /* FavoritesProtocols.swift */; };
@@ -426,12 +426,12 @@
 		2C5F70315C3F8E5438EEF764 /* GoogleUtilities_GoogleUtilities_Environment.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GoogleUtilities_GoogleUtilities_Environment.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		2DF82C2222FA27713D1D3E91 /* ProfilesInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilesInteractor.swift; sourceTree = "<group>"; };
 		2E46FA7F435E3D99D1FB494A /* FirestoreCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreCollection.swift; sourceTree = "<group>"; };
+		2E81EE2D2F9E695A00CEA99F /* UIView+FindController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+FindController.swift"; sourceTree = "<group>"; };
 		2EAB13BC1E146D85F55E5173 /* ShadowLevel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowLevel.swift; sourceTree = "<group>"; };
 		30BA6A500D6549C90E9F974D /* MyTicketsEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTicketsEntity.swift; sourceTree = "<group>"; };
 		3139802DB92F8B3925DAAD51 /* NoInternetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoInternetViewController.swift; sourceTree = "<group>"; };
 		315EFA67A02D3026F9DF81FA /* Promises_FBLPromises.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Promises_FBLPromises.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		3214290F1C86A7D9675557D0 /* FirebaseAuthCombineSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FirebaseAuthCombineSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		327B130132BA23E4DC8B84E4 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		32D7128BCCE6A5073B0BACB3 /* grpcWrapper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = grpcWrapper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		338DF03B892259C7CCAFB80E /* RegisterPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterPresenter.swift; sourceTree = "<group>"; };
 		34A3881C3C6B51D7313CE768 /* FirebaseMessagingInterop.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FirebaseMessagingInterop.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -629,6 +629,8 @@
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		2E81EE252F9E03D700CEA99F /* Components */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Components; sourceTree = "<group>"; };
+		2E81EE342F9E6DD500CEA99F /* DatePicker */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = DatePicker; sourceTree = "<group>"; };
+		2E81EE362F9E6DF000CEA99F /* BaseView */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = BaseView; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1194,6 +1196,7 @@
 		6E7359DA6487ABC6350A015E /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
+				2E81EE362F9E6DF000CEA99F /* BaseView */,
 				872500B810641ED8CA1B768A /* Components */,
 			);
 			path = UIKit;
@@ -1284,6 +1287,7 @@
 			children = (
 				3659293B6DE604A4CB9AA4BD /* UILabel+Typography.swift */,
 				9CD837F14207D55E12310E52 /* UIView+Shadow.swift */,
+				2E81EE2D2F9E695A00CEA99F /* UIView+FindController.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -1385,7 +1389,7 @@
 				D8A080D06CE53D8C0776C690 /* Navigation */,
 				3B7723E19567B2A50A05801F /* NoInternet */,
 				840125515293E4B5867EC23D /* Shadow */,
-				327B130132BA23E4DC8B84E4 /* BaseViewController.swift */,
+				2E81EE342F9E6DD500CEA99F /* DatePicker */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -2022,6 +2026,8 @@
 			);
 			fileSystemSynchronizedGroups = (
 				2E81EE252F9E03D700CEA99F /* Components */,
+				2E81EE342F9E6DD500CEA99F /* DatePicker */,
+				2E81EE362F9E6DF000CEA99F /* BaseView */,
 			);
 			name = Airlyhub;
 			packageProductDependencies = (
@@ -2197,7 +2203,6 @@
 				6F78570E3BCBB7362D3FCC31 /* UILabel+Typography.swift in Sources */,
 				40D4CE8426B74D0363EFD67B /* UIView+Shadow.swift in Sources */,
 				F7BCE9DD18EAE3CE16AA28C9 /* NotificationCardView.swift in Sources */,
-				33EB13031329D9516F34C96D /* BaseViewController.swift in Sources */,
 				9E17F2770F15F127BCA9C4F8 /* TopNavigatorView.swift in Sources */,
 				90BD8665693BA99CCC969EB8 /* NoInternetProtocols.swift in Sources */,
 				8B04A87610905D69BF62D4D2 /* NoInternetViewController.swift in Sources */,
@@ -2211,6 +2216,7 @@
 				441E668DC6C8F41E0912F7CF /* LoginInteractor.swift in Sources */,
 				BD51A0412E6CA101373DF82A /* LoginProtocols.swift in Sources */,
 				D25C2F3312EBBD2533BF313E /* LoginPresenter.swift in Sources */,
+				2E81EE2E2F9E695A00CEA99F /* UIView+FindController.swift in Sources */,
 				2219DD3ADE85D5E028B23987 /* LoginRouter.swift in Sources */,
 				9B5301782391B5D3437A449B /* LoginViewController.swift in Sources */,
 				7D009FFA297F07110B05D802 /* RegisterBuilder.swift in Sources */,
