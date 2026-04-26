@@ -9,6 +9,12 @@
 "airplane_flight" = "airplane flight";
 "split_the_payment" = "Split the payment";
 "with_other_passengers" = "with other passengers";
+"flights_from_placeholder" = "Từ đâu?";
+"flights_to_placeholder" = "Đi đâu?";
+"flights_departure_date" = "Ngày khởi hành";
+"flights_arrival_date" = "Ngày đến";
+"flights_passengers" = "Hành khách";
+"flights_find" = "Tìm";
 "favorites" = "Favorites";
 "notifications" = "Notifications";
 "my_tickets" = "My tickets";
