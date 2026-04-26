@@ -24,3 +24,5 @@
 "logout" = "Logout";
 "logout_confirmation_title" = "Do you want to log out of the app?";
 "cancel" = "Cancel";
+"select_date" = "Select Date";
+"done" = "Done";
