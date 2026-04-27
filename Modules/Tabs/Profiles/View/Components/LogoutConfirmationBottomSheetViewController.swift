@@ -8,32 +8,64 @@
 import UIKit
 import SnapKit
 
-/// Custom bottom sheet: dimmed backdrop + rounded card, primary “Cancel” and outlined “Logout”.
 final class LogoutConfirmationBottomSheetViewController: UIViewController {
-
     var onCancel: (() -> Void)?
     var onLogout: (() -> Void)?
 
     private let dimmingView = UIView()
     private let sheetContainer = UIView()
     private let titleLabel = UILabel()
-    private let cancelButton = UIButton(type: .custom)
-    private let logoutButton = UIButton(type: .custom)
     private let buttonStack = UIStackView()
+    
+    private let cancelButton: UIButton = {
+        let button = UIButton()
+        button.setTitle(NSLocalizedString("cancel", comment: ""), for: .normal)
+        button.applyButtonStyle(.defaultButton(size: .big))
+        return button
+    }()
+    
+    private let logoutButton: UIButton = {
+        let button = UIButton()
+        button.setTitle(NSLocalizedString("logout", comment: ""), for: .normal)
+        button.applyButtonStyle(.outlinedButton(size: .big))
+        return button
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupUI()
+        setupEvents()
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        UIView.animate(
+            withDuration: 0.35,
+            delay: 0,
+            usingSpringWithDamping: 0.88,
+            initialSpringVelocity: 0.6,
+            options: [.curveEaseOut]
+        ) {
+            self.dimmingView.alpha = 1
+            self.sheetContainer.transform = .identity
+        }
+    }
+}
+
+// MARK: UI
+extension LogoutConfirmationBottomSheetViewController {
+    private func setupUI() {
         view.backgroundColor = .clear
         modalPresentationStyle = .overFullScreen
         modalTransitionStyle = .crossDissolve
 
-        dimmingView.backgroundColor = UIColor.black.withAlphaComponent(0.4)
+        dimmingView.backgroundColor = UIColor.black.withAlphaComponent(0.35)
         dimmingView.alpha = 0
         let dimTap = UITapGestureRecognizer(target: self, action: #selector(didTapDimming))
         dimmingView.addGestureRecognizer(dimTap)
 
         sheetContainer.backgroundColor = .white
-        sheetContainer.layer.cornerRadius = 24
+        sheetContainer.layer.cornerRadius = 20
         sheetContainer.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
         sheetContainer.clipsToBounds = true
 
@@ -42,25 +74,6 @@ final class LogoutConfirmationBottomSheetViewController: UIViewController {
         titleLabel.textColor = AppColor.PrimaryColors.Gray.color800 ?? .label
         titleLabel.textAlignment = .center
         titleLabel.numberOfLines = 0
-
-        let primary = AppColor.PrimaryColors.Primary.color500 ?? .systemBlue
-        cancelButton.setTitle(NSLocalizedString("cancel", comment: ""), for: .normal)
-        cancelButton.setTitleColor(.white, for: .normal)
-        cancelButton.titleLabel?.font = .systemFont(ofSize: 17, weight: .semibold)
-        cancelButton.backgroundColor = primary
-        cancelButton.layer.cornerRadius = 12
-        cancelButton.adjustsImageWhenHighlighted = false
-        cancelButton.addTarget(self, action: #selector(didTapCancel), for: .touchUpInside)
-
-        logoutButton.setTitle(NSLocalizedString("logout", comment: ""), for: .normal)
-        logoutButton.setTitleColor(primary, for: .normal)
-        logoutButton.titleLabel?.font = .systemFont(ofSize: 17, weight: .semibold)
-        logoutButton.backgroundColor = .white
-        logoutButton.layer.cornerRadius = 12
-        logoutButton.layer.borderWidth = 1
-        logoutButton.layer.borderColor = primary.cgColor
-        logoutButton.adjustsImageWhenHighlighted = false
-        logoutButton.addTarget(self, action: #selector(didTapLogout), for: .touchUpInside)
 
         buttonStack.axis = .vertical
         buttonStack.spacing = 12
@@ -100,21 +113,15 @@ final class LogoutConfirmationBottomSheetViewController: UIViewController {
 
         sheetContainer.transform = CGAffineTransform(translationX: 0, y: 400)
     }
+}
 
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        UIView.animate(
-            withDuration: 0.35,
-            delay: 0,
-            usingSpringWithDamping: 0.88,
-            initialSpringVelocity: 0.6,
-            options: [.curveEaseOut]
-        ) {
-            self.dimmingView.alpha = 1
-            self.sheetContainer.transform = .identity
-        }
+// MARK: Event
+extension LogoutConfirmationBottomSheetViewController {
+    private func setupEvents() {
+        cancelButton.addTarget(self, action: #selector(didTapCancel), for: .touchUpInside)
+        logoutButton.addTarget(self, action: #selector(didTapLogout), for: .touchUpInside)
     }
-
+    
     @objc private func didTapDimming() {
         dismissSheet { [weak self] in
             self?.onCancel?()
@@ -143,6 +150,7 @@ final class LogoutConfirmationBottomSheetViewController: UIViewController {
             self.sheetContainer.transform = CGAffineTransform(translationX: 0, y: 400)
         } completion: { _ in
             self.dismiss(animated: false) {
+                FeedbackGenerator.onFeedbackGenerator(.soft)
                 completion()
             }
         }

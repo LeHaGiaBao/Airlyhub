@@ -62,11 +62,7 @@ final class DatePicker: UIViewController {
     private lazy var confirmButton: UIButton = {
         let button = UIButton()
         button.setTitle(NSLocalizedString("apply", comment: ""), for: .normal)
-        button.setTitleColor(.white, for: .normal)
-        button.backgroundColor = AppColor.PrimaryColors.Primary.color500
-        button.layer.cornerRadius = 8
-        button.titleLabel?.font = .systemFont(ofSize: 17, weight: .semibold)
-        button.translatesAutoresizingMaskIntoConstraints = false
+        button.applyButtonStyle(.defaultButton(size: .big))
         button.addTarget(self, action: #selector(confirmTapped), for: .touchUpInside)
         return button
     }()
@@ -154,7 +150,6 @@ extension DatePicker {
             datePicker.trailingAnchor.constraint(equalTo: sheetView.trailingAnchor, constant: -16),
             datePicker.bottomAnchor.constraint(equalTo: confirmButton.topAnchor, constant: -16),
             
-            confirmButton.heightAnchor.constraint(equalToConstant: 50),
             confirmButton.leadingAnchor.constraint(equalTo: sheetView.leadingAnchor, constant: 20),
             confirmButton.trailingAnchor.constraint(equalTo: sheetView.trailingAnchor, constant: -20),
             confirmButton.bottomAnchor.constraint(
