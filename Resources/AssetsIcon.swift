@@ -33,6 +33,7 @@ struct AssetsIcon {
     static let smileyWink = UIImage(named: "smileyWink")
     static let minus = UIImage(named: "minus")
     static let plus = UIImage(named: "plus")
+    static let xcircle = UIImage(named: "xcircle")
     
     // Notifications
     static let notiFlight = UIImage(named: "notiFlight")
