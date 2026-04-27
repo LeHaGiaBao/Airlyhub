@@ -63,7 +63,9 @@
 		2B4752A35E1BC750CBA52506 /* GoogleUtilities_GoogleUtilities_Logger.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E46C555D975CE7508716E2E5 /* GoogleUtilities_GoogleUtilities_Logger.bundle */; };
 		2D71C35E1008A52C32784DB2 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 963378B43DF8631981F773DB /* SystemConfiguration.framework */; };
 		2E1DC365A188D24430B14DB6 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12FE18162849E6FEB258E5E1 /* SettingsView.swift */; };
-		2E7E12ED2F9F5B4100A703AF /* UIButton+Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7E12EC2F9F5B4100A703AF /* UIButton+Style.swift */; };
+		2E7E12FA2F9FAC8C00A703AF /* UIButton+StyleExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7E12F92F9FAC8C00A703AF /* UIButton+StyleExample.swift */; };
+		2E7E12FC2F9FAD4600A703AF /* UITextField+Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7E12FB2F9FAD4600A703AF /* UITextField+Style.swift */; };
+		2E7E13062F9FB07400A703AF /* UITextField+StyleExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7E13052F9FB07400A703AF /* UITextField+StyleExample.swift */; };
 		2EA99963F2D62DB2CB3ED8E9 /* FirebaseFunctionsCombineSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F0B21CF4166DAB3F220E5FD /* FirebaseFunctionsCombineSwift.framework */; };
 		2EC325A815E77F458FB46CC0 /* ProfilesInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DF82C2222FA27713D1D3E91 /* ProfilesInteractor.swift */; };
 		2EF650329678BD4C29BF0562 /* ExploreBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DAF42F8083C70DF18C76A1 /* ExploreBuilder.swift */; };
@@ -128,6 +130,7 @@
 		696D2BAACDCA5E20E9A86E18 /* SettingsBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 764A559552537BD0D5DFB24F /* SettingsBuilder.swift */; };
 		69D855D7D46B4A3DF8B8356A /* ProfilesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9059093A74180D138F27E92D /* ProfilesPresenter.swift */; };
 		6AAC098C3C7CE6A941BE39F7 /* RecaptchaInterop.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F6F416C3E824B01446CE1E6 /* RecaptchaInterop.framework */; };
+		6B1249B7C5DB3ACACB9B87B1 /* ButtonSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 050983355864E948992114D4 /* ButtonSize.swift */; };
 		6CC724EC7287E69FCB165DE7 /* NotificationsBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528376DC3A20BECECEBD67AB /* NotificationsBuilder.swift */; };
 		6DCDCA8C86C63C20DC6761D3 /* FirebaseFirestoreInternal.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00A9A6C1677DFC46C2B4E35B /* FirebaseFirestoreInternal.xcframework */; };
 		6EFEDAB0E724AFEE3B8F8487 /* FavoritesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF000B9AA9A65E83668C68E /* FavoritesPresenter.swift */; };
@@ -172,6 +175,7 @@
 		90BD8665693BA99CCC969EB8 /* NoInternetProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7BAFB7BDB3ECB63FB2C14B6 /* NoInternetProtocols.swift */; };
 		91B87B9EED9ACAC6AC932BEA /* FirebaseAI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD3BC6D57500636739532ABE /* FirebaseAI.framework */; };
 		9340591B1DE45EFEC1DA5798 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 446856DC77FF53ACDD327037 /* UIKit.framework */; };
+		93D61B7A89E8B29FAFDF4029 /* UIButton+Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF44BB409987F3CD3F1BC6D4 /* UIButton+Style.swift */; };
 		945E8260087848845F2AB317 /* AppCheckCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C63A45EDA22775DA3F63DCE /* AppCheckCore.framework */; };
 		94EBDE2D5C60D1361BA93F09 /* LogoutConfirmationBottomSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E835A36205E9C566EF0794 /* LogoutConfirmationBottomSheetViewController.swift */; };
 		968539275E4A45021BC8795F /* GoogleUtilities_GoogleUtilities_NSData.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 3FEB38E2C955146E4456AA57 /* GoogleUtilities_GoogleUtilities_NSData.bundle */; };
@@ -183,6 +187,7 @@
 		9B3ABD52DC808849CC89B2DD /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F397865F3886079490B18633 /* MobileCoreServices.framework */; };
 		9B434C98C4E31B982DE73625 /* FirebaseFirestoreCombineSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F0EDB5974CD34FFD1756A30 /* FirebaseFirestoreCombineSwift.framework */; };
 		9B5301782391B5D3437A449B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB1073A443B3C639679DC3F /* LoginViewController.swift */; };
+		9B616B1EC06543D8201D7CB8 /* ButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A59A7BF4C4BEE5078FEC772 /* ButtonStyle.swift */; };
 		9E17F2770F15F127BCA9C4F8 /* TopNavigatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C979B28BE8C4388708BAEA13 /* TopNavigatorView.swift */; };
 		9E412619DAFF5327B4A12F10 /* DatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C38687798AD0F5B92B54966 /* DatePicker.swift */; };
 		9EA88F4EB3C32B23664EDE59 /* FBLPromises.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3E2FB80ABC01AAF4BD42A6B /* FBLPromises.framework */; };
@@ -384,6 +389,7 @@
 /* Begin PBXFileReference section */
 		00A9A6C1677DFC46C2B4E35B /* FirebaseFirestoreInternal.xcframework */ = {isa = PBXFileReference; expectedSignature = "AppleDeveloperProgram:EQHXZ8M8AV:Google LLC"; lastKnownFileType = wrapper.xcframework; name = FirebaseFirestoreInternal.xcframework; path = "/Users/lehagiabao/Code/Airlyhub/Tuist/.build/artifacts/firebase-ios-sdk/FirebaseFirestoreInternal/FirebaseFirestoreInternal.xcframework"; sourceTree = "<absolute>"; };
 		02A8629E3ABA8C3672995AB3 /* RxCocoa.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RxCocoa.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		050983355864E948992114D4 /* ButtonSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonSize.swift; sourceTree = "<group>"; };
 		0514B18CF837E3AFAECCF84E /* MyTicketsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTicketsView.swift; sourceTree = "<group>"; };
 		056E2315103F5EA8A1B57D76 /* FirebaseAppDistribution.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FirebaseAppDistribution.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		06FD3788E8239E497F53BB02 /* AirlyhubTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "AirlyhubTests-Info.plist"; sourceTree = "<group>"; };
@@ -431,7 +437,9 @@
 		2C5F70315C3F8E5438EEF764 /* GoogleUtilities_GoogleUtilities_Environment.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GoogleUtilities_GoogleUtilities_Environment.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		2DF82C2222FA27713D1D3E91 /* ProfilesInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilesInteractor.swift; sourceTree = "<group>"; };
 		2E46FA7F435E3D99D1FB494A /* FirestoreCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreCollection.swift; sourceTree = "<group>"; };
-		2E7E12EC2F9F5B4100A703AF /* UIButton+Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Style.swift"; sourceTree = "<group>"; };
+		2E7E12F92F9FAC8C00A703AF /* UIButton+StyleExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+StyleExample.swift"; sourceTree = "<group>"; };
+		2E7E12FB2F9FAD4600A703AF /* UITextField+Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Style.swift"; sourceTree = "<group>"; };
+		2E7E13052F9FB07400A703AF /* UITextField+StyleExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+StyleExample.swift"; sourceTree = "<group>"; };
 		2EAB13BC1E146D85F55E5173 /* ShadowLevel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowLevel.swift; sourceTree = "<group>"; };
 		30BA6A500D6549C90E9F974D /* MyTicketsEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTicketsEntity.swift; sourceTree = "<group>"; };
 		3139802DB92F8B3925DAAD51 /* NoInternetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoInternetViewController.swift; sourceTree = "<group>"; };
@@ -447,6 +455,7 @@
 		39051E9614FB6F96D977E91B /* GoogleUtilities_GoogleUtilities_UserDefaults.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GoogleUtilities_GoogleUtilities_UserDefaults.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		39B2A2EFCFB2444699282AC2 /* TuistAssets+Airlyhub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TuistAssets+Airlyhub.swift"; sourceTree = "<group>"; };
 		3A0F997F79996918582E1815 /* FirebaseAppDistributionTarget.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FirebaseAppDistributionTarget.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3A59A7BF4C4BEE5078FEC772 /* ButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonStyle.swift; sourceTree = "<group>"; };
 		3AC6F3711A879AD46B482A90 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/usr/lib/libz.tbd; sourceTree = DEVELOPER_DIR; };
 		3C43451FB82F4C63FD71643D /* FirebasePerformance.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FirebasePerformance.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C63A45EDA22775DA3F63DCE /* AppCheckCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AppCheckCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -634,11 +643,13 @@
 		F787997CE72A42E0EDC40BCC /* FlightsDateRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightsDateRowView.swift; sourceTree = "<group>"; };
 		FB0ADD2C2C5F8B4ABC7C03FA /* Firebase_FirebaseCrashlytics.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Firebase_FirebaseCrashlytics.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD9EA16C2A5584E3D341899A /* grpc.xcframework */ = {isa = PBXFileReference; expectedSignature = "AppleDeveloperProgram:EQHXZ8M8AV:Google LLC"; lastKnownFileType = wrapper.xcframework; name = grpc.xcframework; path = "/Users/lehagiabao/Code/Airlyhub/Tuist/.build/artifacts/grpc-binary/grpc/grpc.xcframework"; sourceTree = "<absolute>"; };
+		FF44BB409987F3CD3F1BC6D4 /* UIButton+Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Style.swift"; sourceTree = "<group>"; };
 		FFF53717200E031AA0752C62 /* FlightsBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightsBuilder.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		2E7E12E52F9F57E900A703AF /* Button */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Button; sourceTree = "<group>"; };
+		2E7E12F22F9FA46700A703AF /* Input */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Input; sourceTree = "<group>"; };
+		2E7E13002F9FAE3400A703AF /* TextField */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = TextField; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -830,6 +841,15 @@
 				A731F420A6C012937F454CE7 /* WatchKit.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		0A1C2B109AB5761BAAA80936 /* Button */ = {
+			isa = PBXGroup;
+			children = (
+				050983355864E948992114D4 /* ButtonSize.swift */,
+				3A59A7BF4C4BEE5078FEC772 /* ButtonStyle.swift */,
+			);
+			path = Button;
 			sourceTree = "<group>";
 		};
 		0CFF01500F6C3415D21A4F03 /* Main */ = {
@@ -1301,10 +1321,11 @@
 		77606601D25CDEC434E09022 /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
+				FF44BB409987F3CD3F1BC6D4 /* UIButton+Style.swift */,
 				3659293B6DE604A4CB9AA4BD /* UILabel+Typography.swift */,
 				C7DAE5AB655E4E1709F5FDA3 /* UIView+FindController.swift */,
 				9CD837F14207D55E12310E52 /* UIView+Shadow.swift */,
-				2E7E12EC2F9F5B4100A703AF /* UIButton+Style.swift */,
+				2E7E12FB2F9FAD4600A703AF /* UITextField+Style.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -1403,6 +1424,7 @@
 		872500B810641ED8CA1B768A /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				2E7E13002F9FAE3400A703AF /* TextField */,
 				BC1F59E256A54AFDCF490EB2 /* DatePicker */,
 				D8A080D06CE53D8C0776C690 /* Navigation */,
 				3B7723E19567B2A50A05801F /* NoInternet */,
@@ -1598,6 +1620,8 @@
 				AD3DE6841B7D87AC25C2F2F2 /* ShadowContainerExample.swift */,
 				A9CE04F48387D277AF000BE2 /* UILabel+TypographyExample.swift */,
 				35A824B5B0B9C07D619DF0EF /* UIView+ShadowExample.swift */,
+				2E7E12F92F9FAC8C00A703AF /* UIButton+StyleExample.swift */,
+				2E7E13052F9FB07400A703AF /* UITextField+StyleExample.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -1630,7 +1654,8 @@
 		BE84BD762CC4373BCCB50A62 /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				2E7E12E52F9F57E900A703AF /* Button */,
+				2E7E12F22F9FA46700A703AF /* Input */,
+				0A1C2B109AB5761BAAA80936 /* Button */,
 				B1631AC04A9C8E5E7B4657CD /* Color */,
 				023912BDDEBBDD409509CD1C /* Typography */,
 			);
@@ -2060,7 +2085,8 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				2E7E12E52F9F57E900A703AF /* Button */,
+				2E7E12F22F9FA46700A703AF /* Input */,
+				2E7E13002F9FAE3400A703AF /* TextField */,
 			);
 			name = Airlyhub;
 			packageProductDependencies = (
@@ -2226,6 +2252,8 @@
 				8851EE0767D8AEE47316F5BF /* TuistFonts+Airlyhub.swift in Sources */,
 				03CC2204B19977484AB9F5E9 /* TuistPlists+Airlyhub.swift in Sources */,
 				7C0707E4AC973D47CBF69858 /* TuistStrings+Airlyhub.swift in Sources */,
+				6B1249B7C5DB3ACACB9B87B1 /* ButtonSize.swift in Sources */,
+				9B616B1EC06543D8201D7CB8 /* ButtonStyle.swift in Sources */,
 				97992A2AB54CF6A0727BAECF /* AppColor.swift in Sources */,
 				481D5B5B8CACB073AB355311 /* InterFontWeight.swift in Sources */,
 				8E9B40140F82EB9FC16E5CC7 /* TypographyStyle.swift in Sources */,
@@ -2233,6 +2261,7 @@
 				BA14187D447B315187E166F6 /* UILabel+TypographyExample.swift in Sources */,
 				0D343FECD1395F091C46D284 /* UIView+ShadowExample.swift in Sources */,
 				B99F3900A72CF6C06BEB7320 /* Text+Typography.swift in Sources */,
+				93D61B7A89E8B29FAFDF4029 /* UIButton+Style.swift in Sources */,
 				6F78570E3BCBB7362D3FCC31 /* UILabel+Typography.swift in Sources */,
 				B1FC2FEC42E35A55A0EF290F /* UIView+FindController.swift in Sources */,
 				40D4CE8426B74D0363EFD67B /* UIView+Shadow.swift in Sources */,
@@ -2256,6 +2285,7 @@
 				9B5301782391B5D3437A449B /* LoginViewController.swift in Sources */,
 				7D009FFA297F07110B05D802 /* RegisterBuilder.swift in Sources */,
 				0B0926C398913E39BAED92C6 /* RegisterEntity.swift in Sources */,
+				2E7E13062F9FB07400A703AF /* UITextField+StyleExample.swift in Sources */,
 				633420582134E02584D22911 /* RegisterInteractor.swift in Sources */,
 				AD1CBB3BBDF0936B3FBF7038 /* RegisterProtocols.swift in Sources */,
 				8AF43A0ABD784E0A3FA8F808 /* RegisterPresenter.swift in Sources */,
@@ -2268,6 +2298,7 @@
 				C29B3FD44B55692D5AAEE5CA /* CustomerServiceView.swift in Sources */,
 				82782CE93776261B175309F4 /* CustomerServiceViewModel.swift in Sources */,
 				E0A920DDFBCB4689F09CBA57 /* MyCardsBuilder.swift in Sources */,
+				2E7E12FA2F9FAC8C00A703AF /* UIButton+StyleExample.swift in Sources */,
 				4F67259FF90F6BBAF20837A6 /* MyCardsEntity.swift in Sources */,
 				B604871DDF17BF0B1A8F07B5 /* MyCardsInteractor.swift in Sources */,
 				CDFD75E027358E72BC2377A3 /* MyCardsPresenter.swift in Sources */,
@@ -2276,6 +2307,7 @@
 				1F07455F043861C9486A36D5 /* MyTicketsBuilder.swift in Sources */,
 				EF8AA9A88D7A52DED3AABBA9 /* MyTicketsEntity.swift in Sources */,
 				FFF544C3D759BF803373FFB0 /* MyTicketsInteractor.swift in Sources */,
+				2E7E12FC2F9FAD4600A703AF /* UITextField+Style.swift in Sources */,
 				669D90DC4F1588918370EB43 /* MyTicketsPresenter.swift in Sources */,
 				AFB5D7B8C8FBACD7187E31A0 /* MyTicketsView.swift in Sources */,
 				2A7D2D8B882D15A0DD3404F1 /* MyTicketsViewModel.swift in Sources */,
@@ -2288,7 +2320,6 @@
 				696D2BAACDCA5E20E9A86E18 /* SettingsBuilder.swift in Sources */,
 				D5C5E0033EB9BCACB284D3F0 /* SettingsEntity.swift in Sources */,
 				991A0AE694ED6F83FE31165D /* SettingsInteractor.swift in Sources */,
-				2E7E12ED2F9F5B4100A703AF /* UIButton+Style.swift in Sources */,
 				BD8EFCFE60549E588BB1EE20 /* SettingsPresenter.swift in Sources */,
 				2E1DC365A188D24430B14DB6 /* SettingsView.swift in Sources */,
 				A7DF02A013E90E172FBF236A /* SettingsViewModel.swift in Sources */,
