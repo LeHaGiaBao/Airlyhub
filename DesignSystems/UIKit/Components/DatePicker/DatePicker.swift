@@ -37,7 +37,7 @@ final class DatePicker: UIViewController {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.layer.cornerRadius = 2.5
-        view.backgroundColor = AppColor.PrimaryColors.Primary.color500
+        view.backgroundColor = AppColor.PrimaryColors.Gray.color200
         return view
     }()
     
@@ -46,14 +46,25 @@ final class DatePicker: UIViewController {
         label.text = NSLocalizedString("select_date", comment: "")
         label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.applyTypography(.textMd(weight: .medium))
+        label.applyTypography(.textLg(weight: .semibold))
         return label
+    }()
+    
+    private lazy var cancelButton: UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setImage(AssetsIcon.xcircle, for: .normal)
+        button.contentMode = .scaleAspectFit
+        button.addTarget(self, action: #selector(dismissSheet), for: .touchUpInside)
+        return button
     }()
     
     private lazy var confirmButton: UIButton = {
         let button = UIButton()
-        button.setTitle(NSLocalizedString("done", comment: ""), for: .normal)
-        button.setTitleColor(AppColor.PrimaryColors.Primary.color500, for: .normal)
+        button.setTitle(NSLocalizedString("apply", comment: ""), for: .normal)
+        button.setTitleColor(.white, for: .normal)
+        button.backgroundColor = AppColor.PrimaryColors.Primary.color500
+        button.layer.cornerRadius = 8
         button.titleLabel?.font = .systemFont(ofSize: 17, weight: .semibold)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.addTarget(self, action: #selector(confirmTapped), for: .touchUpInside)
@@ -112,6 +123,7 @@ extension DatePicker {
         
         sheetView.addSubview(handleBar)
         sheetView.addSubview(titleLabel)
+        sheetView.addSubview(cancelButton)
         sheetView.addSubview(confirmButton)
         sheetView.addSubview(datePicker)
         
@@ -133,15 +145,19 @@ extension DatePicker {
             handleBar.heightAnchor.constraint(equalToConstant: 5),
             
             titleLabel.topAnchor.constraint(equalTo: handleBar.bottomAnchor, constant: 12),
-            titleLabel.leadingAnchor.constraint(equalTo: sheetView.leadingAnchor, constant: 60),
-            titleLabel.trailingAnchor.constraint(equalTo: sheetView.trailingAnchor, constant: -60),
-
-            confirmButton.centerYAnchor.constraint(equalTo: titleLabel.centerYAnchor),
-            confirmButton.trailingAnchor.constraint(equalTo: sheetView.trailingAnchor, constant: -20),
+            titleLabel.leadingAnchor.constraint(equalTo: sheetView.leadingAnchor, constant: 20),
+            cancelButton.topAnchor.constraint(equalTo: handleBar.bottomAnchor, constant: 12),
+            cancelButton.trailingAnchor.constraint(equalTo: sheetView.trailingAnchor, constant: -20),
+            
             datePicker.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 8),
-            datePicker.leadingAnchor.constraint(equalTo: sheetView.leadingAnchor),
-            datePicker.trailingAnchor.constraint(equalTo: sheetView.trailingAnchor),
-            datePicker.bottomAnchor.constraint(
+            datePicker.leadingAnchor.constraint(equalTo: sheetView.leadingAnchor, constant: 16),
+            datePicker.trailingAnchor.constraint(equalTo: sheetView.trailingAnchor, constant: -16),
+            datePicker.bottomAnchor.constraint(equalTo: confirmButton.topAnchor, constant: -16),
+            
+            confirmButton.heightAnchor.constraint(equalToConstant: 50),
+            confirmButton.leadingAnchor.constraint(equalTo: sheetView.leadingAnchor, constant: 20),
+            confirmButton.trailingAnchor.constraint(equalTo: sheetView.trailingAnchor, constant: -20),
+            confirmButton.bottomAnchor.constraint(
                 equalTo: sheetView.safeAreaLayoutGuide.bottomAnchor, constant: -8),
         ])
     }
