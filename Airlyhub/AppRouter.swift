@@ -12,8 +12,13 @@ enum AppRouter {
         window.rootViewController = createRootModule(nav: UINavigationController())
     }
 
-    static func setRootToAuth(in window: UIWindow) {
-        let register = LoginBuilder.createModule()
+    static func setRootToLogin(in window: UIWindow) {
+        let login = LoginBuilder.createModule()
+        window.rootViewController = UINavigationController(rootViewController: login)
+    }
+    
+    static func setRootToRegister(in window: UIWindow) {
+        let register = RegisterBuilder.createModule()
         window.rootViewController = UINavigationController(rootViewController: register)
     }
 
