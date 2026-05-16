@@ -1,4 +1,27 @@
+import Foundation
 import ProjectDescription
+
+/// Single source of truth for the marketing version. Edit the `VERSION` file
+/// (semantic, e.g. "0.1.0"); `tuist generate` propagates it to the build.
+let appVersion: String = {
+    let path = URL(fileURLWithPath: #filePath)
+        .deletingLastPathComponent()
+        .appendingPathComponent("VERSION")
+        .path
+    let raw = (try? String(contentsOfFile: path, encoding: .utf8)) ?? "0.1.0"
+    return raw.trimmingCharacters(in: .whitespacesAndNewlines)
+}()
+
+/// Build number — bumped by hand. Edit the `BUILD` file (e.g. "1234");
+/// `tuist generate` propagates it to CURRENT_PROJECT_VERSION → CFBundleVersion.
+let buildNumber: String = {
+    let path = URL(fileURLWithPath: #filePath)
+        .deletingLastPathComponent()
+        .appendingPathComponent("BUILD")
+        .path
+    let raw = (try? String(contentsOfFile: path, encoding: .utf8)) ?? "1"
+    return raw.trimmingCharacters(in: .whitespacesAndNewlines)
+}()
 
 let project = Project(
     name: "Airlyhub",
@@ -10,8 +33,8 @@ let project = Project(
     settings: .settings(
         base: [
             "DEVELOPMENT_TEAM": "43P5X3R33K",
-            "MARKETING_VERSION": "1.0",
-            "CURRENT_PROJECT_VERSION": "1",
+            "MARKETING_VERSION": "\(appVersion)",
+            "CURRENT_PROJECT_VERSION": "\(buildNumber)",
             "SWIFT_VERSION": "5.0",
             "OTHER_LDFLAGS": ["$(inherited)", "-ObjC"],
             "PRODUCT_BUNDLE_IDENTIFIER": "$(APP_BUNDLE_ID)",
@@ -80,8 +103,8 @@ let project = Project(
             settings: .settings(
                 base: [
                     "DEVELOPMENT_TEAM": "43P5X3R33K",
-                    "MARKETING_VERSION": "1.0",
-                    "CURRENT_PROJECT_VERSION": "1",
+                    "MARKETING_VERSION": "\(appVersion)",
+                    "CURRENT_PROJECT_VERSION": "\(buildNumber)",
                     "SWIFT_VERSION": "5.0",
                     "OTHER_LDFLAGS": ["$(inherited)", "-ObjC"],
                     "PRODUCT_BUNDLE_IDENTIFIER": "$(APP_BUNDLE_ID)",
@@ -162,6 +185,8 @@ let project = Project(
     additionalFiles: [
         "Project.swift",
         "README.md",
+        "VERSION",
+        "BUILD",
         ".gitignore",
         ".mise.toml",
         .glob(pattern: "Tuist/**"),
