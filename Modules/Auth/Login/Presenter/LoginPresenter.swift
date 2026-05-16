@@ -49,4 +49,38 @@ final class LoginPresenter: LoginPresenterProtocol {
             )
             .disposed(by: disposeBag)
     }
+    
+    func isValidEmail(_ email: String) -> (Bool, String?) {
+        let result = Validation.validEmail(email)
+        if !result.isValid {
+            return (false, result.errorMessage)
+        }
+        return (true, nil)
+    }
+    
+    func isValidPassword(_ password: String) -> (Bool, String?) {
+        let result = Validation.validPassword(password)
+        if !result.isValid {
+            return (false, result.errorMessage)
+        }
+        return (true, nil)
+    }
+    
+    func validateEmail(email: String) {
+        let (result, errorMessage) = isValidEmail(email)
+        if !result {
+            view?.showEmailError(errorMessage ?? "")
+        }
+    }
+    
+    func validatePassword(password: String) {
+        let (result, errorMessage) = isValidPassword(password)
+        if !result {
+            view?.showEmailError(errorMessage ?? "")
+        }
+    }
+    
+    func goToRegister() {
+        router.navigateToRegister()
+    }
 }

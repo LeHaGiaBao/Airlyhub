@@ -41,6 +41,7 @@ final class TextField: UIView {
         imgView.translatesAutoresizingMaskIntoConstraints = false
         imgView.widthAnchor.constraint(equalToConstant: 18).isActive = true
         imgView.heightAnchor.constraint(equalToConstant: 18).isActive = true
+        imgView.isUserInteractionEnabled = true
         return imgView
     }()
  
@@ -50,6 +51,7 @@ final class TextField: UIView {
         imgView.translatesAutoresizingMaskIntoConstraints = false
         imgView.widthAnchor.constraint(equalToConstant: 18).isActive = true
         imgView.heightAnchor.constraint(equalToConstant: 18).isActive = true
+        imgView.isUserInteractionEnabled = true
         return imgView
     }()
  
@@ -72,6 +74,12 @@ final class TextField: UIView {
     var placeholder: String? {
         didSet { updatePlaceholder() }
     }
+ 
+    /// Callback when leading icon is tapped
+    var onLeadingIconTapped: (() -> Void)?
+    
+    /// Callback when trailing icon is tapped
+    var onTrailingIconTapped: (() -> Void)?
  
     private var currentState: InputState = .defaultInput
  
@@ -119,8 +127,8 @@ final class TextField: UIView {
  
         NSLayoutConstraint.activate([
             containerView.heightAnchor.constraint(equalToConstant: InputTokens.height),
-            innerStack.topAnchor.constraint(equalTo: containerView.topAnchor),
-            innerStack.bottomAnchor.constraint(equalTo: containerView.bottomAnchor),
+            innerStack.topAnchor.constraint(equalTo: containerView.topAnchor, constant: InputTokens.horizontalPadding),
+            innerStack.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -InputTokens.horizontalPadding),
             innerStack.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: InputTokens.horizontalPadding),
             innerStack.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -InputTokens.horizontalPadding)
         ])
@@ -133,6 +141,12 @@ final class TextField: UIView {
     private func setupDelegates() {
         textField.addTarget(self, action: #selector(textFieldDidBeginEditing), for: .editingDidBegin)
         textField.addTarget(self, action: #selector(textFieldDidEndEditing), for: .editingDidEnd)
+        
+        let leadingTap = UITapGestureRecognizer(target: self, action: #selector(leadingIconTapped))
+        leadingIconView.addGestureRecognizer(leadingTap)
+        
+        let trailingTap = UITapGestureRecognizer(target: self, action: #selector(trailingIconTapped))
+        trailingIconView.addGestureRecognizer(trailingTap)
     }
  
     // MARK: State
@@ -194,5 +208,16 @@ final class TextField: UIView {
         guard case .focused = currentState else { return }
         let isEmpty = textField.text?.isEmpty ?? true
         applyState(isEmpty ? .defaultInput : .filled)
+    }
+    
+    // MARK: Icon tap handlers
+    @objc private func leadingIconTapped() {
+        FeedbackGenerator.onFeedbackGenerator(.light)
+        onLeadingIconTapped?()
+    }
+    
+    @objc private func trailingIconTapped() {
+        FeedbackGenerator.onFeedbackGenerator(.light)
+        onTrailingIconTapped?()
     }
 }

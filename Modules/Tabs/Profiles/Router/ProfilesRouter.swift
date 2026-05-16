@@ -75,7 +75,7 @@ final class ProfilesRouter: ProfilesRouterProtocol {
 
     func navigateToAuth() {
         guard let window = nav.view.window else { return }
-        AppRouter.setRootToAuth(in: window)
+        AppRouter.setRootToLogin(in: window)
     }
 
     func showLogoutError(_ message: String) {

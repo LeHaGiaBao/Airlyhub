@@ -14,4 +14,9 @@ final class LoginRouter: LoginRouterProtocol {
         guard let window = viewController?.view.window else { return }
         AppRouter.setRootToMainTab(in: window)
     }
+    
+    func navigateToRegister() {
+        guard let window = viewController?.view.window else { return }
+        AppRouter.setRootToRegister(in: window)
+    }
 }
