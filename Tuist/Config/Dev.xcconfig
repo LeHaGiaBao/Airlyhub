@@ -1,0 +1,4 @@
+// Dev.xcconfig
+APP_ENV = DEV
+APP_BUNDLE_ID = airly.Airlyhub.dev
+APP_NAME = Airlyhub Dev

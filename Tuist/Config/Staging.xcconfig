@@ -1,0 +1,4 @@
+// Staging.xcconfig
+APP_ENV = STG
+APP_BUNDLE_ID = airly.Airlyhub.stg
+APP_NAME = Airlyhub Stg

@@ -27,14 +27,46 @@ tuist generate
 open Airlyhub.xcworkspace
 ```
 
-Before running, add your Firebase iOS config file at `Airlyhub/GoogleService-Info.plist`.
-This file is intentionally ignored by git.
+Before running, add the Firebase config for each environment (see [Environments](#environments)).
+
+## Environments
+
+The app ships in three environments, each with its own scheme, bundle ID, app icon, and Firebase project.
+
+| Environment | Scheme             | Configuration | Bundle ID            | App icon     |
+| ----------- | ------------------ | ------------- | -------------------- | ------------ |
+| Dev         | `Airlyhub-Dev`     | `Dev`         | `airly.Airlyhub.dev` | `AppIconDev` |
+| Staging     | `Airlyhub-Staging` | `Staging`     | `airly.Airlyhub.stg` | `AppIconStg` |
+| Production  | `Airlyhub`         | `Prod`        | `airly.Airlyhub`     | `AppIcon`    |
+
+The three bundle IDs differ, so all environments can be installed side by side on one device. Select the matching scheme in Xcode to build/run a given environment.
+
+Per-environment values live in `Tuist/Config/{Dev,Staging,Prod}.xcconfig` and are surfaced at runtime via `AppConfig` (reads `APP_ENV` from the bundle's Info.plist).
+
+### Firebase config (required)
+
+Each environment needs its own `GoogleService-Info.plist` (the bundle IDs differ, so one file cannot be shared). These files are **git-ignored** — obtain them from the Firebase console and place them at:
+
+```
+Airlyhub/Firebase/Dev/GoogleService-Info.plist
+Airlyhub/Firebase/Staging/GoogleService-Info.plist
+Airlyhub/Firebase/Prod/GoogleService-Info.plist
+```
+
+See `Airlyhub/Firebase/GoogleService-Info.plist.example` for the expected format. A build-phase script copies the correct file into the app bundle based on the active configuration, so the build will fail with `error: Missing .../GoogleService-Info.plist` if any are absent.
 
 ## Development
 
-After modifying `Project.swift` or `Tuist/Package.swift`, regenerate the project:
+After modifying `Project.swift`, regenerate the project:
 
 ```bash
+tuist generate
+```
+
+If you changed dependencies in `Tuist/Package.swift`, resolve them first, then regenerate:
+
+```bash
+tuist install
 tuist generate
 ```
 

@@ -1,4 +1,6 @@
-Airlyhub/GoogleService-Info.plist
+# Firebase config (per-environment, kept out of the repo)
+Airlyhub/Firebase/**/GoogleService-Info.plist
+!Airlyhub/Firebase/**/GoogleService-Info.plist.example
 
 # Tuist generated files
 *.xcodeproj
@@ -11,3 +13,16 @@ Tuist/.build
 
 # Derived files
 Derived/
+
+# Xcode
+xcuserdata/
+*.xcuserstate
+*.xcscmblueprint
+DerivedData/
+*.moved-aside
+
+# Swift Package Manager
+.swiftpm/
+
+# macOS
+.DS_Store
