@@ -10,7 +10,14 @@ let packageSettings = PackageSettings(
         "RxCocoa": .framework,
         "RxRelay": .framework,
         "SnapKit": .framework,
-    ]
+    ],
+    baseSettings: .settings(
+        configurations: [
+            .debug(name: "Dev"),
+            .debug(name: "Staging"),
+            .release(name: "Prod"),
+        ]
+    )
 )
 #endif
 

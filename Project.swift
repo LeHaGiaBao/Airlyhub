@@ -7,6 +7,21 @@ let project = Project(
         defaultKnownRegions: ["en", "vi"],
         developmentRegion: "en"
     ),
+    settings: .settings(
+        base: [
+            "DEVELOPMENT_TEAM": "43P5X3R33K",
+            "MARKETING_VERSION": "1.0",
+            "CURRENT_PROJECT_VERSION": "1",
+            "SWIFT_VERSION": "5.0",
+            "OTHER_LDFLAGS": ["$(inherited)", "-ObjC"],
+            "PRODUCT_BUNDLE_IDENTIFIER": "$(APP_BUNDLE_ID)",
+        ],
+        configurations: [
+            .debug(name: "Dev", xcconfig: "Tuist/Config/Dev.xcconfig"),
+            .debug(name: "Staging", xcconfig: "Tuist/Config/Staging.xcconfig"),
+            .release(name: "Prod", xcconfig: "Tuist/Config/Prod.xcconfig"),
+        ]
+    ),
     targets: [
         .target(
             name: "Airlyhub",
@@ -28,7 +43,13 @@ let project = Project(
             resources: [
                 .glob(pattern: "Resources/**", excluding: ["Resources/**/*.swift"]),
                 .glob(pattern: "Localization/**"),
-                "Airlyhub/GoogleService-Info.plist",
+            ],
+            scripts: [
+                .post(
+                    path: "Tuist/Scripts/copy-google-service-info.sh",
+                    name: "Copy GoogleService-Info.plist",
+                    basedOnDependencyAnalysis: false
+                ),
             ],
             dependencies: [
                 .external(name: "RxSwift"),
@@ -63,8 +84,32 @@ let project = Project(
                     "CURRENT_PROJECT_VERSION": "1",
                     "SWIFT_VERSION": "5.0",
                     "OTHER_LDFLAGS": ["$(inherited)", "-ObjC"],
+                    "PRODUCT_BUNDLE_IDENTIFIER": "$(APP_BUNDLE_ID)",
+                ],
+                configurations: [
+                    .debug(name: "Dev", settings: [
+                        "ASSETCATALOG_COMPILER_APPICON_NAME": "AppIconDev",
+                        "APP_BUNDLE_ID": "airly.Airlyhub.dev",
+                        "APP_NAME": "Airlyhub Dev",
+                        "APP_ENV": "DEV",
+                    ]),
+                    .debug(name: "Staging", settings: [
+                        "ASSETCATALOG_COMPILER_APPICON_NAME": "AppIconStg",
+                        "APP_BUNDLE_ID": "airly.Airlyhub.stg",
+                        "APP_NAME": "Airlyhub Stg",
+                        "APP_ENV": "STG",
+                    ]),
+                    .release(name: "Prod", settings: [
+                        "ASSETCATALOG_COMPILER_APPICON_NAME": "AppIcon",
+                        "APP_BUNDLE_ID": "airly.Airlyhub",
+                        "APP_NAME": "Airlyhub",
+                        "APP_ENV": "PROD",
+                    ]),
                 ]
-            )
+            ),
+            additionalFiles: [
+                .folderReference(path: "Airlyhub/Firebase"),
+            ]
         ),
         .target(
             name: "AirlyhubTests",
@@ -90,5 +135,35 @@ let project = Project(
                 .target(name: "Airlyhub"),
             ]
         ),
+    ],
+    schemes: [
+        .scheme(
+            name: "Airlyhub-Dev",
+            shared: true,
+            buildAction: .buildAction(targets: ["Airlyhub"]),
+            runAction: .runAction(configuration: "Dev"),
+            archiveAction: .archiveAction(configuration: "Dev")
+        ),
+        .scheme(
+            name: "Airlyhub-Staging",
+            shared: true,
+            buildAction: .buildAction(targets: ["Airlyhub"]),
+            runAction: .runAction(configuration: "Staging"),
+            archiveAction: .archiveAction(configuration: "Staging")
+        ),
+        .scheme(
+            name: "Airlyhub",
+            shared: true,
+            buildAction: .buildAction(targets: ["Airlyhub"]),
+            runAction: .runAction(configuration: "Prod"),
+            archiveAction: .archiveAction(configuration: "Prod")
+        ),
+    ],
+    additionalFiles: [
+        "Project.swift",
+        "README.md",
+        ".gitignore",
+        ".mise.toml",
+        .glob(pattern: "Tuist/**"),
     ]
 )
