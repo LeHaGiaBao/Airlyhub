@@ -32,9 +32,16 @@
 "email_placeholder" = "Nhập email của bạn";
 "passsword" = "Mật khẩu";
 "passsword_placeholder" = "Nhập mật khẩu của bạn";
+"name" = "Họ và tên";
+"name_placeholder" = "Nhập họ và tên của bạn";
+"confirm_password" = "Xác nhận mật khẩu";
+"confirm_password_placeholder" = "Xác nhận mật khẩu của bạn";
 "login" = "Đăng nhập";
 "do_not_have_account" = "Bạn chưa có tài khoản?";
 "register" = "Đăng ký";
+"create_a_new_account" = "Tạo tài khoản mới";
+"let_started" = "Bắt đầu";
+"already_have_account" =  "Bạn đã có tài khoản chưa?";
 "validation_required_default" = "Vui lòng nhập thông tin";
 "validation_required_fullname" = "Vui lòng nhập họ tên";
 "validation_required_phone" = "Vui lòng nhập số điện thoại";

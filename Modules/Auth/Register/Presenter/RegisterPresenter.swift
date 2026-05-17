@@ -29,11 +29,11 @@ final class RegisterPresenter: RegisterPresenterProtocol {
     func registerTapped(name: String, email: String, password: String, confirmPassword: String) {
         let trimmedEmail = email.trimmingCharacters(in: .whitespacesAndNewlines)
         guard !trimmedEmail.isEmpty, !password.isEmpty else {
-            view?.showError("Please enter email and password.")
+            view?.showError(NSLocalizedString("validation_email_and_password", comment: ""))
             return
         }
         guard password == confirmPassword else {
-            view?.showError("Passwords do not match.")
+            view?.showError(NSLocalizedString("validation_invalid_password_not_matching", comment: ""))
             return
         }
 
@@ -52,5 +52,33 @@ final class RegisterPresenter: RegisterPresenterProtocol {
                 }
             )
             .disposed(by: disposeBag)
+    }
+    
+    func isValidFullname(_ name: String) -> (Bool, String?) {
+        let result = Validation.validFullName(name)
+        if !result.isValid {
+            return (false, result.errorMessage)
+        }
+        return (true, nil)
+    }
+    
+    func isValidEmail(_ email: String) -> (Bool, String?) {
+        let result = Validation.validEmail(email)
+        if !result.isValid {
+            return (false, result.errorMessage)
+        }
+        return (true, nil)
+    }
+    
+    func isValidPassword(_ password: String) -> (Bool, String?) {
+        let result = Validation.validPassword(password)
+        if !result.isValid {
+            return (false, result.errorMessage)
+        }
+        return (true, nil)
+    }
+    
+    func goToLogin() {
+        router.navigateToLogin()
     }
 }

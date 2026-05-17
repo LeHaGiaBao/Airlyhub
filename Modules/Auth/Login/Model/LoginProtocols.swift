@@ -12,8 +12,6 @@ protocol LoginViewProtocol: AnyObject {
     func showLoading()
     func hideLoading()
     func showError(_ message: String)
-    func showEmailError(_ message: String)
-    func showPasswordError(_ message: String)
 }
 
 protocol LoginPresenterProtocol {
@@ -21,8 +19,6 @@ protocol LoginPresenterProtocol {
     func loginTapped(email: String, password: String)
     func isValidEmail(_ email: String) -> (Bool, String?)
     func isValidPassword(_ password: String) -> (Bool, String?)
-    func validateEmail(email: String)
-    func validatePassword(password: String)
     func goToRegister()
 }
 

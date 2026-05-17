@@ -29,7 +29,7 @@ final class LoginPresenter: LoginPresenterProtocol {
     func loginTapped(email: String, password: String) {
         let trimmed = email.trimmingCharacters(in: .whitespacesAndNewlines)
         guard !trimmed.isEmpty, !password.isEmpty else {
-            view?.showError("Please enter email and password.")
+            view?.showError(NSLocalizedString("validation_email_and_password", comment: ""))
             return
         }
 
@@ -64,20 +64,6 @@ final class LoginPresenter: LoginPresenterProtocol {
             return (false, result.errorMessage)
         }
         return (true, nil)
-    }
-    
-    func validateEmail(email: String) {
-        let (result, errorMessage) = isValidEmail(email)
-        if !result {
-            view?.showEmailError(errorMessage ?? "")
-        }
-    }
-    
-    func validatePassword(password: String) {
-        let (result, errorMessage) = isValidPassword(password)
-        if !result {
-            view?.showEmailError(errorMessage ?? "")
-        }
     }
     
     func goToRegister() {
