@@ -32,9 +32,16 @@
 "email_placeholder" = "Enter your email";
 "passsword" = "Password";
 "passsword_placeholder" = "Enter your password";
+"name" = "Full name";
+"name_placeholder" = "Enter your full name";
+"confirm_password" = "Confirm password";
+"confirm_password_placeholder" = "Confirm your password";
 "login" = "Login";
 "do_not_have_account" = "Don't have an account?";
 "register" = "Register";
+"create_a_new_account" = "Create a new account";
+"let_started" = "Let's get started";
+"already_have_account" =  "Already have an account?";
 "validation_required_default" = "This field is required";
 "validation_required_fullname" = "Please enter your full name";
 "validation_required_phone" = "Please enter your phone number";
@@ -56,3 +63,4 @@
 "validation_invalid_dob_format" = "Date of birth must be in DD/MM/YYYY format";
 "validation_invalid_dob_parse" = "Date of birth is not a valid date";
 "validation_invalid_dob_range" = "Date of birth must be between %@ and %@";
+"validation_email_and_password" = "Please enter email and password";

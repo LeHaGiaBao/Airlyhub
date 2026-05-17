@@ -362,12 +362,4 @@ extension LoginViewController: LoginViewProtocol {
         alert.addAction(UIAlertAction(title: "OK", style: .default))
         present(alert, animated: true)
     }
-    
-    func showEmailError(_ message: String) {
-        emailTextField.applyState(.error(message: message))
-    }
-    
-    func showPasswordError(_ message: String) {
-        passwordTextField.applyState(.error(message: message))
-    }
 }

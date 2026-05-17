@@ -17,6 +17,10 @@ protocol RegisterViewProtocol: AnyObject {
 protocol RegisterPresenterProtocol {
     func viewDidLoad()
     func registerTapped(name: String, email: String, password: String, confirmPassword: String)
+    func isValidFullname(_ name: String) -> (Bool, String?)
+    func isValidEmail(_ email: String) -> (Bool, String?)
+    func isValidPassword(_ password: String) -> (Bool, String?)
+    func goToLogin()
 }
 
 protocol RegisterInteractorProtocol {
@@ -25,4 +29,5 @@ protocol RegisterInteractorProtocol {
 
 protocol RegisterRouterProtocol {
     func navigateToHome()
+    func navigateToLogin()
 }
