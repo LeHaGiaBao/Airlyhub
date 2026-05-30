@@ -66,6 +66,8 @@
 		2B4752A35E1BC750CBA52506 /* GoogleUtilities_GoogleUtilities_Logger.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E46C555D975CE7508716E2E5 /* GoogleUtilities_GoogleUtilities_Logger.bundle */; };
 		2D71C35E1008A52C32784DB2 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 963378B43DF8631981F773DB /* SystemConfiguration.framework */; };
 		2E1DC365A188D24430B14DB6 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12FE18162849E6FEB258E5E1 /* SettingsView.swift */; };
+		2E9D22AD2FCAD53100CC7AD1 /* FlightsLocationRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9D22AC2FCAD53100CC7AD1 /* FlightsLocationRowView.swift */; };
+		2E9D22AF2FCAD6F400CC7AD1 /* FlightsLocationRowItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9D22AE2FCAD6F400CC7AD1 /* FlightsLocationRowItemView.swift */; };
 		2EA99963F2D62DB2CB3ED8E9 /* FirebaseFunctionsCombineSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F0B21CF4166DAB3F220E5FD /* FirebaseFunctionsCombineSwift.framework */; };
 		2EC325A815E77F458FB46CC0 /* ProfilesInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DF82C2222FA27713D1D3E91 /* ProfilesInteractor.swift */; };
 		2EF650329678BD4C29BF0562 /* ExploreBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DAF42F8083C70DF18C76A1 /* ExploreBuilder.swift */; };
@@ -449,6 +451,8 @@
 		2C5F70315C3F8E5438EEF764 /* GoogleUtilities_GoogleUtilities_Environment.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GoogleUtilities_GoogleUtilities_Environment.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		2DF82C2222FA27713D1D3E91 /* ProfilesInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilesInteractor.swift; sourceTree = "<group>"; };
 		2E46FA7F435E3D99D1FB494A /* FirestoreCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreCollection.swift; sourceTree = "<group>"; };
+		2E9D22AC2FCAD53100CC7AD1 /* FlightsLocationRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightsLocationRowView.swift; sourceTree = "<group>"; };
+		2E9D22AE2FCAD6F400CC7AD1 /* FlightsLocationRowItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightsLocationRowItemView.swift; sourceTree = "<group>"; };
 		2EAB13BC1E146D85F55E5173 /* ShadowLevel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowLevel.swift; sourceTree = "<group>"; };
 		30BA6A500D6549C90E9F974D /* MyTicketsEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTicketsEntity.swift; sourceTree = "<group>"; };
 		3139802DB92F8B3925DAAD51 /* NoInternetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoInternetViewController.swift; sourceTree = "<group>"; };
@@ -1529,6 +1533,8 @@
 			children = (
 				F787997CE72A42E0EDC40BCC /* FlightsDateRowView.swift */,
 				BED289E60AFCC990E67B5F46 /* FlightsPassengersRowView.swift */,
+				2E9D22AC2FCAD53100CC7AD1 /* FlightsLocationRowView.swift */,
+				2E9D22AE2FCAD6F400CC7AD1 /* FlightsLocationRowItemView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -2343,6 +2349,7 @@
 				F40EF4C6127A654917CD4F03 /* NetworkStatus.swift in Sources */,
 				DB03F8EEE8EE7BFC04CD71B6 /* AuthService.swift in Sources */,
 				BAD9ACEDDF59E2D71B200478 /* FirestoreCollection.swift in Sources */,
+				2E9D22AF2FCAD6F400CC7AD1 /* FlightsLocationRowItemView.swift in Sources */,
 				51C9F8648DE8949371829EB6 /* UserService.swift in Sources */,
 				C4B2E2C055C7576A92B09A3F /* TuistAssets+Airlyhub.swift in Sources */,
 				262AB1BA79094C49F31392BD /* TuistBundle+Airlyhub.swift in Sources */,
@@ -2371,6 +2378,7 @@
 				F7BCE9DD18EAE3CE16AA28C9 /* NotificationCardView.swift in Sources */,
 				021A0536606F5EAF999A5986 /* BaseViewController.swift in Sources */,
 				9E412619DAFF5327B4A12F10 /* DatePicker.swift in Sources */,
+				2E9D22AD2FCAD53100CC7AD1 /* FlightsLocationRowView.swift in Sources */,
 				9E17F2770F15F127BCA9C4F8 /* TopNavigatorView.swift in Sources */,
 				90BD8665693BA99CCC969EB8 /* NoInternetProtocols.swift in Sources */,
 				8B04A87610905D69BF62D4D2 /* NoInternetViewController.swift in Sources */,

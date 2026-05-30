@@ -1,0 +1,119 @@
+//
+//  FlightsLocationRowView.swift
+//  Airlyhub
+//
+//  Created by Le Ha Gia Bao on 30/05/2026.
+//  Copyright © 2026 airly. All rights reserved.
+//
+
+import Foundation
+import UIKit
+import RxSwift
+
+final class FlightsLocationRowView: UIView {
+    private let bag = DisposeBag()
+    
+    private let fromRowView = FlightsLocationRowItemView(placeholder: NSLocalizedString("from_where", comment: ""))
+    private let toRowView = FlightsLocationRowItemView(placeholder: NSLocalizedString("where_to", comment: ""))
+    
+    private let locationCardView: UIView = {
+        let view = UIView()
+        view.backgroundColor = AppColor.PrimaryColors.Gray.color25
+        view.layer.cornerRadius = 8
+        view.clipsToBounds = true
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
+    private let divider: UIView = {
+        let view = UIView()
+        view.backgroundColor = AppColor.PrimaryColors.Gray.color100
+        return view
+    }()
+    
+    private let swapButton: UIButton = {
+        let button = UIButton(type: .system)
+        let config = UIImage.SymbolConfiguration(pointSize: 16, weight: .medium)
+        button.setImage(AssetsIcon.doubleArrow, for: .normal)
+        button.tintColor = .black
+        button.backgroundColor = .white
+        button.layer.cornerRadius = 8
+        button.layer.shadowColor = UIColor.black.cgColor
+        button.layer.shadowOpacity = 0.08
+        button.layer.shadowOffset = CGSize(width: 0, height: 4)
+        button.layer.shadowRadius = 12
+        button.layer.masksToBounds = false
+        return button
+    }()
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        setupUI()
+        setupEvents()
+    }
+
+    required init?(coder: NSCoder) { fatalError() }
+    
+    private func setupUI() {
+        backgroundColor = .clear
+        translatesAutoresizingMaskIntoConstraints = false
+        layer.shadowColor = UIColor.black.cgColor
+        layer.shadowOpacity = 0.08
+        layer.shadowOffset = CGSize(width: 0, height: 4)
+        layer.shadowRadius = 12
+        layer.masksToBounds = false
+        
+        addSubview(locationCardView)
+        locationCardView.addSubview(fromRowView)
+        locationCardView.addSubview(divider)
+        locationCardView.addSubview(toRowView)
+        
+        locationCardView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
+
+        fromRowView.snp.makeConstraints { make in
+            make.top.leading.trailing.equalToSuperview()
+        }
+
+        divider.snp.makeConstraints { make in
+            make.top.equalTo(fromRowView.snp.bottom)
+            make.leading.trailing.equalToSuperview()
+            make.height.equalTo(1)
+        }
+
+        toRowView.snp.makeConstraints { make in
+            make.top.equalTo(divider.snp.bottom)
+            make.leading.trailing.bottom.equalToSuperview()
+        }
+        
+        addSubview(swapButton)
+        swapButton.snp.makeConstraints { make in
+            make.width.equalTo(32)
+            make.height.equalTo(32)
+            make.centerY.equalTo(divider.snp.centerY)
+            make.trailing.equalTo(locationCardView.snp.trailing).offset(-12)
+        }
+    }
+    
+    private func setupEvents() {
+        fromRowView.onReturn = { [weak self] in
+            self?.toRowView.focusTextField()
+        }
+
+        toRowView.onReturn = { [weak self] in
+            self?.toRowView.dismissKeyboard()
+        }
+
+        swapButton.rx.tap
+            .throttle(.milliseconds(300), scheduler: MainScheduler.instance)
+            .bind { [weak self] in
+                FeedbackGenerator.onFeedbackGenerator(.soft)
+                let fromText = self?.fromRowView.text
+                let toText = self?.toRowView.text
+                self?.fromRowView.text = toText
+                self?.toRowView.text = fromText
+            }
+            .disposed(by: bag)
+    }
+}

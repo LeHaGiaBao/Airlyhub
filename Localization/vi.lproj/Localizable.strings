@@ -63,3 +63,6 @@
 "validation_invalid_dob_format" = "Ngày sinh không đúng định dạng DD/MM/YYYY";
 "validation_invalid_dob_parse" = "Ngày sinh không hợp lệ";
 "validation_invalid_dob_range" = "Ngày sinh phải từ %@ đến %@";
+"find" = "Tìm kiếm";
+"from_where" = "Từ đâu?";
+"where_to" = "Đi đâu?";
