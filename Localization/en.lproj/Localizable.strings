@@ -67,3 +67,5 @@
 "find" = "Find";
 "from_where" = "From where?";
 "where_to" = "Where to?";
+"search_location_placeholder" = "Search flights";
+"my_location" = "My location";

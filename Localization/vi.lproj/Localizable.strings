@@ -66,3 +66,5 @@
 "find" = "Tìm kiếm";
 "from_where" = "Từ đâu?";
 "where_to" = "Đi đâu?";
+"search_location_placeholder" = "Tìm kiếm chuyến bay";
+"my_location" = "Vị trí của tôi";

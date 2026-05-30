@@ -43,6 +43,7 @@ final class FlightsViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        setupLocationEvents()
         presenter.viewDidLoad()
     }
 
@@ -126,5 +127,35 @@ extension FlightsViewController: FlightsDateRowViewDelegate {
     
     func dateInputViewDidCancel(_ view: FlightsDateRowView) {
         
+    }
+}
+
+extension FlightsViewController {
+    private func setupLocationEvents() {
+        flightsLocationView.onLocationTap = { [weak self] field in
+            self?.presentLocationFinder(for: field)
+        }
+    }
+
+    private func presentLocationFinder(for field: LocationField) {
+        let picker = LocationFinder()
+        picker.modalPresentationStyle = .overFullScreen
+        picker.modalTransitionStyle = .crossDissolve
+
+        picker.onSearchTextChanged = { [weak picker] query in
+            guard !query.isEmpty else { return }
+            // TODO: Gọi API search, sau đó:
+            // picker?.updateResults([LocationResult(city: "...", country: "...")])
+        }
+
+        picker.onConfirm = { [weak self] location in
+            self?.flightsLocationView.setLocation(location, for: field)
+        }
+
+        picker.onSelectMyLocation = { [weak self] in
+            // TODO: Xử lý GPS location
+        }
+
+        present(picker, animated: true)
     }
 }

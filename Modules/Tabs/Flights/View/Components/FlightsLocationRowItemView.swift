@@ -48,6 +48,7 @@ final class FlightsLocationRowItemView: UIView {
     }()
 
     var onReturn: (() -> Void)?
+    var onTap: (() -> Void)?
 
     init(placeholder: String) {
         super.init(frame: .zero)
@@ -102,6 +103,14 @@ final class FlightsLocationRowItemView: UIView {
 }
 
 extension FlightsLocationRowItemView: UITextFieldDelegate {
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        if let onTap {
+            onTap()
+            return false
+        }
+        return true
+    }
+
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         onReturn?()
         return true
