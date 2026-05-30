@@ -1,5 +1,5 @@
 //
-//  LocationService.swift
+//  LocalLocationService.swift
 //  Airlyhub
 //
 //  Created by Le Ha Gia Bao on 30/05/2026.
@@ -13,8 +13,8 @@ enum LocationServiceError: Error {
     case failed
 }
 
-final class LocationService: NSObject {
-    static let shared = LocationService()
+final class LocalLocationService: NSObject {
+    static let shared = LocalLocationService()
 
     private let locationManager = CLLocationManager()
     private var completion: ((Result<LocationResult, LocationServiceError>) -> Void)?
@@ -60,7 +60,7 @@ final class LocationService: NSObject {
     }
 }
 
-extension LocationService: CLLocationManagerDelegate {
+extension LocalLocationService: CLLocationManagerDelegate {
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
         switch manager.authorizationStatus {
         case .authorizedWhenInUse, .authorizedAlways:

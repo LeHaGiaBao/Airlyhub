@@ -13,29 +13,28 @@ final class LocationCell: UITableViewCell {
     static let reuseID = "LocationCell"
 
     private let pinIcon: UIImageView = {
-        let iv = UIImageView()
+        let img = UIImageView()
         let config = UIImage.SymbolConfiguration(pointSize: 18, weight: .light)
-        iv.image = UIImage(systemName: "mappin.and.ellipse", withConfiguration: config)
-        iv.tintColor = UIColor(white: 0.4, alpha: 1)
-        iv.contentMode = .scaleAspectFit
-        iv.translatesAutoresizingMaskIntoConstraints = false
-        return iv
+        img.image = AssetsIcon.map
+        img.contentMode = .scaleAspectFit
+        img.translatesAutoresizingMaskIntoConstraints = false
+        return img
     }()
 
     private let cityLabel: UILabel = {
-        let l = UILabel()
-        l.font = UIFont.systemFont(ofSize: 16, weight: .regular)
-        l.textColor = .label
-        l.translatesAutoresizingMaskIntoConstraints = false
-        return l
+        let label = UILabel()
+        label.applyTypography(.textMd(weight: .regular))
+        label.textColor = AppColor.PrimaryColors.Gray.color800
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
     }()
 
     private let countryLabel: UILabel = {
-        let l = UILabel()
-        l.font = UIFont.systemFont(ofSize: 13, weight: .regular)
-        l.textColor = .secondaryLabel
-        l.translatesAutoresizingMaskIntoConstraints = false
-        return l
+        let label = UILabel()
+        label.applyTypography(.textSm(weight: .regular))
+        label.textColor = AppColor.PrimaryColors.Gray.color400
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
     }()
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {

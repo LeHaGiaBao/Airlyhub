@@ -23,15 +23,4 @@ final class FlightsPresenter: FlightsPresenterProtocol {
     }
 
     func viewDidLoad() {}
-
-    func fetchMyLocation(for field: LocationField) {
-        interactor.fetchCurrentLocation { [weak self] result in
-            switch result {
-            case .success(let location):
-                self?.view?.setLocation(location, for: field)
-            case .failure(let error):
-                self?.view?.showLocationError(error)
-            }
-        }
-    }
 }
