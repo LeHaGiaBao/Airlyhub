@@ -55,6 +55,10 @@ final class FlightsViewController: BaseViewController {
 }
 
 extension FlightsViewController: FlightsViewProtocol {
+    func setLocation(_ location: LocationResult, for field: LocationField) {
+        flightsLocationView.setLocation(location, for: field)
+    }
+
     private func setupTitle() {
         titleLabel.text = NSLocalizedString("split_the_payment", comment: "")
         titleLabel.textAlignment = .left
@@ -153,16 +157,7 @@ extension FlightsViewController {
         }
 
         picker.onSelectMyLocation = { [weak self] in
-            guard let self else { return }
-            LocationService.shared.requestCurrentLocation { [weak self] result in
-                guard let self else { return }
-                switch result {
-                case .success(let location):
-                    self.flightsLocationView.setLocation(location, for: field)
-                case .failure(let error):
-                    self.showLocationError(error)
-                }
-            }
+            self?.presenter.fetchMyLocation(for: field)
         }
 
         present(picker, animated: true)
