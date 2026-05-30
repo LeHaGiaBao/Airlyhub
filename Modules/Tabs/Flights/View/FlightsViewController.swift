@@ -116,20 +116,6 @@ extension FlightsViewController: FlightsViewProtocol {
     }
 }
 
-extension FlightsViewController: FlightsDateRowViewDelegate {
-    func dateInputView(_ view: FlightsDateRowView, didSelectDate date: Date) {
-        
-    }
-    
-    func dateInputViewDidTap(_ view: FlightsDateRowView) {
-        
-    }
-    
-    func dateInputViewDidCancel(_ view: FlightsDateRowView) {
-        
-    }
-}
-
 extension FlightsViewController {
     private func setupLocationEvents() {
         flightsLocationView.onLocationTap = { [weak self] field in
@@ -147,5 +133,19 @@ extension FlightsViewController {
         }
 
         present(picker, animated: true)
+    }
+}
+
+extension FlightsViewController: FlightsDateRowViewDelegate {
+    func dateInputView(_ view: FlightsDateRowView, didSelectDate date: Date) {
+        
+    }
+    
+    func dateInputViewDidTap(_ view: FlightsDateRowView) {
+        
+    }
+    
+    func dateInputViewDidCancel(_ view: FlightsDateRowView) {
+        
     }
 }

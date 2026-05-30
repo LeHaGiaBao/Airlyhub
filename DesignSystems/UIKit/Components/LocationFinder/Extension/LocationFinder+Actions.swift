@@ -33,6 +33,7 @@ extension LocationFinder {
             switch result {
             case .success(let location):
                 animateOut {
+                    FeedbackGenerator.onFeedbackGenerator(.light)
                     self.dismiss(animated: false)
                     confirm?(location)
                 }
@@ -77,6 +78,7 @@ extension LocationFinder: UITableViewDataSource, UITableViewDelegate {
         let selected = results[indexPath.row]
         searchContainerView.textField.resignFirstResponder()
         animateOut {
+            FeedbackGenerator.onFeedbackGenerator(.light)
             self.onConfirm?(selected)
             self.dismiss(animated: false)
         }
