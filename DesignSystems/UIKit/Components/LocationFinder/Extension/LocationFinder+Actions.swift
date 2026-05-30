@@ -11,17 +11,39 @@ import UIKit
 // MARK: - Actions
 extension LocationFinder {
     @objc func searchTextChanged() {
-        onSearchTextChanged?(searchContainerView.textField.text ?? "")
+        let query = searchContainerView.textField.text ?? ""
+        guard !query.isEmpty else { return }
+
+        searchWorkItem?.cancel()
+        let workItem = DispatchWorkItem { [weak self] in
+            RemoteLocationService.shared.search(query: query) { [weak self] result in
+                if case .success(let results) = result {
+                    self?.updateResults(results)
+                }
+            }
+        }
+        searchWorkItem = workItem
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.35, execute: workItem)
     }
 
     @objc func myLocationTapped() {
-        animateOut {
-            self.onSelectMyLocation?()
-            self.dismiss(animated: false)
+        let confirm = onConfirm
+        LocalLocationService.shared.requestCurrentLocation { [weak self] result in
+            guard let self else { return }
+            switch result {
+            case .success(let location):
+                animateOut {
+                    self.dismiss(animated: false)
+                    confirm?(location)
+                }
+            case .failure(let error):
+                showLocationError(error)
+            }
         }
     }
 
     @objc func dismissSheet() {
+        searchWorkItem?.cancel()
         searchContainerView.textField.resignFirstResponder()
         animateOut {
             self.onCancel?()

@@ -55,10 +55,6 @@ final class FlightsViewController: BaseViewController {
 }
 
 extension FlightsViewController: FlightsViewProtocol {
-    func setLocation(_ location: LocationResult, for field: LocationField) {
-        flightsLocationView.setLocation(location, for: field)
-    }
-
     private func setupTitle() {
         titleLabel.text = NSLocalizedString("split_the_payment", comment: "")
         titleLabel.textAlignment = .left
@@ -146,18 +142,8 @@ extension FlightsViewController {
         picker.modalPresentationStyle = .overFullScreen
         picker.modalTransitionStyle = .crossDissolve
 
-        picker.onSearchTextChanged = { [weak picker] query in
-            guard !query.isEmpty else { return }
-            // TODO: Gọi API search, sau đó:
-            // picker?.updateResults([LocationResult(city: "...", country: "...")])
-        }
-
         picker.onConfirm = { [weak self] location in
             self?.flightsLocationView.setLocation(location, for: field)
-        }
-
-        picker.onSelectMyLocation = { [weak self] in
-            self?.presenter.fetchMyLocation(for: field)
         }
 
         present(picker, animated: true)

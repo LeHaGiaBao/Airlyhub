@@ -11,9 +11,8 @@ import UIKit
 
 final class LocationFinder: UIViewController {
     var onConfirm: ((LocationResult) -> Void)?
-    var onSelectMyLocation: (() -> Void)?
     var onCancel: (() -> Void)?
-    var onSearchTextChanged: ((String) -> Void)?
+    var searchWorkItem: DispatchWorkItem?
 
     var results: [LocationResult] = [] {
         didSet {
@@ -95,6 +94,7 @@ final class LocationFinder: UIViewController {
         view.backgroundColor = .clear
         setupUI()
         observeKeyboard()
+        searchContainerView.textField.addTarget(self, action: #selector(searchTextChanged), for: .editingChanged)
     }
 
     override func viewDidAppear(_ animated: Bool) {

@@ -7,8 +7,4 @@
 
 import Foundation
 
-final class FlightsInteractor: FlightsInteractorProtocol {
-    func fetchCurrentLocation(completion: @escaping (Result<LocationResult, LocationServiceError>) -> Void) {
-        LocationService.shared.requestCurrentLocation(completion: completion)
-    }
-}
+final class FlightsInteractor: FlightsInteractorProtocol {}
