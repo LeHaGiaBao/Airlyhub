@@ -153,7 +153,16 @@ extension FlightsViewController {
         }
 
         picker.onSelectMyLocation = { [weak self] in
-            // TODO: Xử lý GPS location
+            guard let self else { return }
+            LocationService.shared.requestCurrentLocation { [weak self] result in
+                guard let self else { return }
+                switch result {
+                case .success(let location):
+                    self.flightsLocationView.setLocation(location, for: field)
+                case .failure(let error):
+                    self.showLocationError(error)
+                }
+            }
         }
 
         present(picker, animated: true)

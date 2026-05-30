@@ -68,3 +68,5 @@
 "where_to" = "Đi đâu?";
 "search_location_placeholder" = "Tìm kiếm chuyến bay";
 "my_location" = "Vị trí của tôi";
+"location_permission_denied" = "Vui lòng bật quyền truy cập vị trí trong Cài đặt";
+"location_fetch_failed" = "Không thể xác định vị trí hiện tại của bạn. Vui lòng thử lại.";

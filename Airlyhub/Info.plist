@@ -50,5 +50,7 @@
 	<string>LaunchScreen</string>
 	<key>UIDesignRequiresCompatibility</key>
 	<true/>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Airlyhub cần quyền truy cập vị trí của bạn.</string>
 </dict>
 </plist>

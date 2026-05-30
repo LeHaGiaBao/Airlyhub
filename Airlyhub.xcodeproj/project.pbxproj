@@ -13,6 +13,7 @@
 		01BB2B4A899AE24C7101AAAD /* Firebase_FirebaseCoreInternal.bundle in Dependencies */ = {isa = PBXBuildFile; fileRef = F27F0CC21C9D28512748FA57 /* Firebase_FirebaseCoreInternal.bundle */; };
 		021A0536606F5EAF999A5986 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF596BB5F24052D0E906852 /* BaseViewController.swift */; };
 		026CA1B8A0CD4E8187CA788B /* LocationFinder+Actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1B3EBCD6636DB2DFF8C5B8A /* LocationFinder+Actions.swift */; };
+		03577FC5473DD12C938CE8EA /* UIViewController+LocationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB31D7210DD84E6255B04B3E /* UIViewController+LocationError.swift */; };
 		0447EFDAAA667D0F7C8E2069 /* DeviceCheck.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FE097C8E3C181B68691B71C /* DeviceCheck.framework */; };
 		08A9097FF27D18FF7D7F727C /* Promises.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64CB315DBC92828E3A24BE39 /* Promises.framework */; };
 		08C2EFAD54A8EA1A079FB932 /* GTMSessionFetcherCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13B09D47EDDA7B1AD4DDA063 /* GTMSessionFetcherCore.framework */; };
@@ -76,6 +77,7 @@
 		3352B1FC157CD3530DC9CFEF /* NotificationsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29FC699C0C5CD1C681205DD1 /* NotificationsPresenter.swift */; };
 		3573F63C1281CE143BA960A3 /* FirebaseDatabaseInternal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1EAFBE46F4EA69701D82A21C /* FirebaseDatabaseInternal.framework */; };
 		3709ECBEFF064F1B26606DFD /* FavoritesProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D61DCBDD9312659A84F96D1 /* FavoritesProtocols.swift */; };
+		38441708EF3C2F6D1D738CEC /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95D3954387E035D7AB016B96 /* LocationService.swift */; };
 		3AED401F35681AA5656292D6 /* GoogleUtilities_GoogleUtilities_MethodSwizzler.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 0899340CCED031B5A903D148 /* GoogleUtilities_GoogleUtilities_MethodSwizzler.bundle */; };
 		3C40D03B81378D6F94B80E39 /* GoogleUtilities_GoogleUtilities_NSData.bundle in Dependencies */ = {isa = PBXBuildFile; fileRef = 3FEB38E2C955146E4456AA57 /* GoogleUtilities_GoogleUtilities_NSData.bundle */; };
 		3C93F7794252A1345FBB0706 /* ProfilesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 093C0C5107EC7A8C3B9A592F /* ProfilesView.swift */; };
@@ -582,6 +584,7 @@
 		94764F9C3A59084E30341472 /* FirebaseSessionsObjC.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FirebaseSessionsObjC.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		950FED3A92C9D708558A889B /* leveldb_leveldb.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = leveldb_leveldb.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		954558D5D0EAA27DE54D63BE /* SettingsEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsEntity.swift; sourceTree = "<group>"; };
+		95D3954387E035D7AB016B96 /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
 		963378B43DF8631981F773DB /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/SystemConfiguration.framework; sourceTree = DEVELOPER_DIR; };
 		96664F25D903D4FD6F5A862D /* AppConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfig.swift; sourceTree = "<group>"; };
 		96B86209787274C5297EA721 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/CoreTelephony.framework; sourceTree = DEVELOPER_DIR; };
@@ -601,6 +604,7 @@
 		A7413FD99D7502B18FDCF552 /* NetworkStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkStatus.swift; sourceTree = "<group>"; };
 		A9CE04F48387D277AF000BE2 /* UILabel+TypographyExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+TypographyExample.swift"; sourceTree = "<group>"; };
 		AAEFCABAC22632E8700FC054 /* ExploreInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreInteractor.swift; sourceTree = "<group>"; };
+		AB31D7210DD84E6255B04B3E /* UIViewController+LocationError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+LocationError.swift"; sourceTree = "<group>"; };
 		AC473F4A145C474A0F85ED3A /* FirebaseRemoteConfigInternal.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FirebaseRemoteConfigInternal.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC6ADC5F6CD73A77C7066775 /* gRPC_grpcWrapper.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = gRPC_grpcWrapper.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD3BC6D57500636739532ABE /* FirebaseAI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FirebaseAI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -987,6 +991,14 @@
 			path = Login;
 			sourceTree = "<group>";
 		};
+		25C82ECC1134548107484860 /* Location */ = {
+			isa = PBXGroup;
+			children = (
+				95D3954387E035D7AB016B96 /* LocationService.swift */,
+			);
+			path = Location;
+			sourceTree = "<group>";
+		};
 		26BEED572D29ABFAB5C191CD /* Extension */ = {
 			isa = PBXGroup;
 			children = (
@@ -1048,6 +1060,7 @@
 		38B8291324C7B8EE9CE06F0D /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				25C82ECC1134548107484860 /* Location */,
 				18426732632A039EA26010F7 /* Network */,
 			);
 			path = Core;
@@ -1424,6 +1437,7 @@
 				6192BA333955B37D10BBEDAD /* UITextField+Style.swift */,
 				C7DAE5AB655E4E1709F5FDA3 /* UIView+FindController.swift */,
 				9CD837F14207D55E12310E52 /* UIView+Shadow.swift */,
+				AB31D7210DD84E6255B04B3E /* UIViewController+LocationError.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -2385,6 +2399,7 @@
 				0A3E627DBCDA21DE6BEB13B6 /* AppDelegate.swift in Sources */,
 				266D639E06D197EBCCC584F3 /* AppRouter.swift in Sources */,
 				5798E8FBE9F020CDD971FC10 /* SceneDelegate.swift in Sources */,
+				38441708EF3C2F6D1D738CEC /* LocationService.swift in Sources */,
 				444F4EF2FF1876B58A1BF192 /* ConnectivityService.swift in Sources */,
 				518E2C9EC967894404DCF7FB /* NetworkMonitor.swift in Sources */,
 				56BA7F3307560D17C18AC4A7 /* NetworkMonitoring.swift in Sources */,
@@ -2416,6 +2431,7 @@
 				1B7A83C6AF01A2EB3AE9766C /* UITextField+Style.swift in Sources */,
 				B1FC2FEC42E35A55A0EF290F /* UIView+FindController.swift in Sources */,
 				40D4CE8426B74D0363EFD67B /* UIView+Shadow.swift in Sources */,
+				03577FC5473DD12C938CE8EA /* UIViewController+LocationError.swift in Sources */,
 				F7BCE9DD18EAE3CE16AA28C9 /* NotificationCardView.swift in Sources */,
 				021A0536606F5EAF999A5986 /* BaseViewController.swift in Sources */,
 				9E412619DAFF5327B4A12F10 /* DatePicker.swift in Sources */,
