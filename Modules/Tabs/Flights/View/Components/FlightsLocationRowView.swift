@@ -10,7 +10,13 @@ import Foundation
 import UIKit
 import RxSwift
 
+enum LocationField {
+    case from, to
+}
+
 final class FlightsLocationRowView: UIView {
+    var onLocationTap: ((LocationField) -> Void)?
+
     private let bag = DisposeBag()
     
     private let fromRowView = FlightsLocationRowItemView(placeholder: NSLocalizedString("from_where", comment: ""))
@@ -97,12 +103,12 @@ final class FlightsLocationRowView: UIView {
     }
     
     private func setupEvents() {
-        fromRowView.onReturn = { [weak self] in
-            self?.toRowView.focusTextField()
+        fromRowView.onTap = { [weak self] in
+            self?.onLocationTap?(.from)
         }
 
-        toRowView.onReturn = { [weak self] in
-            self?.toRowView.dismissKeyboard()
+        toRowView.onTap = { [weak self] in
+            self?.onLocationTap?(.to)
         }
 
         swapButton.rx.tap
@@ -115,5 +121,13 @@ final class FlightsLocationRowView: UIView {
                 self?.toRowView.text = fromText
             }
             .disposed(by: bag)
+    }
+
+    func setLocation(_ result: LocationResult, for field: LocationField) {
+        let text = "\(result.city), \(result.country)"
+        switch field {
+        case .from: fromRowView.text = text
+        case .to:   toRowView.text = text
+        }
     }
 }

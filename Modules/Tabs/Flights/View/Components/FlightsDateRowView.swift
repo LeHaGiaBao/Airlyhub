@@ -115,8 +115,10 @@ extension FlightsDateRowView {
             formatter.dateStyle = .medium
             formatter.timeStyle = datePickerMode == .dateAndTime ? .short : .none
             placeholderLabel.text = formatter.string(from: date)
+            placeholderLabel.textColor = AppColor.PrimaryColors.Gray.color800
         } else {
             placeholderLabel.text = placeholder
+            placeholderLabel.textColor = AppColor.PrimaryColors.Gray.color400
         }
     }
 }

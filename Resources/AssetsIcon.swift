@@ -34,6 +34,8 @@ struct AssetsIcon {
     static let minus = UIImage(named: "minus")
     static let plus = UIImage(named: "plus")
     static let xcircle = UIImage(named: "xcircle")
+    static let search = UIImage(named: "search")
+    static let location = UIImage(named: "location")
     
     // Notifications
     static let notiFlight = UIImage(named: "notiFlight")

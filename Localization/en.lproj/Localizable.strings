@@ -67,3 +67,7 @@
 "find" = "Find";
 "from_where" = "From where?";
 "where_to" = "Where to?";
+"search_location_placeholder" = "Search flights";
+"my_location" = "My location";
+"location_permission_denied" = "Please enable location access in Settings";
+"location_fetch_failed" = "Unable to determine your current location. Please try again.";
