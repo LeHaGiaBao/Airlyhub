@@ -64,3 +64,6 @@
 "validation_invalid_dob_parse" = "Date of birth is not a valid date";
 "validation_invalid_dob_range" = "Date of birth must be between %@ and %@";
 "validation_email_and_password" = "Please enter email and password";
+"find" = "Find";
+"from_where" = "From where?";
+"where_to" = "Where to?";
