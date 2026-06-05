@@ -131,7 +131,7 @@ let project = Project(
                 ]
             ),
             additionalFiles: [
-                .folderReference(path: "Airlyhub/Firebase"),
+                .folderReference(path: "Core/Config/Firebase"),
             ]
         ),
         .target(

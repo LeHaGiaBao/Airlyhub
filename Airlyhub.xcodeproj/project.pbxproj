@@ -502,7 +502,7 @@
 		43D8548CA255C1CCE63807AD /* NotificationsEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsEntity.swift; sourceTree = "<group>"; };
 		446856DC77FF53ACDD327037 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		44B8D647D77FA29A7D8A85CB /* opensslWrapper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = opensslWrapper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		466667EDAC4968E579060706 /* absl.xcframework */ = {isa = PBXFileReference; expectedSignature = "AppleDeveloperProgram:EQHXZ8M8AV:Google LLC"; lastKnownFileType = wrapper.xcframework; name = absl.xcframework; path = "/Users/lehagiabao/Code/Airlyhub/Tuist/.build/artifacts/abseil-cpp-binary/absl/absl.xcframework"; sourceTree = "<absolute>"; };
+		466667EDAC4968E579060706 /* absl.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = absl.xcframework; path = "/Users/lehagiabao/Code/Airlyhub/Tuist/.build/artifacts/abseil-cpp-binary/absl/absl.xcframework"; sourceTree = "<absolute>"; };
 		4837B1AB02E8D4A72DB162E5 /* LoginInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginInteractor.swift; sourceTree = "<group>"; };
 		49EAFDB7F46E675F378E73A2 /* FirebaseInAppMessaging_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FirebaseInAppMessaging_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A40383C0BE6217205F7726A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -517,7 +517,6 @@
 		52BD009FC499EAABC7E3C88E /* Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Regular.ttf; sourceTree = "<group>"; };
 		5436B4B005B7DAC1893954E0 /* CustomerServiceInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerServiceInteractor.swift; sourceTree = "<group>"; };
 		5478422FAABA6233AA59FBB3 /* LoginEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginEntity.swift; sourceTree = "<group>"; };
-		55424E08B17DC24E115FB06B /* Firebase */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Firebase; sourceTree = "<group>"; };
 		55887D4084E57BA1932B070F /* FirebaseSessions.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FirebaseSessions.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		56182678FCE0F642369F7417 /* ExplorePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExplorePresenter.swift; sourceTree = "<group>"; };
 		56B6CACAC0E72C3ABBFB247B /* FirebaseFirestoreInternalWrapper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FirebaseFirestoreInternalWrapper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -643,6 +642,7 @@
 		BED289E60AFCC990E67B5F46 /* FlightsPassengersRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightsPassengersRowView.swift; sourceTree = "<group>"; };
 		C0182AEAA86442D1C96E2033 /* MyCardsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCardsView.swift; sourceTree = "<group>"; };
 		C14441EDB433A8B0FF356C0E /* FirebaseAnalytics.xcframework */ = {isa = PBXFileReference; expectedSignature = "AppleDeveloperProgram:EQHXZ8M8AV:Google LLC"; lastKnownFileType = wrapper.xcframework; name = FirebaseAnalytics.xcframework; path = "/Users/lehagiabao/Code/Airlyhub/Tuist/.build/artifacts/firebase-ios-sdk/FirebaseAnalytics/FirebaseAnalytics.xcframework"; sourceTree = "<absolute>"; };
+		C153F013202B88EE77727376 /* Firebase */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Firebase; sourceTree = "<group>"; };
 		C1F4D357E916929C011E73AD /* MyCardsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCardsInteractor.swift; sourceTree = "<group>"; };
 		C3575FE0E7039C58B718E0C2 /* FirebaseAuthInternal.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FirebaseAuthInternal.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C638771C071A6F524C7F4985 /* .mise.toml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .mise.toml; sourceTree = "<group>"; };
@@ -1974,6 +1974,7 @@
 			isa = PBXGroup;
 			children = (
 				DEFE413F302764F026086398 /* EnvironmentConfig.swift */,
+				C153F013202B88EE77727376 /* Firebase */,
 			);
 			path = Config;
 			sourceTree = "<group>";
@@ -2003,7 +2004,6 @@
 				96664F25D903D4FD6F5A862D /* AppConfig.swift */,
 				5A5F450E1EEB66B0E69FB4B9 /* AppDelegate.swift */,
 				D2AC424AF328E3EA72C19F6F /* AppRouter.swift */,
-				55424E08B17DC24E115FB06B /* Firebase */,
 				B9BB1FD1E9A483480040071F /* Info.plist */,
 				1EB49BDA53E5679A984EC7AF /* SceneDelegate.swift */,
 			);
