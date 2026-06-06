@@ -59,7 +59,7 @@ let project = Project(
                 "Data/**/*.swift",
                 "Domain/**/*.swift",
                 "DesignSystems/**/*.swift",
-                "Modules/**/*.swift",
+                "Features/**/*.swift",
                 "Utilities/**/*.swift",
                 "Resources/**/*.swift",
             ],
