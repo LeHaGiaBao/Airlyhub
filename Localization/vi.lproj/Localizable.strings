@@ -16,6 +16,8 @@
 "flights_arrival_date" = "Ngày đến";
 "flights_passengers" = "Hành khách";
 "flights_find" = "Tìm";
+"explore_location_placeholder" = "Bạn muốn tìm tour máy bay ở đâu?";
+"find_tour" = "Tìm tour";
 "favorites" = "Favorites";
 "notifications" = "Notifications";
 "my_tickets" = "My tickets";
