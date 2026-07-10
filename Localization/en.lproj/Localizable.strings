@@ -16,6 +16,8 @@
 "flights_arrival_date" = "Date of arrival";
 "flights_passengers" = "Passengers";
 "flights_find" = "Find";
+"explore_location_placeholder" = "Where to find an airplane tour?";
+"find_tour" = "Find tour";
 "favorites" = "Favorites";
 "notifications" = "Notifications";
 "my_tickets" = "My tickets";
