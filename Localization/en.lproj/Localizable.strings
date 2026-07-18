@@ -74,3 +74,11 @@
 "my_location" = "My location";
 "location_permission_denied" = "Please enable location access in Settings";
 "location_fetch_failed" = "Unable to determine your current location. Please try again.";
+"application_language" = "Application language";
+"english" = "English";
+"vietnam" = "Vietnamese";
+"push_notifications" = "Push notifications";
+"about_us" = "About us";
+"select_language" = "Select language";
+"error_title" = "Error";
+"ok" = "OK";

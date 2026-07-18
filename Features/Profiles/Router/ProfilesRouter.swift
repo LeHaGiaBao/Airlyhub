@@ -84,7 +84,7 @@ final class ProfilesRouter: ProfilesRouterProtocol {
             message: message,
             preferredStyle: .alert
         )
-        alert.addAction(UIAlertAction(title: "OK", style: .default))
+        alert.addAction(UIAlertAction(title: NSLocalizedString("ok", comment: ""), style: .default))
         nav.topViewController?.present(alert, animated: true)
     }
 }

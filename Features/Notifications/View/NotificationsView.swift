@@ -21,7 +21,7 @@ final class NotificationsView: BaseViewController, NotificationsViewProtocol {
 
     init(presenter: NotificationsPresenter) {
         self.presenter = presenter
-        self.topNavigatorVC = TopNavigatorView(topNavigatorTile: "Notifications")
+        self.topNavigatorVC = TopNavigatorView(topNavigatorTile: NSLocalizedString("notifications", comment: ""))
         super.init(nibName: nil, bundle: nil)
     }
 

@@ -10,4 +10,19 @@ import UIKit
 
 final class SettingsRouter: SettingsRouterProtocol {
     weak var viewController: UIViewController?
+
+    func presentLanguageSelection(languages: [AppLanguage],
+                                  current: AppLanguage,
+                                  onSelect: @escaping (AppLanguage) -> Void) {
+        let sheet = LanguageSelectionBottomSheetViewController(languages: languages,
+                                                              selected: current)
+        sheet.onSelect = onSelect
+        viewController?.present(sheet, animated: false)
+    }
+
+    func reloadForLanguageChange() {
+        guard let window = viewController?.view.window else { return }
+        let selectedTab = viewController?.tabBarController?.selectedIndex
+        AppRouter.reloadRoot(in: window, selectedTab: selectedTab)
+    }
 }

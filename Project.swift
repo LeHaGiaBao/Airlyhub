@@ -62,10 +62,11 @@ let project = Project(
                 "Features/**/*.swift",
                 "Utilities/**/*.swift",
                 "Resources/**/*.swift",
+                "Localization/**/*.swift",
             ],
             resources: [
                 .glob(pattern: "Resources/**", excluding: ["Resources/**/*.swift"]),
-                .glob(pattern: "Localization/**"),
+                .glob(pattern: "Localization/**", excluding: ["Localization/**/*.swift"]),
             ],
             scripts: [
                 .pre(

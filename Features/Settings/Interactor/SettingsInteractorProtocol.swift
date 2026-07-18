@@ -8,4 +8,9 @@
 
 import Foundation
 
-protocol SettingsInteractorProtocol: AnyObject {}
+protocol SettingsInteractorProtocol: AnyObject {
+    func fetchSettings() -> [SettingsItem]
+    func availableLanguages() -> [AppLanguage]
+    func currentLanguage() -> AppLanguage
+    func setLanguage(_ language: AppLanguage)
+}

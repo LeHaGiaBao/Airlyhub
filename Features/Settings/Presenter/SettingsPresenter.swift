@@ -29,4 +29,30 @@ final class SettingsPresenter: SettingsPresenterProtocol {
         _settingsBuilderAction.onNext(.cancel)
         _settingsBuilderAction.onCompleted()
     }
+    
+    func getSettingItems() -> [SettingsItem] {
+        interactor.fetchSettings()
+    }
+
+    func didSelectItem(_ item: SettingsItem) {
+        switch item.type {
+        case .language:
+            presentLanguageSelection()
+        case .pushNotifications, .aboutUs:
+            break
+        }
+    }
+
+    private func presentLanguageSelection() {
+        router.presentLanguageSelection(languages: interactor.availableLanguages(),
+                                        current: interactor.currentLanguage()) { [weak self] selected in
+            self?.handleLanguageSelection(selected)
+        }
+    }
+
+    private func handleLanguageSelection(_ language: AppLanguage) {
+        guard language != interactor.currentLanguage() else { return }
+        interactor.setLanguage(language)
+        router.reloadForLanguageChange()
+    }
 }
