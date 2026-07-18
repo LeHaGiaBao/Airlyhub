@@ -623,6 +623,7 @@
 		6F0B21CF4166DAB3F220E5FD /* FirebaseFunctionsCombineSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FirebaseFunctionsCombineSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6F57DD142E3559183AAF100F /* FavoritesBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesBuilder.swift; sourceTree = "<group>"; };
 		706C783FE803D099463C6523 /* RxCocoaRuntime.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RxCocoaRuntime.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		70E93664497531630DC06E41 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		715A048E99C8704B017C2DFC /* GoogleAdsOnDeviceConversion.xcframework */ = {isa = PBXFileReference; expectedSignature = "AppleDeveloperProgram:EQHXZ8M8AV:Google LLC"; lastKnownFileType = wrapper.xcframework; name = GoogleAdsOnDeviceConversion.xcframework; path = "/Users/lehagiabao/Code/Airlyhub/Tuist/.build/artifacts/google-ads-on-device-conversion-ios-sdk/GoogleAdsOnDeviceConversion/GoogleAdsOnDeviceConversion.xcframework"; sourceTree = "<absolute>"; };
 		71B6E71CDFAAE4E39A7C946D /* FirebaseFunctions.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FirebaseFunctions.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7223FA5846FF63F4CA3F2EED /* CustomerServiceRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerServiceRouter.swift; sourceTree = "<group>"; };
@@ -1376,6 +1377,7 @@
 				E7405D118BC3F7B11F9DD477 /* Utilities */,
 				6867492CC0E420C6F3ECC474 /* .gitignore */,
 				C638771C071A6F524C7F4985 /* .mise.toml */,
+				70E93664497531630DC06E41 /* .swiftlint.yml */,
 				4D18EFF3EC2BBBB632FEA78B /* BUILD */,
 				39C21E487E090B239FF33B48 /* Project.swift */,
 				1D5C488A27A62ECCE5F2F05A /* README.md */,
@@ -2505,6 +2507,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 912CB8821CE7E23846B5FF17 /* Build configuration list for PBXNativeTarget "Airlyhub" */;
 			buildPhases = (
+				BF05FF248A2684B63B382051 /* SwiftLint */,
 				D53919A48C25966EA481751B /* Sources */,
 				F2E537D906B3110EDF6206FD /* Resources */,
 				F0C793FB72163CC9D3860DFF /* Frameworks */,
@@ -2661,6 +2664,25 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"$SRCROOT\"/Tuist/Scripts/copy-google-service-info.sh ";
+		};
+		BF05FF248A2684B63B382051 /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"$SRCROOT\"/Tuist/Scripts/swiftlint.sh ";
 		};
 /* End PBXShellScriptBuildPhase section */
 

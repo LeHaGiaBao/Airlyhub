@@ -68,6 +68,11 @@ let project = Project(
                 .glob(pattern: "Localization/**"),
             ],
             scripts: [
+                .pre(
+                    path: "Tuist/Scripts/swiftlint.sh",
+                    name: "SwiftLint",
+                    basedOnDependencyAnalysis: false
+                ),
                 .post(
                     path: "Tuist/Scripts/copy-google-service-info.sh",
                     name: "Copy GoogleService-Info.plist",
@@ -189,6 +194,7 @@ let project = Project(
         "BUILD",
         ".gitignore",
         ".mise.toml",
+        ".swiftlint.yml",
         .glob(pattern: "Tuist/**"),
     ]
 )
