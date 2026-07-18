@@ -12,17 +12,13 @@ final class ExplorePresenter: ExplorePresenterProtocol {
     private let interactor: ExploreInteractorProtocol
     private let router: ExploreRouterProtocol
 
-    init(
-        view: ExploreViewProtocol,
-        interactor: ExploreInteractorProtocol,
-        router: ExploreRouterProtocol
-    ) {
+    init(view: ExploreViewProtocol,
+         interactor: ExploreInteractorProtocol,
+         router: ExploreRouterProtocol) {
         self.view = view
         self.interactor = interactor
         self.router = router
     }
 
-    func viewDidLoad() {
-        
-    }
+    func viewDidLoad() {}
 }

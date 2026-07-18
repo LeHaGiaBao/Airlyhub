@@ -398,7 +398,6 @@ final class RegisterViewController: BaseViewController {
 }
 
 // MARK: Keyboard Events
-
 extension RegisterViewController {
     private func setupKeyboardHandling() {
         NotificationCenter.default.rx

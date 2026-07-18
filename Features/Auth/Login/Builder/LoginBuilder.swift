@@ -7,16 +7,14 @@
 
 import UIKit
 
-enum LoginBuilder {
-    static func createModule() -> UIViewController {
+final class LoginBuilder {
+    func build() -> UIViewController {
         let view = LoginViewController()
         let interactor = LoginInteractor()
         let router = LoginRouter()
-        let presenter = LoginPresenter(
-            view: view,
-            interactor: interactor,
-            router: router
-        )
+        let presenter = LoginPresenter(view: view,
+                                       interactor: interactor,
+                                       router: router)
         view.presenter = presenter
         router.viewController = view
         return view

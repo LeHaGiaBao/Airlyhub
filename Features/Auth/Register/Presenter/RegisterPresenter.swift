@@ -14,11 +14,9 @@ final class RegisterPresenter: RegisterPresenterProtocol {
     let router: RegisterRouterProtocol
     let disposeBag = DisposeBag()
 
-    init(
-        view: RegisterViewProtocol,
-        interactor: RegisterInteractorProtocol,
-        router: RegisterRouterProtocol
-    ) {
+    init(view: RegisterViewProtocol,
+         interactor: RegisterInteractorProtocol,
+         router: RegisterRouterProtocol) {
         self.view = view
         self.interactor = interactor
         self.router = router

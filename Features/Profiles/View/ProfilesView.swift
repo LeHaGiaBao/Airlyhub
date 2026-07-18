@@ -8,7 +8,7 @@
 import UIKit
 import RxSwift
 
-final class ProfilesView: BaseViewController {
+final class ProfilesView: BaseViewController, ProfilesViewProtocol {
     var presenter: ProfilesPresenterProtocol
     private let bag = DisposeBag()
     
@@ -168,10 +168,8 @@ extension ProfilesView: UITableViewDataSource, UITableViewDelegate {
         return menuItems[section].items.count
     }
 
-    func tableView(
-        _ tableView: UITableView,
-        cellForRowAt indexPath: IndexPath
-    ) -> UITableViewCell {
+    func tableView(_ tableView: UITableView,
+                   cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(
             withIdentifier: ProfilesMenuCell.identifier,
             for: indexPath

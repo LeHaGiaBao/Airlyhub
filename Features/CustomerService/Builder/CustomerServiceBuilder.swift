@@ -14,8 +14,12 @@ enum CustomerServiceBuilderAction {
 
 final class CustomerServiceBuilder {
     func build() -> (UIViewController, Observable<CustomerServiceBuilderAction>) {
-        let presenter = CustomerServicePresenter()
+        let interactor = CustomerServiceInteractor()
+        let router = CustomerServiceRouter()
+        let presenter = CustomerServicePresenter(interactor: interactor,
+                                                 router: router)
         let view = CustomerServiceView(presenter: presenter)
+        router.viewController = view
         return (view, presenter.customerServiceBuilderAction)
     }
 }

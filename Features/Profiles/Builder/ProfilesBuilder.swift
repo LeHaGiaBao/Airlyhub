@@ -8,7 +8,7 @@
 import UIKit
 
 final class ProfilesBuilder {
-    static func createModule(nav: UINavigationController) -> UIViewController {
+    func build(nav: UINavigationController) -> UIViewController {
         let interactor = ProfilesInteractor()
         let router = ProfilesRouter(nav: nav)
         let presenter = ProfilesPresenter(interactor: interactor,

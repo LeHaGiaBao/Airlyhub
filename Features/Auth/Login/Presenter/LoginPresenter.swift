@@ -14,11 +14,9 @@ final class LoginPresenter: LoginPresenterProtocol {
     let router: LoginRouterProtocol
     let disposeBag = DisposeBag()
 
-    init(
-        view: LoginViewProtocol,
-        interactor: LoginInteractorProtocol,
-        router: LoginRouterProtocol
-    ) {
+    init(view: LoginViewProtocol,
+         interactor: LoginInteractorProtocol,
+         router: LoginRouterProtocol) {
         self.view = view
         self.interactor = interactor
         self.router = router

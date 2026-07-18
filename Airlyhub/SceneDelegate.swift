@@ -21,7 +21,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         if AuthService.shared.isLoggedIn() {
             window.rootViewController = AppRouter.createRootModule(nav: UINavigationController())
         } else {
-            let register = LoginBuilder.createModule()
+            let register = LoginBuilder().build()
             window.rootViewController = UINavigationController(rootViewController: register)
         }
         window.makeKeyAndVisible()

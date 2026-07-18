@@ -7,10 +7,18 @@
 
 import RxSwift
 
-final class SettingsPresenter {
+final class SettingsPresenter: SettingsPresenterProtocol {
     private var _settingsBuilderAction = BehaviorSubject<SettingsBuilderAction>(value: .cancel)
     private var hasCompleted = false
-    
+    private let interactor: SettingsInteractorProtocol
+    private let router: SettingsRouterProtocol
+
+    init(interactor: SettingsInteractorProtocol,
+         router: SettingsRouterProtocol) {
+        self.interactor = interactor
+        self.router = router
+    }
+
     var settingsBuilderAction: Observable<SettingsBuilderAction> {
         _settingsBuilderAction.asObservable()
     }

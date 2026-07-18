@@ -12,11 +12,9 @@ final class FlightsPresenter: FlightsPresenterProtocol {
     private let interactor: FlightsInteractorProtocol
     private let router: FlightsRouterProtocol
 
-    init(
-        view: FlightsViewProtocol,
-        interactor: FlightsInteractorProtocol,
-        router: FlightsRouterProtocol
-    ) {
+    init(view: FlightsViewProtocol,
+         interactor: FlightsInteractorProtocol,
+         router: FlightsRouterProtocol) {
         self.view = view
         self.interactor = interactor
         self.router = router

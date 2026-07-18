@@ -7,18 +7,16 @@
 
 import UIKit
 
-final class FlightsBuilder: FlightsRouterProtocol {
-    static func createModule(nav: UINavigationController) -> UIViewController {
+final class FlightsBuilder {
+    func build(nav: UINavigationController) -> UIViewController {
         let view = FlightsViewController()
         let interactor = FlightsInteractor()
-        let router = FlightsBuilder()
-        let presenter = FlightsPresenter(
-            view: view,
-            interactor: interactor,
-            router: router
-        )
-
+        let router = FlightsRouter()
+        let presenter = FlightsPresenter(view: view,
+                                         interactor: interactor,
+                                         router: router)
         view.presenter = presenter
+        router.viewController = view
         return view
     }
 }

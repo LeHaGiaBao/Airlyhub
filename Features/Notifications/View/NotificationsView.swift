@@ -9,7 +9,7 @@ import UIKit
 import SwiftUI
 import SnapKit
 
-final class NotificationsView: BaseViewController {
+final class NotificationsView: BaseViewController, NotificationsViewProtocol {
     private let presenter: NotificationsPresenter
     private let topNavigatorVC: TopNavigatorView
     private let tableView = UITableView(frame: .zero, style: .plain)

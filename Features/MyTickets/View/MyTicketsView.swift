@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class MyTicketsView: BaseViewController {
+final class MyTicketsView: BaseViewController, MyTicketsViewProtocol {
     private let presenter: MyTicketsPresenter
     private let topNavigatorVC: TopNavigatorView
 

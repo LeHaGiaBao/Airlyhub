@@ -7,10 +7,18 @@
 
 import RxSwift
 
-final class CustomerServicePresenter {
+final class CustomerServicePresenter: CustomerServicePresenterProtocol {
     private var _customerServiceBuilderAction = BehaviorSubject<CustomerServiceBuilderAction>(value: .cancel)
     private var hasCompleted = false
-    
+    private let interactor: CustomerServiceInteractorProtocol
+    private let router: CustomerServiceRouterProtocol
+
+    init(interactor: CustomerServiceInteractorProtocol,
+         router: CustomerServiceRouterProtocol) {
+        self.interactor = interactor
+        self.router = router
+    }
+
     var customerServiceBuilderAction: Observable<CustomerServiceBuilderAction> {
         _customerServiceBuilderAction.asObservable()
     }

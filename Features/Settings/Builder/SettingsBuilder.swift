@@ -14,8 +14,12 @@ enum SettingsBuilderAction {
 
 final class SettingsBuilder {
     func build() -> (UIViewController, Observable<SettingsBuilderAction>) {
-        let presenter = SettingsPresenter()
+        let interactor = SettingsInteractor()
+        let router = SettingsRouter()
+        let presenter = SettingsPresenter(interactor: interactor,
+                                          router: router)
         let view = SettingsView(presenter: presenter)
+        router.viewController = view
         return (view, presenter.settingsBuilderAction)
     }
 }

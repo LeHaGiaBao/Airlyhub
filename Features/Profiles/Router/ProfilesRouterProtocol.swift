@@ -1,24 +1,13 @@
 //
-//  ProfilesProtocols.swift
+//  ProfilesRouterProtocol.swift
 //  Airlyhub
 //
-//  Created by Le Ha Gia Bao on 08/03/2026.
+//  Created by Le Ha Gia Bao on 18/07/2026.
+//  Copyright © 2026 airly. All rights reserved.
 //
 
 import Foundation
 import RxSwift
-
-protocol ProfilesInteractorProtocol: AnyObject {
-    func fetchUser() -> UserProfile
-    func fetchMenuItems() -> [ProfilesMenuSection]
-    func signOut() -> Result<Void, Error>
-}
-
-protocol ProfilesPresenterProtocol: AnyObject, ProfilesRouterProtocol {
-    func getUserProfile() -> UserProfile
-    func getMenuItems() -> [ProfilesMenuSection]
-    func goToLogout()
-}
 
 protocol ProfilesRouterProtocol: AnyObject {
     func navigateToNotifications() -> Observable<NotificationsBuilderAction>
