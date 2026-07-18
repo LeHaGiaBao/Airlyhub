@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import SnapKit
 
 final class CustomerServiceView: BaseViewController {
     private let presenter: CustomerServicePresenter

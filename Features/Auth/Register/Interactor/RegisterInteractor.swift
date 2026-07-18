@@ -10,7 +10,6 @@ import RxSwift
 import FirebaseAuth
 
 final class RegisterInteractor: RegisterInteractorProtocol {
-
     func register(name: String, email: String, password: String) -> Observable<Void> {
         Observable.create { observer in
             AuthService.shared.register(email: email, password: password) { result in

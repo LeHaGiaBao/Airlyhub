@@ -7,6 +7,8 @@
 
 import UIKit
 
+protocol ExploreRouterProtocol: AnyObject {}
+
 final class ExploreBuilder: ExploreRouterProtocol {
     static func createModule(nav: UINavigationController) -> UIViewController {
         let view = ExploreViewController()

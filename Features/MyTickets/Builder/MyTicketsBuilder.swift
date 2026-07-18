@@ -14,7 +14,8 @@ enum MyTicketsBuilderAction {
 
 final class MyTicketsBuilder {
     func build() -> (UIViewController, Observable<MyTicketsBuilderAction>) {
-        let presenter = MyTicketsPresenter()
+        let interactor = MyTicketsInteractor()
+        let presenter = MyTicketsPresenter(interactor: interactor)
         let view = MyTicketsView(presenter: presenter)
         return (view, presenter.myTicketsBuilderAction)
     }
