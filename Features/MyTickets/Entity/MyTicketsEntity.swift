@@ -6,3 +6,8 @@
 //
 
 import Foundation
+
+struct MyTicketsSection {
+    let title: String
+    let tickets: [SmallTicketModel]
+}
