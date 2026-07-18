@@ -9,6 +9,8 @@
 import Foundation
 
 enum Regexes {
+    // Regex literals must stay on one line — splitting them would change the pattern.
+    // swiftlint:disable line_length
     static let phone                      = #"^0\d{9}$"#
     static let phoneWithOrWithoutZero     = #"^(?:(?=0)[0]([0-9]{9,10})|(?:(?=[3|5|7|8|9])[3|5|7|8|9]([0-9]{8,9})))$"#
     static let numberOnly                 = #"^\d+$"#
@@ -21,6 +23,7 @@ enum Regexes {
     static let vietnameseCharacters       = #"^[a-zA-ZÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀẾỂưăạảấầẩẫậắằẳẵặẹẻẽềếểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹý\s]*$"#
     static let phoneWithElevenNumberAnd84 = #"^(?:^[1-9]\d{8}|0\d{9}|84[1-9]\d{8})$"#
     static let dateOfBirth                = #"^[0-9]{2}\/[0-9]{2}\/[1-2]{1}[0-9]{3}$"#
+    // swiftlint:enable line_length
 
     static func matches(_ pattern: String, input: String) -> Bool {
         return input.range(of: pattern, options: .regularExpression) != nil
