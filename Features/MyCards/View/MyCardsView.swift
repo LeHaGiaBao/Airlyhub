@@ -18,7 +18,7 @@ final class MyCardsView: BaseViewController, MyCardsViewProtocol {
 
     init(presenter: MyCardsPresenter) {
         self.presenter = presenter
-        self.topNavigatorVC = TopNavigatorView(topNavigatorTile: "My Cards")
+        self.topNavigatorVC = TopNavigatorView(topNavigatorTile: NSLocalizedString("my_cards", comment: ""))
         super.init(nibName: nil, bundle: nil)
     }
 

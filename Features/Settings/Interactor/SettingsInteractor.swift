@@ -7,4 +7,33 @@
 
 import Foundation
 
-final class SettingsInteractor: SettingsInteractorProtocol {}
+final class SettingsInteractor: SettingsInteractorProtocol {
+    func fetchSettings() -> [SettingsItem] {
+        return [
+            SettingsItem(type: .language,
+                         title: NSLocalizedString("application_language", comment: ""),
+                         icon: AssetsIcon.earth,
+                         accessory: .value(LanguageManager.shared.currentLanguage.displayName)),
+            SettingsItem(type: .pushNotifications,
+                         title: NSLocalizedString("push_notifications", comment: ""),
+                         icon: AssetsIcon.badge,
+                         accessory: .toggle(false)),
+            SettingsItem(type: .aboutUs,
+                         title: NSLocalizedString("about_us", comment: ""),
+                         icon: AssetsIcon.blueAirplane,
+                         accessory: .none)
+        ]
+    }
+
+    func availableLanguages() -> [AppLanguage] {
+        LanguageManager.shared.availableLanguages
+    }
+
+    func currentLanguage() -> AppLanguage {
+        LanguageManager.shared.currentLanguage
+    }
+
+    func setLanguage(_ language: AppLanguage) {
+        LanguageManager.shared.setLanguage(language)
+    }
+}

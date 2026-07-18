@@ -17,7 +17,9 @@ final class CustomerServiceView: BaseViewController, CustomerServiceViewProtocol
 
     init(presenter: CustomerServicePresenter) {
         self.presenter = presenter
-        self.topNavigatorVC = TopNavigatorView(topNavigatorTile: "Customer Service")
+        self.topNavigatorVC = TopNavigatorView(
+            topNavigatorTile: NSLocalizedString("customer_service", comment: "")
+        )
         super.init(nibName: nil, bundle: nil)
     }
 

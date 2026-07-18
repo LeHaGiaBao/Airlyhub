@@ -12,6 +12,28 @@ enum AppRouter {
         window.rootViewController = createRootModule(nav: UINavigationController())
     }
 
+    /// Rebuilds the window's root view controller (respecting auth state) with a
+    /// cross-dissolve. Used after a global change such as switching the app language,
+    /// where every already-loaded screen must be recreated to pick up the new locale.
+    /// Restores the previously selected tab so the user stays in the same section.
+    static func reloadRoot(in window: UIWindow, selectedTab: Int? = nil) {
+        if AuthService.shared.isLoggedIn() {
+            let root = createRootModule(nav: UINavigationController())
+            if let selectedTab,
+               let tabBar = root as? UITabBarController,
+               selectedTab < (tabBar.viewControllers?.count ?? 0) {
+                tabBar.selectedIndex = selectedTab
+            }
+            window.rootViewController = root
+        } else {
+            setRootToLogin(in: window)
+        }
+        UIView.transition(with: window,
+                          duration: 0.3,
+                          options: .transitionCrossDissolve,
+                          animations: nil)
+    }
+
     static func setRootToLogin(in window: UIWindow) {
         let login = LoginBuilder().build()
         window.rootViewController = UINavigationController(rootViewController: login)

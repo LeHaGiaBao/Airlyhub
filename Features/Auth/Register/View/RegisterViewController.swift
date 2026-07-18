@@ -461,8 +461,10 @@ extension RegisterViewController: RegisterViewProtocol {
     }
 
     func showError(_ message: String) {
-        let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default))
+        let alert = UIAlertController(title: NSLocalizedString("error_title", comment: ""),
+                                      message: message,
+                                      preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: NSLocalizedString("ok", comment: ""), style: .default))
         present(alert, animated: true)
     }
 }

@@ -8,4 +8,9 @@
 
 import Foundation
 
-protocol SettingsRouterProtocol: AnyObject {}
+protocol SettingsRouterProtocol: AnyObject {
+    func presentLanguageSelection(languages: [AppLanguage],
+                                  current: AppLanguage,
+                                  onSelect: @escaping (AppLanguage) -> Void)
+    func reloadForLanguageChange()
+}

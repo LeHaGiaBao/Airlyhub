@@ -35,6 +35,7 @@
 		0DB42930AD02B6E3CEE5B81C /* InputTokens.swift in Sources */ = {isa = PBXBuildFile; fileRef = E501D21EA387E39BA4D2BDCA /* InputTokens.swift */; };
 		0E65FE54A9368763CA569207 /* GoogleDataTransport_GoogleDataTransport.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 827E0E065F3BA32237A71CF5 /* GoogleDataTransport_GoogleDataTransport.bundle */; };
 		1001B5FAD6007B0614431000 /* Firebase_FirebaseFirestore.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 19EA5E81CCB9804D6F5C42A7 /* Firebase_FirebaseFirestore.bundle */; };
+		132EF9CBC0B6A41148552F1F /* SettingsRowCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B69062DDB76309FCA94D81B /* SettingsRowCell.swift */; };
 		137CCA2561E421C685BD02A5 /* CustomerServiceEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D9CC480233D1CD525A121E /* CustomerServiceEntity.swift */; };
 		13CA2C024A09D278F7F52C91 /* GoogleAppMeasurementTarget.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DF8359497EB2E644AB65F79 /* GoogleAppMeasurementTarget.framework */; };
 		13FB5521297D132F7D2ECD8B /* FavoritesPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B63189249610AFE922CB20 /* FavoritesPresenterProtocol.swift */; };
@@ -61,6 +62,7 @@
 		1C5B48F3AAD0FE14B8055A6D /* abseil_abslWrapper.bundle in Dependencies */ = {isa = PBXBuildFile; fileRef = 7A1CF47533AECCB0ED5E83CE /* abseil_abslWrapper.bundle */; };
 		1D9E574712312411A44BA671 /* GoogleAdsOnDeviceConversionTarget.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6E78C45DEC24FAEBD554824 /* GoogleAdsOnDeviceConversionTarget.framework */; };
 		1DCF24CA339B5845C0BF09C9 /* FavoritesBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F57DD142E3559183AAF100F /* FavoritesBuilder.swift */; };
+		1F6E6A275AAA83415BC09F76 /* AppLanguage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EF154EF3CA0F82DAFEFC6D0 /* AppLanguage.swift */; };
 		201B11D4C7D063D6C767CA91 /* Firebase_FirebaseCoreExtension.bundle in Resources */ = {isa = PBXBuildFile; fileRef = F233AE55F7123175D086F56E /* Firebase_FirebaseCoreExtension.bundle */; };
 		20412CE3BB3A744D337DEA93 /* FlightsInteractorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C812702AE7DC89F3A8C7663F /* FlightsInteractorProtocol.swift */; };
 		20B4C6916AEAD2913E11A3A4 /* FlightsRouterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5049D9F6029D9D008C081AA2 /* FlightsRouterProtocol.swift */; };
@@ -77,6 +79,7 @@
 		27D4EEEA1A9F4F65CB21B5C8 /* FirebaseFirestoreTarget.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D2132E0D9FEA958455F1B51 /* FirebaseFirestoreTarget.framework */; };
 		2951D653755C07C4082C0CDB /* FirebaseAILogic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 293C8DF63C6FF85EA4E5CE9B /* FirebaseAILogic.framework */; };
 		29696BB4E5B5C41F3BA5B74F /* MyTicketsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757F0D704115A6D8CF0FB130 /* MyTicketsPresenter.swift */; };
+		29EECBBA5B88DC67DD945CC6 /* LanguageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D71A555F9CAD652FC66CDB53 /* LanguageManager.swift */; };
 		29EF3D5053F00CD8D407039B /* abseil_abslWrapper.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 7A1CF47533AECCB0ED5E83CE /* abseil_abslWrapper.bundle */; };
 		2A8A61E349F344F422B3B62C /* Promises_Promises.bundle in Dependencies */ = {isa = PBXBuildFile; fileRef = 7B45DED40BCB0A9587D11382 /* Promises_Promises.bundle */; };
 		2AE9AE28340A3054F23D93CA /* FlightsDateRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6E14D7B2015157F67C7BC4 /* FlightsDateRowView.swift */; };
@@ -141,6 +144,7 @@
 		56BA7F3307560D17C18AC4A7 /* NetworkMonitoring.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF0950DBD33E788B3F151DA /* NetworkMonitoring.swift */; };
 		5798E8FBE9F020CDD971FC10 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EB49BDA53E5679A984EC7AF /* SceneDelegate.swift */; };
 		57A359EC048D7ADA8FE01A66 /* GoogleDataTransport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B31CCD805DBFC28CA4B7EF5E /* GoogleDataTransport.framework */; };
+		5A6815E45DCCAA0C67CE0342 /* Bundle+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0556119355D318C9ED47EA29 /* Bundle+Extension.swift */; };
 		5B3DF3690F007D0C552FF133 /* MyTicketsInteractorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE59DCA388F8161B02FC489C /* MyTicketsInteractorProtocol.swift */; };
 		5B76011A872BB9462C6EE296 /* openssl_grpc.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = F38134F5859FA527873BCACF /* openssl_grpc.xcframework */; };
 		5D05D2D70B0141D3F5891E20 /* LoginBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1074576D73F851A551519ACD /* LoginBuilder.swift */; };
@@ -312,6 +316,7 @@
 		D477163730F2CD28E61CCFC7 /* SettingsRouterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E43D7268AFD1DAD47D3FE9 /* SettingsRouterProtocol.swift */; };
 		D5E47F594E11178E07D3631D /* MyCardsViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD43FC7E69A17B2EFC24E98 /* MyCardsViewProtocol.swift */; };
 		D76652E12C50A2E663F2AA0F /* MyTicketsViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30833F615C1A4104B8FF49E1 /* MyTicketsViewProtocol.swift */; };
+		D7F8C5CCB4B2CDB6C1062CC6 /* LanguageSelectionBottomSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6016B976CC0132B7AE767EC /* LanguageSelectionBottomSheetViewController.swift */; };
 		D8B42530FA080DB066342466 /* GoogleUtilities_GoogleUtilities_UserDefaults.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 39051E9614FB6F96D977E91B /* GoogleUtilities_GoogleUtilities_UserDefaults.bundle */; };
 		D95891085ED7A81A8D340422 /* MyTicketsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7382DDF008C54C71B2568AD2 /* MyTicketsRouter.swift */; };
 		DA24127F42352659A4E67EFE /* FlightsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6FC0908B33728E00E76C31C /* FlightsPresenter.swift */; };
@@ -335,6 +340,7 @@
 		E73F84C0CD7D1A20BB176805 /* LocationResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06329555884817488D51A9AC /* LocationResult.swift */; };
 		E9223D1B58049CA7A500EB24 /* LoginInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4EF30629B90B3573F3CCE6B /* LoginInteractor.swift */; };
 		EA8DD16FBC765A130FDFFF7F /* FavoritesRouterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88E7740DA5FFE34C3572D593 /* FavoritesRouterProtocol.swift */; };
+		EB79CBE538B04776FD2B8CDE /* LanguageOptionRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 106C26CAB7CD298E6FB25324 /* LanguageOptionRow.swift */; };
 		EC3539CE373B7E60565CA572 /* Firebase_FirebaseCrashlytics.bundle in Dependencies */ = {isa = PBXBuildFile; fileRef = FB0ADD2C2C5F8B4ABC7C03FA /* Firebase_FirebaseCrashlytics.bundle */; };
 		ECBAD0DA05BA3C23CE059DA5 /* grpc.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD9EA16C2A5584E3D341899A /* grpc.xcframework */; };
 		EE25FA6FC3D9CB7161A10FE4 /* NotificationItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F6A2E48831B12EDEC2E8C3 /* NotificationItem.swift */; };
@@ -466,6 +472,7 @@
 		02A8629E3ABA8C3672995AB3 /* RxCocoa.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RxCocoa.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		03F20C2C7A5DDA6E33A98A40 /* .build */ = {isa = PBXFileReference; lastKnownFileType = folder; path = .build; sourceTree = "<group>"; };
 		050983355864E948992114D4 /* ButtonSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonSize.swift; sourceTree = "<group>"; };
+		0556119355D318C9ED47EA29 /* Bundle+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Extension.swift"; sourceTree = "<group>"; };
 		056E2315103F5EA8A1B57D76 /* FirebaseAppDistribution.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FirebaseAppDistribution.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		06329555884817488D51A9AC /* LocationResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationResult.swift; sourceTree = "<group>"; };
 		064DCB12B2D813176526F583 /* ProfilesRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilesRouter.swift; sourceTree = "<group>"; };
@@ -492,6 +499,7 @@
 		0F6F416C3E824B01446CE1E6 /* RecaptchaInterop.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RecaptchaInterop.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0FF84BED252CB7FFCD640BC8 /* FlightsLocationRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightsLocationRowView.swift; sourceTree = "<group>"; };
 		10300FAD9C8838E892A2EB83 /* FavoritesInteractorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesInteractorProtocol.swift; sourceTree = "<group>"; };
+		106C26CAB7CD298E6FB25324 /* LanguageOptionRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageOptionRow.swift; sourceTree = "<group>"; };
 		1074576D73F851A551519ACD /* LoginBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginBuilder.swift; sourceTree = "<group>"; };
 		11DD1A1F41592D76CC4A39CD /* ExplorePresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExplorePresenterProtocol.swift; sourceTree = "<group>"; };
 		1227F34FF9E6F446E9D9CF55 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
@@ -503,6 +511,7 @@
 		1709CA4D0D992C3C9259C734 /* FlightsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightsInteractor.swift; sourceTree = "<group>"; };
 		173D95793FD166EE64DD4D37 /* MyTicketsBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTicketsBuilder.swift; sourceTree = "<group>"; };
 		19EA5E81CCB9804D6F5C42A7 /* Firebase_FirebaseFirestore.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Firebase_FirebaseFirestore.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		1B69062DDB76309FCA94D81B /* SettingsRowCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsRowCell.swift; sourceTree = "<group>"; };
 		1BC01BAA1A05D9B0FF5719BC /* gRPC_opensslWrapper.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = gRPC_opensslWrapper.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D5C488A27A62ECCE5F2F05A /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		1EAAEC6A05352DFE051E36B8 /* ExploreRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreRouter.swift; sourceTree = "<group>"; };
@@ -664,6 +673,7 @@
 		8CEAD2C086CDA43532479A7B /* NotificationsRouterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsRouterProtocol.swift; sourceTree = "<group>"; };
 		8E4B9FAE84AE5F0C3C5B8A9A /* FirebaseAuth.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FirebaseAuth.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8EB117C39AF3E0DB3E14787F /* RxRelay.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RxRelay.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8EF154EF3CA0F82DAFEFC6D0 /* AppLanguage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLanguage.swift; sourceTree = "<group>"; };
 		9027E4BD4CB1EA3C2A7D76F5 /* MyCardsInteractorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCardsInteractorProtocol.swift; sourceTree = "<group>"; };
 		90D3ED794880C1242A788B25 /* FavoritesInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesInteractor.swift; sourceTree = "<group>"; };
 		92452FA2B2C4B4030AA7BCB5 /* Regexes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Regexes.swift; sourceTree = "<group>"; };
@@ -716,6 +726,7 @@
 		B4E412764E3651B28A1F92AE /* RegisterPresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterPresenterProtocol.swift; sourceTree = "<group>"; };
 		B54DAB8A2C3FA712D19916C8 /* MyCardsEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCardsEntity.swift; sourceTree = "<group>"; };
 		B592E2E9F72CF720E08C0025 /* ProdConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProdConfig.swift; sourceTree = "<group>"; };
+		B6016B976CC0132B7AE767EC /* LanguageSelectionBottomSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageSelectionBottomSheetViewController.swift; sourceTree = "<group>"; };
 		B60A8AB01914E17141A0CE09 /* Text+Typography.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Text+Typography.swift"; sourceTree = "<group>"; };
 		B6381DC2E202E3BCF1B12187 /* GoogleUtilities_GoogleUtilities_Reachability.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GoogleUtilities_GoogleUtilities_Reachability.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6FC0908B33728E00E76C31C /* FlightsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightsPresenter.swift; sourceTree = "<group>"; };
@@ -764,6 +775,7 @@
 		D520893DE601DFC3E3BE76A7 /* Scripts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Scripts; sourceTree = "<group>"; };
 		D5D0D89E4F8686310974A458 /* FirebaseSharedSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FirebaseSharedSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D63D5E8B98AE4E8AD3C3F577 /* NotificationsInteractorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsInteractorProtocol.swift; sourceTree = "<group>"; };
+		D71A555F9CAD652FC66CDB53 /* LanguageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageManager.swift; sourceTree = "<group>"; };
 		D7BAFB7BDB3ECB63FB2C14B6 /* NoInternetProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoInternetProtocols.swift; sourceTree = "<group>"; };
 		D8DCDB0142642E4EB010962D /* MyTicketCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTicketCell.swift; sourceTree = "<group>"; };
 		DB2F3131228DBD5F4A80C7B0 /* Config */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Config; sourceTree = "<group>"; };
@@ -1224,6 +1236,7 @@
 		2D1A5644E6FEF44085501173 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				725ED3FBF6441D45C9CCF4F1 /* Components */,
 				CE9DED56CAA304EA9215D7AD /* SettingsView.swift */,
 				077E616818AC4CF672C00B1A /* SettingsViewProtocol.swift */,
 			);
@@ -1474,6 +1487,15 @@
 			path = Ticket;
 			sourceTree = "<group>";
 		};
+		5EF61542F13C7A11EE36E86A /* Languages */ = {
+			isa = PBXGroup;
+			children = (
+				8EF154EF3CA0F82DAFEFC6D0 /* AppLanguage.swift */,
+				D71A555F9CAD652FC66CDB53 /* LanguageManager.swift */,
+			);
+			path = Languages;
+			sourceTree = "<group>";
+		};
 		609165489342836F796D02CB /* Features */ = {
 			isa = PBXGroup;
 			children = (
@@ -1615,6 +1637,14 @@
 				9FEBDA0F6C7DB157D3FDE845 /* FeedbackGenerator.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		725ED3FBF6441D45C9CCF4F1 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				1B69062DDB76309FCA94D81B /* SettingsRowCell.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 		7272440E7585638E9A220613 /* Validations */ = {
@@ -1778,6 +1808,7 @@
 			children = (
 				73CEBA3D6D344C822D3CBF20 /* Badge */,
 				BC1F59E256A54AFDCF490EB2 /* DatePicker */,
+				E6C4CEE9FFA7B996842C6553 /* Languages */,
 				3C77312CE1C4E932F306292C /* LocationFinder */,
 				D8A080D06CE53D8C0776C690 /* Navigation */,
 				3B7723E19567B2A50A05801F /* NoInternet */,
@@ -1804,6 +1835,14 @@
 				D63D5E8B98AE4E8AD3C3F577 /* NotificationsInteractorProtocol.swift */,
 			);
 			path = Interactor;
+			sourceTree = "<group>";
+		};
+		890E5C78FFF99B354AA82BDF /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				0556119355D318C9ED47EA29 /* Bundle+Extension.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		8A29FD0B4172946A5F3A9C8B /* Builder */ = {
@@ -2221,6 +2260,15 @@
 			path = Entity;
 			sourceTree = "<group>";
 		};
+		E6C4CEE9FFA7B996842C6553 /* Languages */ = {
+			isa = PBXGroup;
+			children = (
+				106C26CAB7CD298E6FB25324 /* LanguageOptionRow.swift */,
+				B6016B976CC0132B7AE767EC /* LanguageSelectionBottomSheetViewController.swift */,
+			);
+			path = Languages;
+			sourceTree = "<group>";
+		};
 		E6F54A8D8ADCD2BEB2B423E8 /* Location */ = {
 			isa = PBXGroup;
 			children = (
@@ -2233,6 +2281,7 @@
 		E7405D118BC3F7B11F9DD477 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				890E5C78FFF99B354AA82BDF /* Extensions */,
 				720C5D97C3A7D7731B1D6277 /* Helpers */,
 				7272440E7585638E9A220613 /* Validations */,
 			);
@@ -2406,6 +2455,7 @@
 		F0F4F7B4E0B8EE3041E0E918 /* Localization */ = {
 			isa = PBXGroup;
 			children = (
+				5EF61542F13C7A11EE36E86A /* Languages */,
 				A7E17C2205AEAB125225BC72 /* Localizable.strings */,
 			);
 			path = Localization;
@@ -2757,6 +2807,8 @@
 				71B44779D64F95C7DFBCB14C /* PriceBadgeView.swift in Sources */,
 				9E412619DAFF5327B4A12F10 /* DatePicker.swift in Sources */,
 				2AE9AE28340A3054F23D93CA /* FlightsDateRowView.swift in Sources */,
+				EB79CBE538B04776FD2B8CDE /* LanguageOptionRow.swift in Sources */,
+				D7F8C5CCB4B2CDB6C1062CC6 /* LanguageSelectionBottomSheetViewController.swift in Sources */,
 				FCFC3C4AD70D5C609645AF93 /* LocationCell.swift in Sources */,
 				026CA1B8A0CD4E8187CA788B /* LocationFinder+Actions.swift in Sources */,
 				C5EA44BC4245B2B07DCABC57 /* LocationFinder+Animation.swift in Sources */,
@@ -2890,9 +2942,13 @@
 				E55CF9A4EA75A3E7592407AE /* SettingsPresenterProtocol.swift in Sources */,
 				818B5B741AC86A1EEBC2AC3C /* SettingsRouter.swift in Sources */,
 				D477163730F2CD28E61CCFC7 /* SettingsRouterProtocol.swift in Sources */,
+				132EF9CBC0B6A41148552F1F /* SettingsRowCell.swift in Sources */,
 				67C32818EB34CCB6FB0B9C45 /* SettingsView.swift in Sources */,
 				9897310EA8A8F886CF7254C4 /* SettingsViewProtocol.swift in Sources */,
+				1F6E6A275AAA83415BC09F76 /* AppLanguage.swift in Sources */,
+				29EECBBA5B88DC67DD945CC6 /* LanguageManager.swift in Sources */,
 				887308AA2CE463BD0A78AA03 /* AssetsIcon.swift in Sources */,
+				5A6815E45DCCAA0C67CE0342 /* Bundle+Extension.swift in Sources */,
 				E5E1A2CAA3E9C300851C87EE /* FeedbackGenerator.swift in Sources */,
 				415B3701F3D0386F2EE1D857 /* Regexes.swift in Sources */,
 				690C6CDBE0718A5255541827 /* Validation.swift in Sources */,

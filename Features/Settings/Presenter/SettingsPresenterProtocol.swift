@@ -10,4 +10,6 @@ import Foundation
 
 protocol SettingsPresenterProtocol: AnyObject {
     func dismiss()
+    func getSettingItems() -> [SettingsItem]
+    func didSelectItem(_ item: SettingsItem)
 }
