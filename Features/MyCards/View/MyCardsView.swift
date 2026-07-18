@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-final class MyCardsView: BaseViewController {
+final class MyCardsView: BaseViewController, MyCardsViewProtocol {
     private let presenter: MyCardsPresenter
     private let topNavigatorVC: TopNavigatorView
 

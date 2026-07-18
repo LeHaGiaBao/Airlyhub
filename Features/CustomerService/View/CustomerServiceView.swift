@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class CustomerServiceView: BaseViewController {
+final class CustomerServiceView: BaseViewController, CustomerServiceViewProtocol {
     private let presenter: CustomerServicePresenter
     private let topNavigatorVC: TopNavigatorView
 

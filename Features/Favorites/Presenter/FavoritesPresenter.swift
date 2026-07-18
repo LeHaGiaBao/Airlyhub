@@ -12,17 +12,13 @@ final class FavoritesPresenter: FavoritesPresenterProtocol {
     private let interactor: FavoritesInteractorProtocol
     private let router: FavoritesRouterProtocol
 
-    init(
-        view: FavoritesViewProtocol,
-        interactor: FavoritesInteractorProtocol,
-        router: FavoritesRouterProtocol
-    ) {
+    init(view: FavoritesViewProtocol,
+         interactor: FavoritesInteractorProtocol,
+         router: FavoritesRouterProtocol) {
         self.view = view
         self.interactor = interactor
         self.router = router
     }
 
-    func viewDidLoad() {
-        
-    }
+    func viewDidLoad() {}
 }

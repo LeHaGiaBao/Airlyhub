@@ -7,18 +7,16 @@
 
 import UIKit
 
-final class FavoritesBuilder: FavoritesRouterProtocol {
-    static func createModule(nav: UINavigationController) -> UIViewController {
+final class FavoritesBuilder {
+    func build(nav: UINavigationController) -> UIViewController {
         let view = FavoritesViewController()
         let interactor = FavoritesInteractor()
-        let router = FavoritesBuilder()
-        let presenter = FavoritesPresenter(
-            view: view,
-            interactor: interactor,
-            router: router
-        )
-
+        let router = FavoritesRouter()
+        let presenter = FavoritesPresenter(view: view,
+                                           interactor: interactor,
+                                           router: router)
         view.presenter = presenter
+        router.viewController = view
         return view
     }
 }

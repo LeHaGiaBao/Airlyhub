@@ -13,40 +13,40 @@ enum AppRouter {
     }
 
     static func setRootToLogin(in window: UIWindow) {
-        let login = LoginBuilder.createModule()
+        let login = LoginBuilder().build()
         window.rootViewController = UINavigationController(rootViewController: login)
     }
     
     static func setRootToRegister(in window: UIWindow) {
-        let register = RegisterBuilder.createModule()
+        let register = RegisterBuilder().build()
         window.rootViewController = UINavigationController(rootViewController: register)
     }
 
     static func createRootModule(nav: UINavigationController) -> UIViewController {
         let tabBarController = UITabBarController()
 
-        let exploreNavigation = ExploreBuilder.createModule(nav: nav)
+        let exploreNavigation = ExploreBuilder().build(nav: nav)
         exploreNavigation.tabBarItem = UITabBarItem(
             title: NSLocalizedString("tab_explore", comment: ""),
             image: AssetsIcon.exploreInactive,
             selectedImage: AssetsIcon.exploreActive
         )
 
-        let flightsNavigation = FlightsBuilder.createModule(nav: nav)
+        let flightsNavigation = FlightsBuilder().build(nav: nav)
         flightsNavigation.tabBarItem = UITabBarItem(
             title: NSLocalizedString("tab_flights", comment: ""),
             image: AssetsIcon.flightsInactive,
             selectedImage: AssetsIcon.flightsActive
         )
 
-        let favoritesNavigation = FavoritesBuilder.createModule(nav: nav)
+        let favoritesNavigation = FavoritesBuilder().build(nav: nav)
         favoritesNavigation.tabBarItem = UITabBarItem(
             title: NSLocalizedString("tab_favorites", comment: ""),
             image: AssetsIcon.favoritesInactive,
             selectedImage: AssetsIcon.favoritesActive
         )
         
-        let profilesNavigation = ProfilesBuilder.createModule(nav: nav)
+        let profilesNavigation = ProfilesBuilder().build(nav: nav)
         profilesNavigation.tabBarItem = UITabBarItem(
             title: NSLocalizedString("tab_profile", comment: ""),
             image: AssetsIcon.profileInactive,

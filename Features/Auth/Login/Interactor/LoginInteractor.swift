@@ -9,7 +9,6 @@ import Foundation
 import RxSwift
 
 final class LoginInteractor: LoginInteractorProtocol {
-
     func login(email: String, password: String) -> Observable<Void> {
         Observable.create { observer in
             AuthService.shared.login(email: email, password: password) { result in

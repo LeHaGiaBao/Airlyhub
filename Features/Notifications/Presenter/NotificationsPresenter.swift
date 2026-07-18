@@ -11,9 +11,12 @@ final class NotificationsPresenter: NotificationsPresenterProtocol {
     private var _notificationsBuilderAction = BehaviorSubject<NotificationsBuilderAction>(value: .cancel)
     private var hasCompleted = false
     private let interactor: NotificationsInteractorProtocol
-    
-    init(interactor: NotificationsInteractorProtocol) {
+    private let router: NotificationsRouterProtocol
+
+    init(interactor: NotificationsInteractorProtocol,
+         router: NotificationsRouterProtocol) {
         self.interactor = interactor
+        self.router = router
     }
     
     var notificationsBuilderAction: Observable<NotificationsBuilderAction> {

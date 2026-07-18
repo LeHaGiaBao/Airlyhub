@@ -298,7 +298,6 @@ final class LoginViewController: BaseViewController {
 }
 
 // MARK: Keyboard Events
-
 extension LoginViewController {
     private func setupKeyboardHandling() {
         NotificationCenter.default.rx

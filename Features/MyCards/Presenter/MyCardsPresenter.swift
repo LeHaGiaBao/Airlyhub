@@ -7,10 +7,18 @@
 
 import RxSwift
 
-final class MyCardsPresenter {
+final class MyCardsPresenter: MyCardsPresenterProtocol {
     private var _myCardsBuilderAction = BehaviorSubject<MyCardsBuilderAction>(value: .cancel)
     private var hasCompleted = false
-    
+    private let interactor: MyCardsInteractorProtocol
+    private let router: MyCardsRouterProtocol
+
+    init(interactor: MyCardsInteractorProtocol,
+         router: MyCardsRouterProtocol) {
+        self.interactor = interactor
+        self.router = router
+    }
+
     var myCardsBuilderAction: Observable<MyCardsBuilderAction> {
         _myCardsBuilderAction.asObservable()
     }

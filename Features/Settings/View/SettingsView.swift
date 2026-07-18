@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-final class SettingsView: BaseViewController {
+final class SettingsView: BaseViewController, SettingsViewProtocol {
     private let presenter: SettingsPresenter
     private let topNavigatorVC: TopNavigatorView
 

@@ -18,14 +18,11 @@ final class RegisterInteractor: RegisterInteractorProtocol {
                     case .success(let user):
                         let trimmedName = name.trimmingCharacters(in: .whitespacesAndNewlines)
                         let emailValue = user.email ?? email
-                        let profile = UserModel(
-                            uid: user.uid,
-                            email: emailValue,
-                            name: trimmedName,
-                            avatar: "",
-                            phone: "",
-                            createdAt: Date()
-                        )
+                        let profile = UserModel(uid: user.uid,
+                                                email: emailValue,
+                                                name: trimmedName,
+                                                avatar: "",
+                                                phone: "",createdAt: Date())
                         UserService.shared.createUserProfile(user: profile) { profileResult in
                             DispatchQueue.main.async {
                                 switch profileResult {

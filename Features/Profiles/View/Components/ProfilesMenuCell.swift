@@ -94,10 +94,8 @@ final class ProfilesMenuCell: UITableViewCell {
         badgeLabel.isHidden = true
     }
 
-    func configure(
-        _ item: ProfilesMenuItem,
-        position: ProfilesMenuCellPosition
-    ) {
+    func configure(_ item: ProfilesMenuItem,
+                   position: ProfilesMenuCellPosition) {
         titleLabel.text = item.title
         iconView.image = item.iconName
 
@@ -112,7 +110,6 @@ final class ProfilesMenuCell: UITableViewCell {
     }
     
     private func applyCorner(_ position: ProfilesMenuCellPosition) {
-
         switch position {
         case .single:
             containerTopConstraint?.constant = 16

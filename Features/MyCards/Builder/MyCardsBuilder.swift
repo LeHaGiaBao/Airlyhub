@@ -14,8 +14,12 @@ enum MyCardsBuilderAction {
 
 final class MyCardsBuilder {
     func build() -> (UIViewController, Observable<MyCardsBuilderAction>) {
-        let presenter = MyCardsPresenter()
+        let interactor = MyCardsInteractor()
+        let router = MyCardsRouter()
+        let presenter = MyCardsPresenter(interactor: interactor,
+                                         router: router)
         let view = MyCardsView(presenter: presenter)
+        router.viewController = view
         return (view, presenter.myCardsBuilderAction)
     }
 }

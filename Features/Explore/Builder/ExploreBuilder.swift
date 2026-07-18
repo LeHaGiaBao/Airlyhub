@@ -7,20 +7,17 @@
 
 import UIKit
 
-protocol ExploreRouterProtocol: AnyObject {}
-
-final class ExploreBuilder: ExploreRouterProtocol {
-    static func createModule(nav: UINavigationController) -> UIViewController {
+final class ExploreBuilder {
+    func build(nav: UINavigationController) -> UIViewController {
         let view = ExploreViewController()
         let interactor = ExploreInteractor()
-        let router = ExploreBuilder()
-        let presenter = ExplorePresenter(
-            view: view,
-            interactor: interactor,
-            router: router
-        )
+        let router = ExploreRouter()
+        let presenter = ExplorePresenter(view: view,
+                                         interactor: interactor,
+                                         router: router)
 
         view.presenter = presenter
+        router.viewController = view
         return view
     }
 }
