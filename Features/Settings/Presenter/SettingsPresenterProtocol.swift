@@ -12,4 +12,6 @@ protocol SettingsPresenterProtocol: AnyObject {
     func dismiss()
     func getSettingItems() -> [SettingsItem]
     func didSelectItem(_ item: SettingsItem)
+    func viewWillAppear()
+    func didTogglePushNotifications(isOn: Bool)
 }

@@ -82,3 +82,6 @@
 "select_language" = "Select language";
 "error_title" = "Error";
 "ok" = "OK";
+"push_notifications_enabled" = "Notifications enabled";
+"push_notifications_disabled" = "Notifications disabled";
+"push_notifications_denied_hint" = "Please enable notifications in Settings";

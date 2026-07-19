@@ -8,4 +8,7 @@
 
 import Foundation
 
-protocol SettingsViewProtocol: AnyObject {}
+protocol SettingsViewProtocol: AnyObject {
+    func setPushNotificationToggle(_ isOn: Bool)
+    func showToast(_ message: String, style: ToastStyle)
+}

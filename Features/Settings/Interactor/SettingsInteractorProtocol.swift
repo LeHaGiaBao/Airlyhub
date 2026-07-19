@@ -13,4 +13,9 @@ protocol SettingsInteractorProtocol: AnyObject {
     func availableLanguages() -> [AppLanguage]
     func currentLanguage() -> AppLanguage
     func setLanguage(_ language: AppLanguage)
+
+    func isPushNotificationEnabled() -> Bool
+    func setPushNotificationEnabled(_ enabled: Bool)
+    func pushAuthorizationState(_ completion: @escaping (PushAuthorizationState) -> Void)
+    func requestPushAuthorization(_ completion: @escaping (Bool) -> Void)
 }

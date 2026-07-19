@@ -17,7 +17,7 @@ final class SettingsInteractor: SettingsInteractorProtocol {
             SettingsItem(type: .pushNotifications,
                          title: NSLocalizedString("push_notifications", comment: ""),
                          icon: AssetsIcon.badge,
-                         accessory: .toggle(false)),
+                         accessory: .toggle(PushNotificationManager.shared.isEnabled)),
             SettingsItem(type: .aboutUs,
                          title: NSLocalizedString("about_us", comment: ""),
                          icon: AssetsIcon.blueAirplane,
@@ -35,5 +35,22 @@ final class SettingsInteractor: SettingsInteractorProtocol {
 
     func setLanguage(_ language: AppLanguage) {
         LanguageManager.shared.setLanguage(language)
+    }
+
+    // MARK: - Push notifications
+    func isPushNotificationEnabled() -> Bool {
+        PushNotificationManager.shared.isEnabled
+    }
+
+    func setPushNotificationEnabled(_ enabled: Bool) {
+        PushNotificationManager.shared.isEnabled = enabled
+    }
+
+    func pushAuthorizationState(_ completion: @escaping (PushAuthorizationState) -> Void) {
+        PushNotificationManager.shared.authorizationState(completion)
+    }
+
+    func requestPushAuthorization(_ completion: @escaping (Bool) -> Void) {
+        PushNotificationManager.shared.requestAuthorization(completion)
     }
 }

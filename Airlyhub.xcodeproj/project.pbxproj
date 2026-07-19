@@ -29,6 +29,7 @@
 		0A8E5EB7D7DC9CBC976FC970 /* GoogleUtilities_Environment.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28B53C4D063FA730D5A1FCD1 /* GoogleUtilities_Environment.framework */; };
 		0B13128B4E3963F531263DB7 /* GoogleUtilities_GoogleUtilities_Environment.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2C5F70315C3F8E5438EEF764 /* GoogleUtilities_GoogleUtilities_Environment.bundle */; };
 		0B57DB40D3E5CFAAA61A1DBC /* GoogleUtilities_GoogleUtilities_AppDelegateSwizzler.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 6272EDE2CB195D2513153F11 /* GoogleUtilities_GoogleUtilities_AppDelegateSwizzler.bundle */; };
+		0C2E83282DE3636D441F6956 /* PushAuthorizationState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4349AB96C8BB7310D73C8828 /* PushAuthorizationState.swift */; };
 		0CDAEFB22AA9ED5E0FAC313D /* FirebaseAppDistributionTarget.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A0F997F79996918582E1815 /* FirebaseAppDistributionTarget.framework */; };
 		0D343FECD1395F091C46D284 /* UIView+ShadowExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A824B5B0B9C07D619DF0EF /* UIView+ShadowExample.swift */; };
 		0D4EB328CA22DC05F7667E86 /* CustomerServiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20599E3A1A28F85236F5A47B /* CustomerServiceView.swift */; };
@@ -258,6 +259,7 @@
 		A49DC95F681A6B25FE99D307 /* GTMSessionFetcher_GTMSessionFetcherCore.bundle in Dependencies */ = {isa = PBXBuildFile; fileRef = 6256087D25C6F68C01DECCA0 /* GTMSessionFetcher_GTMSessionFetcherCore.bundle */; };
 		A53B2E43958479D177EFDA8A /* GoogleUtilities_Logger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCA6126F750A901DC2CCD85E /* GoogleUtilities_Logger.framework */; };
 		A785DA9FB4BA331719838B43 /* FirebaseRemoteConfigInternal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC473F4A145C474A0F85ED3A /* FirebaseRemoteConfigInternal.framework */; };
+		A91A40BC94C8E55B0871B518 /* PushNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A26DC78882511D71EF735E9 /* PushNotificationManager.swift */; };
 		AB0DA4B85AC9C712F159752F /* InputStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A558AC191FE16C7DA938F2E /* InputStyle.swift */; };
 		AC1CE89C0BEB933D14F450BF /* ExploreRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EAAEC6A05352DFE051E36B8 /* ExploreRouter.swift */; };
 		ACABB1501E0653DB01AC4848 /* ExploreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA18F095665096846F7AC16 /* ExploreViewController.swift */; };
@@ -291,6 +293,7 @@
 		BE73599BE74E45304200AA72 /* CustomerServiceRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7223FA5846FF63F4CA3F2EED /* CustomerServiceRouter.swift */; };
 		BEB68E81D240F3663F9E4074 /* GoogleAdsOnDeviceConversion.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 715A048E99C8704B017C2DFC /* GoogleAdsOnDeviceConversion.xcframework */; };
 		C002A462D956951C46585148 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08C54D2C5394B89AC863C9D5 /* CFNetwork.framework */; };
+		C3820785E7E4D9F5F34A3F84 /* ToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CAE8721149B27C69E8A71C2 /* ToastView.swift */; };
 		C4069CF93145383B04B02A4F /* Firebase_FirebaseCoreInternal.bundle in Resources */ = {isa = PBXBuildFile; fileRef = F27F0CC21C9D28512748FA57 /* Firebase_FirebaseCoreInternal.bundle */; };
 		C4B2E2C055C7576A92B09A3F /* TuistAssets+Airlyhub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B2A2EFCFB2444699282AC2 /* TuistAssets+Airlyhub.swift */; };
 		C54B7935E09244D1B1200DA8 /* FavoritesInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D3ED794880C1242A788B25 /* FavoritesInteractor.swift */; };
@@ -334,6 +337,7 @@
 		E4085514C71747E654CC298A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 240936F95F666AB96DDB4C7D /* Assets.xcassets */; };
 		E4B083E9F52DE0A077872F8C /* ProfilesRouterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793932630FF4687660B33CFB /* ProfilesRouterProtocol.swift */; };
 		E55CF9A4EA75A3E7592407AE /* SettingsPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839D1822E4064BC120902B88 /* SettingsPresenterProtocol.swift */; };
+		E5728F538D9FC6888B669543 /* ToastStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9281138F6BCB10F47AE9262 /* ToastStyle.swift */; };
 		E5E1A2CAA3E9C300851C87EE /* FeedbackGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FEBDA0F6C7DB157D3FDE845 /* FeedbackGenerator.swift */; };
 		E5F852FA5EABFBB919C841B3 /* FirebaseAnalyticsTarget.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B2461A6D54447B5A168835B /* FirebaseAnalyticsTarget.framework */; };
 		E6908EB2E048FBF15BDA756C /* NotificationsPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E290FF3198F6377F918E5C26 /* NotificationsPresenterProtocol.swift */; };
@@ -490,6 +494,7 @@
 		09CA0903E3C15D498BAC9D66 /* SafariServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SafariServices.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/SafariServices.framework; sourceTree = DEVELOPER_DIR; };
 		0A04DE542A09EAA98FDC73B4 /* Firebase_FirebaseRemoteConfig.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Firebase_FirebaseRemoteConfig.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		0BA2016BC3ABFBCD0353CCAD /* LoginEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginEntity.swift; sourceTree = "<group>"; };
+		0CAE8721149B27C69E8A71C2 /* ToastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastView.swift; sourceTree = "<group>"; };
 		0D478A3036B3CD8A48271258 /* RegisterRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterRouter.swift; sourceTree = "<group>"; };
 		0D58FD16EA19B6F05133C407 /* FirebaseRemoteConfigInterop.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FirebaseRemoteConfigInterop.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0DF8359497EB2E644AB65F79 /* GoogleAppMeasurementTarget.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GoogleAppMeasurementTarget.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -574,6 +579,7 @@
 		40E80DCF18334B7A0FF1895B /* GoogleUtilities_Network.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GoogleUtilities_Network.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4282D6767876FF86B00AFCFE /* grpcpp.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = grpcpp.xcframework; path = "/Users/lehagiabao/Code/Airlyhub/Tuist/.build/artifacts/grpc-binary/grpcpp/grpcpp.xcframework"; sourceTree = "<absolute>"; };
 		42964B563C606685F131B2AC /* NotificationCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCardView.swift; sourceTree = "<group>"; };
+		4349AB96C8BB7310D73C8828 /* PushAuthorizationState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushAuthorizationState.swift; sourceTree = "<group>"; };
 		434B28573FD90B05CEE5627A /* Firebase_FirebaseAuth.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Firebase_FirebaseAuth.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		446856DC77FF53ACDD327037 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		4491FECAF9534FB0BDB051D9 /* FlightsLocationRowItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightsLocationRowItemView.swift; sourceTree = "<group>"; };
@@ -583,6 +589,7 @@
 		45F2459E6564CC204FAC524C /* MyCardsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCardsView.swift; sourceTree = "<group>"; };
 		466667EDAC4968E579060706 /* absl.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = absl.xcframework; path = "/Users/lehagiabao/Code/Airlyhub/Tuist/.build/artifacts/abseil-cpp-binary/absl/absl.xcframework"; sourceTree = "<absolute>"; };
 		49EAFDB7F46E675F378E73A2 /* FirebaseInAppMessaging_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FirebaseInAppMessaging_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4A26DC78882511D71EF735E9 /* PushNotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushNotificationManager.swift; sourceTree = "<group>"; };
 		4A40383C0BE6217205F7726A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4A49DA0119997E365DA28A82 /* VERSION */ = {isa = PBXFileReference; lastKnownFileType = text; path = VERSION; sourceTree = "<group>"; };
 		4AFC1E91DC4DCE14CA804207 /* SmallTicket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallTicket.swift; sourceTree = "<group>"; };
@@ -752,6 +759,7 @@
 		C7DB0BBD606AE24A5C0638B7 /* Firebase_FirebaseCore.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Firebase_FirebaseCore.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		C812702AE7DC89F3A8C7663F /* FlightsInteractorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightsInteractorProtocol.swift; sourceTree = "<group>"; };
 		C8903D44AB380A4EA92EACE1 /* GoogleUtilities_UserDefaults.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GoogleUtilities_UserDefaults.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C9281138F6BCB10F47AE9262 /* ToastStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastStyle.swift; sourceTree = "<group>"; };
 		C9483F9CD16892991C4A4DC6 /* RxSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RxSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C979B28BE8C4388708BAEA13 /* TopNavigatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopNavigatorView.swift; sourceTree = "<group>"; };
 		CA02ED791FDA6A02DDFA26DA /* InputState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputState.swift; sourceTree = "<group>"; };
@@ -1310,6 +1318,7 @@
 			children = (
 				DD127A5D75265C503A9A2A15 /* Config */,
 				18426732632A039EA26010F7 /* Network */,
+				75F70BB1F6E563DB976E83F8 /* Notification */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -1575,6 +1584,15 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		698B0418A3706A041EDA1BF7 /* Toast */ = {
+			isa = PBXGroup;
+			children = (
+				C9281138F6BCB10F47AE9262 /* ToastStyle.swift */,
+				0CAE8721149B27C69E8A71C2 /* ToastView.swift */,
+			);
+			path = Toast;
+			sourceTree = "<group>";
+		};
 		69D6F56B78361DAAC06B1E23 /* Location */ = {
 			isa = PBXGroup;
 			children = (
@@ -1685,6 +1703,15 @@
 				6196F7B152FDB0F026367922 /* MyTicketsPresenterProtocol.swift */,
 			);
 			path = Presenter;
+			sourceTree = "<group>";
+		};
+		75F70BB1F6E563DB976E83F8 /* Notification */ = {
+			isa = PBXGroup;
+			children = (
+				4349AB96C8BB7310D73C8828 /* PushAuthorizationState.swift */,
+				4A26DC78882511D71EF735E9 /* PushNotificationManager.swift */,
+			);
+			path = Notification;
 			sourceTree = "<group>";
 		};
 		76960264964D39C51AB544CF /* Staging */ = {
@@ -1815,6 +1842,7 @@
 				840125515293E4B5867EC23D /* Shadow */,
 				0334B08116DB64FAF5B07843 /* TextField */,
 				D9117A4F0E7142998DEACCBF /* Ticket */,
+				698B0418A3706A041EDA1BF7 /* Toast */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -2770,6 +2798,8 @@
 				518E2C9EC967894404DCF7FB /* NetworkMonitor.swift in Sources */,
 				56BA7F3307560D17C18AC4A7 /* NetworkMonitoring.swift in Sources */,
 				F40EF4C6127A654917CD4F03 /* NetworkStatus.swift in Sources */,
+				0C2E83282DE3636D441F6956 /* PushAuthorizationState.swift in Sources */,
+				A91A40BC94C8E55B0871B518 /* PushNotificationManager.swift in Sources */,
 				7FD69B455A1ECE41AF95B178 /* NominatimAddress.swift in Sources */,
 				BB7696604B49F572AC8D27E6 /* NominatimItem.swift in Sources */,
 				6C2C32E7A7939A90C50D0F52 /* LocalLocationService.swift in Sources */,
@@ -2823,6 +2853,8 @@
 				15C282739E72F9583B5079DB /* ShadowToken.swift in Sources */,
 				40CB7274DBCD165466C33165 /* TextField.swift in Sources */,
 				3DF8CEB08DE09D38E6928898 /* SmallTicket.swift in Sources */,
+				E5728F538D9FC6888B669543 /* ToastStyle.swift in Sources */,
+				C3820785E7E4D9F5F34A3F84 /* ToastView.swift in Sources */,
 				E73F84C0CD7D1A20BB176805 /* LocationResult.swift in Sources */,
 				EE25FA6FC3D9CB7161A10FE4 /* NotificationItem.swift in Sources */,
 				3B38A0D20810A4C1D50746F5 /* SmallTicketModel.swift in Sources */,
