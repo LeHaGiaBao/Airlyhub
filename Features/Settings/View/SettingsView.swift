@@ -12,6 +12,7 @@ final class SettingsView: BaseViewController, SettingsViewProtocol {
     private let presenter: SettingsPresenter
     private let topNavigatorVC: TopNavigatorView
     private let tableView = UITableView(frame: .zero, style: .plain)
+    private var items: [SettingsItem] = []
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -33,6 +34,7 @@ final class SettingsView: BaseViewController, SettingsViewProtocol {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: animated)
+        presenter.viewWillAppear()
     }
 
     override func viewWillDisappear(_ animated: Bool) {
@@ -59,6 +61,8 @@ final class SettingsView: BaseViewController, SettingsViewProtocol {
     }
 
     private func setupTableView() {
+        items = presenter.getSettingItems()
+
         tableView.backgroundColor = .clear
         tableView.separatorStyle = .none
         tableView.rowHeight = UITableView.automaticDimension
@@ -72,15 +76,29 @@ final class SettingsView: BaseViewController, SettingsViewProtocol {
         tableView.snp.makeConstraints { make in
             make.top.equalTo(topNavigatorVC.view.snp.bottom).offset(8)
             make.leading.trailing.equalToSuperview()
-            make.height.equalTo(CGFloat(presenter.getSettingItems().count) * 68)
+            make.height.equalTo(CGFloat(items.count) * 68)
         }
+    }
+}
+
+// MARK: - SettingsViewProtocol
+extension SettingsView {
+    func setPushNotificationToggle(_ isOn: Bool) {
+        guard let row = items.firstIndex(where: { $0.type == .pushNotifications }) else { return }
+        let indexPath = IndexPath(row: row, section: 0)
+        guard let cell = tableView.cellForRow(at: indexPath) as? SettingsRowCell else { return }
+        cell.setToggle(isOn, animated: true)
+    }
+
+    func showToast(_ message: String, style: ToastStyle) {
+        ToastView.show(message, style: style, in: view)
     }
 }
 
 // MARK: - UITableViewDataSource, UITableViewDelegate
 extension SettingsView: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        presenter.getSettingItems().count
+        items.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -91,13 +109,20 @@ extension SettingsView: UITableViewDataSource, UITableViewDelegate {
             return UITableViewCell()
         }
 
-        cell.configure(with: presenter.getSettingItems()[indexPath.row])
+        let item = items[indexPath.row]
+        cell.configure(with: item)
+
+        if item.type == .pushNotifications {
+            cell.onToggleChanged = { [weak self] isOn in
+                self?.presenter.didTogglePushNotifications(isOn: isOn)
+            }
+        }
+
         return cell
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        let item = presenter.getSettingItems()[indexPath.row]
-        presenter.didSelectItem(item)
+        presenter.didSelectItem(items[indexPath.row])
     }
 }

@@ -19,6 +19,7 @@ final class SettingsBuilder {
         let presenter = SettingsPresenter(interactor: interactor,
                                           router: router)
         let view = SettingsView(presenter: presenter)
+        presenter.view = view
         router.viewController = view
         return (view, presenter.settingsBuilderAction)
     }

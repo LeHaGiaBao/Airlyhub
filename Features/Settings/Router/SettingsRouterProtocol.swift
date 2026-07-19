@@ -12,5 +12,6 @@ protocol SettingsRouterProtocol: AnyObject {
     func presentLanguageSelection(languages: [AppLanguage],
                                   current: AppLanguage,
                                   onSelect: @escaping (AppLanguage) -> Void)
+    func presentAboutUs()
     func reloadForLanguageChange()
 }

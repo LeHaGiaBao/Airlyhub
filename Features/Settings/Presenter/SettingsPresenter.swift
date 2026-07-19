@@ -5,9 +5,12 @@
 //  Created by Le Ha Gia Bao on 14/03/2026.
 //
 
+import Foundation
 import RxSwift
 
 final class SettingsPresenter: SettingsPresenterProtocol {
+    weak var view: SettingsViewProtocol?
+
     private var _settingsBuilderAction = BehaviorSubject<SettingsBuilderAction>(value: .cancel)
     private var hasCompleted = false
     private let interactor: SettingsInteractorProtocol
@@ -38,9 +41,63 @@ final class SettingsPresenter: SettingsPresenterProtocol {
         switch item.type {
         case .language:
             presentLanguageSelection()
-        case .pushNotifications, .aboutUs:
+        case .aboutUs:
+            router.presentAboutUs()
+        case .pushNotifications:
             break
         }
+    }
+
+    // MARK: - Push notifications
+
+    /// Reconciles the stored preference with the current system permission when
+    /// the screen appears (e.g. the user revoked permission in iOS Settings).
+    func viewWillAppear() {
+        guard interactor.isPushNotificationEnabled() else { return }
+        interactor.pushAuthorizationState { [weak self] state in
+            guard let self else { return }
+            if state != .authorized {
+                self.interactor.setPushNotificationEnabled(false)
+                self.view?.setPushNotificationToggle(false)
+            }
+        }
+    }
+
+    func didTogglePushNotifications(isOn: Bool) {
+        guard isOn else {
+            interactor.setPushNotificationEnabled(false)
+            view?.showToast(NSLocalizedString("push_notifications_disabled", comment: ""), style: .info)
+            return
+        }
+
+        interactor.pushAuthorizationState { [weak self] state in
+            guard let self else { return }
+            switch state {
+            case .authorized:
+                self.enablePushNotifications()
+            case .notDetermined:
+                self.interactor.requestPushAuthorization { granted in
+                    if granted {
+                        self.enablePushNotifications()
+                    } else {
+                        self.rejectPushNotifications()
+                    }
+                }
+            case .denied:
+                self.rejectPushNotifications()
+            }
+        }
+    }
+
+    private func enablePushNotifications() {
+        interactor.setPushNotificationEnabled(true)
+        view?.showToast(NSLocalizedString("push_notifications_enabled", comment: ""), style: .success)
+    }
+
+    private func rejectPushNotifications() {
+        interactor.setPushNotificationEnabled(false)
+        view?.setPushNotificationToggle(false)
+        view?.showToast(NSLocalizedString("push_notifications_denied_hint", comment: ""), style: .info)
     }
 
     private func presentLanguageSelection() {

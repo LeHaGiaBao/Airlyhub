@@ -20,6 +20,11 @@ final class SettingsRouter: SettingsRouterProtocol {
         viewController?.present(sheet, animated: false)
     }
 
+    func presentAboutUs() {
+        let popup = AboutUsPopupViewController()
+        viewController?.present(popup, animated: false)
+    }
+
     func reloadForLanguageChange() {
         guard let window = viewController?.view.window else { return }
         let selectedTab = viewController?.tabBarController?.selectedIndex

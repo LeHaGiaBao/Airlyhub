@@ -2,8 +2,15 @@
 
 ## Technology
 
-- Xcode, Swift, Swift UIKit, SwiftUI
-- RxSwift, SnapKit
+- Xcode, Swift, UIKit, SwiftUI
+- RxSwift, RxCocoa, RxRelay
+- SnapKit
+- Firebase
+- UserNotifications
+- Localization (English, Vietnamese)
+- SwiftLint
+- Tuist
+- mise
 - Mock Data
 
 ## Architecture

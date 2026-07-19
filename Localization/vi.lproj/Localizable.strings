@@ -82,3 +82,7 @@
 "select_language" = "Chọn ngôn ngữ";
 "error_title" = "Lỗi";
 "ok" = "OK";
+"push_notifications_enabled" = "Đã bật thông báo";
+"push_notifications_disabled" = "Đã tắt thông báo";
+"push_notifications_denied_hint" = "Vui lòng bật thông báo trong Cài đặt";
+"app_version" = "Phiên bản %@";

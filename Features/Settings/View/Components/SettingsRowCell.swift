@@ -131,6 +131,10 @@ final class SettingsRowCell: UITableViewCell {
         }
     }
 
+    func setToggle(_ isOn: Bool, animated: Bool) {
+        toggleSwitch.setOn(isOn, animated: animated)
+    }
+
     @objc private func toggleValueChanged() {
         onToggleChanged?(toggleSwitch.isOn)
     }
