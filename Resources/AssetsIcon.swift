@@ -39,6 +39,15 @@ struct AssetsIcon {
     static let earth = UIImage(named: "earth")
     static let badge = UIImage(named: "badge")
     static let blueAirplane = UIImage(named: "blueAirplane")
+
+    /// App logo matching the current build environment (Dev / Staging / Prod).
+    static var logo: UIImage? {
+        switch AppConfig.environment {
+        case .dev: return UIImage(named: "logoDev")
+        case .stg: return UIImage(named: "logoStg")
+        case .prod: return UIImage(named: "logo")
+        }
+    }
     
     // Notifications
     static let notiFlight = UIImage(named: "notiFlight")

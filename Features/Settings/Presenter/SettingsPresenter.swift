@@ -41,7 +41,9 @@ final class SettingsPresenter: SettingsPresenterProtocol {
         switch item.type {
         case .language:
             presentLanguageSelection()
-        case .pushNotifications, .aboutUs:
+        case .aboutUs:
+            router.presentAboutUs()
+        case .pushNotifications:
             break
         }
     }
