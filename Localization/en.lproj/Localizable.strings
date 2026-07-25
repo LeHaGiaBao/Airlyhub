@@ -28,6 +28,8 @@
 "logout" = "Logout";
 "logout_confirmation_title" = "Do you want to log out of the app?";
 "cancel" = "Cancel";
+"update_avatar_failed_title" = "Couldn't update photo";
+"update_avatar_failed_message" = "Something went wrong while uploading your photo. Please try again.";
 "select_date" = "Select Date";
 "apply" = "Apply";
 "welcome_back_to" = "Welcome back to";

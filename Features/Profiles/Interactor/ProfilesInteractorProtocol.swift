@@ -12,5 +12,6 @@ import RxSwift
 protocol ProfilesInteractorProtocol: AnyObject {
     func fetchUser() -> Observable<UserProfile>
     func fetchMenuItems() -> [ProfilesMenuSection]
+    func updateAvatar(imageData: Data) -> Observable<String>
     func signOut() -> Result<Void, Error>
 }

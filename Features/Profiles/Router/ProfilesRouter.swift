@@ -86,4 +86,14 @@ final class ProfilesRouter: ProfilesRouterProtocol {
         alert.addAction(UIAlertAction(title: NSLocalizedString("ok", comment: ""), style: .default))
         nav.topViewController?.present(alert, animated: true)
     }
+
+    func showAvatarUploadError() {
+        let alert = UIAlertController(
+            title: NSLocalizedString("update_avatar_failed_title", comment: ""),
+            message: NSLocalizedString("update_avatar_failed_message", comment: ""),
+            preferredStyle: .alert
+        )
+        alert.addAction(UIAlertAction(title: NSLocalizedString("ok", comment: ""), style: .default))
+        nav.topViewController?.present(alert, animated: true)
+    }
 }

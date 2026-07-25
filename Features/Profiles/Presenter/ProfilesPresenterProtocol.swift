@@ -12,5 +12,6 @@ import RxSwift
 protocol ProfilesPresenterProtocol: AnyObject, ProfilesRouterProtocol {
     func getUserProfile() -> Observable<UserProfile>
     func getMenuItems() -> [ProfilesMenuSection]
+    func updateAvatar(imageData: Data) -> Observable<String>
     func goToLogout()
 }
