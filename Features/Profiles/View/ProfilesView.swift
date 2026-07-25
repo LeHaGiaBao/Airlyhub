@@ -136,6 +136,8 @@ final class ProfilesView: BaseViewController, ProfilesViewProtocol {
     private func setupHeaderContent() {
         avatarImageView.layer.cornerRadius = 40
         avatarImageView.clipsToBounds = true
+        avatarImageView.contentMode = .scaleAspectFill
+        avatarImageView.tintColor = AppColor.PrimaryColors.Primary.color300
         avatarImageView.backgroundColor = AppColor.PrimaryColors.Primary.color50
 
         nameLabel.applyTypography(.displayXs(weight: .semibold))
@@ -146,9 +148,16 @@ final class ProfilesView: BaseViewController, ProfilesViewProtocol {
     }
     
     private func updateUserProfile() {
-        let data = presenter.getUserProfile()
-        nameLabel.text = data.name
-        phoneLabel.text = data.phone
+        presenter.getUserProfile()
+            .subscribe(onNext: { [weak self] profile in
+                self?.nameLabel.text = profile.name
+                self?.phoneLabel.text = profile.phone
+                self?.avatarImageView.setImage(
+                    from: profile.avatarURL,
+                    placeholder: UIImage(systemName: "person.crop.circle.fill")
+                )
+            })
+            .disposed(by: bag)
     }
     
     private func updateMenuItems() {

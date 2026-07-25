@@ -7,9 +7,10 @@
 //
 
 import Foundation
+import RxSwift
 
 protocol ProfilesInteractorProtocol: AnyObject {
-    func fetchUser() -> UserProfile
+    func fetchUser() -> Observable<UserProfile>
     func fetchMenuItems() -> [ProfilesMenuSection]
     func signOut() -> Result<Void, Error>
 }
