@@ -27,28 +27,16 @@ extension LocationFinder {
     }
 
     @objc func myLocationTapped() {
-        let confirm = onConfirm
         LocalLocationService.shared.requestCurrentLocation { [weak self] result in
             guard let self else { return }
             switch result {
             case .success(let location):
-                animateOut {
-                    FeedbackGenerator.onFeedbackGenerator(.light)
-                    self.dismiss(animated: false)
-                    confirm?(location)
+                dismissSheet(feedback: .light) { [weak self] in
+                    self?.onConfirm?(location)
                 }
             case .failure(let error):
                 showLocationError(error)
             }
-        }
-    }
-
-    @objc func dismissSheet() {
-        searchWorkItem?.cancel()
-        searchContainerView.textField.resignFirstResponder()
-        animateOut {
-            self.onCancel?()
-            self.dismiss(animated: false)
         }
     }
 }
@@ -77,10 +65,8 @@ extension LocationFinder: UITableViewDataSource, UITableViewDelegate {
         tableView.deselectRow(at: indexPath, animated: true)
         let selected = results[indexPath.row]
         searchContainerView.textField.resignFirstResponder()
-        animateOut {
-            FeedbackGenerator.onFeedbackGenerator(.light)
-            self.onConfirm?(selected)
-            self.dismiss(animated: false)
+        dismissSheet(feedback: .light) { [weak self] in
+            self?.onConfirm?(selected)
         }
     }
 }
