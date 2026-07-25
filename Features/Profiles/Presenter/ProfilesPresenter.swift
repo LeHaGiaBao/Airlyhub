@@ -18,7 +18,7 @@ final class ProfilesPresenter: ProfilesPresenterProtocol {
         self.router = router
     }
     
-    func getUserProfile() -> UserProfile {
+    func getUserProfile() -> Observable<UserProfile> {
         return interactor.fetchUser()
     }
     

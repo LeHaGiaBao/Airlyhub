@@ -7,9 +7,10 @@
 //
 
 import Foundation
+import RxSwift
 
 protocol ProfilesPresenterProtocol: AnyObject, ProfilesRouterProtocol {
-    func getUserProfile() -> UserProfile
+    func getUserProfile() -> Observable<UserProfile>
     func getMenuItems() -> [ProfilesMenuSection]
     func goToLogout()
 }

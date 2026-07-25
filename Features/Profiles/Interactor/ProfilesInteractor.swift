@@ -6,12 +6,33 @@
 //
 
 import Foundation
+import RxSwift
 
 final class ProfilesInteractor: ProfilesInteractorProtocol {
-    func fetchUser() -> UserProfile {
-        return UserProfile(name: "David J", phone: "+1 555 555 55 55", avatarURL: nil)
+    func fetchUser() -> Observable<UserProfile> {
+        Observable.create { observer in
+            guard let uid = AuthService.shared.getCurrentUserId() else {
+                observer.onError(ProfilesError.notAuthenticated)
+                return Disposables.create()
+            }
+
+            UserService.shared.fetchUserProfile(uid: uid) { result in
+                DispatchQueue.main.async {
+                    switch result {
+                    case .success(let user):
+                        let profile = UserProfile(name: user.name, phone: user.phone, avatarURL: user.avatar)
+                        observer.onNext(profile)
+                        observer.onCompleted()
+                    case .failure(let error):
+                        observer.onError(error)
+                    }
+                }
+            }
+
+            return Disposables.create()
+        }
     }
-    
+
     func fetchMenuItems() -> [ProfilesMenuSection] {
         return [
             ProfilesMenuSection(items: [

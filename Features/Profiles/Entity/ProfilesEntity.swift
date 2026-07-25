@@ -14,6 +14,10 @@ struct UserProfile {
     let avatarURL: String?
 }
 
+enum ProfilesError: Error {
+    case notAuthenticated
+}
+
 enum ProfilesMenuItemType {
     case notifications
     case tickets
