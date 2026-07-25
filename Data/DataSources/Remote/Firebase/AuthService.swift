@@ -119,6 +119,36 @@ final class AuthService {
         }
     }
     
+    // MARK: Reauthenticate
+    func reauthenticate(password: String, completion: @escaping (Result<Bool, Error>) -> Void) {
+        guard let user = Auth.auth().currentUser, let email = user.email else {
+            completion(.failure(NSError(domain: "AuthService", code: -1)))
+            return
+        }
+
+        let credential = EmailAuthProvider.credential(withEmail: email, password: password)
+        user.reauthenticate(with: credential) { _, error in
+            if let error {
+                completion(.failure(error))
+                return
+            }
+            completion(.success(true))
+        }
+    }
+
+    // MARK: Update Password
+    func updatePassword(newPassword: String, completion: @escaping (Result<Bool, Error>) -> Void) {
+        guard let user = Auth.auth().currentUser else { return }
+
+        user.updatePassword(to: newPassword) { error in
+            if let error {
+                completion(.failure(error))
+                return
+            }
+            completion(.success(true))
+        }
+    }
+
     // MARK: Reload User
     func reloadUser(completion: @escaping (Result<User, Error>) -> Void) {
         guard let user = Auth.auth().currentUser else { return }

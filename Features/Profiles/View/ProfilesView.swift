@@ -7,7 +7,6 @@
 
 import UIKit
 import RxSwift
-import PhotosUI
 
 final class ProfilesView: BaseViewController, ProfilesViewProtocol {
     var presenter: ProfilesPresenterProtocol
@@ -38,6 +37,7 @@ final class ProfilesView: BaseViewController, ProfilesViewProtocol {
         setupHeaderContent()
         updateUserProfile()
         updateMenuItems()
+        setupEvents()
     }
     
     // MARK: - Setup UI
@@ -159,12 +159,11 @@ final class ProfilesView: BaseViewController, ProfilesViewProtocol {
         editAvatarButton.backgroundColor = .white
         editAvatarButton.layer.cornerRadius = 14
         editAvatarButton.tintColor = AppColor.PrimaryColors.Gray.color800
-        editAvatarButton.setImage(UIImage(systemName: "pencil"), for: .normal)
+        editAvatarButton.setImage(AssetsIcon.pencil, for: .normal)
         editAvatarButton.layer.shadowColor = UIColor.black.cgColor
         editAvatarButton.layer.shadowOpacity = 0.15
         editAvatarButton.layer.shadowRadius = 3
         editAvatarButton.layer.shadowOffset = CGSize(width: 0, height: 1)
-        editAvatarButton.addTarget(self, action: #selector(didTapEditAvatar), for: .touchUpInside)
     }
     
     private func updateUserProfile() {
@@ -185,45 +184,23 @@ final class ProfilesView: BaseViewController, ProfilesViewProtocol {
         menuItems = data
         tableView.reloadData()
     }
-
-    // MARK: - Avatar
-    @objc private func didTapEditAvatar() {
-        var configuration = PHPickerConfiguration(photoLibrary: .shared())
-        configuration.filter = .images
-        configuration.selectionLimit = 1
-
-        let picker = PHPickerViewController(configuration: configuration)
-        picker.delegate = self
-        present(picker, animated: true)
+    
+    private func setupEvents() {
+        editAvatarButton.rx.tap
+            .subscribe(onNext: { [weak self] in
+                self?.didTapEditAvatar()
+            })
+            .disposed(by: disposeBag)
     }
 
-    private func uploadAvatar(_ image: UIImage) {
-        guard let imageData = image.jpegData(compressionQuality: 0.8) else { return }
-
-        avatarImageView.image = image
-
-        presenter.updateAvatar(imageData: imageData)
-            .subscribe(onError: { [weak self] _ in
-                self?.presenter.showAvatarUploadError()
+    private func didTapEditAvatar() {
+        presenter.navigateToEditProfile()
+            .subscribe(onNext: { [weak self] action in
+                if case .saved = action {
+                    self?.updateUserProfile()
+                }
             })
             .disposed(by: bag)
-    }
-}
-
-// MARK: - PHPickerViewControllerDelegate
-extension ProfilesView: PHPickerViewControllerDelegate {
-    func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
-        picker.dismiss(animated: true)
-
-        guard let provider = results.first?.itemProvider,
-              provider.canLoadObject(ofClass: UIImage.self) else { return }
-
-        provider.loadObject(ofClass: UIImage.self) { [weak self] object, _ in
-            guard let image = object as? UIImage else { return }
-            DispatchQueue.main.async {
-                self?.uploadAvatar(image)
-            }
-        }
     }
 }
 
@@ -278,4 +255,3 @@ extension ProfilesView: UITableViewDataSource, UITableViewDelegate {
         tableView.deselectRow(at: indexPath, animated: true)
     }
 }
-
