@@ -26,6 +26,10 @@ final class ProfilesPresenter: ProfilesPresenterProtocol {
         return interactor.fetchMenuItems()
     }
 
+    func updateAvatar(imageData: Data) -> Observable<String> {
+        return interactor.updateAvatar(imageData: imageData)
+    }
+
     func goToLogout() {
         router.presentLogoutConfirmation { [weak self] in
             self?.performSignOut()
@@ -73,5 +77,9 @@ extension ProfilesPresenter: ProfilesRouterProtocol {
 
     func showLogoutError(_ message: String) {
         router.showLogoutError(message)
+    }
+
+    func showAvatarUploadError() {
+        router.showAvatarUploadError()
     }
 }

@@ -28,6 +28,8 @@
 "logout" = "Đăng xuất";
 "logout_confirmation_title" = "Bạn có muốn đăng xuất khỏi ứng dụng?";
 "cancel" = "Hủy";
+"update_avatar_failed_title" = "Không thể cập nhật ảnh";
+"update_avatar_failed_message" = "Đã có lỗi xảy ra khi tải ảnh lên. Vui lòng thử lại.";
 "select_date" = "Chọn ngày";
 "apply" = "Áp dụng";
 "welcome_back_to" = "Chào mừng trở lại";

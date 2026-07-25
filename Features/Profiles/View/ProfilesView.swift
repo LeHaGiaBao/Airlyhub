@@ -7,6 +7,7 @@
 
 import UIKit
 import RxSwift
+import PhotosUI
 
 final class ProfilesView: BaseViewController, ProfilesViewProtocol {
     var presenter: ProfilesPresenterProtocol
@@ -22,6 +23,7 @@ final class ProfilesView: BaseViewController, ProfilesViewProtocol {
 
     // MARK: - Header UI
     private let avatarImageView = UIImageView()
+    private let editAvatarButton = UIButton(type: .system)
     private let nameLabel = UILabel()
     private let phoneLabel = UILabel()
     
@@ -62,6 +64,7 @@ final class ProfilesView: BaseViewController, ProfilesViewProtocol {
         headerStack.alignment = .center
         headerStack.spacing = 8
         headerContainerView.addSubview(headerStack)
+        headerContainerView.addSubview(editAvatarButton)
 
         // MARK: Table container
         tableContainerView.backgroundColor = .white
@@ -96,6 +99,7 @@ final class ProfilesView: BaseViewController, ProfilesViewProtocol {
         tableContainerView.translatesAutoresizingMaskIntoConstraints = false
         tableView.translatesAutoresizingMaskIntoConstraints = false
         avatarImageView.translatesAutoresizingMaskIntoConstraints = false
+        editAvatarButton.translatesAutoresizingMaskIntoConstraints = false
 
         NSLayoutConstraint.activate([
             // MARK: Header container (FULL WIDTH)
@@ -112,6 +116,12 @@ final class ProfilesView: BaseViewController, ProfilesViewProtocol {
             // MARK: Avatar
             avatarImageView.widthAnchor.constraint(equalToConstant: 80),
             avatarImageView.heightAnchor.constraint(equalToConstant: 80),
+
+            // MARK: Edit avatar button (bottom-trailing corner of the avatar)
+            editAvatarButton.trailingAnchor.constraint(equalTo: avatarImageView.trailingAnchor, constant: 2),
+            editAvatarButton.bottomAnchor.constraint(equalTo: avatarImageView.bottomAnchor, constant: 2),
+            editAvatarButton.widthAnchor.constraint(equalToConstant: 28),
+            editAvatarButton.heightAnchor.constraint(equalToConstant: 28),
 
             // MARK: Table container (FULL WIDTH)
             tableContainerView.topAnchor.constraint(equalTo: headerContainerView.bottomAnchor, constant: 16),
@@ -145,6 +155,16 @@ final class ProfilesView: BaseViewController, ProfilesViewProtocol {
 
         phoneLabel.applyTypography(.textSm(weight: .medium))
         phoneLabel.textColor = AppColor.PrimaryColors.Gray.color500
+
+        editAvatarButton.backgroundColor = .white
+        editAvatarButton.layer.cornerRadius = 14
+        editAvatarButton.tintColor = AppColor.PrimaryColors.Gray.color800
+        editAvatarButton.setImage(UIImage(systemName: "pencil"), for: .normal)
+        editAvatarButton.layer.shadowColor = UIColor.black.cgColor
+        editAvatarButton.layer.shadowOpacity = 0.15
+        editAvatarButton.layer.shadowRadius = 3
+        editAvatarButton.layer.shadowOffset = CGSize(width: 0, height: 1)
+        editAvatarButton.addTarget(self, action: #selector(didTapEditAvatar), for: .touchUpInside)
     }
     
     private func updateUserProfile() {
@@ -164,6 +184,46 @@ final class ProfilesView: BaseViewController, ProfilesViewProtocol {
         let data = presenter.getMenuItems()
         menuItems = data
         tableView.reloadData()
+    }
+
+    // MARK: - Avatar
+    @objc private func didTapEditAvatar() {
+        var configuration = PHPickerConfiguration(photoLibrary: .shared())
+        configuration.filter = .images
+        configuration.selectionLimit = 1
+
+        let picker = PHPickerViewController(configuration: configuration)
+        picker.delegate = self
+        present(picker, animated: true)
+    }
+
+    private func uploadAvatar(_ image: UIImage) {
+        guard let imageData = image.jpegData(compressionQuality: 0.8) else { return }
+
+        avatarImageView.image = image
+
+        presenter.updateAvatar(imageData: imageData)
+            .subscribe(onError: { [weak self] _ in
+                self?.presenter.showAvatarUploadError()
+            })
+            .disposed(by: bag)
+    }
+}
+
+// MARK: - PHPickerViewControllerDelegate
+extension ProfilesView: PHPickerViewControllerDelegate {
+    func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
+        picker.dismiss(animated: true)
+
+        guard let provider = results.first?.itemProvider,
+              provider.canLoadObject(ofClass: UIImage.self) else { return }
+
+        provider.loadObject(ofClass: UIImage.self) { [weak self] object, _ in
+            guard let image = object as? UIImage else { return }
+            DispatchQueue.main.async {
+                self?.uploadAvatar(image)
+            }
+        }
     }
 }
 

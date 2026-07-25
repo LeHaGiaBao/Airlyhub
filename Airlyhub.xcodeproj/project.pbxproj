@@ -141,6 +141,7 @@
 		52E620BBD0F9352C0C8F8AB0 /* SnapKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 50937CF017367F6670302297 /* SnapKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		536E2C3955DACEEE08E7735A /* LoginPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 253C3DCD97B61E1EDDC110E8 /* LoginPresenter.swift */; };
 		53FF4C2AC7D829C77D9A22A7 /* FirebaseAnalyticsWrapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 299DED05F047D4043A656531 /* FirebaseAnalyticsWrapper.framework */; };
+		54934314AE18D8B9A7E47EE7 /* StorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70B33D780DE47379C42DA65 /* StorageService.swift */; };
 		5553C0F18939B322970C345F /* RegisterRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D478A3036B3CD8A48271258 /* RegisterRouter.swift */; };
 		56914CE91009E5AD9ECE6B02 /* ProfilesEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0070603E635F48BCB65045C /* ProfilesEntity.swift */; };
 		56BA7F3307560D17C18AC4A7 /* NetworkMonitoring.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF0950DBD33E788B3F151DA /* NetworkMonitoring.swift */; };
@@ -717,6 +718,7 @@
 		A5A598907C57C396FE29E018 /* FlightsViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightsViewProtocol.swift; sourceTree = "<group>"; };
 		A5DB4761FFBE783F0A1ACAF0 /* Firebase_FirebaseInAppMessaging_iOS.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Firebase_FirebaseInAppMessaging_iOS.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6BAA801A19C484A68F342FA /* ExploreRouterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreRouterProtocol.swift; sourceTree = "<group>"; };
+		A70B33D780DE47379C42DA65 /* StorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageService.swift; sourceTree = "<group>"; };
 		A731F420A6C012937F454CE7 /* WatchKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WatchKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/WatchKit.framework; sourceTree = DEVELOPER_DIR; };
 		A7413FD99D7502B18FDCF552 /* NetworkStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkStatus.swift; sourceTree = "<group>"; };
 		A7F22BC59188554EFD64E71F /* NotificationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsView.swift; sourceTree = "<group>"; };
@@ -2472,6 +2474,7 @@
 			children = (
 				7F7E212C5BA6EA1DE7C2DBBA /* AuthService.swift */,
 				2E46FA7F435E3D99D1FB494A /* FirestoreCollection.swift */,
+				A70B33D780DE47379C42DA65 /* StorageService.swift */,
 				1227F34FF9E6F446E9D9CF55 /* UserService.swift */,
 			);
 			path = Firebase;
@@ -2811,6 +2814,7 @@
 				6C2C32E7A7939A90C50D0F52 /* LocalLocationService.swift in Sources */,
 				DB03F8EEE8EE7BFC04CD71B6 /* AuthService.swift in Sources */,
 				BAD9ACEDDF59E2D71B200478 /* FirestoreCollection.swift in Sources */,
+				54934314AE18D8B9A7E47EE7 /* StorageService.swift in Sources */,
 				51C9F8648DE8949371829EB6 /* UserService.swift in Sources */,
 				3EA4B319FD5A9A86682E7656 /* RemoteLocationService.swift in Sources */,
 				C4B2E2C055C7576A92B09A3F /* TuistAssets+Airlyhub.swift in Sources */,

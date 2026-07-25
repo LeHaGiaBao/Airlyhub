@@ -18,4 +18,5 @@ protocol ProfilesRouterProtocol: AnyObject {
     func presentLogoutConfirmation(onConfirm: @escaping () -> Void)
     func navigateToAuth()
     func showLogoutError(_ message: String)
+    func showAvatarUploadError()
 }
