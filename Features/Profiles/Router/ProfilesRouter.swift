@@ -15,6 +15,16 @@ final class ProfilesRouter: ProfilesRouterProtocol {
         self.nav = nav
     }
     
+    func navigateToEditProfile() -> Observable<EditProfileBuilderAction> {
+        let builder = EditProfileBuilder()
+        let (view, signal) = builder.build()
+        view.hidesBottomBarWhenPushed = true
+        nav.pushViewController(view, animated: true)
+        return signal.do(onCompleted: { [weak self] in
+            self?.nav.popViewController(animated: true)
+        })
+    }
+
     func navigateToNotifications() -> Observable<NotificationsBuilderAction> {
         let builder = NotificationsBuilder()
         let (view, signal) = builder.build()
@@ -81,16 +91,6 @@ final class ProfilesRouter: ProfilesRouterProtocol {
         let alert = UIAlertController(
             title: NSLocalizedString("logout", comment: ""),
             message: message,
-            preferredStyle: .alert
-        )
-        alert.addAction(UIAlertAction(title: NSLocalizedString("ok", comment: ""), style: .default))
-        nav.topViewController?.present(alert, animated: true)
-    }
-
-    func showAvatarUploadError() {
-        let alert = UIAlertController(
-            title: NSLocalizedString("update_avatar_failed_title", comment: ""),
-            message: NSLocalizedString("update_avatar_failed_message", comment: ""),
             preferredStyle: .alert
         )
         alert.addAction(UIAlertAction(title: NSLocalizedString("ok", comment: ""), style: .default))

@@ -10,6 +10,7 @@
 		004567DEAF433F1EDD6FC89C /* GoogleUtilities_NSData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2BF0281C84A5734740CA1D7 /* GoogleUtilities_NSData.framework */; };
 		00B63F09EF45DAE87C7191BA /* ValidationResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C89053EA9E144A1107EC71 /* ValidationResult.swift */; };
 		00D6E1B7200866C07C47E001 /* FirebaseAppCheckInterop.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5844492514F4E2941BF80280 /* FirebaseAppCheckInterop.framework */; };
+		014AA10AD786601C58FFE39C /* EditProfileInteractorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725CA779CFC29010E0175F71 /* EditProfileInteractorProtocol.swift */; };
 		01BB2B4A899AE24C7101AAAD /* Firebase_FirebaseCoreInternal.bundle in Dependencies */ = {isa = PBXBuildFile; fileRef = F27F0CC21C9D28512748FA57 /* Firebase_FirebaseCoreInternal.bundle */; };
 		021A0536606F5EAF999A5986 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF596BB5F24052D0E906852 /* BaseViewController.swift */; };
 		026CA1B8A0CD4E8187CA788B /* LocationFinder+Actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1B3EBCD6636DB2DFF8C5B8A /* LocationFinder+Actions.swift */; };
@@ -35,6 +36,7 @@
 		0D4EB328CA22DC05F7667E86 /* CustomerServiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20599E3A1A28F85236F5A47B /* CustomerServiceView.swift */; };
 		0DB42930AD02B6E3CEE5B81C /* InputTokens.swift in Sources */ = {isa = PBXBuildFile; fileRef = E501D21EA387E39BA4D2BDCA /* InputTokens.swift */; };
 		0E65FE54A9368763CA569207 /* GoogleDataTransport_GoogleDataTransport.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 827E0E065F3BA32237A71CF5 /* GoogleDataTransport_GoogleDataTransport.bundle */; };
+		0FDDE18BEA20768B99F1FEB6 /* EditProfilePresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25DD41B820068D2EB5F5BE6 /* EditProfilePresenterProtocol.swift */; };
 		1001B5FAD6007B0614431000 /* Firebase_FirebaseFirestore.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 19EA5E81CCB9804D6F5C42A7 /* Firebase_FirebaseFirestore.bundle */; };
 		132EF9CBC0B6A41148552F1F /* SettingsRowCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B69062DDB76309FCA94D81B /* SettingsRowCell.swift */; };
 		137CCA2561E421C685BD02A5 /* CustomerServiceEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D9CC480233D1CD525A121E /* CustomerServiceEntity.swift */; };
@@ -96,6 +98,8 @@
 		30FE5E9F05536CCA3A5C7DD4 /* LoginInteractorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 068BADEE53C69150524857EB /* LoginInteractorProtocol.swift */; };
 		326AA188E483E471F3BD670F /* RegisterEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68C8F25FEEFF6238293F9455 /* RegisterEntity.swift */; };
 		3573F63C1281CE143BA960A3 /* FirebaseDatabaseInternal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1EAFBE46F4EA69701D82A21C /* FirebaseDatabaseInternal.framework */; };
+		37E7AE70E14F4E87B289FE87 /* EditProfileEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34DCFC48EAE49BB4BA3AECD /* EditProfileEntity.swift */; };
+		3860E8FABF9BC83796DEC87F /* EditProfileInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F3E9944A34C83F2B30E86DD /* EditProfileInteractor.swift */; };
 		3AED401F35681AA5656292D6 /* GoogleUtilities_GoogleUtilities_MethodSwizzler.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 0899340CCED031B5A903D148 /* GoogleUtilities_GoogleUtilities_MethodSwizzler.bundle */; };
 		3B38A0D20810A4C1D50746F5 /* SmallTicketModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB937138054F63B83213BC8 /* SmallTicketModel.swift */; };
 		3C40D03B81378D6F94B80E39 /* GoogleUtilities_GoogleUtilities_NSData.bundle in Dependencies */ = {isa = PBXBuildFile; fileRef = 3FEB38E2C955146E4456AA57 /* GoogleUtilities_GoogleUtilities_NSData.bundle */; };
@@ -261,7 +265,9 @@
 		A49DC95F681A6B25FE99D307 /* GTMSessionFetcher_GTMSessionFetcherCore.bundle in Dependencies */ = {isa = PBXBuildFile; fileRef = 6256087D25C6F68C01DECCA0 /* GTMSessionFetcher_GTMSessionFetcherCore.bundle */; };
 		A53B2E43958479D177EFDA8A /* GoogleUtilities_Logger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCA6126F750A901DC2CCD85E /* GoogleUtilities_Logger.framework */; };
 		A785DA9FB4BA331719838B43 /* FirebaseRemoteConfigInternal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC473F4A145C474A0F85ED3A /* FirebaseRemoteConfigInternal.framework */; };
+		A901DB2C4A1016C5D1DC39F9 /* EditProfileRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0075D9F49D10E0DB9298A09 /* EditProfileRouter.swift */; };
 		A91A40BC94C8E55B0871B518 /* PushNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A26DC78882511D71EF735E9 /* PushNotificationManager.swift */; };
+		A982D7F2D6F65FCD45E1BFCF /* EditProfilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86005DB683EDBEF520090E89 /* EditProfilePresenter.swift */; };
 		AB0DA4B85AC9C712F159752F /* InputStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A558AC191FE16C7DA938F2E /* InputStyle.swift */; };
 		AC1CE89C0BEB933D14F450BF /* ExploreRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EAAEC6A05352DFE051E36B8 /* ExploreRouter.swift */; };
 		ACABB1501E0653DB01AC4848 /* ExploreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA18F095665096846F7AC16 /* ExploreViewController.swift */; };
@@ -289,12 +295,14 @@
 		BAD9ACEDDF59E2D71B200478 /* FirestoreCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E46FA7F435E3D99D1FB494A /* FirestoreCollection.swift */; };
 		BB7696604B49F572AC8D27E6 /* NominatimItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898F7DCB56A61DD5035F39F1 /* NominatimItem.swift */; };
 		BBC9C8E7B511782D03F3E24A /* FirebaseInstallations.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C09BC7C6654EA8038113F8B /* FirebaseInstallations.framework */; };
+		BC496D85F77EB75A76C5DF7F /* EditProfileBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB379C2CBC5B1E5F1AC33DA2 /* EditProfileBuilder.swift */; };
 		BCFFB3CCF1E25D7014AF1E0D /* LogoutConfirmationBottomSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36C0D9B1CBE848862B74C654 /* LogoutConfirmationBottomSheetViewController.swift */; };
 		BE39C00F653A8119B5C0B9D2 /* FirebaseMessagingInterop.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34A3881C3C6B51D7313CE768 /* FirebaseMessagingInterop.framework */; };
 		BE3F1BED1FD7AE00E1D63600 /* NotificationsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761E932148BEBB0191BA3A69 /* NotificationsRouter.swift */; };
 		BE73599BE74E45304200AA72 /* CustomerServiceRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7223FA5846FF63F4CA3F2EED /* CustomerServiceRouter.swift */; };
 		BEB68E81D240F3663F9E4074 /* GoogleAdsOnDeviceConversion.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 715A048E99C8704B017C2DFC /* GoogleAdsOnDeviceConversion.xcframework */; };
 		C002A462D956951C46585148 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08C54D2C5394B89AC863C9D5 /* CFNetwork.framework */; };
+		C298DE2C66A54ED7D3E0DCBD /* EditProfileRouterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 479C9B397A99880043BF0795 /* EditProfileRouterProtocol.swift */; };
 		C3820785E7E4D9F5F34A3F84 /* ToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CAE8721149B27C69E8A71C2 /* ToastView.swift */; };
 		C4069CF93145383B04B02A4F /* Firebase_FirebaseCoreInternal.bundle in Resources */ = {isa = PBXBuildFile; fileRef = F27F0CC21C9D28512748FA57 /* Firebase_FirebaseCoreInternal.bundle */; };
 		C4B2E2C055C7576A92B09A3F /* TuistAssets+Airlyhub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B2A2EFCFB2444699282AC2 /* TuistAssets+Airlyhub.swift */; };
@@ -302,6 +310,8 @@
 		C56C78B0F90D6F9FE7B13512 /* Firebase_FirebaseAuth.bundle in Dependencies */ = {isa = PBXBuildFile; fileRef = 434B28573FD90B05CEE5627A /* Firebase_FirebaseAuth.bundle */; };
 		C680DA30C8E594D4DC74124B /* Firebase_FirebaseMessaging.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 1563BED3B05FF7C76E3FE49B /* Firebase_FirebaseMessaging.bundle */; };
 		C6E99923969833DF5DBC433B /* FirebaseCoreExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E58F6597B6FDDCA9CD14FBB2 /* FirebaseCoreExtension.framework */; };
+		C6FB90FDDB516104A1C1B7D1 /* EditProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B535BE912669209DD257E31 /* EditProfileView.swift */; };
+		C7B16FE4A7DD289C977259D7 /* EditProfileViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2E801259B1D09A8C9A86C8 /* EditProfileViewProtocol.swift */; };
 		C7D29AC89469955949E24575 /* MyCardsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F2459E6564CC204FAC524C /* MyCardsView.swift */; };
 		C845E1782CC02ACD81136889 /* FlightsBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E00A41AADE360ACDCAD53D /* FlightsBuilder.swift */; };
 		CA6E96619A73E7FC26AF7A92 /* FirebaseSessionsObjC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94764F9C3A59084E30341472 /* FirebaseSessionsObjC.framework */; };
@@ -496,6 +506,7 @@
 		09C89053EA9E144A1107EC71 /* ValidationResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationResult.swift; sourceTree = "<group>"; };
 		09CA0903E3C15D498BAC9D66 /* SafariServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SafariServices.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/SafariServices.framework; sourceTree = DEVELOPER_DIR; };
 		0A04DE542A09EAA98FDC73B4 /* Firebase_FirebaseRemoteConfig.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Firebase_FirebaseRemoteConfig.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		0B535BE912669209DD257E31 /* EditProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileView.swift; sourceTree = "<group>"; };
 		0BA2016BC3ABFBCD0353CCAD /* LoginEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginEntity.swift; sourceTree = "<group>"; };
 		0CAE8721149B27C69E8A71C2 /* ToastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastView.swift; sourceTree = "<group>"; };
 		0D478A3036B3CD8A48271258 /* RegisterRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterRouter.swift; sourceTree = "<group>"; };
@@ -572,6 +583,7 @@
 		3A59A7BF4C4BEE5078FEC772 /* ButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonStyle.swift; sourceTree = "<group>"; };
 		3A5D96E7868036CD194023CD /* NotificationsViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsViewProtocol.swift; sourceTree = "<group>"; };
 		3AC6F3711A879AD46B482A90 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/usr/lib/libz.tbd; sourceTree = DEVELOPER_DIR; };
+		3B2E801259B1D09A8C9A86C8 /* EditProfileViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewProtocol.swift; sourceTree = "<group>"; };
 		3C43451FB82F4C63FD71643D /* FirebasePerformance.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FirebasePerformance.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C63A45EDA22775DA3F63DCE /* AppCheckCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AppCheckCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D423797CA0ED0FB7CDB061A /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/AppKit.framework; sourceTree = DEVELOPER_DIR; };
@@ -591,6 +603,7 @@
 		45C562454C88072780FA1AD4 /* FavoritesViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewProtocol.swift; sourceTree = "<group>"; };
 		45F2459E6564CC204FAC524C /* MyCardsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCardsView.swift; sourceTree = "<group>"; };
 		466667EDAC4968E579060706 /* absl.xcframework */ = {isa = PBXFileReference; expectedSignature = "AppleDeveloperProgram:EQHXZ8M8AV:Google LLC"; lastKnownFileType = wrapper.xcframework; name = absl.xcframework; path = "/Users/lehagiabao/Code/Airlyhub/Tuist/.build/artifacts/abseil-cpp-binary/absl/absl.xcframework"; sourceTree = "<absolute>"; };
+		479C9B397A99880043BF0795 /* EditProfileRouterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileRouterProtocol.swift; sourceTree = "<group>"; };
 		49EAFDB7F46E675F378E73A2 /* FirebaseInAppMessaging_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FirebaseInAppMessaging_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A26DC78882511D71EF735E9 /* PushNotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushNotificationManager.swift; sourceTree = "<group>"; };
 		4A40383C0BE6217205F7726A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -648,6 +661,7 @@
 		71B6E71CDFAAE4E39A7C946D /* FirebaseFunctions.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FirebaseFunctions.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7223FA5846FF63F4CA3F2EED /* CustomerServiceRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerServiceRouter.swift; sourceTree = "<group>"; };
 		72344FB52CB0D2A3AF1E77F1 /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
+		725CA779CFC29010E0175F71 /* EditProfileInteractorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileInteractorProtocol.swift; sourceTree = "<group>"; };
 		7382DDF008C54C71B2568AD2 /* MyTicketsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTicketsRouter.swift; sourceTree = "<group>"; };
 		74823687343A8D8FDBF9BFF3 /* FirebaseInAppMessagingInternal.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FirebaseInAppMessagingInternal.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		74BAE51367A97B543C17C54A /* abslWrapper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = abslWrapper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -674,6 +688,7 @@
 		839D1822E4064BC120902B88 /* SettingsPresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPresenterProtocol.swift; sourceTree = "<group>"; };
 		85096ACFF6064C2460009DBF /* Package.resolved */ = {isa = PBXFileReference; lastKnownFileType = text; path = Package.resolved; sourceTree = "<group>"; };
 		85500B3BE3FA239DA3616DF8 /* FirebaseAuthInterop.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FirebaseAuthInterop.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		86005DB683EDBEF520090E89 /* EditProfilePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfilePresenter.swift; sourceTree = "<group>"; };
 		8603E229FD9A93851BA2E206 /* Airlyhub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Airlyhub.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		88E7740DA5FFE34C3572D593 /* FavoritesRouterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesRouterProtocol.swift; sourceTree = "<group>"; };
 		898F7DCB56A61DD5035F39F1 /* NominatimItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NominatimItem.swift; sourceTree = "<group>"; };
@@ -708,6 +723,7 @@
 		9DD43FC7E69A17B2EFC24E98 /* MyCardsViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCardsViewProtocol.swift; sourceTree = "<group>"; };
 		9E8F665C192522A54CA18032 /* InterFontWeight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterFontWeight.swift; sourceTree = "<group>"; };
 		9EFF87F5A83B9A40F78E2416 /* ExploreEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreEntity.swift; sourceTree = "<group>"; };
+		9F3E9944A34C83F2B30E86DD /* EditProfileInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileInteractor.swift; sourceTree = "<group>"; };
 		9F60EF7E390F77ADABE8EA36 /* PriceBadgeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceBadgeView.swift; sourceTree = "<group>"; };
 		9FEBDA0F6C7DB157D3FDE845 /* FeedbackGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackGenerator.swift; sourceTree = "<group>"; };
 		A0B2BE87FDF698945DFC3EEB /* ExploreInteractorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreInteractorProtocol.swift; sourceTree = "<group>"; };
@@ -735,8 +751,10 @@
 		B1B3EBCD6636DB2DFF8C5B8A /* LocationFinder+Actions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LocationFinder+Actions.swift"; sourceTree = "<group>"; };
 		B1D9CC480233D1CD525A121E /* CustomerServiceEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerServiceEntity.swift; sourceTree = "<group>"; };
 		B1E8318870F213BD3E03FC3E /* SettingsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsRouter.swift; sourceTree = "<group>"; };
+		B25DD41B820068D2EB5F5BE6 /* EditProfilePresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfilePresenterProtocol.swift; sourceTree = "<group>"; };
 		B318ADA9EF2ACB1BB59BA1EB /* FirebaseAppCheck.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FirebaseAppCheck.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B31CCD805DBFC28CA4B7EF5E /* GoogleDataTransport.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GoogleDataTransport.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B34DCFC48EAE49BB4BA3AECD /* EditProfileEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileEntity.swift; sourceTree = "<group>"; };
 		B4E412764E3651B28A1F92AE /* RegisterPresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterPresenterProtocol.swift; sourceTree = "<group>"; };
 		B54DAB8A2C3FA712D19916C8 /* MyCardsEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCardsEntity.swift; sourceTree = "<group>"; };
 		B592E2E9F72CF720E08C0025 /* ProdConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProdConfig.swift; sourceTree = "<group>"; };
@@ -814,6 +832,7 @@
 		EDC08DA44A9133114525E5F2 /* MyTicketsRouterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTicketsRouterProtocol.swift; sourceTree = "<group>"; };
 		EE59DCA388F8161B02FC489C /* MyTicketsInteractorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTicketsInteractorProtocol.swift; sourceTree = "<group>"; };
 		F0070603E635F48BCB65045C /* ProfilesEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilesEntity.swift; sourceTree = "<group>"; };
+		F0075D9F49D10E0DB9298A09 /* EditProfileRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileRouter.swift; sourceTree = "<group>"; };
 		F146A22E269FD9AFC109891D /* FlightsEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightsEntity.swift; sourceTree = "<group>"; };
 		F233AE55F7123175D086F56E /* Firebase_FirebaseCoreExtension.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Firebase_FirebaseCoreExtension.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		F27F0CC21C9D28512748FA57 /* Firebase_FirebaseCoreInternal.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Firebase_FirebaseCoreInternal.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -828,6 +847,7 @@
 		F90B6DAB15DE768BD2A50641 /* RegisterPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterPresenter.swift; sourceTree = "<group>"; };
 		FAA18F095665096846F7AC16 /* ExploreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreViewController.swift; sourceTree = "<group>"; };
 		FB0ADD2C2C5F8B4ABC7C03FA /* Firebase_FirebaseCrashlytics.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Firebase_FirebaseCrashlytics.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		FB379C2CBC5B1E5F1AC33DA2 /* EditProfileBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileBuilder.swift; sourceTree = "<group>"; };
 		FCA4CC5A9C0226669820C519 /* MyTicketsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTicketsView.swift; sourceTree = "<group>"; };
 		FD9EA16C2A5584E3D341899A /* grpc.xcframework */ = {isa = PBXFileReference; expectedSignature = "AppleDeveloperProgram:EQHXZ8M8AV:Google LLC"; lastKnownFileType = wrapper.xcframework; name = grpc.xcframework; path = "/Users/lehagiabao/Code/Airlyhub/Tuist/.build/artifacts/grpc-binary/grpc/grpc.xcframework"; sourceTree = "<absolute>"; };
 		FDA930A80661FFB27BE3902D /* FavoritesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesPresenter.swift; sourceTree = "<group>"; };
@@ -998,6 +1018,15 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		04E45BB70A613200BCCF92D9 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				86005DB683EDBEF520090E89 /* EditProfilePresenter.swift */,
+				B25DD41B820068D2EB5F5BE6 /* EditProfilePresenterProtocol.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
 		06FACBB7C1ECC5BA87C11327 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -1087,6 +1116,19 @@
 				44F6A2E48831B12EDEC2E8C3 /* NotificationItem.swift */,
 			);
 			path = Notification;
+			sourceTree = "<group>";
+		};
+		0E299F7EC4C28DA53A8469AE /* EditProfile */ = {
+			isa = PBXGroup;
+			children = (
+				65742F184821E8B0F1A0391D /* Builder */,
+				5808103DFA4C9C345E1CC16B /* Entity */,
+				6466387EF7E8B35537D3B5B1 /* Interactor */,
+				04E45BB70A613200BCCF92D9 /* Presenter */,
+				58DAE9F2F82C18F5BE80963B /* Router */,
+				EC23468B9F54396E6D720090 /* View */,
+			);
+			path = EditProfile;
 			sourceTree = "<group>";
 		};
 		0EE027EF4B86F60603987CB8 /* Presenter */ = {
@@ -1492,6 +1534,23 @@
 			path = Builder;
 			sourceTree = "<group>";
 		};
+		5808103DFA4C9C345E1CC16B /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				B34DCFC48EAE49BB4BA3AECD /* EditProfileEntity.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		58DAE9F2F82C18F5BE80963B /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				F0075D9F49D10E0DB9298A09 /* EditProfileRouter.swift */,
+				479C9B397A99880043BF0795 /* EditProfileRouterProtocol.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
 		58E14C10AB7806C9258A8105 /* Ticket */ = {
 			isa = PBXGroup;
 			children = (
@@ -1514,6 +1573,7 @@
 			children = (
 				098AFC3D0BA4A078637436D6 /* Auth */,
 				71536E5B2D855CC3DDE0B8DB /* CustomerService */,
+				0E299F7EC4C28DA53A8469AE /* EditProfile */,
 				C59F194B6B294FF8EB4E04B2 /* Explore */,
 				214479FE269D67EC8327750E /* Favorites */,
 				7951E950380145AEBD9BEA5E /* Flights */,
@@ -1563,12 +1623,29 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		6466387EF7E8B35537D3B5B1 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				9F3E9944A34C83F2B30E86DD /* EditProfileInteractor.swift */,
+				725CA779CFC29010E0175F71 /* EditProfileInteractorProtocol.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
 		64A7DC08CBC8D749DBF7EC8F /* DTOs */ = {
 			isa = PBXGroup;
 			children = (
 				E6F54A8D8ADCD2BEB2B423E8 /* Location */,
 			);
 			path = DTOs;
+			sourceTree = "<group>";
+		};
+		65742F184821E8B0F1A0391D /* Builder */ = {
+			isa = PBXGroup;
+			children = (
+				FB379C2CBC5B1E5F1AC33DA2 /* EditProfileBuilder.swift */,
+			);
+			path = Builder;
 			sourceTree = "<group>";
 		};
 		65C1D24A21A19B0A3897D332 /* BaseView */ = {
@@ -2460,6 +2537,15 @@
 			path = Entity;
 			sourceTree = "<group>";
 		};
+		EC23468B9F54396E6D720090 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0B535BE912669209DD257E31 /* EditProfileView.swift */,
+				3B2E801259B1D09A8C9A86C8 /* EditProfileViewProtocol.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		EC2DC2C32500047DAC4983AD /* Interactor */ = {
 			isa = PBXGroup;
 			children = (
@@ -2899,6 +2985,16 @@
 				CC9B71A56964B8328078187C /* CustomerServiceRouterProtocol.swift in Sources */,
 				0D4EB328CA22DC05F7667E86 /* CustomerServiceView.swift in Sources */,
 				5D4AFFB822CB1B264504D395 /* CustomerServiceViewProtocol.swift in Sources */,
+				BC496D85F77EB75A76C5DF7F /* EditProfileBuilder.swift in Sources */,
+				37E7AE70E14F4E87B289FE87 /* EditProfileEntity.swift in Sources */,
+				3860E8FABF9BC83796DEC87F /* EditProfileInteractor.swift in Sources */,
+				014AA10AD786601C58FFE39C /* EditProfileInteractorProtocol.swift in Sources */,
+				A982D7F2D6F65FCD45E1BFCF /* EditProfilePresenter.swift in Sources */,
+				0FDDE18BEA20768B99F1FEB6 /* EditProfilePresenterProtocol.swift in Sources */,
+				A901DB2C4A1016C5D1DC39F9 /* EditProfileRouter.swift in Sources */,
+				C298DE2C66A54ED7D3E0DCBD /* EditProfileRouterProtocol.swift in Sources */,
+				C6FB90FDDB516104A1C1B7D1 /* EditProfileView.swift in Sources */,
+				C7B16FE4A7DD289C977259D7 /* EditProfileViewProtocol.swift in Sources */,
 				044A77A440C243D0B9CF4A27 /* ExploreBuilder.swift in Sources */,
 				9A3D4B5B2D79244912F858F3 /* ExploreEntity.swift in Sources */,
 				8AC55E6F5FE5ADFF9D3A2334 /* ExploreInteractor.swift in Sources */,

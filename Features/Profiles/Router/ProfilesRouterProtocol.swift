@@ -10,6 +10,7 @@ import Foundation
 import RxSwift
 
 protocol ProfilesRouterProtocol: AnyObject {
+    func navigateToEditProfile() -> Observable<EditProfileBuilderAction>
     func navigateToNotifications() -> Observable<NotificationsBuilderAction>
     func navigateToMyTickets() -> Observable<MyTicketsBuilderAction>
     func navigateToMyCards() -> Observable<MyCardsBuilderAction>
@@ -18,5 +19,4 @@ protocol ProfilesRouterProtocol: AnyObject {
     func presentLogoutConfirmation(onConfirm: @escaping () -> Void)
     func navigateToAuth()
     func showLogoutError(_ message: String)
-    func showAvatarUploadError()
 }

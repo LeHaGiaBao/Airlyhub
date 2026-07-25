@@ -33,38 +33,6 @@ final class ProfilesInteractor: ProfilesInteractorProtocol {
         }
     }
 
-    func updateAvatar(imageData: Data) -> Observable<String> {
-        Observable.create { observer in
-            guard let uid = AuthService.shared.getCurrentUserId() else {
-                observer.onError(ProfilesError.notAuthenticated)
-                return Disposables.create()
-            }
-
-            StorageService.shared.uploadAvatar(uid: uid, imageData: imageData) { uploadResult in
-                switch uploadResult {
-                case .success(let url):
-                    UserService.shared.updateAvatar(uid: uid, avatarUrl: url.absoluteString) { updateResult in
-                        DispatchQueue.main.async {
-                            switch updateResult {
-                            case .success:
-                                observer.onNext(url.absoluteString)
-                                observer.onCompleted()
-                            case .failure(let error):
-                                observer.onError(error)
-                            }
-                        }
-                    }
-                case .failure(let error):
-                    DispatchQueue.main.async {
-                        observer.onError(error)
-                    }
-                }
-            }
-
-            return Disposables.create()
-        }
-    }
-
     func fetchMenuItems() -> [ProfilesMenuSection] {
         return [
             ProfilesMenuSection(items: [
