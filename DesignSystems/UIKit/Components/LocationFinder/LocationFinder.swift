@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-final class LocationFinder: UIViewController {
+final class LocationFinder: BaseBottomSheetViewController {
     var onConfirm: ((LocationResult) -> Void)?
     var onCancel: (() -> Void)?
     var searchWorkItem: DispatchWorkItem?
@@ -20,32 +20,6 @@ final class LocationFinder: UIViewController {
         }
     }
 
-    lazy var dimBackground: UIView = {
-        let view = UIView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = UIColor.black.withAlphaComponent(0.35)
-        let tap = UITapGestureRecognizer(target: self, action: #selector(dismissSheet))
-        view.addGestureRecognizer(tap)
-        return view
-    }()
-
-    lazy var sheetView: UIView = {
-        let view = UIView()
-        view.backgroundColor = .white
-        view.layer.cornerRadius = 20
-        view.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
-        view.translatesAutoresizingMaskIntoConstraints = false
-        return view
-    }()
-
-    lazy var handleBar: UIView = {
-        let view = UIView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.layer.cornerRadius = 2.5
-        view.backgroundColor = UIColor(white: 0.8, alpha: 1)
-        return view
-    }()
-    
     let searchContainerView: TextField = {
         let field = TextField()
         field.translatesAutoresizingMaskIntoConstraints = false
@@ -81,30 +55,32 @@ final class LocationFinder: UIViewController {
         return tableView
     }()
 
-    var sheetBottomConstraint: NSLayoutConstraint!
-
     required init?(coder: NSCoder) { fatalError() }
 
     init() {
-        super.init(nibName: nil, bundle: nil)
+        var configuration = Configuration()
+        configuration.showsHandle = true
+        configuration.avoidsKeyboard = true
+        configuration.animationOffset = 600
+        super.init(configuration: configuration)
     }
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        view.backgroundColor = .clear
+    override func buildContent() {
         setupUI()
-        observeKeyboard()
         searchContainerView.textField.addTarget(self, action: #selector(searchTextChanged), for: .editingChanged)
     }
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        animateIn()
         searchContainerView.textField.becomeFirstResponder()
     }
 
-    deinit {
-        NotificationCenter.default.removeObserver(self)
+    override func didTapDimming() {
+        searchWorkItem?.cancel()
+        searchContainerView.textField.resignFirstResponder()
+        dismissSheet { [weak self] in
+            self?.onCancel?()
+        }
     }
 }
 
@@ -118,59 +94,35 @@ extension LocationFinder {
 // MARK: - SetupUI
 extension LocationFinder {
     func setupUI() {
-        view.addSubview(dimBackground)
-        view.addSubview(sheetView)
-
-        sheetView.addSubview(handleBar)
-        sheetView.addSubview(searchContainerView)
-        sheetView.addSubview(myLocationRow)
-        sheetView.addSubview(separatorView)
-        sheetView.addSubview(tableView)
-
-        sheetBottomConstraint = sheetView.bottomAnchor.constraint(
-            equalTo: view.bottomAnchor, constant: 600)
+        contentView.addSubview(searchContainerView)
+        contentView.addSubview(myLocationRow)
+        contentView.addSubview(separatorView)
+        contentView.addSubview(tableView)
 
         NSLayoutConstraint.activate([
-            // Dim
-            dimBackground.topAnchor.constraint(equalTo: view.topAnchor),
-            dimBackground.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            dimBackground.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            dimBackground.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-
-            // Sheet
-            sheetView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            sheetView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            sheetBottomConstraint,
-
-            // Handle bar
-            handleBar.topAnchor.constraint(equalTo: sheetView.topAnchor, constant: 10),
-            handleBar.centerXAnchor.constraint(equalTo: sheetView.centerXAnchor),
-            handleBar.widthAnchor.constraint(equalToConstant: 36),
-            handleBar.heightAnchor.constraint(equalToConstant: 5),
-
             // Search container — height driven by TextField's internal InputTokens.height (49pt)
-            searchContainerView.topAnchor.constraint(equalTo: handleBar.bottomAnchor, constant: 16),
-            searchContainerView.leadingAnchor.constraint(equalTo: sheetView.leadingAnchor, constant: 16),
-            searchContainerView.trailingAnchor.constraint(equalTo: sheetView.trailingAnchor, constant: -16),
+            searchContainerView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 16),
+            searchContainerView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
+            searchContainerView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
 
             // My location row
             myLocationRow.topAnchor.constraint(equalTo: searchContainerView.bottomAnchor, constant: 4),
-            myLocationRow.leadingAnchor.constraint(equalTo: sheetView.leadingAnchor),
-            myLocationRow.trailingAnchor.constraint(equalTo: sheetView.trailingAnchor),
+            myLocationRow.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            myLocationRow.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
             myLocationRow.heightAnchor.constraint(equalToConstant: 56),
 
             // Separator
             separatorView.topAnchor.constraint(equalTo: myLocationRow.bottomAnchor),
-            separatorView.leadingAnchor.constraint(equalTo: sheetView.leadingAnchor, constant: 16),
-            separatorView.trailingAnchor.constraint(equalTo: sheetView.trailingAnchor, constant: -16),
+            separatorView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
+            separatorView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
             separatorView.heightAnchor.constraint(equalToConstant: 1),
 
             // TableView
             tableView.topAnchor.constraint(equalTo: separatorView.bottomAnchor, constant: 4),
-            tableView.leadingAnchor.constraint(equalTo: sheetView.leadingAnchor),
-            tableView.trailingAnchor.constraint(equalTo: sheetView.trailingAnchor),
+            tableView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            tableView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
             tableView.heightAnchor.constraint(equalToConstant: 300),
-            tableView.bottomAnchor.constraint(equalTo: sheetView.safeAreaLayoutGuide.bottomAnchor, constant: -8),
+            tableView.bottomAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.bottomAnchor, constant: -8),
         ])
     }
 }

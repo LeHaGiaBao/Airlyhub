@@ -69,7 +69,6 @@ final class ProfilesRouter: ProfilesRouterProtocol {
         guard let host = nav.topViewController else { return }
         let sheet = LogoutConfirmationBottomSheetViewController()
         sheet.onLogout = { onConfirm() }
-        sheet.modalPresentationStyle = .overFullScreen
         host.present(sheet, animated: false)
     }
 

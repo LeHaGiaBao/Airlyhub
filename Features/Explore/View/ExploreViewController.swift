@@ -129,9 +129,6 @@ extension ExploreViewController {
 
     private func presentLocationFinder() {
         let picker = LocationFinder()
-        picker.modalPresentationStyle = .overFullScreen
-        picker.modalTransitionStyle = .crossDissolve
-
         picker.onConfirm = { [weak self] location in
             self?.locationView.setLocation(location)
         }

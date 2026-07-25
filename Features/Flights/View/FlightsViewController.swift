@@ -125,9 +125,6 @@ extension FlightsViewController {
 
     private func presentLocationFinder(for field: LocationField) {
         let picker = LocationFinder()
-        picker.modalPresentationStyle = .overFullScreen
-        picker.modalTransitionStyle = .crossDissolve
-
         picker.onConfirm = { [weak self] location in
             self?.flightsLocationView.setLocation(location, for: field)
         }

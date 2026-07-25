@@ -149,8 +149,6 @@ extension FlightsDateRowView {
             self.delegate?.dateInputViewDidCancel(self)
         }
         
-        sheet.modalPresentationStyle = .overFullScreen
-        sheet.modalTransitionStyle = .crossDissolve
         vc.present(sheet, animated: true)
     }
 }
