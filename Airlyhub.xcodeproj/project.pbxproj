@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 55;
+	objectVersion = 60;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -99,6 +99,7 @@
 		30059C9355888D40FD7475B6 /* AddNewCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93948D88EC7F77DA6F58FFD9 /* AddNewCardCell.swift */; };
 		30BCE1803878663BE4DE284A /* Firebase_FirebaseABTesting.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E03A1B760031CC62CA298629 /* Firebase_FirebaseABTesting.bundle */; };
 		30FE5E9F05536CCA3A5C7DD4 /* LoginInteractorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 068BADEE53C69150524857EB /* LoginInteractorProtocol.swift */; };
+		3151AC1300ECF3E4D2EEA8BA /* DatabaseNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B373B39CA3C2E520B20958E /* DatabaseNode.swift */; };
 		326AA188E483E471F3BD670F /* RegisterEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68C8F25FEEFF6238293F9455 /* RegisterEntity.swift */; };
 		3573F63C1281CE143BA960A3 /* FirebaseDatabaseInternal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1EAFBE46F4EA69701D82A21C /* FirebaseDatabaseInternal.framework */; };
 		37E7AE70E14F4E87B289FE87 /* EditProfileEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34DCFC48EAE49BB4BA3AECD /* EditProfileEntity.swift */; };
@@ -151,6 +152,7 @@
 		54934314AE18D8B9A7E47EE7 /* StorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70B33D780DE47379C42DA65 /* StorageService.swift */; };
 		5553C0F18939B322970C345F /* RegisterRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D478A3036B3CD8A48271258 /* RegisterRouter.swift */; };
 		55D2F529E50E4CEE1E65F71D /* CardDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D79D964F6963E95601C95C1 /* CardDTO.swift */; };
+		5657E825EA9BD88EA3E0B8ED /* UIImage+Avatar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12FBEC5BCF2FCE40074CAFB0 /* UIImage+Avatar.swift */; };
 		56914CE91009E5AD9ECE6B02 /* ProfilesEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0070603E635F48BCB65045C /* ProfilesEntity.swift */; };
 		56BA7F3307560D17C18AC4A7 /* NetworkMonitoring.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF0950DBD33E788B3F151DA /* NetworkMonitoring.swift */; };
 		5798E8FBE9F020CDD971FC10 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EB49BDA53E5679A984EC7AF /* SceneDelegate.swift */; };
@@ -279,6 +281,7 @@
 		AA233D8AAA418DC812313F59 /* CardCryptoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B51A5FC6A3B2A3C467E82C1 /* CardCryptoService.swift */; };
 		AB0DA4B85AC9C712F159752F /* InputStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A558AC191FE16C7DA938F2E /* InputStyle.swift */; };
 		AC1CE89C0BEB933D14F450BF /* ExploreRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EAAEC6A05352DFE051E36B8 /* ExploreRouter.swift */; };
+		AC36B72DC02EBAB37543D008 /* AvatarService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B94F2F68E4FB49201DF545C /* AvatarService.swift */; };
 		ACABB1501E0653DB01AC4848 /* ExploreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA18F095665096846F7AC16 /* ExploreViewController.swift */; };
 		ACC4FE47D4DCB6024DB0741E /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F541CD781142A881B32B7DF /* libc++.tbd */; };
 		AF06285A4209E634DBC02BED /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809DBAEFBB4E3D3614E521B1 /* LoginViewController.swift */; };
@@ -497,10 +500,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		00A9A6C1677DFC46C2B4E35B /* FirebaseFirestoreInternal.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = FirebaseFirestoreInternal.xcframework; path = "/Users/lehagiabao/Code/Airlyhub/Tuist/.build/artifacts/firebase-ios-sdk/FirebaseFirestoreInternal/FirebaseFirestoreInternal.xcframework"; sourceTree = "<absolute>"; };
+		00A9A6C1677DFC46C2B4E35B /* FirebaseFirestoreInternal.xcframework */ = {isa = PBXFileReference; expectedSignature = "AppleDeveloperProgram:EQHXZ8M8AV:Google LLC"; lastKnownFileType = wrapper.xcframework; name = FirebaseFirestoreInternal.xcframework; path = "/Users/lehagiabao/Code/Airlyhub/Tuist/.build/artifacts/firebase-ios-sdk/FirebaseFirestoreInternal/FirebaseFirestoreInternal.xcframework"; sourceTree = "<absolute>"; };
 		0121FDFC00445EECF747D219 /* LoginRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRouter.swift; sourceTree = "<group>"; };
 		02A8629E3ABA8C3672995AB3 /* RxCocoa.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RxCocoa.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		03F20C2C7A5DDA6E33A98A40 /* .build */ = {isa = PBXFileReference; path = .build; sourceTree = "<group>"; };
+		03F20C2C7A5DDA6E33A98A40 /* .build */ = {isa = PBXFileReference; lastKnownFileType = folder; path = .build; sourceTree = "<group>"; };
 		050983355864E948992114D4 /* ButtonSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonSize.swift; sourceTree = "<group>"; };
 		0556119355D318C9ED47EA29 /* Bundle+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Extension.swift"; sourceTree = "<group>"; };
 		056E2315103F5EA8A1B57D76 /* FirebaseAppDistribution.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FirebaseAppDistribution.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -519,6 +522,7 @@
 		09C89053EA9E144A1107EC71 /* ValidationResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationResult.swift; sourceTree = "<group>"; };
 		09CA0903E3C15D498BAC9D66 /* SafariServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SafariServices.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/SafariServices.framework; sourceTree = DEVELOPER_DIR; };
 		0A04DE542A09EAA98FDC73B4 /* Firebase_FirebaseRemoteConfig.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Firebase_FirebaseRemoteConfig.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		0B373B39CA3C2E520B20958E /* DatabaseNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseNode.swift; sourceTree = "<group>"; };
 		0B535BE912669209DD257E31 /* EditProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileView.swift; sourceTree = "<group>"; };
 		0BA2016BC3ABFBCD0353CCAD /* LoginEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginEntity.swift; sourceTree = "<group>"; };
 		0CAE8721149B27C69E8A71C2 /* ToastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastView.swift; sourceTree = "<group>"; };
@@ -536,6 +540,7 @@
 		11DD1A1F41592D76CC4A39CD /* ExplorePresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExplorePresenterProtocol.swift; sourceTree = "<group>"; };
 		1227F34FF9E6F446E9D9CF55 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		1234B77C93316CADB30B4A71 /* vi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = vi; path = vi.lproj/Localizable.strings; sourceTree = "<group>"; };
+		12FBEC5BCF2FCE40074CAFB0 /* UIImage+Avatar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Avatar.swift"; sourceTree = "<group>"; };
 		13B09D47EDDA7B1AD4DDA063 /* GTMSessionFetcherCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GTMSessionFetcherCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		14423674A17049DE80255570 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		1563BED3B05FF7C76E3FE49B /* Firebase_FirebaseMessaging.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Firebase_FirebaseMessaging.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -623,11 +628,11 @@
 		49EAFDB7F46E675F378E73A2 /* FirebaseInAppMessaging_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FirebaseInAppMessaging_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A26DC78882511D71EF735E9 /* PushNotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushNotificationManager.swift; sourceTree = "<group>"; };
 		4A40383C0BE6217205F7726A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		4A49DA0119997E365DA28A82 /* VERSION */ = {isa = PBXFileReference; path = VERSION; sourceTree = "<group>"; };
+		4A49DA0119997E365DA28A82 /* VERSION */ = {isa = PBXFileReference; lastKnownFileType = text; path = VERSION; sourceTree = "<group>"; };
 		4AFC1E91DC4DCE14CA804207 /* SmallTicket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallTicket.swift; sourceTree = "<group>"; };
 		4B37C5E9B12004267B2FD8E8 /* RegisterBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterBuilder.swift; sourceTree = "<group>"; };
 		4C86869A3F3487B4F9009EEA /* FlightsPassengersRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightsPassengersRowView.swift; sourceTree = "<group>"; };
-		4D18EFF3EC2BBBB632FEA78B /* BUILD */ = {isa = PBXFileReference; path = BUILD; sourceTree = "<group>"; };
+		4D18EFF3EC2BBBB632FEA78B /* BUILD */ = {isa = PBXFileReference; lastKnownFileType = text; path = BUILD; sourceTree = "<group>"; };
 		4E71BF3BE22915BD5EAE08D0 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		5016EEFA4D6167706A1DC0CB /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
 		5049D9F6029D9D008C081AA2 /* FlightsRouterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightsRouterProtocol.swift; sourceTree = "<group>"; };
@@ -664,7 +669,7 @@
 		65E722FDEF981370D2E85199 /* FlightsPresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightsPresenterProtocol.swift; sourceTree = "<group>"; };
 		6642995DFDB2E092B07495CA /* CustomerServiceInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerServiceInteractor.swift; sourceTree = "<group>"; };
 		67DD70900F1BDD646896E999 /* CustomerServiceRouterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerServiceRouterProtocol.swift; sourceTree = "<group>"; };
-		6867492CC0E420C6F3ECC474 /* .gitignore */ = {isa = PBXFileReference; path = .gitignore; sourceTree = "<group>"; };
+		6867492CC0E420C6F3ECC474 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		68C8F25FEEFF6238293F9455 /* RegisterEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterEntity.swift; sourceTree = "<group>"; };
 		69062FC4E95194FC3CAD5316 /* leveldb.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = leveldb.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		691B735AE64B943F1CB46E45 /* ExploreLocationRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreLocationRowView.swift; sourceTree = "<group>"; };
@@ -678,7 +683,7 @@
 		6F57DD142E3559183AAF100F /* FavoritesBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesBuilder.swift; sourceTree = "<group>"; };
 		706C783FE803D099463C6523 /* RxCocoaRuntime.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RxCocoaRuntime.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		70E93664497531630DC06E41 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
-		715A048E99C8704B017C2DFC /* GoogleAdsOnDeviceConversion.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = GoogleAdsOnDeviceConversion.xcframework; path = "/Users/lehagiabao/Code/Airlyhub/Tuist/.build/artifacts/google-ads-on-device-conversion-ios-sdk/GoogleAdsOnDeviceConversion/GoogleAdsOnDeviceConversion.xcframework"; sourceTree = "<absolute>"; };
+		715A048E99C8704B017C2DFC /* GoogleAdsOnDeviceConversion.xcframework */ = {isa = PBXFileReference; expectedSignature = "AppleDeveloperProgram:EQHXZ8M8AV:Google LLC"; lastKnownFileType = wrapper.xcframework; name = GoogleAdsOnDeviceConversion.xcframework; path = "/Users/lehagiabao/Code/Airlyhub/Tuist/.build/artifacts/google-ads-on-device-conversion-ios-sdk/GoogleAdsOnDeviceConversion/GoogleAdsOnDeviceConversion.xcframework"; sourceTree = "<absolute>"; };
 		71B6E71CDFAAE4E39A7C946D /* FirebaseFunctions.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FirebaseFunctions.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7223FA5846FF63F4CA3F2EED /* CustomerServiceRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerServiceRouter.swift; sourceTree = "<group>"; };
 		72344FB52CB0D2A3AF1E77F1 /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
@@ -707,13 +712,14 @@
 		82966FB8C252B8E451732C3F /* GoogleUtilities_AppDelegateSwizzler.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GoogleUtilities_AppDelegateSwizzler.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8392C1796A9166F9F16F2ECA /* TuistBundle+Airlyhub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TuistBundle+Airlyhub.swift"; sourceTree = "<group>"; };
 		839D1822E4064BC120902B88 /* SettingsPresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPresenterProtocol.swift; sourceTree = "<group>"; };
-		85096ACFF6064C2460009DBF /* Package.resolved */ = {isa = PBXFileReference; path = Package.resolved; sourceTree = "<group>"; };
+		85096ACFF6064C2460009DBF /* Package.resolved */ = {isa = PBXFileReference; lastKnownFileType = text; path = Package.resolved; sourceTree = "<group>"; };
 		85500B3BE3FA239DA3616DF8 /* FirebaseAuthInterop.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FirebaseAuthInterop.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		86005DB683EDBEF520090E89 /* EditProfilePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfilePresenter.swift; sourceTree = "<group>"; };
 		8603E229FD9A93851BA2E206 /* Airlyhub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Airlyhub.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		88E7740DA5FFE34C3572D593 /* FavoritesRouterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesRouterProtocol.swift; sourceTree = "<group>"; };
 		898F7DCB56A61DD5035F39F1 /* NominatimItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NominatimItem.swift; sourceTree = "<group>"; };
 		8B4C36E305E95CA88DF3912E /* AirlyhubUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirlyhubUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		8B94F2F68E4FB49201DF545C /* AvatarService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarService.swift; sourceTree = "<group>"; };
 		8BE5A724ECF88DF7BB0D8A55 /* SettingsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsInteractor.swift; sourceTree = "<group>"; };
 		8C38687798AD0F5B92B54966 /* DatePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePicker.swift; sourceTree = "<group>"; };
 		8CB937138054F63B83213BC8 /* SmallTicketModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallTicketModel.swift; sourceTree = "<group>"; };
@@ -793,14 +799,14 @@
 		BCA6126F750A901DC2CCD85E /* GoogleUtilities_Logger.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GoogleUtilities_Logger.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD8CF551D821C42A96C590EF /* MyCardsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCardsRouter.swift; sourceTree = "<group>"; };
 		BE5DDDDF047E3765EC64FFA8 /* LocationFinder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationFinder.swift; sourceTree = "<group>"; };
-		C14441EDB433A8B0FF356C0E /* FirebaseAnalytics.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = FirebaseAnalytics.xcframework; path = "/Users/lehagiabao/Code/Airlyhub/Tuist/.build/artifacts/firebase-ios-sdk/FirebaseAnalytics/FirebaseAnalytics.xcframework"; sourceTree = "<absolute>"; };
+		C14441EDB433A8B0FF356C0E /* FirebaseAnalytics.xcframework */ = {isa = PBXFileReference; expectedSignature = "AppleDeveloperProgram:EQHXZ8M8AV:Google LLC"; lastKnownFileType = wrapper.xcframework; name = FirebaseAnalytics.xcframework; path = "/Users/lehagiabao/Code/Airlyhub/Tuist/.build/artifacts/firebase-ios-sdk/FirebaseAnalytics/FirebaseAnalytics.xcframework"; sourceTree = "<absolute>"; };
 		C14485CC0CC4AB6313508585 /* NominatimAddress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NominatimAddress.swift; sourceTree = "<group>"; };
-		C153F013202B88EE77727376 /* Firebase */ = {isa = PBXFileReference; path = Firebase; sourceTree = "<group>"; };
+		C153F013202B88EE77727376 /* Firebase */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Firebase; sourceTree = "<group>"; };
 		C3575FE0E7039C58B718E0C2 /* FirebaseAuthInternal.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FirebaseAuthInternal.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C37C97D0D38F757AC86E678C /* ProfilesBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilesBuilder.swift; sourceTree = "<group>"; };
 		C424F87191DD397DFB6B21EF /* MyCardsRouterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCardsRouterProtocol.swift; sourceTree = "<group>"; };
 		C4E16040F94DEC3820317C02 /* NotificationsEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsEntity.swift; sourceTree = "<group>"; };
-		C638771C071A6F524C7F4985 /* .mise.toml */ = {isa = PBXFileReference; path = .mise.toml; sourceTree = "<group>"; };
+		C638771C071A6F524C7F4985 /* .mise.toml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .mise.toml; sourceTree = "<group>"; };
 		C7DAE5AB655E4E1709F5FDA3 /* UIView+FindController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+FindController.swift"; sourceTree = "<group>"; };
 		C7DB0BBD606AE24A5C0638B7 /* Firebase_FirebaseCore.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Firebase_FirebaseCore.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		C812702AE7DC89F3A8C7663F /* FlightsInteractorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightsInteractorProtocol.swift; sourceTree = "<group>"; };
@@ -827,14 +833,14 @@
 		D2BF0281C84A5734740CA1D7 /* GoogleUtilities_NSData.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GoogleUtilities_NSData.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2C454E4388053E38A92DC35 /* ShadowToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowToken.swift; sourceTree = "<group>"; };
 		D43E5262638FB0DC0A59F6C5 /* CardValidation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardValidation.swift; sourceTree = "<group>"; };
-		D520893DE601DFC3E3BE76A7 /* Scripts */ = {isa = PBXFileReference; path = Scripts; sourceTree = "<group>"; };
+		D520893DE601DFC3E3BE76A7 /* Scripts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Scripts; sourceTree = "<group>"; };
 		D5D0D89E4F8686310974A458 /* FirebaseSharedSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FirebaseSharedSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D63D5E8B98AE4E8AD3C3F577 /* NotificationsInteractorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsInteractorProtocol.swift; sourceTree = "<group>"; };
 		D71A555F9CAD652FC66CDB53 /* LanguageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageManager.swift; sourceTree = "<group>"; };
 		D7BAFB7BDB3ECB63FB2C14B6 /* NoInternetProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoInternetProtocols.swift; sourceTree = "<group>"; };
 		D8DCDB0142642E4EB010962D /* MyTicketCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTicketCell.swift; sourceTree = "<group>"; };
 		D9365EF17591A77DF82AD7EE /* CardFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardFormatter.swift; sourceTree = "<group>"; };
-		DB2F3131228DBD5F4A80C7B0 /* Config */ = {isa = PBXFileReference; path = Config; sourceTree = "<group>"; };
+		DB2F3131228DBD5F4A80C7B0 /* Config */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Config; sourceTree = "<group>"; };
 		DBF0950DBD33E788B3F151DA /* NetworkMonitoring.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitoring.swift; sourceTree = "<group>"; };
 		DD8F8E63533EBC6BC1621B90 /* FirebaseCrashlytics.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FirebaseCrashlytics.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDBA2D0AC4707A24B9611A44 /* GoogleUtilities_MethodSwizzler.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GoogleUtilities_MethodSwizzler.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1852,6 +1858,7 @@
 			isa = PBXGroup;
 			children = (
 				FF44BB409987F3CD3F1BC6D4 /* UIButton+Style.swift */,
+				12FBEC5BCF2FCE40074CAFB0 /* UIImage+Avatar.swift */,
 				5EC653B8ABE5B62C67068018 /* UIImageView+RemoteImage.swift */,
 				3659293B6DE604A4CB9AA4BD /* UILabel+Typography.swift */,
 				6192BA333955B37D10BBEDAD /* UITextField+Style.swift */,
@@ -2629,7 +2636,9 @@
 			isa = PBXGroup;
 			children = (
 				7F7E212C5BA6EA1DE7C2DBBA /* AuthService.swift */,
+				8B94F2F68E4FB49201DF545C /* AvatarService.swift */,
 				545268D0A9DFC35D90F2EDA2 /* CardService.swift */,
+				0B373B39CA3C2E520B20958E /* DatabaseNode.swift */,
 				2E46FA7F435E3D99D1FB494A /* FirestoreCollection.swift */,
 				A70B33D780DE47379C42DA65 /* StorageService.swift */,
 				1227F34FF9E6F446E9D9CF55 /* UserService.swift */,
@@ -2973,7 +2982,9 @@
 				BB7696604B49F572AC8D27E6 /* NominatimItem.swift in Sources */,
 				6C2C32E7A7939A90C50D0F52 /* LocalLocationService.swift in Sources */,
 				DB03F8EEE8EE7BFC04CD71B6 /* AuthService.swift in Sources */,
+				AC36B72DC02EBAB37543D008 /* AvatarService.swift in Sources */,
 				80F6EACA9155B26F90519F14 /* CardService.swift in Sources */,
+				3151AC1300ECF3E4D2EEA8BA /* DatabaseNode.swift in Sources */,
 				BAD9ACEDDF59E2D71B200478 /* FirestoreCollection.swift in Sources */,
 				54934314AE18D8B9A7E47EE7 /* StorageService.swift in Sources */,
 				51C9F8648DE8949371829EB6 /* UserService.swift in Sources */,
@@ -2998,6 +3009,7 @@
 				0D343FECD1395F091C46D284 /* UIView+ShadowExample.swift in Sources */,
 				B99F3900A72CF6C06BEB7320 /* Text+Typography.swift in Sources */,
 				93D61B7A89E8B29FAFDF4029 /* UIButton+Style.swift in Sources */,
+				5657E825EA9BD88EA3E0B8ED /* UIImage+Avatar.swift in Sources */,
 				2B4A2D960A2A1B0610B10F91 /* UIImageView+RemoteImage.swift in Sources */,
 				6F78570E3BCBB7362D3FCC31 /* UILabel+Typography.swift in Sources */,
 				1B7A83C6AF01A2EB3AE9766C /* UITextField+Style.swift in Sources */,
@@ -3406,117 +3418,14 @@
 					"$(inherited)",
 					"-L$(DT_TOOLCHAIN_DIR)/usr/lib/swift/$(PLATFORM_NAME)",
 				);
-				OTHER_SWIFT_FLAGS = (
-					"$(inherited)",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/firebase-ios-sdk/CoreOnly/Sources/module.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/promises/Sources/FBLPromises/include/module.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/AppCheckCore/AppCheckCore.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseABTesting/FirebaseABTesting.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseAnalyticsTarget/FirebaseAnalyticsTarget.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseAnalyticsWrapper/FirebaseAnalyticsWrapper.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseAppCheck/FirebaseAppCheck.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseAppCheckInterop/FirebaseAppCheckInterop.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseAppDistribution/FirebaseAppDistribution.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseAppDistributionTarget/FirebaseAppDistributionTarget.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseAuthInternal/FirebaseAuthInternal.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseAuthInterop/FirebaseAuthInterop.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseCore/FirebaseCore.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseCoreExtension/FirebaseCoreExtension.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseCrashlytics/FirebaseCrashlytics.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseDatabaseInternal/FirebaseDatabaseInternal.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseFirestoreInternalWrapper/FirebaseFirestoreInternalWrapper.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseFirestoreTarget/FirebaseFirestoreTarget.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseInAppMessagingInternal/FirebaseInAppMessagingInternal.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseInAppMessagingTarget/FirebaseInAppMessagingTarget.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseInAppMessaging_iOS/FirebaseInAppMessaging_iOS.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseInstallations/FirebaseInstallations.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseMessaging/FirebaseMessaging.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseMessagingInterop/FirebaseMessagingInterop.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebasePerformance/FirebasePerformance.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebasePerformanceTarget/FirebasePerformanceTarget.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseRemoteConfigInternal/FirebaseRemoteConfigInternal.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseSessionsObjC/FirebaseSessionsObjC.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GTMSessionFetcherCore/GTMSessionFetcherCore.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleAdsOnDeviceConversionTarget/GoogleAdsOnDeviceConversionTarget.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleAppMeasurementTarget/GoogleAppMeasurementTarget.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleDataTransport/GoogleDataTransport.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleUtilities_AppDelegateSwizzler/GoogleUtilities_AppDelegateSwizzler.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleUtilities_Environment/GoogleUtilities_Environment.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleUtilities_Logger/GoogleUtilities_Logger.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleUtilities_MethodSwizzler/GoogleUtilities_MethodSwizzler.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleUtilities_NSData/GoogleUtilities_NSData.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleUtilities_Network/GoogleUtilities_Network.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleUtilities_Reachability/GoogleUtilities_Reachability.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleUtilities_UserDefaults/GoogleUtilities_UserDefaults.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/RecaptchaInterop/RecaptchaInterop.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/RxCocoaRuntime/RxCocoaRuntime.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/abslWrapper/abslWrapper.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/grpcWrapper/grpcWrapper.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/grpcppWrapper/grpcppWrapper.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/leveldb/leveldb.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/nanopb/nanopb.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/opensslWrapper/opensslWrapper.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/third_party_IsAppEncrypted/third_party_IsAppEncrypted.modulemap",
-				);
+				OTHER_SWIFT_FLAGS = "$(inherited) -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/firebase-ios-sdk/CoreOnly/Sources/module.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/promises/Sources/FBLPromises/include/module.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/AppCheckCore/AppCheckCore.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseABTesting/FirebaseABTesting.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseAnalyticsTarget/FirebaseAnalyticsTarget.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseAnalyticsWrapper/FirebaseAnalyticsWrapper.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseAppCheck/FirebaseAppCheck.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseAppCheckInterop/FirebaseAppCheckInterop.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseAppDistribution/FirebaseAppDistribution.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseAppDistributionTarget/FirebaseAppDistributionTarget.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseAuthInternal/FirebaseAuthInternal.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseAuthInterop/FirebaseAuthInterop.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseCore/FirebaseCore.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseCoreExtension/FirebaseCoreExtension.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseCrashlytics/FirebaseCrashlytics.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseDatabaseInternal/FirebaseDatabaseInternal.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseFirestoreInternalWrapper/FirebaseFirestoreInternalWrapper.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseFirestoreTarget/FirebaseFirestoreTarget.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseInAppMessagingInternal/FirebaseInAppMessagingInternal.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseInAppMessagingTarget/FirebaseInAppMessagingTarget.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseInAppMessaging_iOS/FirebaseInAppMessaging_iOS.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseInstallations/FirebaseInstallations.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseMessaging/FirebaseMessaging.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseMessagingInterop/FirebaseMessagingInterop.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebasePerformance/FirebasePerformance.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebasePerformanceTarget/FirebasePerformanceTarget.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseRemoteConfigInternal/FirebaseRemoteConfigInternal.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseSessionsObjC/FirebaseSessionsObjC.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GTMSessionFetcherCore/GTMSessionFetcherCore.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleAdsOnDeviceConversionTarget/GoogleAdsOnDeviceConversionTarget.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleAppMeasurementTarget/GoogleAppMeasurementTarget.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleDataTransport/GoogleDataTransport.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleUtilities_AppDelegateSwizzler/GoogleUtilities_AppDelegateSwizzler.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleUtilities_Environment/GoogleUtilities_Environment.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleUtilities_Logger/GoogleUtilities_Logger.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleUtilities_MethodSwizzler/GoogleUtilities_MethodSwizzler.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleUtilities_NSData/GoogleUtilities_NSData.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleUtilities_Network/GoogleUtilities_Network.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleUtilities_Reachability/GoogleUtilities_Reachability.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleUtilities_UserDefaults/GoogleUtilities_UserDefaults.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/RecaptchaInterop/RecaptchaInterop.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/RxCocoaRuntime/RxCocoaRuntime.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/abslWrapper/abslWrapper.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/grpcWrapper/grpcWrapper.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/grpcppWrapper/grpcppWrapper.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/leveldb/leveldb.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/nanopb/nanopb.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/opensslWrapper/opensslWrapper.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/third_party_IsAppEncrypted/third_party_IsAppEncrypted.modulemap";
 				PRODUCT_BUNDLE_IDENTIFIER = airly.AirlyhubTests;
 				PRODUCT_NAME = AirlyhubTests;
 				SDKROOT = iphoneos;
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
-					"$(inherited)",
-					DEBUG,
-				);
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) DEBUG";
 				SWIFT_COMPILATION_MODE = singlefile;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -3671,117 +3580,14 @@
 					"-ObjC",
 					"-L$(DT_TOOLCHAIN_DIR)/usr/lib/swift/$(PLATFORM_NAME)",
 				);
-				OTHER_SWIFT_FLAGS = (
-					"$(inherited)",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/firebase-ios-sdk/CoreOnly/Sources/module.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/promises/Sources/FBLPromises/include/module.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/AppCheckCore/AppCheckCore.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseABTesting/FirebaseABTesting.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseAnalyticsTarget/FirebaseAnalyticsTarget.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseAnalyticsWrapper/FirebaseAnalyticsWrapper.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseAppCheck/FirebaseAppCheck.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseAppCheckInterop/FirebaseAppCheckInterop.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseAppDistribution/FirebaseAppDistribution.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseAppDistributionTarget/FirebaseAppDistributionTarget.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseAuthInternal/FirebaseAuthInternal.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseAuthInterop/FirebaseAuthInterop.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseCore/FirebaseCore.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseCoreExtension/FirebaseCoreExtension.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseCrashlytics/FirebaseCrashlytics.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseDatabaseInternal/FirebaseDatabaseInternal.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseFirestoreInternalWrapper/FirebaseFirestoreInternalWrapper.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseFirestoreTarget/FirebaseFirestoreTarget.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseInAppMessagingInternal/FirebaseInAppMessagingInternal.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseInAppMessagingTarget/FirebaseInAppMessagingTarget.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseInAppMessaging_iOS/FirebaseInAppMessaging_iOS.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseInstallations/FirebaseInstallations.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseMessaging/FirebaseMessaging.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseMessagingInterop/FirebaseMessagingInterop.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebasePerformance/FirebasePerformance.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebasePerformanceTarget/FirebasePerformanceTarget.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseRemoteConfigInternal/FirebaseRemoteConfigInternal.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseSessionsObjC/FirebaseSessionsObjC.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GTMSessionFetcherCore/GTMSessionFetcherCore.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleAdsOnDeviceConversionTarget/GoogleAdsOnDeviceConversionTarget.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleAppMeasurementTarget/GoogleAppMeasurementTarget.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleDataTransport/GoogleDataTransport.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleUtilities_AppDelegateSwizzler/GoogleUtilities_AppDelegateSwizzler.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleUtilities_Environment/GoogleUtilities_Environment.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleUtilities_Logger/GoogleUtilities_Logger.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleUtilities_MethodSwizzler/GoogleUtilities_MethodSwizzler.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleUtilities_NSData/GoogleUtilities_NSData.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleUtilities_Network/GoogleUtilities_Network.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleUtilities_Reachability/GoogleUtilities_Reachability.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleUtilities_UserDefaults/GoogleUtilities_UserDefaults.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/RecaptchaInterop/RecaptchaInterop.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/RxCocoaRuntime/RxCocoaRuntime.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/abslWrapper/abslWrapper.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/grpcWrapper/grpcWrapper.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/grpcppWrapper/grpcppWrapper.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/leveldb/leveldb.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/nanopb/nanopb.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/opensslWrapper/opensslWrapper.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/third_party_IsAppEncrypted/third_party_IsAppEncrypted.modulemap",
-				);
+				OTHER_SWIFT_FLAGS = "$(inherited) -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/firebase-ios-sdk/CoreOnly/Sources/module.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/promises/Sources/FBLPromises/include/module.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/AppCheckCore/AppCheckCore.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseABTesting/FirebaseABTesting.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseAnalyticsTarget/FirebaseAnalyticsTarget.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseAnalyticsWrapper/FirebaseAnalyticsWrapper.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseAppCheck/FirebaseAppCheck.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseAppCheckInterop/FirebaseAppCheckInterop.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseAppDistribution/FirebaseAppDistribution.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseAppDistributionTarget/FirebaseAppDistributionTarget.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseAuthInternal/FirebaseAuthInternal.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseAuthInterop/FirebaseAuthInterop.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseCore/FirebaseCore.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseCoreExtension/FirebaseCoreExtension.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseCrashlytics/FirebaseCrashlytics.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseDatabaseInternal/FirebaseDatabaseInternal.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseFirestoreInternalWrapper/FirebaseFirestoreInternalWrapper.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseFirestoreTarget/FirebaseFirestoreTarget.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseInAppMessagingInternal/FirebaseInAppMessagingInternal.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseInAppMessagingTarget/FirebaseInAppMessagingTarget.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseInAppMessaging_iOS/FirebaseInAppMessaging_iOS.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseInstallations/FirebaseInstallations.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseMessaging/FirebaseMessaging.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseMessagingInterop/FirebaseMessagingInterop.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebasePerformance/FirebasePerformance.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebasePerformanceTarget/FirebasePerformanceTarget.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseRemoteConfigInternal/FirebaseRemoteConfigInternal.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseSessionsObjC/FirebaseSessionsObjC.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GTMSessionFetcherCore/GTMSessionFetcherCore.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleAdsOnDeviceConversionTarget/GoogleAdsOnDeviceConversionTarget.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleAppMeasurementTarget/GoogleAppMeasurementTarget.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleDataTransport/GoogleDataTransport.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleUtilities_AppDelegateSwizzler/GoogleUtilities_AppDelegateSwizzler.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleUtilities_Environment/GoogleUtilities_Environment.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleUtilities_Logger/GoogleUtilities_Logger.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleUtilities_MethodSwizzler/GoogleUtilities_MethodSwizzler.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleUtilities_NSData/GoogleUtilities_NSData.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleUtilities_Network/GoogleUtilities_Network.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleUtilities_Reachability/GoogleUtilities_Reachability.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleUtilities_UserDefaults/GoogleUtilities_UserDefaults.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/RecaptchaInterop/RecaptchaInterop.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/RxCocoaRuntime/RxCocoaRuntime.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/abslWrapper/abslWrapper.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/grpcWrapper/grpcWrapper.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/grpcppWrapper/grpcppWrapper.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/leveldb/leveldb.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/nanopb/nanopb.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/opensslWrapper/opensslWrapper.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/third_party_IsAppEncrypted/third_party_IsAppEncrypted.modulemap";
 				PRODUCT_BUNDLE_IDENTIFIER = "$(APP_BUNDLE_ID)";
 				PRODUCT_NAME = Airlyhub;
 				SDKROOT = iphoneos;
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
-					"$(inherited)",
-					DEBUG,
-				);
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) DEBUG";
 				SWIFT_COMPILATION_MODE = singlefile;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -3915,107 +3721,7 @@
 					"$(inherited)",
 					"-L$(DT_TOOLCHAIN_DIR)/usr/lib/swift/$(PLATFORM_NAME)",
 				);
-				OTHER_SWIFT_FLAGS = (
-					"$(inherited)",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/firebase-ios-sdk/CoreOnly/Sources/module.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/promises/Sources/FBLPromises/include/module.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/AppCheckCore/AppCheckCore.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseABTesting/FirebaseABTesting.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseAnalyticsTarget/FirebaseAnalyticsTarget.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseAnalyticsWrapper/FirebaseAnalyticsWrapper.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseAppCheck/FirebaseAppCheck.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseAppCheckInterop/FirebaseAppCheckInterop.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseAppDistribution/FirebaseAppDistribution.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseAppDistributionTarget/FirebaseAppDistributionTarget.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseAuthInternal/FirebaseAuthInternal.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseAuthInterop/FirebaseAuthInterop.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseCore/FirebaseCore.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseCoreExtension/FirebaseCoreExtension.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseCrashlytics/FirebaseCrashlytics.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseDatabaseInternal/FirebaseDatabaseInternal.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseFirestoreInternalWrapper/FirebaseFirestoreInternalWrapper.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseFirestoreTarget/FirebaseFirestoreTarget.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseInAppMessagingInternal/FirebaseInAppMessagingInternal.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseInAppMessagingTarget/FirebaseInAppMessagingTarget.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseInAppMessaging_iOS/FirebaseInAppMessaging_iOS.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseInstallations/FirebaseInstallations.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseMessaging/FirebaseMessaging.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseMessagingInterop/FirebaseMessagingInterop.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebasePerformance/FirebasePerformance.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebasePerformanceTarget/FirebasePerformanceTarget.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseRemoteConfigInternal/FirebaseRemoteConfigInternal.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseSessionsObjC/FirebaseSessionsObjC.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GTMSessionFetcherCore/GTMSessionFetcherCore.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleAdsOnDeviceConversionTarget/GoogleAdsOnDeviceConversionTarget.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleAppMeasurementTarget/GoogleAppMeasurementTarget.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleDataTransport/GoogleDataTransport.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleUtilities_AppDelegateSwizzler/GoogleUtilities_AppDelegateSwizzler.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleUtilities_Environment/GoogleUtilities_Environment.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleUtilities_Logger/GoogleUtilities_Logger.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleUtilities_MethodSwizzler/GoogleUtilities_MethodSwizzler.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleUtilities_NSData/GoogleUtilities_NSData.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleUtilities_Network/GoogleUtilities_Network.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleUtilities_Reachability/GoogleUtilities_Reachability.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleUtilities_UserDefaults/GoogleUtilities_UserDefaults.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/RecaptchaInterop/RecaptchaInterop.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/RxCocoaRuntime/RxCocoaRuntime.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/abslWrapper/abslWrapper.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/grpcWrapper/grpcWrapper.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/grpcppWrapper/grpcppWrapper.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/leveldb/leveldb.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/nanopb/nanopb.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/opensslWrapper/opensslWrapper.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/third_party_IsAppEncrypted/third_party_IsAppEncrypted.modulemap",
-				);
+				OTHER_SWIFT_FLAGS = "$(inherited) -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/firebase-ios-sdk/CoreOnly/Sources/module.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/promises/Sources/FBLPromises/include/module.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/AppCheckCore/AppCheckCore.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseABTesting/FirebaseABTesting.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseAnalyticsTarget/FirebaseAnalyticsTarget.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseAnalyticsWrapper/FirebaseAnalyticsWrapper.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseAppCheck/FirebaseAppCheck.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseAppCheckInterop/FirebaseAppCheckInterop.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseAppDistribution/FirebaseAppDistribution.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseAppDistributionTarget/FirebaseAppDistributionTarget.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseAuthInternal/FirebaseAuthInternal.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseAuthInterop/FirebaseAuthInterop.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseCore/FirebaseCore.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseCoreExtension/FirebaseCoreExtension.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseCrashlytics/FirebaseCrashlytics.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseDatabaseInternal/FirebaseDatabaseInternal.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseFirestoreInternalWrapper/FirebaseFirestoreInternalWrapper.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseFirestoreTarget/FirebaseFirestoreTarget.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseInAppMessagingInternal/FirebaseInAppMessagingInternal.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseInAppMessagingTarget/FirebaseInAppMessagingTarget.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseInAppMessaging_iOS/FirebaseInAppMessaging_iOS.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseInstallations/FirebaseInstallations.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseMessaging/FirebaseMessaging.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseMessagingInterop/FirebaseMessagingInterop.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebasePerformance/FirebasePerformance.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebasePerformanceTarget/FirebasePerformanceTarget.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseRemoteConfigInternal/FirebaseRemoteConfigInternal.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseSessionsObjC/FirebaseSessionsObjC.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GTMSessionFetcherCore/GTMSessionFetcherCore.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleAdsOnDeviceConversionTarget/GoogleAdsOnDeviceConversionTarget.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleAppMeasurementTarget/GoogleAppMeasurementTarget.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleDataTransport/GoogleDataTransport.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleUtilities_AppDelegateSwizzler/GoogleUtilities_AppDelegateSwizzler.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleUtilities_Environment/GoogleUtilities_Environment.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleUtilities_Logger/GoogleUtilities_Logger.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleUtilities_MethodSwizzler/GoogleUtilities_MethodSwizzler.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleUtilities_NSData/GoogleUtilities_NSData.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleUtilities_Network/GoogleUtilities_Network.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleUtilities_Reachability/GoogleUtilities_Reachability.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleUtilities_UserDefaults/GoogleUtilities_UserDefaults.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/RecaptchaInterop/RecaptchaInterop.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/RxCocoaRuntime/RxCocoaRuntime.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/abslWrapper/abslWrapper.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/grpcWrapper/grpcWrapper.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/grpcppWrapper/grpcppWrapper.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/leveldb/leveldb.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/nanopb/nanopb.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/opensslWrapper/opensslWrapper.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/third_party_IsAppEncrypted/third_party_IsAppEncrypted.modulemap";
 				PRODUCT_BUNDLE_IDENTIFIER = airly.AirlyhubTests;
 				PRODUCT_NAME = AirlyhubTests;
 				SDKROOT = iphoneos;
@@ -4155,117 +3861,14 @@
 					"$(inherited)",
 					"-L$(DT_TOOLCHAIN_DIR)/usr/lib/swift/$(PLATFORM_NAME)",
 				);
-				OTHER_SWIFT_FLAGS = (
-					"$(inherited)",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/firebase-ios-sdk/CoreOnly/Sources/module.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/promises/Sources/FBLPromises/include/module.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/AppCheckCore/AppCheckCore.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseABTesting/FirebaseABTesting.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseAnalyticsTarget/FirebaseAnalyticsTarget.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseAnalyticsWrapper/FirebaseAnalyticsWrapper.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseAppCheck/FirebaseAppCheck.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseAppCheckInterop/FirebaseAppCheckInterop.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseAppDistribution/FirebaseAppDistribution.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseAppDistributionTarget/FirebaseAppDistributionTarget.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseAuthInternal/FirebaseAuthInternal.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseAuthInterop/FirebaseAuthInterop.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseCore/FirebaseCore.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseCoreExtension/FirebaseCoreExtension.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseCrashlytics/FirebaseCrashlytics.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseDatabaseInternal/FirebaseDatabaseInternal.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseFirestoreInternalWrapper/FirebaseFirestoreInternalWrapper.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseFirestoreTarget/FirebaseFirestoreTarget.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseInAppMessagingInternal/FirebaseInAppMessagingInternal.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseInAppMessagingTarget/FirebaseInAppMessagingTarget.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseInAppMessaging_iOS/FirebaseInAppMessaging_iOS.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseInstallations/FirebaseInstallations.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseMessaging/FirebaseMessaging.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseMessagingInterop/FirebaseMessagingInterop.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebasePerformance/FirebasePerformance.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebasePerformanceTarget/FirebasePerformanceTarget.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseRemoteConfigInternal/FirebaseRemoteConfigInternal.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseSessionsObjC/FirebaseSessionsObjC.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GTMSessionFetcherCore/GTMSessionFetcherCore.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleAdsOnDeviceConversionTarget/GoogleAdsOnDeviceConversionTarget.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleAppMeasurementTarget/GoogleAppMeasurementTarget.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleDataTransport/GoogleDataTransport.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleUtilities_AppDelegateSwizzler/GoogleUtilities_AppDelegateSwizzler.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleUtilities_Environment/GoogleUtilities_Environment.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleUtilities_Logger/GoogleUtilities_Logger.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleUtilities_MethodSwizzler/GoogleUtilities_MethodSwizzler.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleUtilities_NSData/GoogleUtilities_NSData.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleUtilities_Network/GoogleUtilities_Network.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleUtilities_Reachability/GoogleUtilities_Reachability.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleUtilities_UserDefaults/GoogleUtilities_UserDefaults.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/RecaptchaInterop/RecaptchaInterop.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/RxCocoaRuntime/RxCocoaRuntime.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/abslWrapper/abslWrapper.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/grpcWrapper/grpcWrapper.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/grpcppWrapper/grpcppWrapper.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/leveldb/leveldb.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/nanopb/nanopb.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/opensslWrapper/opensslWrapper.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/third_party_IsAppEncrypted/third_party_IsAppEncrypted.modulemap",
-				);
+				OTHER_SWIFT_FLAGS = "$(inherited) -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/firebase-ios-sdk/CoreOnly/Sources/module.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/promises/Sources/FBLPromises/include/module.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/AppCheckCore/AppCheckCore.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseABTesting/FirebaseABTesting.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseAnalyticsTarget/FirebaseAnalyticsTarget.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseAnalyticsWrapper/FirebaseAnalyticsWrapper.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseAppCheck/FirebaseAppCheck.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseAppCheckInterop/FirebaseAppCheckInterop.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseAppDistribution/FirebaseAppDistribution.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseAppDistributionTarget/FirebaseAppDistributionTarget.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseAuthInternal/FirebaseAuthInternal.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseAuthInterop/FirebaseAuthInterop.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseCore/FirebaseCore.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseCoreExtension/FirebaseCoreExtension.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseCrashlytics/FirebaseCrashlytics.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseDatabaseInternal/FirebaseDatabaseInternal.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseFirestoreInternalWrapper/FirebaseFirestoreInternalWrapper.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseFirestoreTarget/FirebaseFirestoreTarget.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseInAppMessagingInternal/FirebaseInAppMessagingInternal.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseInAppMessagingTarget/FirebaseInAppMessagingTarget.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseInAppMessaging_iOS/FirebaseInAppMessaging_iOS.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseInstallations/FirebaseInstallations.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseMessaging/FirebaseMessaging.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseMessagingInterop/FirebaseMessagingInterop.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebasePerformance/FirebasePerformance.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebasePerformanceTarget/FirebasePerformanceTarget.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseRemoteConfigInternal/FirebaseRemoteConfigInternal.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseSessionsObjC/FirebaseSessionsObjC.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GTMSessionFetcherCore/GTMSessionFetcherCore.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleAdsOnDeviceConversionTarget/GoogleAdsOnDeviceConversionTarget.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleAppMeasurementTarget/GoogleAppMeasurementTarget.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleDataTransport/GoogleDataTransport.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleUtilities_AppDelegateSwizzler/GoogleUtilities_AppDelegateSwizzler.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleUtilities_Environment/GoogleUtilities_Environment.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleUtilities_Logger/GoogleUtilities_Logger.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleUtilities_MethodSwizzler/GoogleUtilities_MethodSwizzler.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleUtilities_NSData/GoogleUtilities_NSData.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleUtilities_Network/GoogleUtilities_Network.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleUtilities_Reachability/GoogleUtilities_Reachability.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleUtilities_UserDefaults/GoogleUtilities_UserDefaults.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/RecaptchaInterop/RecaptchaInterop.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/RxCocoaRuntime/RxCocoaRuntime.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/abslWrapper/abslWrapper.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/grpcWrapper/grpcWrapper.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/grpcppWrapper/grpcppWrapper.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/leveldb/leveldb.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/nanopb/nanopb.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/opensslWrapper/opensslWrapper.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/third_party_IsAppEncrypted/third_party_IsAppEncrypted.modulemap";
 				PRODUCT_BUNDLE_IDENTIFIER = airly.AirlyhubUITests;
 				PRODUCT_NAME = AirlyhubUITests;
 				SDKROOT = iphoneos;
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
-					"$(inherited)",
-					DEBUG,
-				);
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) DEBUG";
 				SWIFT_COMPILATION_MODE = singlefile;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -4487,107 +4090,7 @@
 					"-ObjC",
 					"-L$(DT_TOOLCHAIN_DIR)/usr/lib/swift/$(PLATFORM_NAME)",
 				);
-				OTHER_SWIFT_FLAGS = (
-					"$(inherited)",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/firebase-ios-sdk/CoreOnly/Sources/module.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/promises/Sources/FBLPromises/include/module.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/AppCheckCore/AppCheckCore.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseABTesting/FirebaseABTesting.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseAnalyticsTarget/FirebaseAnalyticsTarget.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseAnalyticsWrapper/FirebaseAnalyticsWrapper.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseAppCheck/FirebaseAppCheck.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseAppCheckInterop/FirebaseAppCheckInterop.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseAppDistribution/FirebaseAppDistribution.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseAppDistributionTarget/FirebaseAppDistributionTarget.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseAuthInternal/FirebaseAuthInternal.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseAuthInterop/FirebaseAuthInterop.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseCore/FirebaseCore.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseCoreExtension/FirebaseCoreExtension.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseCrashlytics/FirebaseCrashlytics.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseDatabaseInternal/FirebaseDatabaseInternal.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseFirestoreInternalWrapper/FirebaseFirestoreInternalWrapper.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseFirestoreTarget/FirebaseFirestoreTarget.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseInAppMessagingInternal/FirebaseInAppMessagingInternal.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseInAppMessagingTarget/FirebaseInAppMessagingTarget.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseInAppMessaging_iOS/FirebaseInAppMessaging_iOS.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseInstallations/FirebaseInstallations.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseMessaging/FirebaseMessaging.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseMessagingInterop/FirebaseMessagingInterop.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebasePerformance/FirebasePerformance.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebasePerformanceTarget/FirebasePerformanceTarget.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseRemoteConfigInternal/FirebaseRemoteConfigInternal.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseSessionsObjC/FirebaseSessionsObjC.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GTMSessionFetcherCore/GTMSessionFetcherCore.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleAdsOnDeviceConversionTarget/GoogleAdsOnDeviceConversionTarget.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleAppMeasurementTarget/GoogleAppMeasurementTarget.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleDataTransport/GoogleDataTransport.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleUtilities_AppDelegateSwizzler/GoogleUtilities_AppDelegateSwizzler.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleUtilities_Environment/GoogleUtilities_Environment.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleUtilities_Logger/GoogleUtilities_Logger.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleUtilities_MethodSwizzler/GoogleUtilities_MethodSwizzler.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleUtilities_NSData/GoogleUtilities_NSData.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleUtilities_Network/GoogleUtilities_Network.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleUtilities_Reachability/GoogleUtilities_Reachability.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleUtilities_UserDefaults/GoogleUtilities_UserDefaults.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/RecaptchaInterop/RecaptchaInterop.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/RxCocoaRuntime/RxCocoaRuntime.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/abslWrapper/abslWrapper.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/grpcWrapper/grpcWrapper.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/grpcppWrapper/grpcppWrapper.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/leveldb/leveldb.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/nanopb/nanopb.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/opensslWrapper/opensslWrapper.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/third_party_IsAppEncrypted/third_party_IsAppEncrypted.modulemap",
-				);
+				OTHER_SWIFT_FLAGS = "$(inherited) -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/firebase-ios-sdk/CoreOnly/Sources/module.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/promises/Sources/FBLPromises/include/module.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/AppCheckCore/AppCheckCore.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseABTesting/FirebaseABTesting.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseAnalyticsTarget/FirebaseAnalyticsTarget.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseAnalyticsWrapper/FirebaseAnalyticsWrapper.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseAppCheck/FirebaseAppCheck.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseAppCheckInterop/FirebaseAppCheckInterop.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseAppDistribution/FirebaseAppDistribution.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseAppDistributionTarget/FirebaseAppDistributionTarget.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseAuthInternal/FirebaseAuthInternal.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseAuthInterop/FirebaseAuthInterop.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseCore/FirebaseCore.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseCoreExtension/FirebaseCoreExtension.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseCrashlytics/FirebaseCrashlytics.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseDatabaseInternal/FirebaseDatabaseInternal.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseFirestoreInternalWrapper/FirebaseFirestoreInternalWrapper.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseFirestoreTarget/FirebaseFirestoreTarget.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseInAppMessagingInternal/FirebaseInAppMessagingInternal.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseInAppMessagingTarget/FirebaseInAppMessagingTarget.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseInAppMessaging_iOS/FirebaseInAppMessaging_iOS.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseInstallations/FirebaseInstallations.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseMessaging/FirebaseMessaging.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseMessagingInterop/FirebaseMessagingInterop.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebasePerformance/FirebasePerformance.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebasePerformanceTarget/FirebasePerformanceTarget.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseRemoteConfigInternal/FirebaseRemoteConfigInternal.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseSessionsObjC/FirebaseSessionsObjC.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GTMSessionFetcherCore/GTMSessionFetcherCore.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleAdsOnDeviceConversionTarget/GoogleAdsOnDeviceConversionTarget.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleAppMeasurementTarget/GoogleAppMeasurementTarget.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleDataTransport/GoogleDataTransport.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleUtilities_AppDelegateSwizzler/GoogleUtilities_AppDelegateSwizzler.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleUtilities_Environment/GoogleUtilities_Environment.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleUtilities_Logger/GoogleUtilities_Logger.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleUtilities_MethodSwizzler/GoogleUtilities_MethodSwizzler.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleUtilities_NSData/GoogleUtilities_NSData.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleUtilities_Network/GoogleUtilities_Network.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleUtilities_Reachability/GoogleUtilities_Reachability.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleUtilities_UserDefaults/GoogleUtilities_UserDefaults.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/RecaptchaInterop/RecaptchaInterop.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/RxCocoaRuntime/RxCocoaRuntime.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/abslWrapper/abslWrapper.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/grpcWrapper/grpcWrapper.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/grpcppWrapper/grpcppWrapper.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/leveldb/leveldb.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/nanopb/nanopb.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/opensslWrapper/opensslWrapper.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/third_party_IsAppEncrypted/third_party_IsAppEncrypted.modulemap";
 				PRODUCT_BUNDLE_IDENTIFIER = "$(APP_BUNDLE_ID)";
 				PRODUCT_NAME = Airlyhub;
 				SDKROOT = iphoneos;
@@ -4726,107 +4229,7 @@
 					"$(inherited)",
 					"-L$(DT_TOOLCHAIN_DIR)/usr/lib/swift/$(PLATFORM_NAME)",
 				);
-				OTHER_SWIFT_FLAGS = (
-					"$(inherited)",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/firebase-ios-sdk/CoreOnly/Sources/module.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/promises/Sources/FBLPromises/include/module.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/AppCheckCore/AppCheckCore.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseABTesting/FirebaseABTesting.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseAnalyticsTarget/FirebaseAnalyticsTarget.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseAnalyticsWrapper/FirebaseAnalyticsWrapper.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseAppCheck/FirebaseAppCheck.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseAppCheckInterop/FirebaseAppCheckInterop.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseAppDistribution/FirebaseAppDistribution.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseAppDistributionTarget/FirebaseAppDistributionTarget.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseAuthInternal/FirebaseAuthInternal.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseAuthInterop/FirebaseAuthInterop.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseCore/FirebaseCore.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseCoreExtension/FirebaseCoreExtension.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseCrashlytics/FirebaseCrashlytics.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseDatabaseInternal/FirebaseDatabaseInternal.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseFirestoreInternalWrapper/FirebaseFirestoreInternalWrapper.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseFirestoreTarget/FirebaseFirestoreTarget.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseInAppMessagingInternal/FirebaseInAppMessagingInternal.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseInAppMessagingTarget/FirebaseInAppMessagingTarget.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseInAppMessaging_iOS/FirebaseInAppMessaging_iOS.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseInstallations/FirebaseInstallations.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseMessaging/FirebaseMessaging.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseMessagingInterop/FirebaseMessagingInterop.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebasePerformance/FirebasePerformance.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebasePerformanceTarget/FirebasePerformanceTarget.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseRemoteConfigInternal/FirebaseRemoteConfigInternal.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseSessionsObjC/FirebaseSessionsObjC.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GTMSessionFetcherCore/GTMSessionFetcherCore.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleAdsOnDeviceConversionTarget/GoogleAdsOnDeviceConversionTarget.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleAppMeasurementTarget/GoogleAppMeasurementTarget.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleDataTransport/GoogleDataTransport.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleUtilities_AppDelegateSwizzler/GoogleUtilities_AppDelegateSwizzler.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleUtilities_Environment/GoogleUtilities_Environment.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleUtilities_Logger/GoogleUtilities_Logger.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleUtilities_MethodSwizzler/GoogleUtilities_MethodSwizzler.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleUtilities_NSData/GoogleUtilities_NSData.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleUtilities_Network/GoogleUtilities_Network.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleUtilities_Reachability/GoogleUtilities_Reachability.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleUtilities_UserDefaults/GoogleUtilities_UserDefaults.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/RecaptchaInterop/RecaptchaInterop.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/RxCocoaRuntime/RxCocoaRuntime.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/abslWrapper/abslWrapper.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/grpcWrapper/grpcWrapper.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/grpcppWrapper/grpcppWrapper.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/leveldb/leveldb.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/nanopb/nanopb.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/opensslWrapper/opensslWrapper.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/third_party_IsAppEncrypted/third_party_IsAppEncrypted.modulemap",
-				);
+				OTHER_SWIFT_FLAGS = "$(inherited) -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/firebase-ios-sdk/CoreOnly/Sources/module.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/promises/Sources/FBLPromises/include/module.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/AppCheckCore/AppCheckCore.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseABTesting/FirebaseABTesting.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseAnalyticsTarget/FirebaseAnalyticsTarget.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseAnalyticsWrapper/FirebaseAnalyticsWrapper.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseAppCheck/FirebaseAppCheck.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseAppCheckInterop/FirebaseAppCheckInterop.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseAppDistribution/FirebaseAppDistribution.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseAppDistributionTarget/FirebaseAppDistributionTarget.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseAuthInternal/FirebaseAuthInternal.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseAuthInterop/FirebaseAuthInterop.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseCore/FirebaseCore.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseCoreExtension/FirebaseCoreExtension.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseCrashlytics/FirebaseCrashlytics.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseDatabaseInternal/FirebaseDatabaseInternal.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseFirestoreInternalWrapper/FirebaseFirestoreInternalWrapper.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseFirestoreTarget/FirebaseFirestoreTarget.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseInAppMessagingInternal/FirebaseInAppMessagingInternal.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseInAppMessagingTarget/FirebaseInAppMessagingTarget.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseInAppMessaging_iOS/FirebaseInAppMessaging_iOS.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseInstallations/FirebaseInstallations.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseMessaging/FirebaseMessaging.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseMessagingInterop/FirebaseMessagingInterop.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebasePerformance/FirebasePerformance.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebasePerformanceTarget/FirebasePerformanceTarget.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseRemoteConfigInternal/FirebaseRemoteConfigInternal.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseSessionsObjC/FirebaseSessionsObjC.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GTMSessionFetcherCore/GTMSessionFetcherCore.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleAdsOnDeviceConversionTarget/GoogleAdsOnDeviceConversionTarget.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleAppMeasurementTarget/GoogleAppMeasurementTarget.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleDataTransport/GoogleDataTransport.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleUtilities_AppDelegateSwizzler/GoogleUtilities_AppDelegateSwizzler.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleUtilities_Environment/GoogleUtilities_Environment.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleUtilities_Logger/GoogleUtilities_Logger.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleUtilities_MethodSwizzler/GoogleUtilities_MethodSwizzler.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleUtilities_NSData/GoogleUtilities_NSData.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleUtilities_Network/GoogleUtilities_Network.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleUtilities_Reachability/GoogleUtilities_Reachability.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleUtilities_UserDefaults/GoogleUtilities_UserDefaults.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/RecaptchaInterop/RecaptchaInterop.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/RxCocoaRuntime/RxCocoaRuntime.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/abslWrapper/abslWrapper.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/grpcWrapper/grpcWrapper.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/grpcppWrapper/grpcppWrapper.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/leveldb/leveldb.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/nanopb/nanopb.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/opensslWrapper/opensslWrapper.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/third_party_IsAppEncrypted/third_party_IsAppEncrypted.modulemap";
 				PRODUCT_BUNDLE_IDENTIFIER = airly.AirlyhubUITests;
 				PRODUCT_NAME = AirlyhubUITests;
 				SDKROOT = iphoneos;
@@ -4986,117 +4389,14 @@
 					"-ObjC",
 					"-L$(DT_TOOLCHAIN_DIR)/usr/lib/swift/$(PLATFORM_NAME)",
 				);
-				OTHER_SWIFT_FLAGS = (
-					"$(inherited)",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/firebase-ios-sdk/CoreOnly/Sources/module.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/promises/Sources/FBLPromises/include/module.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/AppCheckCore/AppCheckCore.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseABTesting/FirebaseABTesting.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseAnalyticsTarget/FirebaseAnalyticsTarget.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseAnalyticsWrapper/FirebaseAnalyticsWrapper.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseAppCheck/FirebaseAppCheck.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseAppCheckInterop/FirebaseAppCheckInterop.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseAppDistribution/FirebaseAppDistribution.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseAppDistributionTarget/FirebaseAppDistributionTarget.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseAuthInternal/FirebaseAuthInternal.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseAuthInterop/FirebaseAuthInterop.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseCore/FirebaseCore.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseCoreExtension/FirebaseCoreExtension.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseCrashlytics/FirebaseCrashlytics.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseDatabaseInternal/FirebaseDatabaseInternal.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseFirestoreInternalWrapper/FirebaseFirestoreInternalWrapper.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseFirestoreTarget/FirebaseFirestoreTarget.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseInAppMessagingInternal/FirebaseInAppMessagingInternal.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseInAppMessagingTarget/FirebaseInAppMessagingTarget.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseInAppMessaging_iOS/FirebaseInAppMessaging_iOS.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseInstallations/FirebaseInstallations.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseMessaging/FirebaseMessaging.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseMessagingInterop/FirebaseMessagingInterop.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebasePerformance/FirebasePerformance.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebasePerformanceTarget/FirebasePerformanceTarget.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseRemoteConfigInternal/FirebaseRemoteConfigInternal.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseSessionsObjC/FirebaseSessionsObjC.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GTMSessionFetcherCore/GTMSessionFetcherCore.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleAdsOnDeviceConversionTarget/GoogleAdsOnDeviceConversionTarget.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleAppMeasurementTarget/GoogleAppMeasurementTarget.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleDataTransport/GoogleDataTransport.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleUtilities_AppDelegateSwizzler/GoogleUtilities_AppDelegateSwizzler.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleUtilities_Environment/GoogleUtilities_Environment.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleUtilities_Logger/GoogleUtilities_Logger.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleUtilities_MethodSwizzler/GoogleUtilities_MethodSwizzler.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleUtilities_NSData/GoogleUtilities_NSData.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleUtilities_Network/GoogleUtilities_Network.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleUtilities_Reachability/GoogleUtilities_Reachability.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleUtilities_UserDefaults/GoogleUtilities_UserDefaults.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/RecaptchaInterop/RecaptchaInterop.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/RxCocoaRuntime/RxCocoaRuntime.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/abslWrapper/abslWrapper.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/grpcWrapper/grpcWrapper.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/grpcppWrapper/grpcppWrapper.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/leveldb/leveldb.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/nanopb/nanopb.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/opensslWrapper/opensslWrapper.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/third_party_IsAppEncrypted/third_party_IsAppEncrypted.modulemap",
-				);
+				OTHER_SWIFT_FLAGS = "$(inherited) -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/firebase-ios-sdk/CoreOnly/Sources/module.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/promises/Sources/FBLPromises/include/module.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/AppCheckCore/AppCheckCore.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseABTesting/FirebaseABTesting.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseAnalyticsTarget/FirebaseAnalyticsTarget.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseAnalyticsWrapper/FirebaseAnalyticsWrapper.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseAppCheck/FirebaseAppCheck.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseAppCheckInterop/FirebaseAppCheckInterop.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseAppDistribution/FirebaseAppDistribution.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseAppDistributionTarget/FirebaseAppDistributionTarget.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseAuthInternal/FirebaseAuthInternal.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseAuthInterop/FirebaseAuthInterop.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseCore/FirebaseCore.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseCoreExtension/FirebaseCoreExtension.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseCrashlytics/FirebaseCrashlytics.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseDatabaseInternal/FirebaseDatabaseInternal.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseFirestoreInternalWrapper/FirebaseFirestoreInternalWrapper.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseFirestoreTarget/FirebaseFirestoreTarget.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseInAppMessagingInternal/FirebaseInAppMessagingInternal.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseInAppMessagingTarget/FirebaseInAppMessagingTarget.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseInAppMessaging_iOS/FirebaseInAppMessaging_iOS.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseInstallations/FirebaseInstallations.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseMessaging/FirebaseMessaging.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseMessagingInterop/FirebaseMessagingInterop.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebasePerformance/FirebasePerformance.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebasePerformanceTarget/FirebasePerformanceTarget.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseRemoteConfigInternal/FirebaseRemoteConfigInternal.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseSessionsObjC/FirebaseSessionsObjC.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GTMSessionFetcherCore/GTMSessionFetcherCore.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleAdsOnDeviceConversionTarget/GoogleAdsOnDeviceConversionTarget.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleAppMeasurementTarget/GoogleAppMeasurementTarget.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleDataTransport/GoogleDataTransport.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleUtilities_AppDelegateSwizzler/GoogleUtilities_AppDelegateSwizzler.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleUtilities_Environment/GoogleUtilities_Environment.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleUtilities_Logger/GoogleUtilities_Logger.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleUtilities_MethodSwizzler/GoogleUtilities_MethodSwizzler.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleUtilities_NSData/GoogleUtilities_NSData.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleUtilities_Network/GoogleUtilities_Network.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleUtilities_Reachability/GoogleUtilities_Reachability.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleUtilities_UserDefaults/GoogleUtilities_UserDefaults.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/RecaptchaInterop/RecaptchaInterop.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/RxCocoaRuntime/RxCocoaRuntime.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/abslWrapper/abslWrapper.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/grpcWrapper/grpcWrapper.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/grpcppWrapper/grpcppWrapper.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/leveldb/leveldb.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/nanopb/nanopb.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/opensslWrapper/opensslWrapper.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/third_party_IsAppEncrypted/third_party_IsAppEncrypted.modulemap";
 				PRODUCT_BUNDLE_IDENTIFIER = "$(APP_BUNDLE_ID)";
 				PRODUCT_NAME = Airlyhub;
 				SDKROOT = iphoneos;
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
-					"$(inherited)",
-					DEBUG,
-				);
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) DEBUG";
 				SWIFT_COMPILATION_MODE = singlefile;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -5229,117 +4529,14 @@
 					"$(inherited)",
 					"-L$(DT_TOOLCHAIN_DIR)/usr/lib/swift/$(PLATFORM_NAME)",
 				);
-				OTHER_SWIFT_FLAGS = (
-					"$(inherited)",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/firebase-ios-sdk/CoreOnly/Sources/module.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/promises/Sources/FBLPromises/include/module.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/AppCheckCore/AppCheckCore.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseABTesting/FirebaseABTesting.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseAnalyticsTarget/FirebaseAnalyticsTarget.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseAnalyticsWrapper/FirebaseAnalyticsWrapper.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseAppCheck/FirebaseAppCheck.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseAppCheckInterop/FirebaseAppCheckInterop.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseAppDistribution/FirebaseAppDistribution.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseAppDistributionTarget/FirebaseAppDistributionTarget.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseAuthInternal/FirebaseAuthInternal.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseAuthInterop/FirebaseAuthInterop.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseCore/FirebaseCore.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseCoreExtension/FirebaseCoreExtension.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseCrashlytics/FirebaseCrashlytics.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseDatabaseInternal/FirebaseDatabaseInternal.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseFirestoreInternalWrapper/FirebaseFirestoreInternalWrapper.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseFirestoreTarget/FirebaseFirestoreTarget.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseInAppMessagingInternal/FirebaseInAppMessagingInternal.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseInAppMessagingTarget/FirebaseInAppMessagingTarget.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseInAppMessaging_iOS/FirebaseInAppMessaging_iOS.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseInstallations/FirebaseInstallations.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseMessaging/FirebaseMessaging.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseMessagingInterop/FirebaseMessagingInterop.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebasePerformance/FirebasePerformance.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebasePerformanceTarget/FirebasePerformanceTarget.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseRemoteConfigInternal/FirebaseRemoteConfigInternal.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseSessionsObjC/FirebaseSessionsObjC.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GTMSessionFetcherCore/GTMSessionFetcherCore.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleAdsOnDeviceConversionTarget/GoogleAdsOnDeviceConversionTarget.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleAppMeasurementTarget/GoogleAppMeasurementTarget.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleDataTransport/GoogleDataTransport.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleUtilities_AppDelegateSwizzler/GoogleUtilities_AppDelegateSwizzler.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleUtilities_Environment/GoogleUtilities_Environment.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleUtilities_Logger/GoogleUtilities_Logger.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleUtilities_MethodSwizzler/GoogleUtilities_MethodSwizzler.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleUtilities_NSData/GoogleUtilities_NSData.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleUtilities_Network/GoogleUtilities_Network.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleUtilities_Reachability/GoogleUtilities_Reachability.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleUtilities_UserDefaults/GoogleUtilities_UserDefaults.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/RecaptchaInterop/RecaptchaInterop.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/RxCocoaRuntime/RxCocoaRuntime.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/abslWrapper/abslWrapper.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/grpcWrapper/grpcWrapper.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/grpcppWrapper/grpcppWrapper.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/leveldb/leveldb.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/nanopb/nanopb.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/opensslWrapper/opensslWrapper.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/third_party_IsAppEncrypted/third_party_IsAppEncrypted.modulemap",
-				);
+				OTHER_SWIFT_FLAGS = "$(inherited) -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/firebase-ios-sdk/CoreOnly/Sources/module.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/promises/Sources/FBLPromises/include/module.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/AppCheckCore/AppCheckCore.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseABTesting/FirebaseABTesting.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseAnalyticsTarget/FirebaseAnalyticsTarget.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseAnalyticsWrapper/FirebaseAnalyticsWrapper.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseAppCheck/FirebaseAppCheck.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseAppCheckInterop/FirebaseAppCheckInterop.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseAppDistribution/FirebaseAppDistribution.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseAppDistributionTarget/FirebaseAppDistributionTarget.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseAuthInternal/FirebaseAuthInternal.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseAuthInterop/FirebaseAuthInterop.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseCore/FirebaseCore.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseCoreExtension/FirebaseCoreExtension.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseCrashlytics/FirebaseCrashlytics.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseDatabaseInternal/FirebaseDatabaseInternal.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseFirestoreInternalWrapper/FirebaseFirestoreInternalWrapper.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseFirestoreTarget/FirebaseFirestoreTarget.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseInAppMessagingInternal/FirebaseInAppMessagingInternal.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseInAppMessagingTarget/FirebaseInAppMessagingTarget.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseInAppMessaging_iOS/FirebaseInAppMessaging_iOS.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseInstallations/FirebaseInstallations.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseMessaging/FirebaseMessaging.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseMessagingInterop/FirebaseMessagingInterop.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebasePerformance/FirebasePerformance.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebasePerformanceTarget/FirebasePerformanceTarget.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseRemoteConfigInternal/FirebaseRemoteConfigInternal.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseSessionsObjC/FirebaseSessionsObjC.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GTMSessionFetcherCore/GTMSessionFetcherCore.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleAdsOnDeviceConversionTarget/GoogleAdsOnDeviceConversionTarget.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleAppMeasurementTarget/GoogleAppMeasurementTarget.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleDataTransport/GoogleDataTransport.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleUtilities_AppDelegateSwizzler/GoogleUtilities_AppDelegateSwizzler.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleUtilities_Environment/GoogleUtilities_Environment.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleUtilities_Logger/GoogleUtilities_Logger.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleUtilities_MethodSwizzler/GoogleUtilities_MethodSwizzler.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleUtilities_NSData/GoogleUtilities_NSData.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleUtilities_Network/GoogleUtilities_Network.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleUtilities_Reachability/GoogleUtilities_Reachability.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleUtilities_UserDefaults/GoogleUtilities_UserDefaults.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/RecaptchaInterop/RecaptchaInterop.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/RxCocoaRuntime/RxCocoaRuntime.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/abslWrapper/abslWrapper.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/grpcWrapper/grpcWrapper.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/grpcppWrapper/grpcppWrapper.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/leveldb/leveldb.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/nanopb/nanopb.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/opensslWrapper/opensslWrapper.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/third_party_IsAppEncrypted/third_party_IsAppEncrypted.modulemap";
 				PRODUCT_BUNDLE_IDENTIFIER = airly.AirlyhubUITests;
 				PRODUCT_NAME = AirlyhubUITests;
 				SDKROOT = iphoneos;
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
-					"$(inherited)",
-					DEBUG,
-				);
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) DEBUG";
 				SWIFT_COMPILATION_MODE = singlefile;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -5473,117 +4670,14 @@
 					"$(inherited)",
 					"-L$(DT_TOOLCHAIN_DIR)/usr/lib/swift/$(PLATFORM_NAME)",
 				);
-				OTHER_SWIFT_FLAGS = (
-					"$(inherited)",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/firebase-ios-sdk/CoreOnly/Sources/module.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/promises/Sources/FBLPromises/include/module.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/AppCheckCore/AppCheckCore.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseABTesting/FirebaseABTesting.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseAnalyticsTarget/FirebaseAnalyticsTarget.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseAnalyticsWrapper/FirebaseAnalyticsWrapper.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseAppCheck/FirebaseAppCheck.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseAppCheckInterop/FirebaseAppCheckInterop.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseAppDistribution/FirebaseAppDistribution.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseAppDistributionTarget/FirebaseAppDistributionTarget.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseAuthInternal/FirebaseAuthInternal.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseAuthInterop/FirebaseAuthInterop.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseCore/FirebaseCore.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseCoreExtension/FirebaseCoreExtension.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseCrashlytics/FirebaseCrashlytics.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseDatabaseInternal/FirebaseDatabaseInternal.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseFirestoreInternalWrapper/FirebaseFirestoreInternalWrapper.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseFirestoreTarget/FirebaseFirestoreTarget.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseInAppMessagingInternal/FirebaseInAppMessagingInternal.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseInAppMessagingTarget/FirebaseInAppMessagingTarget.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseInAppMessaging_iOS/FirebaseInAppMessaging_iOS.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseInstallations/FirebaseInstallations.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseMessaging/FirebaseMessaging.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseMessagingInterop/FirebaseMessagingInterop.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebasePerformance/FirebasePerformance.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebasePerformanceTarget/FirebasePerformanceTarget.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseRemoteConfigInternal/FirebaseRemoteConfigInternal.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseSessionsObjC/FirebaseSessionsObjC.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GTMSessionFetcherCore/GTMSessionFetcherCore.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleAdsOnDeviceConversionTarget/GoogleAdsOnDeviceConversionTarget.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleAppMeasurementTarget/GoogleAppMeasurementTarget.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleDataTransport/GoogleDataTransport.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleUtilities_AppDelegateSwizzler/GoogleUtilities_AppDelegateSwizzler.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleUtilities_Environment/GoogleUtilities_Environment.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleUtilities_Logger/GoogleUtilities_Logger.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleUtilities_MethodSwizzler/GoogleUtilities_MethodSwizzler.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleUtilities_NSData/GoogleUtilities_NSData.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleUtilities_Network/GoogleUtilities_Network.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleUtilities_Reachability/GoogleUtilities_Reachability.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleUtilities_UserDefaults/GoogleUtilities_UserDefaults.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/RecaptchaInterop/RecaptchaInterop.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/RxCocoaRuntime/RxCocoaRuntime.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/abslWrapper/abslWrapper.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/grpcWrapper/grpcWrapper.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/grpcppWrapper/grpcppWrapper.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/leveldb/leveldb.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/nanopb/nanopb.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/opensslWrapper/opensslWrapper.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/third_party_IsAppEncrypted/third_party_IsAppEncrypted.modulemap",
-				);
+				OTHER_SWIFT_FLAGS = "$(inherited) -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/firebase-ios-sdk/CoreOnly/Sources/module.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/promises/Sources/FBLPromises/include/module.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/AppCheckCore/AppCheckCore.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseABTesting/FirebaseABTesting.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseAnalyticsTarget/FirebaseAnalyticsTarget.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseAnalyticsWrapper/FirebaseAnalyticsWrapper.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseAppCheck/FirebaseAppCheck.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseAppCheckInterop/FirebaseAppCheckInterop.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseAppDistribution/FirebaseAppDistribution.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseAppDistributionTarget/FirebaseAppDistributionTarget.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseAuthInternal/FirebaseAuthInternal.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseAuthInterop/FirebaseAuthInterop.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseCore/FirebaseCore.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseCoreExtension/FirebaseCoreExtension.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseCrashlytics/FirebaseCrashlytics.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseDatabaseInternal/FirebaseDatabaseInternal.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseFirestoreInternalWrapper/FirebaseFirestoreInternalWrapper.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseFirestoreTarget/FirebaseFirestoreTarget.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseInAppMessagingInternal/FirebaseInAppMessagingInternal.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseInAppMessagingTarget/FirebaseInAppMessagingTarget.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseInAppMessaging_iOS/FirebaseInAppMessaging_iOS.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseInstallations/FirebaseInstallations.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseMessaging/FirebaseMessaging.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseMessagingInterop/FirebaseMessagingInterop.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebasePerformance/FirebasePerformance.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebasePerformanceTarget/FirebasePerformanceTarget.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseRemoteConfigInternal/FirebaseRemoteConfigInternal.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/FirebaseSessionsObjC/FirebaseSessionsObjC.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GTMSessionFetcherCore/GTMSessionFetcherCore.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleAdsOnDeviceConversionTarget/GoogleAdsOnDeviceConversionTarget.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleAppMeasurementTarget/GoogleAppMeasurementTarget.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleDataTransport/GoogleDataTransport.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleUtilities_AppDelegateSwizzler/GoogleUtilities_AppDelegateSwizzler.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleUtilities_Environment/GoogleUtilities_Environment.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleUtilities_Logger/GoogleUtilities_Logger.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleUtilities_MethodSwizzler/GoogleUtilities_MethodSwizzler.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleUtilities_NSData/GoogleUtilities_NSData.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleUtilities_Network/GoogleUtilities_Network.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleUtilities_Reachability/GoogleUtilities_Reachability.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/GoogleUtilities_UserDefaults/GoogleUtilities_UserDefaults.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/RecaptchaInterop/RecaptchaInterop.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/RxCocoaRuntime/RxCocoaRuntime.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/abslWrapper/abslWrapper.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/grpcWrapper/grpcWrapper.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/grpcppWrapper/grpcppWrapper.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/leveldb/leveldb.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/nanopb/nanopb.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/opensslWrapper/opensslWrapper.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/ModuleMaps/third_party_IsAppEncrypted/third_party_IsAppEncrypted.modulemap";
 				PRODUCT_BUNDLE_IDENTIFIER = airly.AirlyhubTests;
 				PRODUCT_NAME = AirlyhubTests;
 				SDKROOT = iphoneos;
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
-					"$(inherited)",
-					DEBUG,
-				);
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) DEBUG";
 				SWIFT_COMPILATION_MODE = singlefile;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";

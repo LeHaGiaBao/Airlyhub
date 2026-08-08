@@ -441,7 +441,7 @@ private extension EditProfileView {
     }
 
     func handlePickedAvatar(_ image: UIImage) {
-        guard let imageData = image.jpegData(compressionQuality: 0.8) else { return }
+        guard let imageData = image.avatarJPEGData() else { return }
         avatarImageView.image = image
         hasAvatarChanged = true
         updateSaveButtonState()
