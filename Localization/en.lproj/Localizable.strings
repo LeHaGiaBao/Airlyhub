@@ -138,3 +138,6 @@
 "validation_required_card_cvv" = "Please enter the security code";
 "validation_invalid_card_cvv" = "Security code is invalid";
 "validation_invalid_card_cvv_length" = "Security code must be %d digits";
+"set_default_card_success" = "Default payment card updated";
+"set_default_card_failed" = "Could not update your default card. Please try again.";
+"delete_card_default_warning" = "This is your default card. Set another card as default before deleting it.";

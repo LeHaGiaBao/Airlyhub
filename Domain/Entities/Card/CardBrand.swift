@@ -50,12 +50,25 @@ enum CardBrand: String, Codable, CaseIterable {
         }
     }
 
-    /// Brand logo. Assets are looked up by `rawValue` so dropping in
-    /// `card_visa`, `card_mastercard`, … is all that's needed to light them up.
+    /// Brand badge from `Assets.xcassets/PaymentMethods` (36×24, artwork carries its
+    /// own background). Mapped explicitly because several asset names don't match the
+    /// case names — e.g. `amex` ships as `ameriaexpress`.
     var logo: UIImage? {
-        guard self != .unknown else { return nil }
-        return UIImage(named: "card_\(rawValue)")
+        switch self {
+        case .visa: return AssetsIcon.visa
+        case .mastercard: return AssetsIcon.mastercard
+        case .amex: return AssetsIcon.americanExpress
+        case .jcb: return AssetsIcon.jcb
+        case .discover: return AssetsIcon.discover
+        case .dinersClub: return AssetsIcon.dinersClub
+        case .unionPay: return AssetsIcon.unionPay
+        case .mir: return AssetsIcon.mir
+        case .unknown: return nil
+        }
     }
+
+    /// Native size of the badge artwork; keeps the 3:2 aspect ratio wherever it's shown.
+    static let logoSize = CGSize(width: 36, height: 24)
 
     /// Valid digit counts for the card number (spaces excluded).
     var validLengths: [Int] {

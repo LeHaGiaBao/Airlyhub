@@ -28,12 +28,16 @@ final class AddCardBottomSheetViewController: BaseBottomSheetViewController {
         return button
     }()
 
-    /// Brand indicator hosted in the number field's `rightView`, so UIKit reserves the
-    /// space for it and long numbers never run underneath the logo.
+    /// Gap between the typed number and the brand badge that follows it.
+    private static let brandBadgeInset: CGFloat = 8
+
     private let brandLogoView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
-        imageView.frame = CGRect(x: 0, y: 0, width: 40, height: 24)
+        imageView.frame = CGRect(
+            origin: CGPoint(x: AddCardBottomSheetViewController.brandBadgeInset, y: 0),
+            size: CardBrand.logoSize
+        )
         imageView.isHidden = true
         return imageView
     }()
@@ -43,13 +47,23 @@ final class AddCardBottomSheetViewController: BaseBottomSheetViewController {
         label.font = .systemFont(ofSize: 11, weight: .bold)
         label.textColor = AppColor.PrimaryColors.Gray.color500
         label.textAlignment = .right
-        label.frame = CGRect(x: 0, y: 0, width: 40, height: 24)
+        label.frame = CGRect(
+            origin: CGPoint(x: AddCardBottomSheetViewController.brandBadgeInset, y: 0),
+            size: CardBrand.logoSize
+        )
         label.isHidden = true
         return label
     }()
 
+    /// Hosted as the number field's `rightView` so UIKit reserves the space and long
+    /// numbers never run underneath the badge.
     private lazy var brandAccessoryView: UIView = {
-        let container = UIView(frame: CGRect(x: 0, y: 0, width: 48, height: 24))
+        let container = UIView(frame: CGRect(
+            x: 0,
+            y: 0,
+            width: CardBrand.logoSize.width + Self.brandBadgeInset,
+            height: CardBrand.logoSize.height
+        ))
         container.addSubview(brandLogoView)
         container.addSubview(brandFallbackLabel)
         return container

@@ -39,16 +39,21 @@ final class CardCell: UITableViewCell {
             subtitleLabel.textColor = AppColor.PrimaryColors.Gray.color500
         }
 
-        // Assets land as `card_visa`, `card_mastercard`, … Until then the short brand
-        // name stands in, so the row is readable with no artwork present.
+        // The badge artwork carries its own background, so the placeholder chrome is
+        // dropped whenever a real logo is available and only drawn for `.unknown`.
         if let logo = item.brand.logo {
             logoImageView.image = logo
             logoImageView.isHidden = false
             logoFallbackLabel.isHidden = true
+            logoContainer.backgroundColor = .clear
+            logoContainer.layer.borderWidth = 0
         } else {
+            logoImageView.image = nil
             logoImageView.isHidden = true
             logoFallbackLabel.isHidden = false
             logoFallbackLabel.text = item.brand.shortName
+            logoContainer.backgroundColor = AppColor.PrimaryColors.Gray.color50
+            logoContainer.layer.borderWidth = 1
         }
 
         checkImageView.isHidden = !item.isDefault
@@ -72,9 +77,9 @@ private extension CardCell {
             make.height.greaterThanOrEqualTo(64)
         }
 
-        logoContainer.backgroundColor = AppColor.PrimaryColors.Gray.color50
-        logoContainer.layer.cornerRadius = 6
-        logoContainer.layer.borderWidth = 1
+        // Chrome below is only visible in the `.unknown` fallback — `configure(_:)`
+        // clears it whenever real artwork is set.
+        logoContainer.layer.cornerRadius = 4
         logoContainer.layer.borderColor = (AppColor.PrimaryColors.Gray.color200 ?? .separator).cgColor
         logoContainer.clipsToBounds = true
 
@@ -104,15 +109,16 @@ private extension CardCell {
         contentView.addSubview(subtitleLabel)
         contentView.addSubview(checkImageView)
 
+        // Matches the artwork's native 36×24 so the badges render pixel-crisp.
         logoContainer.snp.makeConstraints { make in
             make.leading.equalToSuperview().offset(16)
             make.centerY.equalToSuperview()
-            make.width.equalTo(44)
-            make.height.equalTo(30)
+            make.width.equalTo(CardBrand.logoSize.width)
+            make.height.equalTo(CardBrand.logoSize.height)
         }
 
         logoImageView.snp.makeConstraints { make in
-            make.edges.equalToSuperview().inset(4)
+            make.edges.equalToSuperview()
         }
 
         logoFallbackLabel.snp.makeConstraints { make in

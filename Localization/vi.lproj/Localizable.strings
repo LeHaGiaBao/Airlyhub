@@ -138,3 +138,6 @@
 "validation_required_card_cvv" = "Vui lòng nhập mã bảo mật";
 "validation_invalid_card_cvv" = "Mã bảo mật không hợp lệ";
 "validation_invalid_card_cvv_length" = "Mã bảo mật phải có %d chữ số";
+"set_default_card_success" = "Đã cập nhật thẻ thanh toán mặc định";
+"set_default_card_failed" = "Không thể cập nhật thẻ mặc định. Vui lòng thử lại.";
+"delete_card_default_warning" = "Đây là thẻ mặc định. Hãy chọn thẻ khác làm mặc định trước khi xoá thẻ này.";

@@ -239,7 +239,7 @@ extension MyCardsView: MyCardsViewProtocol {
         case .loading:
             activityIndicator.startAnimating()
             errorLabel.isHidden = true
-            tableView.isHidden = true
+            tableView.isHidden = items.isEmpty
 
         case .loaded(let items):
             activityIndicator.stopAnimating()
