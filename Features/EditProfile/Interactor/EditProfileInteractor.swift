@@ -100,14 +100,14 @@ final class EditProfileInteractor: EditProfileInteractorProtocol {
                 return Disposables.create()
             }
 
-            StorageService.shared.uploadAvatar(uid: uid, imageData: imageData) { uploadResult in
+            AvatarService.shared.uploadAvatar(uid: uid, imageData: imageData) { uploadResult in
                 switch uploadResult {
-                case .success(let url):
-                    UserService.shared.updateAvatar(uid: uid, avatarUrl: url.absoluteString) { updateResult in
+                case .success(let reference):
+                    UserService.shared.updateAvatar(uid: uid, avatarUrl: reference) { updateResult in
                         DispatchQueue.main.async {
                             switch updateResult {
                             case .success:
-                                observer.onNext(url.absoluteString)
+                                observer.onNext(reference)
                                 observer.onCompleted()
                             case .failure(let error):
                                 observer.onError(error)
