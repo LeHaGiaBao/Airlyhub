@@ -8,4 +8,9 @@
 
 import Foundation
 
-protocol MyCardsViewProtocol: AnyObject {}
+protocol MyCardsViewProtocol: AnyObject {
+    func render(_ state: MyCardsViewState)
+    func showLoading()
+    func hideLoading()
+    func showToast(_ message: String, style: ToastStyle)
+}

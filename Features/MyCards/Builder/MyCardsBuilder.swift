@@ -19,6 +19,7 @@ final class MyCardsBuilder {
         let presenter = MyCardsPresenter(interactor: interactor,
                                          router: router)
         let view = MyCardsView(presenter: presenter)
+        presenter.view = view
         router.viewController = view
         return (view, presenter.myCardsBuilderAction)
     }

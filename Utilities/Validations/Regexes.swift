@@ -23,6 +23,8 @@ enum Regexes {
     static let vietnameseCharacters       = #"^[a-zA-ZÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀẾỂưăạảấầẩẫậắằẳẵặẹẻẽềếểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹý\s]*$"#
     static let phoneWithElevenNumberAnd84 = #"^(?:^[1-9]\d{8}|0\d{9}|84[1-9]\d{8})$"#
     static let dateOfBirth                = #"^[0-9]{2}\/[0-9]{2}\/[1-2]{1}[0-9]{3}$"#
+    // Embossed cardholder names are Latin-only: letters, spaces, hyphens, apostrophes, periods.
+    static let cardHolderName             = #"^[A-Za-z][A-Za-z\-\.\' ]{1,25}$"#
     // swiftlint:enable line_length
 
     static func matches(_ pattern: String, input: String) -> Bool {

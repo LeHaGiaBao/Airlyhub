@@ -10,4 +10,18 @@ import UIKit
 
 final class MyCardsRouter: MyCardsRouterProtocol {
     weak var viewController: UIViewController?
+
+    // `BaseBottomSheetViewController` presents itself over full screen and runs its own
+    // slide-in, so `animated` stays false here — UIKit's transition would double it up.
+    func presentAddCardSheet(onSubmit: @escaping (NewCardInput) -> Void) {
+        let sheet = AddCardBottomSheetViewController()
+        sheet.onSubmit = onSubmit
+        viewController?.present(sheet, animated: false)
+    }
+
+    func presentDeleteConfirmation(cardTitle: String, onConfirm: @escaping () -> Void) {
+        let sheet = DeleteCardConfirmSheetViewController(cardTitle: cardTitle)
+        sheet.onDelete = onConfirm
+        viewController?.present(sheet, animated: false)
+    }
 }
