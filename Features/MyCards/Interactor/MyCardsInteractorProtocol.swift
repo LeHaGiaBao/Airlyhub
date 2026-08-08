@@ -7,5 +7,11 @@
 //
 
 import Foundation
+import RxSwift
 
-protocol MyCardsInteractorProtocol: AnyObject {}
+protocol MyCardsInteractorProtocol: AnyObject {
+    func fetchCards() -> Observable<[CardModel]>
+    func addCard(_ input: NewCardInput) -> Observable<Void>
+    func deleteCard(id: String) -> Observable<Void>
+    func setDefaultCard(id: String) -> Observable<Void>
+}

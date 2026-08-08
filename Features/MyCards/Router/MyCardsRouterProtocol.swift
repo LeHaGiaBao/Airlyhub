@@ -8,4 +8,7 @@
 
 import Foundation
 
-protocol MyCardsRouterProtocol: AnyObject {}
+protocol MyCardsRouterProtocol: AnyObject {
+    func presentAddCardSheet(onSubmit: @escaping (NewCardInput) -> Void)
+    func presentDeleteConfirmation(cardTitle: String, onConfirm: @escaping () -> Void)
+}

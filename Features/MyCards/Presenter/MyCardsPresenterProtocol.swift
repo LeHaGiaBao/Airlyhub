@@ -9,5 +9,9 @@
 import Foundation
 
 protocol MyCardsPresenterProtocol: AnyObject {
+    func viewDidLoad()
+    func addCardTapped()
+    func cardSelected(id: String)
+    func deleteRequested(id: String)
     func dismiss()
 }
