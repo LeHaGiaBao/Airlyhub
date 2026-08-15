@@ -47,8 +47,15 @@ final class PriceBadgeView: UIView {
     private func setupUI() {
         backgroundColor = AppColor.PrimaryColors.Primary.color500
         clipsToBounds = true
-        setContentHuggingPriority(.required, for: .horizontal)
-        setContentCompressionResistancePriority(.required, for: .horizontal)
+
+        // The priorities that matter are the label's, not this view's: a plain
+        // `UIView` has no intrinsic content size, so hugging set on `self` is a
+        // no-op and a stack view with `.fill` finds nothing here to resist it —
+        // the pill then swallows all the slack in the row and stretches to the
+        // card's width. Pinned to the label at required priority, the pill is as
+        // wide as its price and whatever sits beside it absorbs the space instead.
+        titleLabel.setContentHuggingPriority(.required, for: .horizontal)
+        titleLabel.setContentCompressionResistancePriority(.required, for: .horizontal)
 
         addSubview(titleLabel)
         titleLabel.snp.makeConstraints { make in

@@ -199,3 +199,16 @@
 "search_incomplete" = "Vui lòng nhập đầy đủ thông tin trước khi tìm kiếm.";
 "tour_search_empty" = "Không có chuyến nào phù hợp. Hãy thử ngày hoặc sân bay khác.";
 "tour_search_failed" = "Không thể tải kết quả. Vui lòng thử lại.";
+
+// MARK: - Favorites
+"favorites_tab_tours" = "Chuyến ngắm cảnh";
+"favorites_tab_flights" = "Chuyến bay";
+"favorites_empty_tours" = "Bạn chưa lưu chuyến ngắm cảnh nào. Chạm vào biểu tượng trái tim để lưu.";
+"favorites_empty_flights" = "Bạn chưa lưu chuyến bay nào. Chạm vào biểu tượng trái tim để lưu.";
+"favorites_load_failed" = "Không thể tải danh sách yêu thích. Vui lòng thử lại.";
+
+// MARK: - Ticket detail
+"ticket_date_of_flight" = "Ngày bay";
+"ticket_airfield" = "Sân bay";
+"ticket_departure_time" = "Giờ khởi hành";
+"ticket_flight_duration" = "Thời gian bay";

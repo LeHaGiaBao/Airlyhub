@@ -13,7 +13,9 @@ import RxCocoa
 final class TopNavigatorView: UIViewController {
     private let bag = DisposeBag()
     
-    private var topNavigatorTile: String {
+    /// Settable after init: a screen whose title comes from its data — a ticket's
+    /// booking reference, say — has nothing to pass at construction time.
+    var topNavigatorTile: String {
         didSet {
             titleLabel.text = topNavigatorTile
         }

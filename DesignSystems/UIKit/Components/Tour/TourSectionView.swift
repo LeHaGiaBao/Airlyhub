@@ -8,8 +8,9 @@
 
 import UIKit
 
-/// A titled list of tour cards with a "Show more" button underneath — the
-/// "Air tours" block on Explore and the "Search results" block on Flights.
+/// A list of tour cards with a "Show more" button underneath — the "Air tours"
+/// block on Explore, the "Search results" block on Flights, and the saved list on
+/// Favorites, which uses it untitled and without paging.
 ///
 /// Cards go in a stack view rather than a table: the section is meant to sit inside
 /// the screen's own scroll view, and a nested scrolling table there would fight the
@@ -34,6 +35,9 @@ final class TourSectionView: UIView {
         let label = UILabel()
         label.textColor = AppColor.PrimaryColors.Gray.color800
         label.applyTypography(.textXl(weight: .bold))
+        // Stays hidden until a title is set, so an untitled section does not carry
+        // the heading's spacing above its first card.
+        label.isHidden = true
         return label
     }()
 
@@ -47,6 +51,9 @@ final class TourSectionView: UIView {
 
     private let emptyLabel: UILabel = {
         let label = UILabel()
+        // Defaults to the search wording; Favorites overrides it via `emptyMessage`,
+        // where "no matches" would be the wrong thing to tell someone who simply
+        // has not saved anything.
         label.text = NSLocalizedString("tour_search_empty", comment: "")
         label.textColor = AppColor.PrimaryColors.Gray.color500
         label.applyTypography(.textSm(weight: .regular))
@@ -77,8 +84,8 @@ final class TourSectionView: UIView {
 
     init(title: String) {
         super.init(frame: .zero)
-        titleLabel.text = title
         setupUI()
+        self.title = title
     }
 
     override init(frame: CGRect) {
@@ -90,9 +97,21 @@ final class TourSectionView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
 
+    /// Nil or empty removes the heading altogether — Favorites is titled by the
+    /// screen around it. Hiding the label rather than blanking it also drops the
+    /// stack's spacing below it, which an empty label would leave behind as a gap.
     var title: String? {
         get { titleLabel.text }
-        set { titleLabel.text = newValue }
+        set {
+            titleLabel.text = newValue
+            titleLabel.isHidden = newValue?.isEmpty ?? true
+        }
+    }
+
+    /// Replaces the "no matches" line shown when the list is empty.
+    var emptyMessage: String? {
+        get { emptyLabel.text }
+        set { emptyLabel.text = newValue }
     }
 
     // MARK: - Content

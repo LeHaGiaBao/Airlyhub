@@ -8,4 +8,6 @@
 
 import Foundation
 
-protocol FavoritesRouterProtocol: AnyObject {}
+protocol FavoritesRouterProtocol: AnyObject {
+    func showTourDetail(id: String)
+}
