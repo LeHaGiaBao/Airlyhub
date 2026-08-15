@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import RxSwift
 
 final class MyTicketsView: BaseViewController, MyTicketsViewProtocol {
     private let presenter: MyTicketsPresenter
@@ -99,13 +100,23 @@ extension MyTicketsView: UITableViewDataSource {
         ) as? MyTicketCell else {
             return UITableViewCell()
         }
-        cell.configure(with: presenter.getMyTickets()[indexPath.section].tickets[indexPath.row])
+        let ticket = presenter.getMyTickets()[indexPath.section].tickets[indexPath.row]
+        cell.configure(with: SmallTicketModel(ticket: ticket))
         return cell
     }
 }
 
 // MARK: - UITableViewDelegate
 extension MyTicketsView: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        FeedbackGenerator.onFeedbackGenerator(.soft)
+        // Subscribed rather than merely called: the signal is what pops the detail
+        // screen when it finishes, so dropping it would leave the user stuck there.
+        presenter.navigateToTicketDetail(at: indexPath)
+            .subscribe()
+            .disposed(by: disposeBag)
+    }
+
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let header = UIView()
         let label = UILabel()

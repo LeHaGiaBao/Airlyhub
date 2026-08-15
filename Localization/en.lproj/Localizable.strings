@@ -199,3 +199,16 @@
 "search_incomplete" = "Please fill in every field before searching.";
 "tour_search_empty" = "No flights match your search. Try another date or airfield.";
 "tour_search_failed" = "We couldn't load the results. Please try again.";
+
+// MARK: - Favorites
+"favorites_tab_tours" = "Air tours";
+"favorites_tab_flights" = "Flights";
+"favorites_empty_tours" = "No saved air tours yet. Tap the heart on a tour to keep it here.";
+"favorites_empty_flights" = "No saved flights yet. Tap the heart on a flight to keep it here.";
+"favorites_load_failed" = "We couldn't load your favorites. Please try again.";
+
+// MARK: - Ticket detail
+"ticket_date_of_flight" = "Date of flight";
+"ticket_airfield" = "Airfield";
+"ticket_departure_time" = "Departure time";
+"ticket_flight_duration" = "Flight duration";

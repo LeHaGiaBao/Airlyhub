@@ -8,38 +8,15 @@
 import Foundation
 
 final class MyTicketsInteractor: MyTicketsInteractorProtocol {
+    /// One section per record, matching the grouping the screen was built with.
+    /// The records themselves now come from `TicketMockData` instead of being
+    /// written out here, so a row and the ticket it opens cannot disagree.
     func fetchMyTickets() -> [MyTicketsSection] {
-        return [
+        TicketMockData.all.map { ticket in
             MyTicketsSection(
                 title: NSLocalizedString("today", comment: ""),
-                tickets: [
-                    SmallTicketModel(id: "673-843",
-                                     title: "Cessna 172 familiarization flight from Kronstadt",
-                                     subtitle: "Airfield: Bychye Polye, July 30th",
-                                     priceText: "10 000 ₽"
-                    )
-                ]
-            ),
-            MyTicketsSection(
-                title: NSLocalizedString("today", comment: ""),
-                tickets: [
-                    SmallTicketModel(id: "673-843",
-                                     title: "Cessna 172 familiarization flight from Kronstadt",
-                                     subtitle: "Airfield: Bychye Polye, July 30th",
-                                     priceText: "10 000 ₽"
-                    )
-                ]
-            ),
-            MyTicketsSection(
-                title: NSLocalizedString("today", comment: ""),
-                tickets: [
-                    SmallTicketModel(id: "673-843",
-                                     title: "Cessna 172 familiarization flight from Kronstadt",
-                                     subtitle: "Airfield: Bychye Polye, July 30th",
-                                     priceText: "10 000 ₽"
-                    )
-                ]
-            ),
-        ]
+                tickets: [ticket]
+            )
+        }
     }
 }
