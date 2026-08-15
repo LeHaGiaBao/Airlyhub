@@ -196,6 +196,7 @@ let project = Project(
         ".gitignore",
         ".mise.toml",
         ".swiftlint.yml",
+        .folderReference(path: "Rules"),
         .glob(pattern: "Tuist/**"),
     ]
 )

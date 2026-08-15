@@ -18,7 +18,8 @@ final class CustomerServiceBuilder {
         let router = CustomerServiceRouter()
         let presenter = CustomerServicePresenter(interactor: interactor,
                                                  router: router)
-        let view = CustomerServiceView(presenter: presenter)
+        let view = CustomerServiceView(presenter: presenter, router: router)
+        presenter.view = view
         router.viewController = view
         return (view, presenter.customerServiceBuilderAction)
     }

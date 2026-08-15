@@ -141,3 +141,19 @@
 "set_default_card_success" = "Đã cập nhật thẻ thanh toán mặc định";
 "set_default_card_failed" = "Không thể cập nhật thẻ mặc định. Vui lòng thử lại.";
 "delete_card_default_warning" = "Đây là thẻ mặc định. Hãy chọn thẻ khác làm mặc định trước khi xoá thẻ này.";
+
+// MARK: - Customer service chat
+"chat_input_placeholder" = "Tin nhắn";
+"chat_yesterday" = "Hôm qua";
+"chat_greeting_morning" = "Chào buổi sáng, chúng tôi có thể giúp gì cho bạn?";
+"chat_greeting_afternoon" = "Chào buổi chiều, chúng tôi có thể giúp gì cho bạn?";
+"chat_greeting_evening" = "Chào buổi tối, chúng tôi có thể giúp gì cho bạn?";
+"chat_attachment_photo_name" = "Ảnh";
+"chat_attachment_preview" = "Đã gửi một tệp đính kèm";
+"chat_load_failed" = "Không thể mở cuộc trò chuyện. Vui lòng thử lại.";
+"chat_send_failed" = "Tin nhắn chưa được gửi. Vui lòng thử lại.";
+"chat_error_empty_message" = "Hãy nhập nội dung trước khi gửi";
+"chat_error_message_too_long" = "Tin nhắn tối đa %d ký tự";
+"chat_error_attachment_too_large" = "Tệp đính kèm tối đa %d KB";
+"chat_error_attachment_unavailable" = "Hiện chưa gửi được tệp đính kèm. Bạn vẫn có thể nhắn tin.";
+"chat_error_attachment_failed" = "Không thể tải tệp lên. Vui lòng thử lại.";

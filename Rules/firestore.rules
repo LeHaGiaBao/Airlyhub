@@ -1,0 +1,254 @@
+rules_version = '2';
+
+// Airlyhub Firestore security rules.
+//
+// Deploy:  firebase deploy --only firestore:rules
+// Test:    firebase emulators:start --only firestore
+//          node scripts/firestore-rules.test.mjs
+//
+// Design notes:
+// - Everything is denied by default; access is opened one path at a time.
+// - Card fields are whitelisted with `hasOnly()`, so a document carrying `cvv`,
+//   `pan`, `cardNumber` or anything else off the list is rejected server-side even
+//   if the client has been tampered with. PCI-DSS forbids storing the security
+//   code at all, encrypted or not.
+// - `cards` is a top-level collection, so ownership lives in each document's
+//   `userId` field rather than in the path. Three things follow from that, and all
+//   three are enforced below:
+//     1. reads compare `resource.data.userId` to the Auth-signed `request.auth.uid`;
+//     2. creates must stamp `userId` as the caller — you cannot file a card under
+//        someone else's id;
+//     3. updates must leave `userId` untouched, so a card can never be reassigned.
+//   Because `list` is evaluated per returned document, a client query without
+//   `where('userId', '==', uid)` is rejected outright.
+// - `conversations` takes the opposite approach: the document id *is* the owner's
+//   uid, so ownership is the path and the rules never read a field to authorize.
+//   That also means the `messages` query needs no composite index.
+// - Optional Swift properties encode as *absent* fields, not nulls (verified by the
+//   SDK's own round-trip test). So `userName`, `userEmail` and `attachments` appear
+//   in the `hasOnly()` whitelist but must never appear in `hasAll()`.
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // ───────────────────────── Helpers ─────────────────────────
+
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function isOwner(userId) {
+      return isSignedIn() && request.auth.uid == userId;
+    }
+
+    // Anonymous sessions have no business touching payment data.
+    function isRealAccount() {
+      return isSignedIn()
+        && request.auth.token.firebase.sign_in_provider != 'anonymous';
+    }
+
+    // ───────────────────────── Users ─────────────────────────
+
+    match /users/{userId} {
+      allow read: if isOwner(userId);
+      allow create, update: if isOwner(userId);
+      // Account deletion has to clean up the user's cards too, which only a Cloud
+      // Function (Admin SDK) can do reliably.
+      allow delete: if false;
+    }
+
+    // ───────────────────────── Cards ─────────────────────────
+
+    match /cards/{cardId} {
+
+      function allowedKeys() {
+        return [
+          'userId', 'brand', 'last4', 'holderName', 'expMonth', 'expYear',
+          'isDefault', 'status', 'provider', 'token', 'encrypted',
+          'fingerprint', 'createdAt', 'updatedAt'
+        ];
+      }
+
+      function isValidShape(data) {
+        return data.keys().hasOnly(allowedKeys())
+          && data.keys().hasAll(['userId', 'brand', 'last4', 'expMonth', 'expYear', 'isDefault', 'status'])
+          && data.userId is string
+          && data.userId.size() > 0
+          && data.brand is string
+          && data.brand in ['visa', 'mastercard', 'amex', 'jcb', 'discover', 'dinersClub', 'unionPay', 'mir', 'unknown']
+          && data.last4 is string
+          && data.last4.size() == 4
+          && data.last4.matches('^[0-9]{4}$')
+          && data.holderName is string
+          && data.holderName.size() >= 2
+          && data.holderName.size() <= 26
+          && data.expMonth is int
+          && data.expMonth >= 1
+          && data.expMonth <= 12
+          && data.expYear is int
+          && data.expYear >= 2024
+          && data.expYear <= 2099
+          && data.isDefault is bool
+          && data.status in ['active', 'expired', 'revoked'];
+      }
+
+      // A card is identified either by a provider token or by an encrypted PAN,
+      // never both — two secrets on one document means one of them is unmanaged.
+      function hasExactlyOneSecret(data) {
+        return (data.keys().hasAny(['token']) && !data.keys().hasAny(['encrypted']))
+            || (data.keys().hasAny(['encrypted']) && !data.keys().hasAny(['token']));
+      }
+
+      // Bound the ciphertext so the field can't be repurposed as free storage.
+      function isValidSecret(data) {
+        return !data.keys().hasAny(['encrypted']) || (
+          data.encrypted.keys().hasOnly(['alg', 'keyId', 'ciphertext', 'wrappedKey'])
+          && data.encrypted.alg == 'AES-256-GCM'
+          && data.encrypted.keyId is string
+          && data.encrypted.ciphertext is string
+          && data.encrypted.ciphertext.size() > 0
+          && data.encrypted.ciphertext.size() < 2048
+        );
+      }
+
+      // Covers both `get` and `list`. For `list` this is evaluated against every
+      // document the query would return, so an unfiltered query fails rather than
+      // leaking anyone else's cards.
+      allow read: if isRealAccount()
+        && resource.data.userId == request.auth.uid;
+
+      allow create: if isRealAccount()
+        // You may only file a card under your own uid.
+        && request.resource.data.userId == request.auth.uid
+        && isValidShape(request.resource.data)
+        && hasExactlyOneSecret(request.resource.data)
+        && isValidSecret(request.resource.data)
+        // Timestamps must come from the server clock, not the client's.
+        && request.resource.data.createdAt == request.time
+        && request.resource.data.updatedAt == request.time;
+
+      allow update: if isRealAccount()
+        && resource.data.userId == request.auth.uid
+        // Ownership is immutable — a card can never be handed to another account.
+        && request.resource.data.userId == resource.data.userId
+        && isValidShape(request.resource.data)
+        && hasExactlyOneSecret(request.resource.data)
+        && isValidSecret(request.resource.data)
+        // Immutable identity: an update may flip `isDefault` or `status`, but it
+        // must not quietly turn this card into a different one.
+        && request.resource.data.last4 == resource.data.last4
+        && request.resource.data.brand == resource.data.brand
+        && request.resource.data.createdAt == resource.data.createdAt
+        && request.resource.data.updatedAt == request.time;
+
+      allow delete: if isRealAccount()
+        && resource.data.userId == request.auth.uid;
+    }
+
+    // ──────────────────── Customer service chat ────────────────────
+    //
+    // One thread per user at `conversations/{uid}`. Authorization is the path, so
+    // unlike `cards` there is no ownership field to compare and no way to phrase a
+    // query that would reach someone else's thread.
+    //
+    // `isOwner` rather than `isRealAccount`: a support thread carries no payment
+    // data, and locking anonymous sessions out of the help channel would leave
+    // exactly the users most likely to need it with no way to ask.
+    //
+    // Support operators are not represented here. Replies are written from the
+    // Firebase console, which uses admin credentials and bypasses rules entirely.
+    // When a real operator app exists, give it a custom claim and widen `read` plus
+    // the `senderRole == 'agent'` branch of `create` — until a claim is actually
+    // minted, a rule referencing one would be inert and misleading.
+
+    match /conversations/{uid} {
+
+      function isValidConversation(data) {
+        return data.keys().hasOnly([
+            'userId', 'userName', 'userEmail', 'status',
+            'lastMessage', 'lastSenderRole', 'createdAt', 'lastMessageAt'
+          ])
+          // `userName` and `userEmail` are absent when the account has none, so they
+          // are permitted above but not required here.
+          && data.keys().hasAll(['userId', 'status', 'lastMessage', 'lastSenderRole'])
+          && data.userId is string
+          && data.status in ['open', 'pending', 'closed']
+          && data.lastMessage is string
+          && data.lastMessage.size() <= 200;
+      }
+
+      allow read: if isOwner(uid);
+
+      allow create: if isOwner(uid)
+        && request.resource.data.userId == uid
+        && isValidConversation(request.resource.data)
+        // A thread always starts open and empty; a client cannot open one that
+        // claims to already be resolved or to carry history.
+        && request.resource.data.status == 'open'
+        && request.resource.data.lastMessage == ''
+        && request.resource.data.createdAt == request.time
+        && request.resource.data.lastMessageAt == request.time;
+
+      // The thread header duplicates the newest message so an operator's inbox can
+      // preview and sort threads by reading one document each. On the free plan
+      // there is no Cloud Function to maintain it, so the client does — and this
+      // rule is what keeps that concession narrow: exactly three fields, never
+      // `status`, never `createdAt`, never a role the caller doesn't hold.
+      allow update: if isOwner(uid)
+        && request.resource.data.diff(resource.data).affectedKeys()
+             .hasOnly(['lastMessage', 'lastSenderRole', 'lastMessageAt'])
+        && request.resource.data.lastMessage is string
+        && request.resource.data.lastMessage.size() <= 200
+        && request.resource.data.lastSenderRole == 'user'
+        && request.resource.data.lastMessageAt == request.time;
+
+      // Deleting the thread would destroy the operator's side of the record.
+      allow delete: if false;
+
+      match /messages/{messageId} {
+
+        function isValidMessage(data) {
+          return data.keys().hasOnly(['senderId', 'senderRole', 'text', 'attachments', 'createdAt'])
+            // `attachments` is absent on a text-only message.
+            && data.keys().hasAll(['senderId', 'senderRole', 'text', 'createdAt'])
+            && data.senderId == uid
+            // The client may only ever speak as itself. This is the single check
+            // that stops a user from forging a reply that looks like support.
+            && data.senderRole == 'user'
+            && data.text is string
+            // Empty is legal — a message can be a photo with no caption.
+            && data.text.size() <= 4000
+            && data.createdAt == request.time;
+        }
+
+        // Rules cannot walk a list, so element shape goes unchecked; capping the
+        // count is what bounds the damage. The bytes are not here anyway — a message
+        // carries only a path into Realtime Database, and database.rules.json scopes
+        // those writes to `chatAttachments/{uid}/` and caps their size.
+        function isValidAttachments(data) {
+          return !data.keys().hasAny(['attachments']) || (
+            data.attachments is list
+            && data.attachments.size() <= 1
+          );
+        }
+
+        // Authorization comes from the parent path, so an unfiltered list of the
+        // subcollection is safe — it can only ever return this user's own thread.
+        allow read: if isOwner(uid);
+
+        allow create: if isOwner(uid)
+          && isValidMessage(request.resource.data)
+          && isValidAttachments(request.resource.data);
+
+        // A sent message is a record. Neither side edits or retracts it, which is
+        // what makes the thread usable as evidence in a support dispute.
+        allow update, delete: if false;
+      }
+    }
+
+    // Anything not matched above stays closed.
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

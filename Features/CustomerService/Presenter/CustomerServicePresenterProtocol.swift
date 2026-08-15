@@ -9,5 +9,7 @@
 import Foundation
 
 protocol CustomerServicePresenterProtocol: AnyObject {
+    func viewDidLoad()
+    func sendTapped(text: String, attachment: ChatAttachmentDraft?)
     func dismiss()
 }
