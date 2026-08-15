@@ -141,3 +141,19 @@
 "set_default_card_success" = "Default payment card updated";
 "set_default_card_failed" = "Could not update your default card. Please try again.";
 "delete_card_default_warning" = "This is your default card. Set another card as default before deleting it.";
+
+// MARK: - Customer service chat
+"chat_input_placeholder" = "Message";
+"chat_yesterday" = "Yesterday";
+"chat_greeting_morning" = "Good morning, how can we help you?";
+"chat_greeting_afternoon" = "Good afternoon, how can we help you?";
+"chat_greeting_evening" = "Good evening, how can we help you?";
+"chat_attachment_photo_name" = "Photo";
+"chat_attachment_preview" = "Sent an attachment";
+"chat_load_failed" = "We couldn't open your conversation. Please try again.";
+"chat_send_failed" = "Your message wasn't sent. Please try again.";
+"chat_error_empty_message" = "Type a message before sending";
+"chat_error_message_too_long" = "Messages can be up to %d characters";
+"chat_error_attachment_too_large" = "Attachments can be up to %d KB";
+"chat_error_attachment_unavailable" = "Attachments aren't available right now. You can still send a message.";
+"chat_error_attachment_failed" = "We couldn't upload your file. Please try again.";

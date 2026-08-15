@@ -6,16 +6,21 @@
 //
 
 import Foundation
+import FirebaseCore
 import FirebaseDatabase
 
+/// Not `LocalizedError`: `EditProfilePresenter` shows its own toast for any avatar
+/// failure, so an `errorDescription` here would never reach the screen.
 enum AvatarServiceError: Error {
+    case databaseNotConfigured
     case imageTooLarge
     case notFound
     case invalidData
 }
 
-/// Stores avatars as base64 JPEG strings in Realtime Database instead of Storage,
-/// which is unavailable on the Spark (free) plan.
+/// Stores avatars as base64 JPEG strings in Realtime Database instead of Cloud Storage,
+/// which the free plan doesn't provision. Same shape as `ChatAttachmentService`, minus
+/// the cache — a profile photo is fetched once per screen, not once per scrolled row.
 final class AvatarService {
     static let shared = AvatarService()
 
@@ -24,9 +29,19 @@ final class AvatarService {
 
     private static let referencePrefix = "rtdb://\(DatabaseNode.avatars)/"
 
-    private let database = Database.database().reference()
-
     private init() {}
+
+    /// Whether Realtime Database is configured for this build.
+    ///
+    /// `Database.database()` raises an Objective-C `MissingDatabaseURL` exception when
+    /// `GoogleService-Info.plist` has no `DATABASE_URL` — uncatchable from Swift, so it
+    /// takes the whole app down. Reading the option first is the only way to ask the
+    /// question safely, and it is why the reference is resolved per call rather than
+    /// held as a stored property, which would fire at `shared` init.
+    var isAvailable: Bool {
+        guard let url = FirebaseApp.app()?.options.databaseURL else { return false }
+        return !url.isEmpty
+    }
 
     /// Value written to the user's Firestore `avatar` field. Not a real URL — the
     /// bytes live in Realtime Database and are resolved by
@@ -45,57 +60,75 @@ final class AvatarService {
 
     // MARK: UPLOAD User Avatar
     func uploadAvatar(uid: String, imageData: Data, completion: @escaping (Result<String, Error>) -> Void) {
+        guard let node = node(for: uid) else {
+            completion(.failure(AvatarServiceError.databaseNotConfigured))
+            return
+        }
+
         let encoded = imageData.base64EncodedString()
         guard encoded.count <= Self.maxEncodedLength else {
             completion(.failure(AvatarServiceError.imageTooLarge))
             return
         }
 
-        database.child(DatabaseNode.avatars)
-            .child(uid)
-            .setValue(encoded) { error, _ in
-                if let error {
-                    completion(.failure(error))
-                    return
-                }
-                completion(.success(Self.reference(uid: uid)))
+        node.setValue(encoded) { error, _ in
+            if let error {
+                completion(.failure(error))
+                return
             }
+            completion(.success(Self.reference(uid: uid)))
+        }
     }
 
     // MARK: GET User Avatar
     func fetchAvatar(uid: String, completion: @escaping (Result<Data, Error>) -> Void) {
-        database.child(DatabaseNode.avatars)
-            .child(uid)
-            .getData { error, snapshot in
-                if let error {
-                    completion(.failure(error))
-                    return
-                }
+        guard let node = node(for: uid) else {
+            completion(.failure(AvatarServiceError.databaseNotConfigured))
+            return
+        }
 
-                guard let encoded = snapshot?.value as? String else {
-                    completion(.failure(AvatarServiceError.notFound))
-                    return
-                }
-
-                guard let data = Data(base64Encoded: encoded) else {
-                    completion(.failure(AvatarServiceError.invalidData))
-                    return
-                }
-
-                completion(.success(data))
+        node.getData { error, snapshot in
+            if let error {
+                completion(.failure(error))
+                return
             }
+
+            guard let encoded = snapshot?.value as? String else {
+                completion(.failure(AvatarServiceError.notFound))
+                return
+            }
+
+            guard let data = Data(base64Encoded: encoded) else {
+                completion(.failure(AvatarServiceError.invalidData))
+                return
+            }
+
+            completion(.success(data))
+        }
     }
 
     // MARK: DELETE User Avatar
     func deleteAvatar(uid: String, completion: @escaping (Result<Bool, Error>) -> Void) {
-        database.child(DatabaseNode.avatars)
-            .child(uid)
-            .removeValue { error, _ in
-                if let error {
-                    completion(.failure(error))
-                    return
-                }
-                completion(.success(true))
+        guard let node = node(for: uid) else {
+            completion(.failure(AvatarServiceError.databaseNotConfigured))
+            return
+        }
+
+        node.removeValue { error, _ in
+            if let error {
+                completion(.failure(error))
+                return
             }
+            completion(.success(true))
+        }
+    }
+}
+
+// MARK: - Private
+private extension AvatarService {
+    /// Nil rather than a crash when RTDB isn't configured.
+    func node(for uid: String) -> DatabaseReference? {
+        guard isAvailable else { return nil }
+        return Database.database().reference(withPath: "\(DatabaseNode.avatars)/\(uid)")
     }
 }

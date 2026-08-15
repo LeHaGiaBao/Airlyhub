@@ -7,5 +7,8 @@
 //
 
 import Foundation
+import PhotosUI
 
-protocol CustomerServiceRouterProtocol: AnyObject {}
+protocol CustomerServiceRouterProtocol: AnyObject {
+    func presentPhotoPicker(delegate: PHPickerViewControllerDelegate)
+}

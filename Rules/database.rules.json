@@ -1,0 +1,51 @@
+{
+  "//": [
+    "Airlyhub Realtime Database security rules.",
+    "",
+    "Deploy:  firebase deploy --only database",
+    "",
+    "RTDB holds user avatars and support-chat attachments, because the free plan",
+    "provisions no Cloud Storage bucket. Each node is one base64 image; the owning",
+    "record lives in Firestore and carries just the path.",
+    "",
+    "Design notes:",
+    "- Denied at the root, granted one path at a time, mirroring firestore.rules.",
+    "- Grants sit on the leaf, never on `$uid`. RTDB rules cascade downward — a `.read`",
+    "  one level up would let a client pull every attachment the user ever sent in a",
+    "  single request, which on a metered free plan is the whole egress budget.",
+    "- `!data.exists()` makes a node write-once: no overwrite, and no delete either,",
+    "  since a delete is a write of null over existing data. That matches the messages",
+    "  rule in Firestore, where a sent message is a record neither side can revise.",
+    "  Avatars are the deliberate exception — see below.",
+    "- The length cap is base64 of the client's 512 KB limit (512 * 1024 * 4/3, rounded",
+    "  up for padding). Enforced here too, because a client-side cap protects nobody."
+  ],
+  "rules": {
+    ".read": false,
+    ".write": false,
+
+    "avatars": {
+      "$uid": {
+        "//": [
+          "Readable by any signed-in user: an avatar is shown next to its owner, so",
+          "restricting it to the owner would leave every other view with a placeholder.",
+          "",
+          "Unlike chatAttachments this is neither write-once nor append-only. A profile",
+          "photo is current state rather than a record, so the owner may overwrite it,",
+          "and `!newData.exists()` admits the delete that removing an avatar performs."
+        ],
+        ".read": "auth != null",
+        ".write": "auth != null && auth.uid === $uid && (!newData.exists() || (newData.isString() && newData.val().length <= 700000))"
+      }
+    },
+
+    "chatAttachments": {
+      "$uid": {
+        "$attachmentId": {
+          ".read": "auth != null && auth.uid === $uid",
+          ".write": "auth != null && auth.uid === $uid && !data.exists() && newData.isString() && newData.val().length <= 700000"
+        }
+      }
+    }
+  }
+}
