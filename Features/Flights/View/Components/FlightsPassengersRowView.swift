@@ -90,6 +90,13 @@ final class FlightsPassengersRowView: UIView {
             countLabel.text = "\(count)"
         }
     }
+
+    /// Prefills the stepper when a form is reopened. Clamped to the same floor the
+    /// decrement button enforces, and silent for the same reason as
+    /// `FlightsDateRowView.setDate` — the delegate reports user edits, not setup.
+    func setCount(_ newCount: Int) {
+        count = max(1, newCount)
+    }
     
     private var longPressTimer: Timer?
     private let longPressInterval: TimeInterval = 0.15

@@ -8,4 +8,6 @@
 
 import Foundation
 
-protocol FlightsViewProtocol: AnyObject {}
+protocol FlightsViewProtocol: AnyObject {
+    func showError(_ message: String)
+}

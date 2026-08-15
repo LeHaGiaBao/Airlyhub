@@ -10,4 +10,5 @@ import Foundation
 
 protocol ExploreRouterProtocol: AnyObject {
     func presentHelpfulInformationDetail(_ item: HelpfulInformationItem)
+    func showSearchResults(_ context: SearchResultsContext)
 }

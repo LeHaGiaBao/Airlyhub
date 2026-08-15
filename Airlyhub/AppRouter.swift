@@ -44,24 +44,27 @@ enum AppRouter {
         window.rootViewController = UINavigationController(rootViewController: register)
     }
 
+    /// - Parameter nav: the Profiles tab's stack. Each tab needs its own — they were
+    ///   sharing one, which meant whichever builder ran last claimed it and pushes
+    ///   from the other tabs landed in a stack the user wasn't looking at.
     static func createRootModule(nav: UINavigationController) -> UIViewController {
         let tabBarController = UITabBarController()
 
-        let exploreNavigation = ExploreBuilder().build(nav: nav)
+        let exploreNavigation = ExploreBuilder().build(nav: UINavigationController())
         exploreNavigation.tabBarItem = UITabBarItem(
             title: NSLocalizedString("tab_explore", comment: ""),
             image: AssetsIcon.exploreInactive,
             selectedImage: AssetsIcon.exploreActive
         )
 
-        let flightsNavigation = FlightsBuilder().build(nav: nav)
+        let flightsNavigation = FlightsBuilder().build(nav: UINavigationController())
         flightsNavigation.tabBarItem = UITabBarItem(
             title: NSLocalizedString("tab_flights", comment: ""),
             image: AssetsIcon.flightsInactive,
             selectedImage: AssetsIcon.flightsActive
         )
 
-        let favoritesNavigation = FavoritesBuilder().build(nav: nav)
+        let favoritesNavigation = FavoritesBuilder().build(nav: UINavigationController())
         favoritesNavigation.tabBarItem = UITabBarItem(
             title: NSLocalizedString("tab_favorites", comment: ""),
             image: AssetsIcon.favoritesInactive,

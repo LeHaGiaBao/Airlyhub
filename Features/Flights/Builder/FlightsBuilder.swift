@@ -11,12 +11,13 @@ final class FlightsBuilder {
     func build(nav: UINavigationController) -> UIViewController {
         let view = FlightsViewController()
         let interactor = FlightsInteractor()
-        let router = FlightsRouter()
+        let router = FlightsRouter(nav: nav)
         let presenter = FlightsPresenter(view: view,
                                          interactor: interactor,
                                          router: router)
         view.presenter = presenter
-        router.viewController = view
-        return view
+        // Returns the navigation controller, not the screen — see `ExploreBuilder`.
+        nav.viewControllers = [view]
+        return nav
     }
 }

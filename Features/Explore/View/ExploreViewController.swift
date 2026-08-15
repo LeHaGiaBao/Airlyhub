@@ -54,7 +54,17 @@ final class ExploreViewController: BaseViewController {
         super.viewDidLoad()
         setupUI()
         setupLocationEvents()
+        findTourButton.addTarget(self, action: #selector(findTourTapped), for: .touchUpInside)
         presenter.viewDidLoad()
+    }
+
+    @objc private func findTourTapped() {
+        FeedbackGenerator.onFeedbackGenerator(.soft)
+        presenter.didTapFindTour(
+            location: locationView.location,
+            date: dateView.selectedDate,
+            passengers: passenger.count
+        )
     }
 
     private func setupUI() {
@@ -66,6 +76,10 @@ final class ExploreViewController: BaseViewController {
 extension ExploreViewController: ExploreViewProtocol {
     func showHelpfulInformation(_ items: [HelpfulInformationItem]) {
         helpfulInformationView.configure(with: items)
+    }
+
+    func showError(_ message: String) {
+        ToastView.show(message, style: .info, in: view)
     }
 
     private func setupSearchView() {

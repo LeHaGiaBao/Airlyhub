@@ -9,12 +9,24 @@
 import UIKit
 
 final class ExploreRouter: ExploreRouterProtocol {
-    weak var viewController: UIViewController?
+    private let nav: UINavigationController
+
+    init(nav: UINavigationController) {
+        self.nav = nav
+    }
 
     // `BaseBottomSheetViewController` presents itself over full screen and runs its own
     // slide-in, so `animated` stays false here — UIKit's transition would double it up.
     func presentHelpfulInformationDetail(_ item: HelpfulInformationItem) {
         let sheet = HelpfulInfoDetailSheetViewController(item: item)
-        viewController?.present(sheet, animated: false)
+        nav.topViewController?.present(sheet, animated: false)
+    }
+
+    func showSearchResults(_ context: SearchResultsContext) {
+        let view = SearchResultsBuilder().build(context: context, nav: nav)
+        // The results are a drill-down, not a tab: hiding the bar gives the list the
+        // full height and matches how Profiles pushes its sub-screens.
+        view.hidesBottomBarWhenPushed = true
+        nav.pushViewController(view, animated: true)
     }
 }

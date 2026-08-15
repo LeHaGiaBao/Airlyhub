@@ -10,4 +10,8 @@ import Foundation
 
 protocol FlightsPresenterProtocol {
     func viewDidLoad()
+    func didTapFind(from origin: LocationResult?,
+                    to destination: LocationResult?,
+                    date: Date?,
+                    passengers: Int)
 }

@@ -21,4 +21,29 @@ final class FlightsPresenter: FlightsPresenterProtocol {
     }
 
     func viewDidLoad() {}
+
+    /// Only the departure date reaches the query. The catalog carries no schedule
+    /// yet, so a return date has nothing to filter against — the form keeps it for
+    /// when `departures` exists.
+    func didTapFind(from origin: LocationResult?,
+                    to destination: LocationResult?,
+                    date: Date?,
+                    passengers: Int) {
+        let criteria = SearchCriteria(
+            type: .flight,
+            origin: origin,
+            destination: destination,
+            date: date,
+            passengers: passengers
+        )
+
+        // A flight needs both ends, which is where this differs from Explore —
+        // `SearchCriteria.isComplete` keeps that rule in one place.
+        guard criteria.isComplete else {
+            view?.showError(NSLocalizedString("search_incomplete", comment: ""))
+            return
+        }
+
+        router.showSearchResults(SearchResultsContext(criteria: criteria))
+    }
 }

@@ -187,3 +187,15 @@
 "chat_error_attachment_too_large" = "Attachments can be up to %d KB";
 "chat_error_attachment_unavailable" = "Attachments aren't available right now. You can still send a message.";
 "chat_error_attachment_failed" = "We couldn't upload your file. Please try again.";
+
+// MARK: - Tour & flight search
+"popular" = "Popular";
+"air_tours" = "Air tours";
+"search_results" = "Search results";
+"show_more" = "Show more";
+"tour_price_per_passenger" = "Price per passenger";
+"tour_airfield" = "Airfield: %@";
+"tour_passengers" = "Passengers: %d";
+"search_incomplete" = "Please fill in every field before searching.";
+"tour_search_empty" = "No flights match your search. Try another date or airfield.";
+"tour_search_failed" = "We couldn't load the results. Please try again.";

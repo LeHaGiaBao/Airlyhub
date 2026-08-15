@@ -10,4 +10,5 @@ import Foundation
 
 protocol ExploreViewProtocol: AnyObject {
     func showHelpfulInformation(_ items: [HelpfulInformationItem])
+    func showError(_ message: String)
 }
