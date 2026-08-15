@@ -10,11 +10,10 @@ import Foundation
 
 /// Wire shape of a catalog record — the document body, without its id.
 ///
-/// Deliberately plain `Codable` with no Firestore attributes: the same declaration
-/// decodes a Firestore document via `document.data(as:)` and the bundled
-/// `tours.seed.json`, which is why that file is a JSON object keyed by id rather
-/// than an array. Key and document id play the same role, so the seed file mirrors
-/// the collection exactly and the mock cannot drift from the server.
+/// Used only by `TourService`, which is not currently wired up: the app renders
+/// from `TourMockData`, which is already `TourModel` and needs no decoding. Kept
+/// as plain `Codable` with no Firestore attributes so it stays readable as a
+/// description of the document shape.
 ///
 /// The id lives outside the body, matching `CardDTO`: Firestore documents carry
 /// their key in `documentID`, and duplicating it as a field would leave two copies
