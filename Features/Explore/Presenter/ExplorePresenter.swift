@@ -20,5 +20,11 @@ final class ExplorePresenter: ExplorePresenterProtocol {
         self.router = router
     }
 
-    func viewDidLoad() {}
+    func viewDidLoad() {
+        view?.showHelpfulInformation(interactor.fetchHelpfulInformation())
+    }
+
+    func didSelectHelpfulInformation(_ item: HelpfulInformationItem) {
+        router.presentHelpfulInformationDetail(item)
+    }
 }

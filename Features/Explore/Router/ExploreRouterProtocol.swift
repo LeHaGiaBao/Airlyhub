@@ -8,4 +8,6 @@
 
 import Foundation
 
-protocol ExploreRouterProtocol: AnyObject {}
+protocol ExploreRouterProtocol: AnyObject {
+    func presentHelpfulInformationDetail(_ item: HelpfulInformationItem)
+}

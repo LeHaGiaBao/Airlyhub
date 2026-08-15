@@ -18,6 +18,36 @@
 "flights_find" = "Find";
 "explore_location_placeholder" = "Where to find an airplane tour?";
 "find_tour" = "Find tour";
+"helpful_information" = "Helpful information";
+"helpful_info_white_airplanes" = "Why are the airplanes white?";
+"helpful_info_facts_flying" = "5 interesting facts about flying";
+"helpful_info_water_loss" = "We lose a lot of water during a flight";
+"helpful_info_pilot_meals" = "Why do pilots on the same flight eat different food?";
+"got_it" = "Got it";
+
+"helpful_info_white_airplanes_summary" = "White is not a branding choice. It is the cheapest, safest and most practical colour to keep an aircraft in.";
+"helpful_info_white_airplanes_fact_1" = "White reflects almost all sunlight, so the cabin and the fuel tanks stay cooler while the aircraft waits on the apron.";
+"helpful_info_white_airplanes_fact_2" = "A full coat of paint weighs 200–300 kg. White needs fewer layers, which saves fuel on every single flight.";
+"helpful_info_white_airplanes_fact_3" = "Cracks, dents, oil leaks and bird strikes stand out against white, so ground crews spot damage faster during inspections.";
+"helpful_info_white_airplanes_fact_4" = "White barely fades in the sun, so the aircraft keeps its resale value and needs repainting less often.";
+
+"helpful_info_facts_flying_summary" = "At a cruising altitude of 11 km, plenty is going on that passengers never notice.";
+"helpful_info_facts_flying_fact_1" = "The cabin is pressurised to the equivalent of about 2,400 m — roughly the altitude of a mountain village.";
+"helpful_info_facts_flying_fact_2" = "All the air in the cabin is replaced every 2–3 minutes, and half of it is fresh air drawn in through the engines.";
+"helpful_info_facts_flying_fact_3" = "The cabin lights are dimmed for take-off and landing so your eyes are already adjusted if the aircraft has to be evacuated.";
+"helpful_info_facts_flying_fact_4" = "The tiny hole in the window balances the pressure between the panes and keeps the outer pane from cracking.";
+
+"helpful_info_water_loss_summary" = "Cabin humidity sits around 10–20%, drier than most deserts, so your body loses water far faster than on the ground.";
+"helpful_info_water_loss_fact_1" = "You lose roughly 200 ml of water an hour in the air — about 1.5 litres on a long-haul flight.";
+"helpful_info_water_loss_fact_2" = "Dry air dulls taste and smell by up to 30%, which is why airline food tastes bland.";
+"helpful_info_water_loss_fact_3" = "Coffee and alcohol speed up dehydration; aim for about 250 ml of water for every hour of flight.";
+"helpful_info_water_loss_fact_4" = "Skin and eyes dry out first — moisturiser and glasses instead of contact lenses help on long flights.";
+
+"helpful_info_pilot_meals_summary" = "It is an aviation safety rule, not a matter of taste: food poisoning must never be able to take out both pilots at once.";
+"helpful_info_pilot_meals_fact_1" = "The captain and the first officer are served different meals, prepared in separate batches.";
+"helpful_info_pilot_meals_fact_2" = "Many airlines also require the two pilots to eat at least an hour apart.";
+"helpful_info_pilot_meals_fact_3" = "The rule tightened after incidents in the 1970s where contaminated meals left several crew members unable to work.";
+"helpful_info_pilot_meals_fact_4" = "A pilot who feels unwell must report it immediately — a modern airliner can be landed safely by one pilot.";
 "favorites" = "Favorites";
 "notifications" = "Notifications";
 "my_tickets" = "My tickets";

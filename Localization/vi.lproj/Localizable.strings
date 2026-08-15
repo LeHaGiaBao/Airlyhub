@@ -18,6 +18,36 @@
 "flights_find" = "Tìm";
 "explore_location_placeholder" = "Bạn muốn tìm tour máy bay ở đâu?";
 "find_tour" = "Tìm tour";
+"helpful_information" = "Thông tin hữu ích";
+"helpful_info_white_airplanes" = "Vì sao máy bay có màu trắng?";
+"helpful_info_facts_flying" = "5 điều thú vị về chuyến bay";
+"helpful_info_water_loss" = "Cơ thể mất nhiều nước khi bay";
+"helpful_info_pilot_meals" = "Tại sao các phi công trên cùng một chuyến bay lại ăn những món khác nhau?";
+"got_it" = "Đã hiểu";
+
+"helpful_info_white_airplanes_summary" = "Màu trắng không phải là lựa chọn thương hiệu. Đó là màu rẻ, an toàn và thực tế nhất để sơn một chiếc máy bay.";
+"helpful_info_white_airplanes_fact_1" = "Màu trắng phản xạ gần như toàn bộ ánh nắng, giúp khoang hành khách và khoang nhiên liệu mát hơn khi máy bay đỗ ngoài sân đỗ.";
+"helpful_info_white_airplanes_fact_2" = "Một lớp sơn hoàn chỉnh nặng 200–300 kg. Màu trắng cần ít lớp sơn hơn, nhờ đó tiết kiệm nhiên liệu trên mọi chuyến bay.";
+"helpful_info_white_airplanes_fact_3" = "Vết nứt, móp, rò rỉ dầu hay va chạm với chim đều nổi bật trên nền trắng, giúp kỹ thuật viên phát hiện hư hỏng nhanh hơn khi kiểm tra.";
+"helpful_info_white_airplanes_fact_4" = "Màu trắng gần như không phai dưới nắng, nên máy bay giữ được giá trị bán lại và ít phải sơn lại hơn.";
+
+"helpful_info_facts_flying_summary" = "Ở độ cao hành trình 11 km, có rất nhiều điều đang diễn ra mà hành khách không hề hay biết.";
+"helpful_info_facts_flying_fact_1" = "Khoang máy bay được điều áp tương đương độ cao khoảng 2.400 m — gần bằng một thị trấn vùng núi.";
+"helpful_info_facts_flying_fact_2" = "Toàn bộ không khí trong khoang được thay mới sau mỗi 2–3 phút, một nửa trong đó là khí tươi lấy từ động cơ.";
+"helpful_info_facts_flying_fact_3" = "Đèn khoang được giảm sáng khi cất và hạ cánh để mắt bạn kịp thích nghi nếu phải sơ tán khẩn cấp.";
+"helpful_info_facts_flying_fact_4" = "Lỗ nhỏ trên cửa sổ giúp cân bằng áp suất giữa các lớp kính và giữ cho lớp kính ngoài không bị nứt.";
+
+"helpful_info_water_loss_summary" = "Độ ẩm trong khoang chỉ khoảng 10–20%, khô hơn phần lớn sa mạc, nên cơ thể mất nước nhanh hơn nhiều so với dưới mặt đất.";
+"helpful_info_water_loss_fact_1" = "Bạn mất khoảng 200 ml nước mỗi giờ bay — tức gần 1,5 lít trên một chuyến bay đường dài.";
+"helpful_info_water_loss_fact_2" = "Không khí khô làm giảm tới 30% khả năng cảm nhận vị và mùi, đó là lý do đồ ăn trên máy bay thường nhạt.";
+"helpful_info_water_loss_fact_3" = "Cà phê và rượu bia khiến cơ thể mất nước nhanh hơn; hãy uống khoảng 250 ml nước cho mỗi giờ bay.";
+"helpful_info_water_loss_fact_4" = "Da và mắt khô trước tiên — dùng kem dưỡng ẩm và đeo kính gọng thay kính áp tròng sẽ dễ chịu hơn trên chặng dài.";
+
+"helpful_info_pilot_meals_summary" = "Đây là quy định an toàn hàng không chứ không phải sở thích: ngộ độc thực phẩm tuyệt đối không được phép hạ gục cả hai phi công cùng lúc.";
+"helpful_info_pilot_meals_fact_1" = "Cơ trưởng và cơ phó được phục vụ hai suất ăn khác nhau, chế biến theo các mẻ riêng biệt.";
+"helpful_info_pilot_meals_fact_2" = "Nhiều hãng bay còn yêu cầu hai phi công ăn cách nhau ít nhất một giờ.";
+"helpful_info_pilot_meals_fact_3" = "Quy định được siết chặt sau các sự cố thập niên 1970, khi suất ăn nhiễm khuẩn khiến nhiều thành viên tổ bay mất khả năng làm việc.";
+"helpful_info_pilot_meals_fact_4" = "Phi công thấy trong người không ổn phải báo cáo ngay — máy bay hiện đại vẫn có thể hạ cánh an toàn với một phi công.";
 "favorites" = "Yêu thích";
 "notifications" = "Thông báo";
 "my_tickets" = "Vé của tôi";

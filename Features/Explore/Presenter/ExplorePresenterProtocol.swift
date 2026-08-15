@@ -10,4 +10,5 @@ import Foundation
 
 protocol ExplorePresenterProtocol {
     func viewDidLoad()
+    func didSelectHelpfulInformation(_ item: HelpfulInformationItem)
 }

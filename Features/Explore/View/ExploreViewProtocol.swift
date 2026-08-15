@@ -8,4 +8,6 @@
 
 import Foundation
 
-protocol ExploreViewProtocol: AnyObject {}
+protocol ExploreViewProtocol: AnyObject {
+    func showHelpfulInformation(_ items: [HelpfulInformationItem])
+}

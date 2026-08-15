@@ -8,4 +8,6 @@
 
 import Foundation
 
-protocol ExploreInteractorProtocol: AnyObject {}
+protocol ExploreInteractorProtocol: AnyObject {
+    func fetchHelpfulInformation() -> [HelpfulInformationItem]
+}
