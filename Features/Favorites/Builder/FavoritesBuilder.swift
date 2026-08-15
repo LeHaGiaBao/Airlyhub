@@ -17,6 +17,9 @@ final class FavoritesBuilder {
                                            router: router)
         view.presenter = presenter
         router.viewController = view
-        return view
+        // Nothing pushes from here yet, but the tab owns a stack like the others so
+        // the first screen added doesn't have to rediscover why it can't navigate.
+        nav.viewControllers = [view]
+        return nav
     }
 }

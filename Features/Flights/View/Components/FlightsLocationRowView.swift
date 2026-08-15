@@ -17,6 +17,13 @@ enum LocationField {
 final class FlightsLocationRowView: UIView {
     var onLocationTap: ((LocationField) -> Void)?
 
+    /// Structured values behind the two labels. The search needs `city` to build a
+    /// slug, and that cannot be recovered from the "City, Country" text once it has
+    /// been formatted — so both representations are kept, and the swap below has to
+    /// move them together.
+    private(set) var from: LocationResult?
+    private(set) var to: LocationResult?
+
     private let bag = DisposeBag()
     
     private let fromRowView = FlightsLocationRowItemView(placeholder: NSLocalizedString("from_where", comment: ""))
@@ -114,11 +121,16 @@ final class FlightsLocationRowView: UIView {
         swapButton.rx.tap
             .throttle(.milliseconds(300), scheduler: MainScheduler.instance)
             .bind { [weak self] in
+                guard let self else { return }
                 FeedbackGenerator.onFeedbackGenerator(.soft)
-                let fromText = self?.fromRowView.text
-                let toText = self?.toRowView.text
-                self?.fromRowView.text = toText
-                self?.toRowView.text = fromText
+
+                let fromText = self.fromRowView.text
+                self.fromRowView.text = self.toRowView.text
+                self.toRowView.text = fromText
+
+                // Swapping only the labels would leave the search querying the old
+                // direction while the form shows the new one.
+                swap(&self.from, &self.to)
             }
             .disposed(by: bag)
     }
@@ -126,8 +138,12 @@ final class FlightsLocationRowView: UIView {
     func setLocation(_ result: LocationResult, for field: LocationField) {
         let text = "\(result.city), \(result.country)"
         switch field {
-        case .from: fromRowView.text = text
-        case .to:   toRowView.text = text
+        case .from:
+            from = result
+            fromRowView.text = text
+        case .to:
+            to = result
+            toRowView.text = text
         }
     }
 }

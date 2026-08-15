@@ -8,4 +8,6 @@
 
 import Foundation
 
-protocol FlightsRouterProtocol: AnyObject {}
+protocol FlightsRouterProtocol: AnyObject {
+    func showSearchResults(_ context: SearchResultsContext)
+}

@@ -9,5 +9,15 @@
 import UIKit
 
 final class FlightsRouter: FlightsRouterProtocol {
-    weak var viewController: UIViewController?
+    private let nav: UINavigationController
+
+    init(nav: UINavigationController) {
+        self.nav = nav
+    }
+
+    func showSearchResults(_ context: SearchResultsContext) {
+        let view = SearchResultsBuilder().build(context: context, nav: nav)
+        view.hidesBottomBarWhenPushed = true
+        nav.pushViewController(view, animated: true)
+    }
 }

@@ -32,6 +32,10 @@ final class FlightsDateRowView: UIView {
     }
     
     var datePickerMode: UIDatePicker.Mode = .date
+
+    func setDate(_ date: Date?) {
+        selectedDate = date
+    }
     
     private let contentView: UIView = {
         let view = UIView()

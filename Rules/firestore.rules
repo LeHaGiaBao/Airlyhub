@@ -246,6 +246,30 @@ service cloud.firestore {
       }
     }
 
+    // ───────────────────────── Tour catalog ─────────────────────────
+    //
+    // Shared, read-only inventory behind the Explore and Flights searches. The
+    // opposite of every other collection here: there is no owner, so nothing is
+    // compared against `request.auth.uid` beyond requiring a session.
+    //
+    // Nothing reads this collection today — the app renders from `TourMockData` and
+    // `TourService` is not wired into any builder. The block stays so the rules
+    // stop being a blocker the moment it is.
+    //
+    // Writes are closed to clients outright. The catalog would be maintained by
+    // hand in the Firebase console, whose edits use admin credentials and bypass
+    // these rules — so there is no client path that needs to be allowed, and
+    // leaving one open would let any account edit prices for everybody.
+    //
+    // `list` is unrestricted because every document is public to a signed-in user,
+    // which means the read cap has to come from the query instead: `TourService`
+    // always applies `.limit()`. An unbounded query here would pull the whole
+    // collection and bill every document against the free plan's daily reads.
+    match /tours/{tourId} {
+      allow read: if isSignedIn();
+      allow write: if false;
+    }
+
     // Anything not matched above stays closed.
     match /{document=**} {
       allow read, write: if false;

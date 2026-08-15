@@ -187,3 +187,15 @@
 "chat_error_attachment_too_large" = "Tệp đính kèm tối đa %d KB";
 "chat_error_attachment_unavailable" = "Hiện chưa gửi được tệp đính kèm. Bạn vẫn có thể nhắn tin.";
 "chat_error_attachment_failed" = "Không thể tải tệp lên. Vui lòng thử lại.";
+
+// MARK: - Tour & flight search
+"popular" = "Phổ biến";
+"air_tours" = "Chuyến bay ngắm cảnh";
+"search_results" = "Kết quả tìm kiếm";
+"show_more" = "Xem thêm";
+"tour_price_per_passenger" = "Giá mỗi khách";
+"tour_airfield" = "Sân bay: %@";
+"tour_passengers" = "Số khách: %d";
+"search_incomplete" = "Vui lòng nhập đầy đủ thông tin trước khi tìm kiếm.";
+"tour_search_empty" = "Không có chuyến nào phù hợp. Hãy thử ngày hoặc sân bay khác.";
+"tour_search_failed" = "Không thể tải kết quả. Vui lòng thử lại.";

@@ -12,6 +12,11 @@ import UIKit
 final class ExploreLocationRowView: UIView {
     var onLocationTap: (() -> Void)?
 
+    /// Kept alongside the displayed text because the search needs the structured
+    /// value — `TourSlug` works off `city`, which cannot be recovered from the
+    /// "City, Country" label once it has been formatted.
+    private(set) var location: LocationResult?
+
     private let locationRowView = FlightsLocationRowItemView(
         placeholder: NSLocalizedString("explore_location_placeholder", comment: "")
     )
@@ -66,6 +71,7 @@ final class ExploreLocationRowView: UIView {
     }
 
     func setLocation(_ result: LocationResult) {
+        location = result
         locationRowView.text = "\(result.city), \(result.country)"
     }
 }

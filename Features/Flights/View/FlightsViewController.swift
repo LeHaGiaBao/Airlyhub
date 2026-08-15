@@ -44,7 +44,18 @@ final class FlightsViewController: BaseViewController {
         super.viewDidLoad()
         setupUI()
         setupLocationEvents()
+        findButton.addTarget(self, action: #selector(findTapped), for: .touchUpInside)
         presenter.viewDidLoad()
+    }
+
+    @objc private func findTapped() {
+        FeedbackGenerator.onFeedbackGenerator(.soft)
+        presenter.didTapFind(
+            from: flightsLocationView.from,
+            to: flightsLocationView.to,
+            date: departureView.selectedDate,
+            passengers: passenger.count
+        )
     }
 
     private func setupUI() {
@@ -55,6 +66,10 @@ final class FlightsViewController: BaseViewController {
 }
 
 extension FlightsViewController: FlightsViewProtocol {
+    func showError(_ message: String) {
+        ToastView.show(message, style: .info, in: view)
+    }
+
     private func setupTitle() {
         titleLabel.text = NSLocalizedString("split_the_payment", comment: "")
         titleLabel.textAlignment = .left
