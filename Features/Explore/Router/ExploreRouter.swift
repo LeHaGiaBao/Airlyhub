@@ -10,4 +10,11 @@ import UIKit
 
 final class ExploreRouter: ExploreRouterProtocol {
     weak var viewController: UIViewController?
+
+    // `BaseBottomSheetViewController` presents itself over full screen and runs its own
+    // slide-in, so `animated` stays false here — UIKit's transition would double it up.
+    func presentHelpfulInformationDetail(_ item: HelpfulInformationItem) {
+        let sheet = HelpfulInfoDetailSheetViewController(item: item)
+        viewController?.present(sheet, animated: false)
+    }
 }

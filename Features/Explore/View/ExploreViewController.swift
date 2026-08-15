@@ -10,9 +10,24 @@ import UIKit
 final class ExploreViewController: BaseViewController {
     var presenter: ExplorePresenterProtocol!
 
+    private enum Layout {
+        static let searchCornerRadius: CGFloat = 20
+        static let searchBottomPadding: CGFloat = 24
+        static let panelSpacing: CGFloat = 12
+    }
+
     private let titleLabel = UILabel()
     private let subTitleLabel = UILabel()
-    private let searchView = UIView()
+
+    private let searchView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .white
+        view.layer.cornerRadius = Layout.searchCornerRadius
+        view.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
+        // Not clipped: the row views inside draw their own shadows.
+        view.layer.masksToBounds = false
+        return view
+    }()
 
     private lazy var locationView = ExploreLocationRowView()
 
@@ -25,6 +40,8 @@ final class ExploreViewController: BaseViewController {
     }()
 
     private let passenger = FlightsPassengersRowView()
+
+    private let helpfulInformationView = HelpfulInformationSectionView()
 
     private let findTourButton: UIButton = {
         let button = UIButton(type: .system)
@@ -41,62 +58,63 @@ final class ExploreViewController: BaseViewController {
     }
 
     private func setupUI() {
-        view.backgroundColor = .white
         setupSearchView()
+        setupHelpfulInformationView()
     }
 }
 
 extension ExploreViewController: ExploreViewProtocol {
+    func showHelpfulInformation(_ items: [HelpfulInformationItem]) {
+        helpfulInformationView.configure(with: items)
+    }
+
     private func setupSearchView() {
         view.addSubview(searchView)
-        searchView.backgroundColor = .white
-        
+
         setupTitle()
         setupSubTitle()
-        
-        NSLayoutConstraint.activate([
-            searchView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: CGFloat(20)),
-            searchView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: CGFloat(20))
-        ])
+
+        searchView.snp.makeConstraints { make in
+            make.top.left.right.equalToSuperview()
+            make.bottom.equalTo(findTourButton.snp.bottom).offset(Layout.searchBottomPadding)
+        }
     }
-    
+
     private func setupTitle() {
         titleLabel.text = NSLocalizedString("extreme", comment: "")
         titleLabel.textAlignment = .left
-        titleLabel.translatesAutoresizingMaskIntoConstraints = false
         titleLabel.textColor = AppColor.PrimaryColors.Primary.color500
         titleLabel.applyTypography(.displaySm(weight: .bold))
 
         searchView.addSubview(titleLabel)
-        
-        NSLayoutConstraint.activate([
-            titleLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: CGFloat(98)),
-            titleLabel.leftAnchor.constraint(equalTo: view.leftAnchor, constant: CGFloat(20))
-        ])
+
+        titleLabel.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(98)
+            make.left.equalToSuperview().offset(20)
+        }
     }
-    
+
     private func setupSubTitle() {
         subTitleLabel.text = NSLocalizedString("airplane_flight", comment: "")
         subTitleLabel.textAlignment = .left
-        subTitleLabel.translatesAutoresizingMaskIntoConstraints = false
         subTitleLabel.textColor = AppColor.PrimaryColors.Gray.color700
         subTitleLabel.applyTypography(.displaySm(weight: .bold))
 
         searchView.addSubview(subTitleLabel)
 
-        NSLayoutConstraint.activate([
-            subTitleLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: CGFloat(4)),
-            subTitleLabel.leftAnchor.constraint(equalTo: view.leftAnchor, constant: CGFloat(20))
-        ])
+        subTitleLabel.snp.makeConstraints { make in
+            make.top.equalTo(titleLabel.snp.bottom).offset(4)
+            make.left.equalToSuperview().offset(20)
+        }
 
         setupFindTourView()
     }
 
     private func setupFindTourView() {
-        view.addSubview(locationView)
-        view.addSubview(dateView)
-        view.addSubview(passenger)
-        view.addSubview(findTourButton)
+        searchView.addSubview(locationView)
+        searchView.addSubview(dateView)
+        searchView.addSubview(passenger)
+        searchView.addSubview(findTourButton)
 
         locationView.snp.makeConstraints { make in
             make.top.equalTo(subTitleLabel.snp.bottom).offset(40)
@@ -116,6 +134,19 @@ extension ExploreViewController: ExploreViewProtocol {
         findTourButton.snp.makeConstraints { make in
             make.top.equalTo(passenger.snp.bottom).offset(16)
             make.left.right.equalToSuperview().inset(12)
+        }
+    }
+
+    private func setupHelpfulInformationView() {
+        view.addSubview(helpfulInformationView)
+
+        helpfulInformationView.onSelectItem = { [weak self] item in
+            self?.presenter.didSelectHelpfulInformation(item)
+        }
+
+        helpfulInformationView.snp.makeConstraints { make in
+            make.top.equalTo(searchView.snp.bottom).offset(Layout.panelSpacing)
+            make.left.right.bottom.equalToSuperview()
         }
     }
 }

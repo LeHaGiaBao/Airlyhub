@@ -274,6 +274,7 @@
 		9E678BE41137E95486648F32 /* LoginPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E510A07ECEDB19B6726DF13 /* LoginPresenterProtocol.swift */; };
 		9EA88F4EB3C32B23664EDE59 /* FBLPromises.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3E2FB80ABC01AAF4BD42A6B /* FBLPromises.framework */; };
 		9F9177A22078FE9883B1D368 /* FlightsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9553DA55F5F961B6641B07F1 /* FlightsViewController.swift */; };
+		A0C76139B61A8638D7FDAAD2 /* HelpfulInformationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8508A54A763221142E6D76B0 /* HelpfulInformationCell.swift */; };
 		A14FC5A1FC38D517D49DBF33 /* FavoritesRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DB61A58247B3009A70B347 /* FavoritesRouter.swift */; };
 		A2F56545171E5D44FA013A09 /* NotificationsBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B614D55ED54BFE3AA6963AD /* NotificationsBuilder.swift */; };
 		A33B56E98A3CF1AC20C2E9B2 /* ProfilesInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86392EBC98C10F0E646B3E7 /* ProfilesInteractor.swift */; };
@@ -288,6 +289,7 @@
 		A982D7F2D6F65FCD45E1BFCF /* EditProfilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86005DB683EDBEF520090E89 /* EditProfilePresenter.swift */; };
 		AA233D8AAA418DC812313F59 /* CardCryptoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B51A5FC6A3B2A3C467E82C1 /* CardCryptoService.swift */; };
 		AB0DA4B85AC9C712F159752F /* InputStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A558AC191FE16C7DA938F2E /* InputStyle.swift */; };
+		AB4647BA39E7A9CF49029956 /* HelpfulInfoDetailSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3187A1F76C6BACA6391D086C /* HelpfulInfoDetailSheetViewController.swift */; };
 		AC1CE89C0BEB933D14F450BF /* ExploreRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EAAEC6A05352DFE051E36B8 /* ExploreRouter.swift */; };
 		AC36B72DC02EBAB37543D008 /* AvatarService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B94F2F68E4FB49201DF545C /* AvatarService.swift */; };
 		ACABB1501E0653DB01AC4848 /* ExploreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA18F095665096846F7AC16 /* ExploreViewController.swift */; };
@@ -318,6 +320,7 @@
 		BC496D85F77EB75A76C5DF7F /* EditProfileBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB379C2CBC5B1E5F1AC33DA2 /* EditProfileBuilder.swift */; };
 		BCFFB3CCF1E25D7014AF1E0D /* LogoutConfirmationBottomSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36C0D9B1CBE848862B74C654 /* LogoutConfirmationBottomSheetViewController.swift */; };
 		BD0DB5C6F650B19665A04B84 /* ChatMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5182808205CA804E7E95F51 /* ChatMessageCell.swift */; };
+		BD66559B554174BBCB8F8A33 /* HelpfulInformationSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1901E951E0F892E6DC9B28EC /* HelpfulInformationSectionView.swift */; };
 		BE39C00F653A8119B5C0B9D2 /* FirebaseMessagingInterop.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34A3881C3C6B51D7313CE768 /* FirebaseMessagingInterop.framework */; };
 		BE3F1BED1FD7AE00E1D63600 /* NotificationsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761E932148BEBB0191BA3A69 /* NotificationsRouter.swift */; };
 		BE5517C62DAE3073EE0EF8D4 /* EncryptedPayload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ADA7B3B1D2413AA294B7004 /* EncryptedPayload.swift */; };
@@ -559,6 +562,7 @@
 		158E3848F46BD373D68BF7DF /* AirlyhubTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AirlyhubTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1709CA4D0D992C3C9259C734 /* FlightsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightsInteractor.swift; sourceTree = "<group>"; };
 		173D95793FD166EE64DD4D37 /* MyTicketsBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTicketsBuilder.swift; sourceTree = "<group>"; };
+		1901E951E0F892E6DC9B28EC /* HelpfulInformationSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpfulInformationSectionView.swift; sourceTree = "<group>"; };
 		19EA5E81CCB9804D6F5C42A7 /* Firebase_FirebaseFirestore.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Firebase_FirebaseFirestore.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B69062DDB76309FCA94D81B /* SettingsRowCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsRowCell.swift; sourceTree = "<group>"; };
 		1BC01BAA1A05D9B0FF5719BC /* gRPC_opensslWrapper.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = gRPC_opensslWrapper.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -595,6 +599,7 @@
 		3139802DB92F8B3925DAAD51 /* NoInternetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoInternetViewController.swift; sourceTree = "<group>"; };
 		3140568100EB13378063E6C5 /* SettingsBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsBuilder.swift; sourceTree = "<group>"; };
 		315EFA67A02D3026F9DF81FA /* Promises_FBLPromises.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Promises_FBLPromises.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		3187A1F76C6BACA6391D086C /* HelpfulInfoDetailSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpfulInfoDetailSheetViewController.swift; sourceTree = "<group>"; };
 		3204BA24D967374077D6A2A6 /* DevConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevConfig.swift; sourceTree = "<group>"; };
 		3214290F1C86A7D9675557D0 /* FirebaseAuthCombineSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FirebaseAuthCombineSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		32D7128BCCE6A5073B0BACB3 /* grpcWrapper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = grpcWrapper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -729,6 +734,7 @@
 		8392C1796A9166F9F16F2ECA /* TuistBundle+Airlyhub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TuistBundle+Airlyhub.swift"; sourceTree = "<group>"; };
 		839D1822E4064BC120902B88 /* SettingsPresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPresenterProtocol.swift; sourceTree = "<group>"; };
 		84F50A3DFEC11E3F9C4929B6 /* ChatAttachmentService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatAttachmentService.swift; sourceTree = "<group>"; };
+		8508A54A763221142E6D76B0 /* HelpfulInformationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpfulInformationCell.swift; sourceTree = "<group>"; };
 		85096ACFF6064C2460009DBF /* Package.resolved */ = {isa = PBXFileReference; path = Package.resolved; sourceTree = "<group>"; };
 		85500B3BE3FA239DA3616DF8 /* FirebaseAuthInterop.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FirebaseAuthInterop.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		86005DB683EDBEF520090E89 /* EditProfilePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfilePresenter.swift; sourceTree = "<group>"; };
@@ -1795,6 +1801,9 @@
 			isa = PBXGroup;
 			children = (
 				691B735AE64B943F1CB46E45 /* ExploreLocationRowView.swift */,
+				3187A1F76C6BACA6391D086C /* HelpfulInfoDetailSheetViewController.swift */,
+				8508A54A763221142E6D76B0 /* HelpfulInformationCell.swift */,
+				1901E951E0F892E6DC9B28EC /* HelpfulInformationSectionView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -3171,6 +3180,9 @@
 				AC1CE89C0BEB933D14F450BF /* ExploreRouter.swift in Sources */,
 				F35C1DE21D0EFDA99399BFA6 /* ExploreRouterProtocol.swift in Sources */,
 				9BAD7AB98E39EC5238E23C0A /* ExploreLocationRowView.swift in Sources */,
+				AB4647BA39E7A9CF49029956 /* HelpfulInfoDetailSheetViewController.swift in Sources */,
+				A0C76139B61A8638D7FDAAD2 /* HelpfulInformationCell.swift in Sources */,
+				BD66559B554174BBCB8F8A33 /* HelpfulInformationSectionView.swift in Sources */,
 				ACABB1501E0653DB01AC4848 /* ExploreViewController.swift in Sources */,
 				620578031F3EB3AC36D27A7A /* ExploreViewProtocol.swift in Sources */,
 				1DCF24CA339B5845C0BF09C9 /* FavoritesBuilder.swift in Sources */,
