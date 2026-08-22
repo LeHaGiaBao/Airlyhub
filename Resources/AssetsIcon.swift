@@ -40,6 +40,7 @@ struct AssetsIcon {
     static let badge = UIImage(named: "badge")
     static let blueAirplane = UIImage(named: "blueAirplane")
     static let pencil = UIImage(named: "pencil")
+    static let payment = UIImage(named: "payment")
 
     /// App logo matching the current build environment (Dev / Staging / Prod).
     static var logo: UIImage? {

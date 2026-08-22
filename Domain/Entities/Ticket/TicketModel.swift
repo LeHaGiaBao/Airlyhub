@@ -12,10 +12,10 @@ import Foundation
 /// need. `SmallTicketModel` stays the row's own display model — see the mapper
 /// below — so the cell keeps rendering exactly what it did before.
 ///
-/// Dates, times and the price are finished strings rather than `Date`/`Decimal`.
-/// That is a stand-in for a backend: there is no booking API yet, and a record read
-/// from one would carry real values that this screen would then format. When that
-/// lands, the formatting moves into a `TicketFormatter` and these become typed.
+/// Dates, times and the price are finished strings rather than `Date`/`Decimal` —
+/// this is still the display model, not the record. `BookingModel` is the typed
+/// one now that a booking API exists; see the mapper below for where the
+/// formatting happens.
 struct TicketModel {
     /// Booking reference — "673-843". Doubles as the screen title and the barcode's
     /// payload, which is why it is also what the row shows.
@@ -32,6 +32,24 @@ struct TicketModel {
 }
 
 // MARK: - Mapping
+extension TicketModel {
+    /// "—" stands in for a flight's duration, which has nothing to show: only a
+    /// tour has a length to choose, so `durationMinutes` is nil for a flight
+    /// booking — see `BookingModel.durationMinutes`.
+    init(booking: BookingModel) {
+        self.init(
+            id: booking.reference,
+            title: booking.tourTitle,
+            imageURL: booking.imageURL,
+            priceText: TourFormatter.price(booking.amount, currencyCode: booking.currencyCode),
+            dateText: TicketFormatter.date(booking.date),
+            airfield: booking.airfield,
+            departureTimeText: booking.departureTime,
+            durationText: booking.durationMinutes.map(TicketFormatter.duration) ?? "—"
+        )
+    }
+}
+
 extension SmallTicketModel {
     /// The subtitle is composed here rather than stored, so the row and the detail
     /// screen cannot drift apart on the same two facts.

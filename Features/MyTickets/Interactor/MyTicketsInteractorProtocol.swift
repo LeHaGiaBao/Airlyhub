@@ -7,8 +7,7 @@
 //
 
 import Foundation
-import RxSwift
 
 protocol MyTicketsInteractorProtocol: AnyObject {
-    func fetchMyTickets() -> [MyTicketsSection]
+    func fetchMyTickets(completion: @escaping (Result<[MyTicketsSection], Error>) -> Void)
 }

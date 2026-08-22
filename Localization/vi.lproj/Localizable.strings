@@ -238,3 +238,17 @@
 "ticket_airfield" = "Sân bay";
 "ticket_departure_time" = "Giờ khởi hành";
 "ticket_flight_duration" = "Thời gian bay";
+
+// MARK: - Checkout & payment
+"checkout_title" = "Thanh toán";
+"checkout_save_card" = "Lưu thẻ";
+"checkout_saved_cards" = "Thẻ đã lưu";
+"checkout_pay" = "Thanh toán";
+"checkout_default_card_holder" = "CHỦ THẺ";
+"checkout_save_card_failed" = "Không thể lưu thẻ, nhưng đơn đặt chỗ của bạn vẫn thành công.";
+"checkout_booking_failed" = "Không thể hoàn tất đặt chỗ. Vui lòng thử lại.";
+"payment_success_title" = "Đã thanh toán";
+"payment_success_subtitle" = "Nếu chuyến bay bị hủy, tiền sẽ được hoàn lại";
+"payment_success_done" = "Hoàn tất";
+"my_tickets_load_failed" = "Không thể tải danh sách vé. Vui lòng thử lại.";
+"my_tickets_empty" = "Bạn chưa đặt chuyến bay nào. Vé sẽ hiện ở đây sau khi bạn đặt.";

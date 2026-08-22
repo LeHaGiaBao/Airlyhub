@@ -238,3 +238,17 @@
 "ticket_airfield" = "Airfield";
 "ticket_departure_time" = "Departure time";
 "ticket_flight_duration" = "Flight duration";
+
+// MARK: - Checkout & payment
+"checkout_title" = "Payment";
+"checkout_save_card" = "Save card";
+"checkout_saved_cards" = "Saved cards";
+"checkout_pay" = "Pay";
+"checkout_default_card_holder" = "CARD HOLDER";
+"checkout_save_card_failed" = "We couldn't save this card, but your booking still went through.";
+"checkout_booking_failed" = "We couldn't complete your booking. Please try again.";
+"payment_success_title" = "Paid";
+"payment_success_subtitle" = "In case of flight cancellation the money will be refunded";
+"payment_success_done" = "Perfect";
+"my_tickets_load_failed" = "We couldn't load your tickets. Please try again.";
+"my_tickets_empty" = "You haven't booked any flights yet. Once you do, they'll show up here.";

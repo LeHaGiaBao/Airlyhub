@@ -8,4 +8,6 @@
 
 import Foundation
 
-protocol MyTicketsViewProtocol: AnyObject {}
+protocol MyTicketsViewProtocol: AnyObject {
+    func render(_ state: MyTicketsViewState)
+}

@@ -85,7 +85,8 @@ final class TourDetailPresenter: TourDetailPresenterProtocol {
     }
 
     func didTapBook() {
-        router.startBooking(tourID: tourID, selection: selection)
+        guard let detail else { return }
+        router.startBooking(BookingDraft(detail: detail, selection: selection))
     }
 
     // MARK: - Rendering

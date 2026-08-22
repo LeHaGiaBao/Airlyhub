@@ -30,4 +30,8 @@ struct FirestoreCollection {
     static let conversations = "conversations"
     /// Subcollection of `conversations/{uid}`.
     static let messages = "messages"
+
+    /// Top-level collection, same reasoning as `cards`: ownership is each
+    /// document's `userId` field rather than the path — see `BookingService`.
+    static let bookings = "bookings"
 }

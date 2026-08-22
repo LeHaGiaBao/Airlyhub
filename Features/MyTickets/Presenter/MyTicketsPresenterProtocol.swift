@@ -10,6 +10,7 @@ import Foundation
 import RxSwift
 
 protocol MyTicketsPresenterProtocol: AnyObject {
+    func viewDidLoad()
     func getMyTickets() -> [MyTicketsSection]
     /// Opens the tapped row. An index outside the list yields an empty signal
     /// rather than a crash — the table and the sections are read separately.
