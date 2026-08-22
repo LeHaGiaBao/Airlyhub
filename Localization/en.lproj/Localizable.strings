@@ -200,6 +200,32 @@
 "tour_search_empty" = "No flights match your search. Try another date or airfield.";
 "tour_search_failed" = "We couldn't load the results. Please try again.";
 
+// MARK: - Tour detail
+"tour_detail_parameters" = "Tour parameters";
+"tour_detail_description" = "An exciting flight over the neighborhood of %@, including light aerobatics and a short taste of weightlessness.";
+"tour_detail_flight_duration" = "Flight duration";
+"tour_detail_duration_minutes" = "%d min";
+"tour_detail_start_of_flight" = "Start of flight";
+"tour_detail_departure_time" = "Departure time";
+"tour_detail_flight_route" = "Flight route";
+"tour_detail_pilot_information" = "Pilot information";
+"tour_detail_hours_value" = "%d hours";
+"tour_detail_airplane" = "Airplane";
+"tour_detail_hours_flown" = "Hours flown";
+"tour_detail_license" = "License";
+"pilot_license_cpl" = "Commercial Pilot's License - CPL";
+"tour_detail_customer_reviews" = "Customer reviews";
+"tour_review_ivan" = "The flights are excellent! The airfield is located in a picturesque place and there is a lot to admire from above.";
+"tour_review_alexander" = "A brilliant experience from booking to landing. Highly recommended.";
+"tour_review_maria" = "Booking was easy and the pilot made sure everyone felt safe the whole flight.";
+"tour_review_dmitry" = "Great views, though the wind made the last few minutes a bit bumpy.";
+"tour_review_elena" = "Perfect gift for my husband's birthday — he still talks about it.";
+"tour_review_sergey" = "Professional crew, right on schedule, would book again without hesitation.";
+"tour_detail_all_reviews" = "All reviews";
+"tour_detail_terms_notice" = "By continuing, you agree to the terms of use and privacy policy";
+"tour_detail_book_button" = "Book for %@";
+"tour_detail_load_failed" = "We couldn't load this tour. Please try again.";
+
 // MARK: - Favorites
 "favorites_tab_tours" = "Air tours";
 "favorites_tab_flights" = "Flights";

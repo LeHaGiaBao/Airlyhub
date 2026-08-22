@@ -217,3 +217,163 @@ enum TourMockData {
         )
     ]
 }
+
+// MARK: - Detail
+extension TourMockData {
+    /// Builds the detail screen's record from the matching list record plus a
+    /// handful of shared, catalog-wide content.
+    ///
+    /// The list fields (`title`, `price`, `airfield`, …) come straight from `all`;
+    /// everything the list never needed — description, route, pilot, reviews — is
+    /// synthesized here rather than authored per record, the same trade-off `all`
+    /// itself documents: this is a pet project's stand-in for a backend, and a
+    /// generated-but-consistent record beats fourteen hand-written ones for the
+    /// same reason a filter that always matches beats one that mostly returns
+    /// nothing while the UI is being built.
+    static func detail(id: String) -> TourDetailModel? {
+        guard let tour = all.first(where: { $0.id == id }) else { return nil }
+        let isTour = tour.type == .tour
+
+        return TourDetailModel(
+            id: tour.id,
+            type: tour.type,
+            title: tour.title,
+            description: isTour ? description(for: tour) : nil,
+            imageURL: tour.imageURL,
+            rating: tour.rating,
+            airfield: tour.airfield,
+            originCity: originCity(for: tour),
+            maxPassengers: tour.passengers,
+            price: tour.price,
+            currencyCode: tour.currencyCode,
+            durations: isTour ? durations(basePrice: tour.price) : [],
+            departureTimes: departureTimes,
+            routeWaypoints: isTour ? tourWaypoints : flightWaypoints(for: tour),
+            pilot: pilot,
+            reviews: reviews
+        )
+    }
+
+    /// Same operating schedule shown on both screens.
+    private static let departureTimes = ["7:00", "9:00", "11:00", "13:00", "15:00"]
+
+    /// Every `.tour` record departs from an airfield around St Petersburg and flies
+    /// the same local excursion, so one static route serves all eight.
+    private static let tourWaypoints = ["Kronstadt", "Gulf of Finland", "Forts", "Dam"]
+
+    /// The mock catalog only ever uses two origin slugs, so a display name for each
+    /// is simpler than a general slug-to-name reverser — which `TourSlug` explicitly
+    /// says cannot exist, since the mapping the other direction is many-to-one.
+    private static let originDisplayNames = [
+        "st_petersburg": "St Petersburg",
+        "novosibirsk": "Novosibirsk"
+    ]
+
+    private static func originCity(for tour: TourModel) -> String {
+        originDisplayNames[tour.originSlug] ?? tour.airfield ?? tour.title
+    }
+
+    /// A flight's route is just its destination — the title is already written as
+    /// "Origin - Destination", so the waypoint reuses that instead of a second
+    /// place-name table.
+    private static func flightWaypoints(for tour: TourModel) -> [String] {
+        guard let destination = tour.title.components(separatedBy: " - ").last,
+              destination != tour.title else {
+            return []
+        }
+        return [destination]
+    }
+
+    private static func description(for tour: TourModel) -> String {
+        String(format: NSLocalizedString("tour_detail_description", comment: ""),
+               tour.airfield ?? tour.title)
+    }
+
+    private static let durationMinutes = [20, 35, 40, 50, 60]
+
+    /// Scales the record's own price across the standard set of lengths, rounded to
+    /// the nearest 100 so the pills never show an odd fraction.
+    private static func durations(basePrice: Decimal) -> [TourDurationOption] {
+        durationMinutes.map { minutes -> TourDurationOption in
+            let scaled = basePrice * Decimal(minutes) / Decimal(35)
+            return TourDurationOption(minutes: minutes, price: roundedToHundred(scaled))
+        }
+    }
+
+    private static func roundedToHundred(_ value: Decimal) -> Decimal {
+        let handler = NSDecimalNumberHandler(
+            roundingMode: .plain,
+            scale: -2,
+            raiseOnExactness: false,
+            raiseOnOverflow: false,
+            raiseOnUnderflow: false,
+            raiseOnDivideByZero: false
+        )
+        return (value as NSDecimalNumber).rounding(accordingToBehavior: handler) as Decimal
+    }
+
+    /// The catalog's one operator flies everything in it, so every record shares
+    /// this pilot rather than the mock inventing a roster no screen distinguishes.
+    private static let pilot = PilotModel(
+        name: "Oleg Samsonov",
+        avatarURL: "https://i.pravatar.cc/150?u=airly-pilot-oleg",
+        rating: 5.0,
+        airplane: "Cessna 172",
+        hoursFlown: 1250,
+        license: NSLocalizedString("pilot_license_cpl", comment: "")
+    )
+
+    /// Six canned reviews reused on every record — there is no review backend yet,
+    /// so a shared pool stands in the same way `pilot` does. Six rather than two so
+    /// "All reviews" has enough rows to actually scroll.
+    private static let reviews: [TourReviewModel] = [
+        TourReviewModel(
+            id: "review_ivan",
+            authorName: "Ivan",
+            authorAvatarURL: "https://i.pravatar.cc/150?u=airly-review-ivan",
+            rating: 5,
+            date: DateComponents(calendar: .current, year: 2022, month: 5, day: 21).date ?? Date(),
+            comment: NSLocalizedString("tour_review_ivan", comment: "")
+        ),
+        TourReviewModel(
+            id: "review_alexander",
+            authorName: "Alexander",
+            authorAvatarURL: "https://i.pravatar.cc/150?u=airly-review-alexander",
+            rating: 4,
+            date: DateComponents(calendar: .current, year: 2022, month: 4, day: 2).date ?? Date(),
+            comment: NSLocalizedString("tour_review_alexander", comment: "")
+        ),
+        TourReviewModel(
+            id: "review_maria",
+            authorName: "Maria",
+            authorAvatarURL: "https://i.pravatar.cc/150?u=airly-review-maria",
+            rating: 5,
+            date: DateComponents(calendar: .current, year: 2022, month: 3, day: 14).date ?? Date(),
+            comment: NSLocalizedString("tour_review_maria", comment: "")
+        ),
+        TourReviewModel(
+            id: "review_dmitry",
+            authorName: "Dmitry",
+            authorAvatarURL: "https://i.pravatar.cc/150?u=airly-review-dmitry",
+            rating: 4,
+            date: DateComponents(calendar: .current, year: 2022, month: 2, day: 8).date ?? Date(),
+            comment: NSLocalizedString("tour_review_dmitry", comment: "")
+        ),
+        TourReviewModel(
+            id: "review_elena",
+            authorName: "Elena",
+            authorAvatarURL: "https://i.pravatar.cc/150?u=airly-review-elena",
+            rating: 5,
+            date: DateComponents(calendar: .current, year: 2022, month: 1, day: 30).date ?? Date(),
+            comment: NSLocalizedString("tour_review_elena", comment: "")
+        ),
+        TourReviewModel(
+            id: "review_sergey",
+            authorName: "Sergey",
+            authorAvatarURL: "https://i.pravatar.cc/150?u=airly-review-sergey",
+            rating: 5,
+            date: DateComponents(calendar: .current, year: 2021, month: 12, day: 19).date ?? Date(),
+            comment: NSLocalizedString("tour_review_sergey", comment: "")
+        )
+    ]
+}

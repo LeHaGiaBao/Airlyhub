@@ -200,6 +200,32 @@
 "tour_search_empty" = "Không có chuyến nào phù hợp. Hãy thử ngày hoặc sân bay khác.";
 "tour_search_failed" = "Không thể tải kết quả. Vui lòng thử lại.";
 
+// MARK: - Tour detail
+"tour_detail_parameters" = "Thông số chuyến bay";
+"tour_detail_description" = "Chuyến bay thú vị quanh khu vực %@, bao gồm các động tác nhào lộn nhẹ và trải nghiệm không trọng lực ngắn.";
+"tour_detail_flight_duration" = "Thời lượng bay";
+"tour_detail_duration_minutes" = "%d phút";
+"tour_detail_start_of_flight" = "Giờ khởi hành";
+"tour_detail_departure_time" = "Giờ khởi hành";
+"tour_detail_flight_route" = "Lộ trình bay";
+"tour_detail_pilot_information" = "Thông tin phi công";
+"tour_detail_hours_value" = "%d giờ";
+"tour_detail_airplane" = "Máy bay";
+"tour_detail_hours_flown" = "Giờ bay tích lũy";
+"tour_detail_license" = "Chứng chỉ";
+"pilot_license_cpl" = "Bằng lái thương mại - CPL";
+"tour_detail_customer_reviews" = "Đánh giá của khách hàng";
+"tour_review_ivan" = "Chuyến bay tuyệt vời! Sân bay nằm ở nơi phong cảnh đẹp, có nhiều thứ để ngắm nhìn từ trên cao.";
+"tour_review_alexander" = "Trải nghiệm xuất sắc từ lúc đặt chỗ đến khi hạ cánh. Rất đáng để thử.";
+"tour_review_maria" = "Đặt chỗ rất dễ và phi công luôn đảm bảo an toàn suốt chuyến bay.";
+"tour_review_dmitry" = "Cảnh đẹp tuyệt vời, dù vài phút cuối hơi xóc vì gió mạnh.";
+"tour_review_elena" = "Món quà hoàn hảo cho sinh nhật chồng tôi — anh ấy vẫn nhắc mãi.";
+"tour_review_sergey" = "Đội bay chuyên nghiệp, đúng giờ, chắc chắn sẽ đặt lại lần nữa.";
+"tour_detail_all_reviews" = "Xem tất cả đánh giá";
+"tour_detail_terms_notice" = "Bằng việc tiếp tục, bạn đồng ý với điều khoản sử dụng và chính sách bảo mật";
+"tour_detail_book_button" = "Đặt với giá %@";
+"tour_detail_load_failed" = "Không thể tải thông tin chuyến bay. Vui lòng thử lại.";
+
 // MARK: - Favorites
 "favorites_tab_tours" = "Chuyến ngắm cảnh";
 "favorites_tab_flights" = "Chuyến bay";

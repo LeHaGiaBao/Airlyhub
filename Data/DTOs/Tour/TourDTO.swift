@@ -35,6 +35,39 @@ struct TourDTO: Codable {
     let destinationSlug: String?
     let tags: [String]?
     let isActive: Bool?
+
+    /// Everything below is read only by `toDetailDomain`, never by `toDomain` — a
+    /// search or a popular-rail fetch decodes the same document but leaves these
+    /// nil rather than paying to populate fields the card never shows.
+    let description: String?
+    let originCity: String?
+    let durations: [TourDurationOptionDTO]?
+    let departureTimes: [String]?
+    let routeWaypoints: [String]?
+    let pilot: PilotDTO?
+    let reviews: [TourReviewDTO]?
+}
+
+struct TourDurationOptionDTO: Codable {
+    let minutes: Int
+    let price: Decimal
+}
+
+struct PilotDTO: Codable {
+    let name: String
+    let avatarURL: String?
+    let rating: Double
+    let airplane: String
+    let hoursFlown: Int
+    let license: String
+}
+
+struct TourReviewDTO: Codable {
+    let authorName: String
+    let authorAvatarURL: String?
+    let rating: Int
+    let date: Date
+    let comment: String
 }
 
 // MARK: - Mapping
@@ -59,6 +92,72 @@ extension TourDTO {
             originSlug: originSlug,
             destinationSlug: destinationSlug,
             tags: tags ?? []
+        )
+    }
+
+    /// - Parameter id: the Firestore `documentID`.
+    ///
+    /// Nil when `pilot` is absent — every other detail field degrades to an empty
+    /// section, but a tour with no pilot at all reads as not yet finished in the
+    /// console rather than as a valid record with a blank card.
+    func toDetailDomain(id: String) -> TourDetailModel? {
+        guard let type = TourType(rawValue: type), let pilot else { return nil }
+
+        return TourDetailModel(
+            id: id,
+            type: type,
+            title: title,
+            description: description,
+            imageURL: imageURL,
+            rating: rating,
+            airfield: airfield,
+            originCity: originCity ?? airfield ?? title,
+            maxPassengers: passengers,
+            price: price,
+            currencyCode: currency,
+            durations: (durations ?? []).map { $0.toDomain() },
+            departureTimes: departureTimes ?? [],
+            routeWaypoints: routeWaypoints ?? [],
+            pilot: pilot.toDomain(),
+            // Reviews are an array field, not a subcollection, so an element has no
+            // id of its own — the index stands in, the same way the mock catalog's
+            // `TourReviewModel.id` values are just authored labels.
+            reviews: (reviews ?? []).enumerated().map { index, review in
+                review.toDomain(id: "\(id)_review_\(index)")
+            }
+        )
+    }
+}
+
+// MARK: - Nested mapping
+extension TourDurationOptionDTO {
+    func toDomain() -> TourDurationOption {
+        TourDurationOption(minutes: minutes, price: price)
+    }
+}
+
+extension PilotDTO {
+    func toDomain() -> PilotModel {
+        PilotModel(
+            name: name,
+            avatarURL: avatarURL,
+            rating: rating,
+            airplane: airplane,
+            hoursFlown: hoursFlown,
+            license: license
+        )
+    }
+}
+
+extension TourReviewDTO {
+    func toDomain(id: String) -> TourReviewModel {
+        TourReviewModel(
+            id: id,
+            authorName: authorName,
+            authorAvatarURL: authorAvatarURL,
+            rating: rating,
+            date: date,
+            comment: comment
         )
     }
 }

@@ -28,4 +28,9 @@ protocol TourRepositoryProtocol: AnyObject {
     func popular(type: TourType,
                  limit: Int,
                  completion: @escaping (Result<[TourModel], Error>) -> Void)
+
+    /// The full record behind a tour's detail screen. `nil` when no record matches
+    /// `id` — the card that led here came from a stale list.
+    func detail(id: String,
+               completion: @escaping (Result<TourDetailModel?, Error>) -> Void)
 }
