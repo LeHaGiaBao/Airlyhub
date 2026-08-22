@@ -11,9 +11,12 @@ import UIKit
 final class FavoritesRouter: FavoritesRouterProtocol {
     weak var viewController: UIViewController?
 
-    /// No detail screen exists yet — same open end as `SearchResultsRouter`, left
-    /// explicit so both tabs light up the moment that screen lands.
     func showTourDetail(id: String) {
-        // TODO: push TourDetailBuilder().build(id:) once that screen exists.
+        guard let nav = viewController?.navigationController else { return }
+        let detail = TourDetailBuilder().build(tourID: id, nav: nav)
+        // A drill-down, not a tab: hiding the bar matches how `ProfilesRouter`
+        // pushes its own sub-screens.
+        detail.hidesBottomBarWhenPushed = true
+        nav.pushViewController(detail, animated: true)
     }
 }

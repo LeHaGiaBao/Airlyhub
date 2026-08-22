@@ -65,6 +65,11 @@ final class MockTourRepository: TourRepositoryProtocol {
         respond(.success(Array(items)), completion: completion)
     }
 
+    func detail(id: String,
+               completion: @escaping (Result<TourDetailModel?, Error>) -> Void) {
+        respond(.success(TourMockData.detail(id: id)), completion: completion)
+    }
+
     // MARK: - Helpers
 
     /// Sorted by rating so the list looks ranked, with the id breaking ties to keep

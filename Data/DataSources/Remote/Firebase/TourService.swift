@@ -79,6 +79,26 @@ final class TourService: TourRepositoryProtocol {
             }
     }
 
+    func detail(id: String,
+               completion: @escaping (Result<TourDetailModel?, Error>) -> Void) {
+        toursCollection.document(id).getDocument { snapshot, error in
+            if let error {
+                DispatchQueue.main.async { completion(.failure(error)) }
+                return
+            }
+
+            guard let snapshot, snapshot.exists,
+                  let dto = try? snapshot.data(as: TourDTO.self) else {
+                DispatchQueue.main.async { completion(.success(nil)) }
+                return
+            }
+
+            DispatchQueue.main.async {
+                completion(.success(dto.toDetailDomain(id: snapshot.documentID)))
+            }
+        }
+    }
+
     // MARK: - Querying
 
     /// The equality filters every search shares. `rating` ordering is applied by

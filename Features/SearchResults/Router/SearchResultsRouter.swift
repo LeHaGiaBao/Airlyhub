@@ -15,11 +15,12 @@ final class SearchResultsRouter: SearchResultsRouterProtocol {
         self.nav = nav
     }
 
-    /// No detail screen exists yet. Left as an explicit no-op rather than wiring the
-    /// tap to nothing, so the missing destination is visible here instead of looking
-    /// like a dead card in the list.
     func showTourDetail(id: String) {
-        // TODO: push TourDetailBuilder().build(id:) once that screen exists.
+        let detail = TourDetailBuilder().build(tourID: id, nav: nav)
+        // A drill-down, not a tab: hiding the bar matches `ExploreRouter` pushing
+        // this same results screen and gives the detail screen the full height.
+        detail.hidesBottomBarWhenPushed = true
+        nav.pushViewController(detail, animated: true)
     }
 
     // `BaseBottomSheetViewController` presents over full screen and runs its own

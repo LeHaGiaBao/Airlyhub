@@ -85,7 +85,8 @@ final class SegmentedPillView: UIView {
 
         var config = UIButton.Configuration.filled()
         config.title = title
-        config.cornerStyle = .capsule
+        config.cornerStyle = .fixed
+        config.background.cornerRadius = 8
         config.contentInsets = NSDirectionalEdgeInsets(
             top: 0,
             leading: Layout.horizontalPadding,
