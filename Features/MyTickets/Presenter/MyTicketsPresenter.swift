@@ -9,16 +9,18 @@ import Foundation
 import RxSwift
 
 final class MyTicketsPresenter: MyTicketsPresenterProtocol {
+    weak var view: MyTicketsViewProtocol?
+
     private var _myTicketsBuilderAction = BehaviorSubject<MyTicketsBuilderAction>(value: .cancel)
     private var hasCompleted = false
     private let interactor: MyTicketsInteractorProtocol
     private let router: MyTicketsRouterProtocol
 
-    /// Fetched once. The table asks for the sections on every cell, header and tap,
-    /// and a tap has to resolve to the same record the row was built from — which a
-    /// re-fetch on each call cannot promise once the source is anything but a
-    /// constant.
-    private lazy var sections: [MyTicketsSection] = interactor.fetchMyTickets()
+    /// Filled once the fetch in `viewDidLoad` completes. The table asks for the
+    /// sections on every cell, header and tap, and a tap has to resolve to the same
+    /// record the row was built from — which a re-fetch on each call cannot promise
+    /// once the source is a live store rather than a constant.
+    private var sections: [MyTicketsSection] = []
 
     init(interactor: MyTicketsInteractorProtocol,
          router: MyTicketsRouterProtocol) {
@@ -28,6 +30,20 @@ final class MyTicketsPresenter: MyTicketsPresenterProtocol {
 
     var myTicketsBuilderAction: Observable<MyTicketsBuilderAction> {
         _myTicketsBuilderAction.asObservable()
+    }
+
+    func viewDidLoad() {
+        view?.render(.loading)
+        interactor.fetchMyTickets { [weak self] result in
+            guard let self else { return }
+            switch result {
+            case .success(let sections):
+                self.sections = sections
+                self.view?.render(.loaded(sections))
+            case .failure:
+                self.view?.render(.failed(NSLocalizedString("my_tickets_load_failed", comment: "")))
+            }
+        }
     }
 
     func dismiss() {

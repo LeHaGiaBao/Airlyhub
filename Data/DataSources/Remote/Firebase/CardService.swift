@@ -16,7 +16,8 @@ import FirebaseFirestore
 /// is rejected outright rather than quietly returning an empty result — the filter is
 /// load-bearing for access control, not just for correctness.
 ///
-/// Requires the composite index `userId ASC, createdAt ASC` (see firestore.indexes.json).
+/// Requires the composite index `userId ASC, createdAt ASC` — see `Rules/README.md`
+/// for how indexes get created in this project (by hand, no `firestore.indexes.json`).
 final class CardService {
     static let shared = CardService()
 

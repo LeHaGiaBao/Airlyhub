@@ -25,8 +25,9 @@ final class TourDetailRouter: TourDetailRouterProtocol {
         nav.pushViewController(view, animated: true)
     }
 
-    /// No booking flow exists yet.
-    func startBooking(tourID: String, selection: TourDetailSelection) {
-        // TODO: push a BookingBuilder().build(tourID:selection:) once that flow exists.
+    func startBooking(_ draft: BookingDraft) {
+        let view = CheckoutBuilder().build(draft: draft, nav: nav)
+        view.hidesBottomBarWhenPushed = true
+        nav.pushViewController(view, animated: true)
     }
 }

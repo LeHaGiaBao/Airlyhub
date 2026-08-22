@@ -14,5 +14,5 @@ protocol TourDetailRouterProtocol: AnyObject {
     /// already loaded them, and a lookup here would only re-fetch what is already
     /// on screen. Same call as `MyTicketDetailBuilder.build(ticket:)`.
     func showAllReviews(_ reviews: [TourReviewModel])
-    func startBooking(tourID: String, selection: TourDetailSelection)
+    func startBooking(_ draft: BookingDraft)
 }

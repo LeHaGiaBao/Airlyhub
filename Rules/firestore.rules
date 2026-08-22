@@ -57,6 +57,62 @@ service cloud.firestore {
       allow delete: if false;
     }
 
+    // ───────────────────────── Bookings (My Tickets) ─────────────────────────
+    //
+    // Top-level collection, same shape as `cards`: ownership is the `userId`
+    // field, not the path — chosen over a `users/{uid}/bookings` subcollection
+    // (`conversations`' approach) so the collection actually appears in the
+    // console's top-level list instead of requiring the right `users` document
+    // opened first. The cost is the composite index `list` below needs.
+
+    match /bookings/{bookingId} {
+
+      function isValidBooking(data) {
+        return data.keys().hasOnly([
+            'userId', 'tourId', 'tourTitle', 'imageURL', 'reference', 'airfield',
+            'date', 'departureTime', 'durationMinutes', 'passengers', 'amount',
+            'currencyCode', 'cardLast4', 'cardBrand', 'status', 'createdAt'
+          ])
+          && data.keys().hasAll([
+            'userId', 'tourId', 'tourTitle', 'reference', 'airfield', 'date',
+            'departureTime', 'passengers', 'amount', 'currencyCode', 'status', 'createdAt'
+          ])
+          && data.userId is string
+          && data.userId.size() > 0
+          && data.tourId is string
+          && data.tourTitle is string
+          && data.reference is string
+          && data.airfield is string
+          && data.date is timestamp
+          && data.departureTime is string
+          && data.passengers is int
+          && data.passengers > 0
+          && data.amount is number
+          && data.amount > 0
+          && data.currencyCode is string
+          // A client only ever creates a booking already paid — there is no
+          // draft state to write and no gateway callback to flip it later.
+          && data.status == 'paid'
+          && data.createdAt == request.time;
+      }
+
+      // `list` is evaluated per returned document, so a query without
+      // `where('userId', '==', uid)` is rejected outright — same guarantee
+      // `CardService` relies on.
+      allow read: if isSignedIn() && resource.data.userId == request.auth.uid;
+
+      // Anonymous sessions have no business touching payment data, matching
+      // `isRealAccount` everywhere else money is involved. `userId` must be
+      // stamped as the caller — you cannot file a booking under someone else's id.
+      allow create: if isRealAccount()
+        && request.resource.data.userId == request.auth.uid
+        && isValidBooking(request.resource.data);
+
+      // No cancel flow exists yet on the client — closed rather than opened
+      // narrow, the same stance `conversations` takes on its own `delete`.
+      allow update, delete: if false;
+    }
+
     // ───────────────────────── Cards ─────────────────────────
 
     match /cards/{cardId} {

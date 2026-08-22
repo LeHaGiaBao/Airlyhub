@@ -152,8 +152,11 @@ final class TourDetailViewController: BaseViewController {
         return stack
     }()
 
+    /// Plain `UIButton()`, not `.system`: `applyButtonStyle` paints every state
+    /// through a `UIButton.Configuration`, and a system button adds its own
+    /// tint-based dimming that fights it.
     private lazy var allReviewsButton: UIButton = {
-        let button = UIButton(type: .system)
+        let button = UIButton()
         button.setTitle(NSLocalizedString("tour_detail_all_reviews", comment: ""), for: .normal)
         button.applyButtonStyle(.outlinedButton(size: .middle))
         return button
@@ -190,7 +193,7 @@ final class TourDetailViewController: BaseViewController {
     }()
 
     private lazy var bookButton: UIButton = {
-        let button = UIButton(type: .system)
+        let button = UIButton()
         button.applyButtonStyle(.defaultButton(size: .big))
         return button
     }()
@@ -375,7 +378,12 @@ extension TourDetailViewController: TourDetailViewProtocol {
             reviewsStack.addArrangedSubview(card)
         }
 
-        bookButton.setTitle(viewModel.bookButtonText, for: .normal)
+        // Written into the configuration, not via `setTitle(_:for:)`: a legacy
+        // title is only folded into a configuration at the moment one is assigned,
+        // so setting it afterwards — as this does, on every render — leaves the
+        // button blank. `applyButtonStyle` has already installed the configuration
+        // by the time this runs.
+        bookButton.configuration?.title = viewModel.bookButtonText
     }
 
     func showError(_ message: String) {

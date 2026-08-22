@@ -8,15 +8,58 @@
 import Foundation
 
 final class MyTicketsInteractor: MyTicketsInteractorProtocol {
-    /// One section per record, matching the grouping the screen was built with.
-    /// The records themselves now come from `TicketMockData` instead of being
-    /// written out here, so a row and the ticket it opens cannot disagree.
-    func fetchMyTickets() -> [MyTicketsSection] {
-        TicketMockData.all.map { ticket in
-            MyTicketsSection(
-                title: NSLocalizedString("today", comment: ""),
-                tickets: [ticket]
-            )
+    private let bookingRepository: BookingRepositoryProtocol
+
+    init(bookingRepository: BookingRepositoryProtocol) {
+        self.bookingRepository = bookingRepository
+    }
+
+    func fetchMyTickets(completion: @escaping (Result<[MyTicketsSection], Error>) -> Void) {
+        bookingRepository.fetchBookings { result in
+            switch result {
+            case .success(let bookings):
+                completion(.success(Self.group(bookings)))
+            case .failure(let error):
+                completion(.failure(error))
+            }
         }
+    }
+
+    /// One section per calendar day, in the order `fetchBookings` already returns
+    /// them (newest first) — consecutive bookings on the same day fold into one
+    /// section rather than a heading per ticket.
+    private static func group(_ bookings: [BookingModel]) -> [MyTicketsSection] {
+        let calendar = Calendar.current
+        var sections: [MutableSection] = []
+
+        for booking in bookings {
+            let dayStart = calendar.startOfDay(for: booking.date)
+            let ticket = TicketModel(booking: booking)
+
+            if let last = sections.last, calendar.isDate(dayStart, inSameDayAs: last.dayStart) {
+                sections[sections.count - 1].tickets.append(ticket)
+            } else {
+                sections.append(MutableSection(title: title(for: dayStart, calendar: calendar),
+                                               dayStart: dayStart,
+                                               tickets: [ticket]))
+            }
+        }
+
+        return sections.map { MyTicketsSection(title: $0.title, tickets: $0.tickets) }
+    }
+
+    private static func title(for day: Date, calendar: Calendar) -> String {
+        calendar.isDateInToday(day)
+            ? NSLocalizedString("today", comment: "")
+            : TicketFormatter.date(day)
+    }
+
+    /// Accumulator used only while grouping — `MyTicketsSection.tickets` is
+    /// immutable so callers everywhere else can't quietly grow it out from under
+    /// the presenter that cached it.
+    private struct MutableSection {
+        let title: String
+        let dayStart: Date
+        var tickets: [TicketModel]
     }
 }

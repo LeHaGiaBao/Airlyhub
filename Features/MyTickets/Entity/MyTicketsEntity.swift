@@ -16,3 +16,9 @@ struct MyTicketsSection {
     let title: String
     let tickets: [TicketModel]
 }
+
+enum MyTicketsViewState {
+    case loading
+    case loaded([MyTicketsSection])
+    case failed(String)
+}

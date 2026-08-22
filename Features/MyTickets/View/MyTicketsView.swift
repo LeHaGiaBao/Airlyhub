@@ -8,7 +8,7 @@
 import UIKit
 import RxSwift
 
-final class MyTicketsView: BaseViewController, MyTicketsViewProtocol {
+final class MyTicketsView: BaseViewController {
     private let presenter: MyTicketsPresenter
     private let topNavigatorVC: TopNavigatorView
 
@@ -28,6 +28,26 @@ final class MyTicketsView: BaseViewController, MyTicketsViewProtocol {
         return table
     }()
 
+    private let loadingIndicator: UIActivityIndicatorView = {
+        let indicator = UIActivityIndicatorView(style: .medium)
+        indicator.hidesWhenStopped = true
+        return indicator
+    }()
+
+    /// Shown in place of the table once a fetch resolves with nothing booked —
+    /// same styling as `TourSectionView.emptyLabel`, the app's other "nothing here
+    /// yet" message.
+    private let emptyLabel: UILabel = {
+        let label = UILabel()
+        label.text = NSLocalizedString("my_tickets_empty", comment: "")
+        label.textColor = AppColor.PrimaryColors.Gray.color500
+        label.applyTypography(.textSm(weight: .regular))
+        label.textAlignment = .center
+        label.numberOfLines = 0
+        label.isHidden = true
+        return label
+    }()
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -44,6 +64,7 @@ final class MyTicketsView: BaseViewController, MyTicketsViewProtocol {
         setupUI()
         embedTopNavigator()
         setupTableView()
+        presenter.viewDidLoad()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -76,9 +97,21 @@ final class MyTicketsView: BaseViewController, MyTicketsViewProtocol {
 
     private func setupTableView() {
         view.addSubview(tableView)
+        view.addSubview(loadingIndicator)
+        view.addSubview(emptyLabel)
+
         tableView.snp.makeConstraints { make in
             make.top.equalTo(topNavigatorVC.view.snp.bottom)
             make.leading.trailing.bottom.equalTo(view.safeAreaLayoutGuide)
+        }
+
+        loadingIndicator.snp.makeConstraints { make in
+            make.center.equalTo(tableView)
+        }
+
+        emptyLabel.snp.makeConstraints { make in
+            make.center.equalTo(tableView)
+            make.left.right.equalToSuperview().inset(Devices.paddingHorizontal)
         }
     }
 }
@@ -134,5 +167,29 @@ extension MyTicketsView: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         .leastNormalMagnitude
+    }
+}
+
+// MARK: - MyTicketsViewProtocol
+extension MyTicketsView: MyTicketsViewProtocol {
+    func render(_ state: MyTicketsViewState) {
+        switch state {
+        case .loading:
+            loadingIndicator.startAnimating()
+            emptyLabel.isHidden = true
+
+        case .loaded(let sections):
+            loadingIndicator.stopAnimating()
+            let isEmpty = sections.isEmpty
+            tableView.isHidden = isEmpty
+            emptyLabel.isHidden = !isEmpty
+            tableView.reloadData()
+
+        case .failed(let message):
+            loadingIndicator.stopAnimating()
+            emptyLabel.isHidden = true
+            tableView.reloadData()
+            ToastView.show(message, style: .error, in: view)
+        }
     }
 }
