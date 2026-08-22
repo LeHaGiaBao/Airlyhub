@@ -217,6 +217,10 @@
 "tour_detail_customer_reviews" = "Customer reviews";
 "tour_review_ivan" = "The flights are excellent! The airfield is located in a picturesque place and there is a lot to admire from above.";
 "tour_review_alexander" = "A brilliant experience from booking to landing. Highly recommended.";
+"tour_review_maria" = "Booking was easy and the pilot made sure everyone felt safe the whole flight.";
+"tour_review_dmitry" = "Great views, though the wind made the last few minutes a bit bumpy.";
+"tour_review_elena" = "Perfect gift for my husband's birthday — he still talks about it.";
+"tour_review_sergey" = "Professional crew, right on schedule, would book again without hesitation.";
 "tour_detail_all_reviews" = "All reviews";
 "tour_detail_terms_notice" = "By continuing, you agree to the terms of use and privacy policy";
 "tour_detail_book_button" = "Book for %@";

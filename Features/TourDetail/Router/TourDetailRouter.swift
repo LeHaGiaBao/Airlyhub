@@ -19,11 +19,10 @@ final class TourDetailRouter: TourDetailRouterProtocol {
         nav.popViewController(animated: true)
     }
 
-    /// No reviews list screen exists yet — left as an explicit no-op, the same way
-    /// `SearchResultsRouter.showTourDetail` marked this screen's own absence before
-    /// it existed.
-    func showAllReviews(tourID: String) {
-        // TODO: push a ReviewsListBuilder().build(tourID:) once that screen exists.
+    func showAllReviews(_ reviews: [TourReviewModel]) {
+        let view = TourReviewsBuilder().build(reviews: reviews, nav: nav)
+        view.hidesBottomBarWhenPushed = true
+        nav.pushViewController(view, animated: true)
     }
 
     /// No booking flow exists yet.

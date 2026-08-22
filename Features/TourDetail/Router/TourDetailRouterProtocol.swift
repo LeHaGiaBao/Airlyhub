@@ -10,6 +10,9 @@ import Foundation
 
 protocol TourDetailRouterProtocol: AnyObject {
     func dismiss()
-    func showAllReviews(tourID: String)
+    /// Takes the reviews directly rather than a tour id — the detail screen has
+    /// already loaded them, and a lookup here would only re-fetch what is already
+    /// on screen. Same call as `MyTicketDetailBuilder.build(ticket:)`.
+    func showAllReviews(_ reviews: [TourReviewModel])
     func startBooking(tourID: String, selection: TourDetailSelection)
 }

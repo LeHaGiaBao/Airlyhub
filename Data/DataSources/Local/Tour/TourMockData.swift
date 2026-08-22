@@ -323,8 +323,9 @@ extension TourMockData {
         license: NSLocalizedString("pilot_license_cpl", comment: "")
     )
 
-    /// Two canned reviews reused on every record — there is no review backend yet,
-    /// so a shared pool stands in the same way `pilot` does.
+    /// Six canned reviews reused on every record — there is no review backend yet,
+    /// so a shared pool stands in the same way `pilot` does. Six rather than two so
+    /// "All reviews" has enough rows to actually scroll.
     private static let reviews: [TourReviewModel] = [
         TourReviewModel(
             id: "review_ivan",
@@ -341,6 +342,38 @@ extension TourMockData {
             rating: 4,
             date: DateComponents(calendar: .current, year: 2022, month: 4, day: 2).date ?? Date(),
             comment: NSLocalizedString("tour_review_alexander", comment: "")
+        ),
+        TourReviewModel(
+            id: "review_maria",
+            authorName: "Maria",
+            authorAvatarURL: "https://i.pravatar.cc/150?u=airly-review-maria",
+            rating: 5,
+            date: DateComponents(calendar: .current, year: 2022, month: 3, day: 14).date ?? Date(),
+            comment: NSLocalizedString("tour_review_maria", comment: "")
+        ),
+        TourReviewModel(
+            id: "review_dmitry",
+            authorName: "Dmitry",
+            authorAvatarURL: "https://i.pravatar.cc/150?u=airly-review-dmitry",
+            rating: 4,
+            date: DateComponents(calendar: .current, year: 2022, month: 2, day: 8).date ?? Date(),
+            comment: NSLocalizedString("tour_review_dmitry", comment: "")
+        ),
+        TourReviewModel(
+            id: "review_elena",
+            authorName: "Elena",
+            authorAvatarURL: "https://i.pravatar.cc/150?u=airly-review-elena",
+            rating: 5,
+            date: DateComponents(calendar: .current, year: 2022, month: 1, day: 30).date ?? Date(),
+            comment: NSLocalizedString("tour_review_elena", comment: "")
+        ),
+        TourReviewModel(
+            id: "review_sergey",
+            authorName: "Sergey",
+            authorAvatarURL: "https://i.pravatar.cc/150?u=airly-review-sergey",
+            rating: 5,
+            date: DateComponents(calendar: .current, year: 2021, month: 12, day: 19).date ?? Date(),
+            comment: NSLocalizedString("tour_review_sergey", comment: "")
         )
     ]
 }

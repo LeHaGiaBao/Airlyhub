@@ -81,7 +81,7 @@ final class TourDetailPresenter: TourDetailPresenterProtocol {
     }
 
     func didTapAllReviews() {
-        router.showAllReviews(tourID: tourID)
+        router.showAllReviews(detail?.reviews ?? [])
     }
 
     func didTapBook() {
