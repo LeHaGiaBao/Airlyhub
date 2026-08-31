@@ -202,7 +202,7 @@
 
 // MARK: - Tour detail
 "tour_detail_parameters" = "Tour parameters";
-"tour_detail_description" = "An exciting flight over the neighborhood of %@, including light aerobatics and a short taste of weightlessness.";
+"tour_detail_description" = "An exciting flight in a Cessna 172 sightseeing airplane over the neighborhood of the airfield. The flight includes performance of simple aerobatics figures and short-term weightlessness mode.";
 "tour_detail_flight_duration" = "Flight duration";
 "tour_detail_duration_minutes" = "%d min";
 "tour_detail_start_of_flight" = "Start of flight";

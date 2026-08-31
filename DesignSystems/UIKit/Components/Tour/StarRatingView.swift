@@ -76,7 +76,7 @@ final class StarRatingView: UIView {
             starsStack.addArrangedSubview(imageView)
         }
 
-        valueLabel.text = "\(Int(rating.rounded()))"
+        valueLabel.setText("\(Int(rating.rounded()))")
     }
 
     private func setupUI() {

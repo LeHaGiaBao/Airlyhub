@@ -14,6 +14,7 @@ import SnapKit
 final class TourReviewCardView: UIView {
     private enum Layout {
         static let avatarSize: CGFloat = 40
+        static let avatarCornerRadius: CGFloat = 8
         static let headerSpacing: CGFloat = 12
         static let sectionSpacing: CGFloat = 8
     }
@@ -95,10 +96,10 @@ final class TourReviewCardView: UIView {
 
     func configure(with review: TourReviewModel) {
         avatarImageView.setCachedImage(from: review.authorAvatarURL, placeholder: Self.placeholderAvatar)
-        nameLabel.text = review.authorName
-        dateLabel.text = Self.dateFormatter.string(from: review.date)
+        nameLabel.setText(review.authorName)
+        dateLabel.setText(Self.dateFormatter.string(from: review.date))
         ratingView.configure(rating: Double(review.rating))
-        commentLabel.text = review.comment
+        commentLabel.setText(review.comment)
     }
 
     private func setupUI() {
@@ -110,6 +111,6 @@ final class TourReviewCardView: UIView {
         avatarImageView.snp.makeConstraints { make in
             make.width.height.equalTo(Layout.avatarSize)
         }
-        avatarImageView.layer.cornerRadius = Layout.avatarSize / 2
+        avatarImageView.layer.cornerRadius = Layout.avatarCornerRadius
     }
 }

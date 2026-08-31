@@ -17,6 +17,10 @@ import SnapKit
 /// its favourite button, so a card's photo and its detail screen's photo read as
 /// one continuous surface rather than two different treatments of "controls over
 /// an image".
+///
+/// The photo is anchored above this view rather than to it — see
+/// `stretchImage(alongside:)` — so it keeps reaching past the status bar even while
+/// the page is pulled down.
 final class TourHeroHeaderView: UIView {
     private enum Layout {
         static let controlSize: CGFloat = 36
@@ -30,6 +34,16 @@ final class TourHeroHeaderView: UIView {
 
     var onBack: (() -> Void)?
     var onToggleFavorite: (() -> Void)?
+
+    /// Rounds the photo's bottom two corners; the top two run off the top of the
+    /// screen. Drawn through `cornerMask` rather than `layer.cornerRadius` because
+    /// the layer's own clipping would also cut the photo off where it stretches
+    /// above this view.
+    var bottomCornerRadius: CGFloat = 0 {
+        didSet { setNeedsLayout() }
+    }
+
+    private let cornerMask = CAShapeLayer()
 
     private let imageView: UIImageView = {
         let imageView = UIImageView()
@@ -54,6 +68,17 @@ final class TourHeroHeaderView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
 
+    /// Ties the photo's top to the scroll view's frame instead of to this view, so
+    /// an overscroll stretches the photo up into the gap it opens rather than
+    /// dropping the status bar onto white. The photo can only ever grow upwards:
+    /// its top stays at or above this view's own, so a normal downward scroll still
+    /// carries it off the screen instead of pinning it there.
+    func stretchImage(alongside scrollView: UIScrollView) {
+        imageView.snp.makeConstraints { make in
+            make.top.lessThanOrEqualTo(scrollView.frameLayoutGuide.snp.top)
+        }
+    }
+
     func configure(imageURL: String?, ratingText: String?, badges: [String], isFavorite: Bool) {
         imageView.setCachedImage(from: imageURL, placeholder: Self.placeholder)
         badgeStrip.configure(ratingText: ratingText, badges: badges)
@@ -65,8 +90,25 @@ final class TourHeroHeaderView: UIView {
         favoriteButton.setImage(isFavorite ? Self.favoriteOn : Self.favoriteOff, for: .normal)
     }
 
+    override func layoutSubviews() {
+        super.layoutSubviews()
+
+        // Reaches up to wherever the photo currently starts, which during an
+        // overscroll is above `bounds` — a mask of just `bounds` would clip exactly
+        // the stretch this view exists to allow.
+        cornerMask.frame = bounds
+        let top = min(0, imageView.frame.minY)
+        let radii = CGSize(width: bottomCornerRadius, height: bottomCornerRadius)
+        cornerMask.path = UIBezierPath(
+            roundedRect: CGRect(x: 0, y: top, width: bounds.width, height: bounds.height - top),
+            byRoundingCorners: [.bottomLeft, .bottomRight],
+            cornerRadii: radii
+        ).cgPath
+    }
+
     private func setupUI() {
-        clipsToBounds = true
+        clipsToBounds = false
+        layer.mask = cornerMask
 
         addSubview(imageView)
         addSubview(backButton)
@@ -77,7 +119,12 @@ final class TourHeroHeaderView: UIView {
         favoriteButton.addTarget(self, action: #selector(favoriteTapped), for: .touchUpInside)
 
         imageView.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
+            make.left.right.bottom.equalToSuperview()
+            // Required, so the photo never starts below this view's top; the
+            // high-priority equality is what holds it flush when nothing is pulling
+            // it further up.
+            make.top.lessThanOrEqualToSuperview()
+            make.top.equalToSuperview().priority(.high)
         }
 
         backButton.snp.makeConstraints { make in

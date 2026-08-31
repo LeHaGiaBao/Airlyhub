@@ -113,15 +113,24 @@ extension FlightsDateRowView {
         updateLabel()
     }
     
+    /// Drops the raised-card chrome so the row can sit inside a container that
+    /// draws the surface itself — the tour detail's outlined parameters box, where
+    /// the search form's shadow would read as noise on an already-white card.
+    func applyFlatStyle() {
+        contentView.backgroundColor = .clear
+        contentView.layer.cornerRadius = 0
+        layer.shadowOpacity = 0
+    }
+
     private func updateLabel() {
         if let date = selectedDate {
             let formatter = DateFormatter()
             formatter.dateStyle = .medium
             formatter.timeStyle = datePickerMode == .dateAndTime ? .short : .none
-            placeholderLabel.text = formatter.string(from: date)
+            placeholderLabel.setText(formatter.string(from: date))
             placeholderLabel.textColor = AppColor.PrimaryColors.Gray.color800
         } else {
-            placeholderLabel.text = placeholder
+            placeholderLabel.setText(placeholder)
             placeholderLabel.textColor = AppColor.PrimaryColors.Gray.color400
         }
     }

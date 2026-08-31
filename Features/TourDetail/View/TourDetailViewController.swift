@@ -17,18 +17,31 @@ import SnapKit
 /// row choosing between a static label and `FlightsDateRowView`. See
 /// `TourDetailViewModel` for where each of those decisions is made; this file only
 /// asks "is there something to show here".
+///
+/// The body is a column of white cards over the app's grey background rather than
+/// one continuous white sheet — the grey gap between cards is what groups the
+/// parameters, the flight setup, the pilot and the reviews into four things a
+/// reader scans separately.
 final class TourDetailViewController: BaseViewController {
     var presenter: TourDetailPresenterProtocol!
 
     private enum Layout {
-        static let heroHeight: CGFloat = 320
-        static let bodyPadding: CGFloat = 20
-        static let bodyTopRadius: CGFloat = 20
+        static let heroHeight: CGFloat = 240
+        static let cardPadding: CGFloat = 20
+        static let cardCornerRadius: CGFloat = 16
+        /// The grey seam between two cards.
+        static let cardSpacing: CGFloat = 8
         static let sectionSpacing: CGFloat = 24
         static let rowSpacing: CGFloat = 12
+        static let overviewSpacing: CGFloat = 16
+        static let routeSpacing: CGFloat = 16
+        static let reviewSpacing: CGFloat = 12
+        static let reviewCardPadding: CGFloat = 16
+        static let reviewCardCornerRadius: CGFloat = 12
         static let footerPadding: CGFloat = 20
         static let footerTermsSpacing: CGFloat = 12
         static let airfieldRowHeight: CGFloat = 48
+        static let iconSize: CGFloat = 24
     }
 
     private let scrollView: UIScrollView = {
@@ -43,26 +56,23 @@ final class TourDetailViewController: BaseViewController {
         return scroll
     }()
 
-    private let contentStack: UIStackView = {
+    private let sectionsStack: UIStackView = {
         let stack = UIStackView()
         stack.axis = .vertical
         stack.alignment = .fill
+        stack.spacing = Layout.cardSpacing
+        stack.isLayoutMarginsRelativeArrangement = true
+        stack.directionalLayoutMargins = NSDirectionalEdgeInsets(
+            top: 0, leading: 0, bottom: Layout.cardSpacing, trailing: 0
+        )
         return stack
     }()
 
     private let heroHeader = TourHeroHeaderView()
 
-    private let bodyContainer: UIView = {
-        let view = UIView()
-        view.backgroundColor = .white
-        view.layer.cornerRadius = Layout.bodyTopRadius
-        view.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
-        return view
-    }()
-
     private let titleLabel: UILabel = {
         let label = UILabel()
-        label.applyTypography(.textXl(weight: .semibold))
+        label.applyTypography(.textLg(weight: .semibold))
         label.textColor = AppColor.PrimaryColors.Gray.color800
         label.numberOfLines = 0
         return label
@@ -76,36 +86,83 @@ final class TourDetailViewController: BaseViewController {
         return label
     }()
 
+    /// The photo and the copy under it are one card, not a card following a photo:
+    /// the title reads as this photo's caption, and the first grey seam belongs
+    /// below the description rather than between them.
+    ///
+    /// Built by hand instead of through `makeCard` because the photo has to bleed
+    /// past the padding the copy sits inside, and because only three of the four
+    /// corners are rounded — the top two run off the top of the screen, under the
+    /// status bar.
+    private lazy var overviewCard: UIView = {
+        let card = UIView()
+        card.backgroundColor = .white
+        card.layer.cornerRadius = Layout.cardCornerRadius
+        card.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
+
+        let textStack = UIStackView(arrangedSubviews: [titleLabel, descriptionLabel])
+        textStack.axis = .vertical
+        textStack.alignment = .fill
+        textStack.spacing = Layout.overviewSpacing
+
+        card.addSubview(heroHeader)
+        card.addSubview(textStack)
+
+        // The photo rounds off its own bottom corners, and the white card behind it
+        // is what shows through them — which is only true because the two share a
+        // surface. Rounding the card's top corners instead would cut the page's
+        // grey into the seam.
+        heroHeader.bottomCornerRadius = Layout.cardCornerRadius
+
+        heroHeader.snp.makeConstraints { make in
+            make.top.left.right.equalToSuperview()
+            make.height.equalTo(Layout.heroHeight)
+        }
+        textStack.snp.makeConstraints { make in
+            make.top.equalTo(heroHeader.snp.bottom).offset(Layout.cardPadding)
+            make.left.right.bottom.equalToSuperview().inset(Layout.cardPadding)
+        }
+        return card
+    }()
+
     private let parametersCard = TourParametersCardView()
+    private lazy var parametersCardContainer = makeCard(
+        containing: makeSection(
+            title: NSLocalizedString("tour_detail_parameters", comment: ""),
+            content: parametersCard
+        )
+    )
 
     private let durationPillRow = PillSelectorScrollView()
     private lazy var durationSection = makeSection(
         title: NSLocalizedString("tour_detail_flight_duration", comment: ""),
-        content: durationPillRow
+        content: makeBleedingRow(durationPillRow)
     )
 
     private let departureTitleLabel = TourDetailViewController.makeSectionTitleLabel(text: "")
     private let departurePillRow = PillSelectorScrollView()
-    private lazy var departureSection = makeSection(titleLabel: departureTitleLabel, content: departurePillRow)
+    private lazy var departureSection = makeSection(
+        titleLabel: departureTitleLabel,
+        content: makeBleedingRow(departurePillRow)
+    )
 
     private let airfieldIcon: UIImageView = {
         let imageView = UIImageView()
         imageView.image = AssetsIcon.location
-        imageView.contentMode = .left
-        imageView.tintColor = AppColor.PrimaryColors.Gray.color400
+        imageView.contentMode = .scaleAspectFit
         return imageView
     }()
 
     private let airfieldLabel: UILabel = {
         let label = UILabel()
-        label.applyTypography(.textSm(weight: .regular))
+        label.applyTypography(.textMd(weight: .regular))
         label.textColor = AppColor.PrimaryColors.Gray.color800
         return label
     }()
 
     private lazy var airfieldRow: UIView = {
         let row = UIView()
-        row.backgroundColor = AppColor.PrimaryColors.Gray.color25
+        row.backgroundColor = AppColor.PrimaryColors.Gray.color50
         row.layer.cornerRadius = 8
         row.clipsToBounds = true
 
@@ -115,8 +172,12 @@ final class TourDetailViewController: BaseViewController {
         stack.spacing = 12
 
         row.addSubview(stack)
+        airfieldIcon.snp.makeConstraints { make in
+            make.width.height.equalTo(Layout.iconSize)
+        }
         stack.snp.makeConstraints { make in
             make.left.equalToSuperview().offset(12)
+            make.right.lessThanOrEqualToSuperview().inset(12)
             make.centerY.equalToSuperview()
         }
         row.snp.makeConstraints { make in
@@ -130,7 +191,7 @@ final class TourDetailViewController: BaseViewController {
     private lazy var routeStack: UIStackView = {
         let stack = UIStackView(arrangedSubviews: [airfieldRow, routeTimeline])
         stack.axis = .vertical
-        stack.spacing = Layout.rowSpacing
+        stack.spacing = Layout.routeSpacing
         return stack
     }()
 
@@ -139,16 +200,28 @@ final class TourDetailViewController: BaseViewController {
         content: routeStack
     )
 
+    /// Duration, departure time and route share one card: they are the three knobs
+    /// that decide which flight is being booked, and the design keeps them on a
+    /// single surface for that reason.
+    private lazy var flightCard = makeCard(containing: {
+        let stack = UIStackView(arrangedSubviews: [durationSection, departureSection, routeSection])
+        stack.axis = .vertical
+        stack.spacing = Layout.sectionSpacing
+        return stack
+    }())
+
     private let pilotCard = PilotInfoCardView()
-    private lazy var pilotSection = makeSection(
-        title: NSLocalizedString("tour_detail_pilot_information", comment: ""),
-        content: pilotCard
+    private lazy var pilotCardContainer = makeCard(
+        containing: makeSection(
+            title: NSLocalizedString("tour_detail_pilot_information", comment: ""),
+            content: pilotCard
+        )
     )
 
     private let reviewsStack: UIStackView = {
         let stack = UIStackView()
         stack.axis = .vertical
-        stack.spacing = Layout.sectionSpacing
+        stack.spacing = Layout.reviewSpacing
         return stack
     }()
 
@@ -162,23 +235,23 @@ final class TourDetailViewController: BaseViewController {
         return button
     }()
 
-    private lazy var reviewsSection = makeSection(
-        title: NSLocalizedString("tour_detail_customer_reviews", comment: ""),
-        content: {
-            let stack = UIStackView(arrangedSubviews: [reviewsStack, allReviewsButton])
-            stack.axis = .vertical
-            stack.spacing = Layout.sectionSpacing
-            return stack
-        }()
+    private lazy var reviewsCardContainer = makeCard(
+        containing: makeSection(
+            title: NSLocalizedString("tour_detail_customer_reviews", comment: ""),
+            content: {
+                let stack = UIStackView(arrangedSubviews: [reviewsStack, allReviewsButton])
+                stack.axis = .vertical
+                stack.spacing = Layout.reviewCardPadding
+                return stack
+            }()
+        )
     )
 
+    /// Sits on the page's grey rather than on a raised white bar — the cards above
+    /// already end in grey, so a white footer would read as a sixth card.
     private let footerView: UIView = {
         let view = UIView()
-        view.backgroundColor = .white
-        view.layer.shadowColor = UIColor.black.cgColor
-        view.layer.shadowOpacity = 0.06
-        view.layer.shadowOffset = CGSize(width: 0, height: -2)
-        view.layer.shadowRadius = 8
+        view.backgroundColor = AppColor.BaseColor.backgroundColor
         return view
     }()
 
@@ -186,7 +259,7 @@ final class TourDetailViewController: BaseViewController {
         let label = UILabel()
         label.text = NSLocalizedString("tour_detail_terms_notice", comment: "")
         label.applyTypography(.textXs(weight: .regular))
-        label.textColor = AppColor.PrimaryColors.Gray.color500
+        label.textColor = AppColor.PrimaryColors.Primary.color500
         label.textAlignment = .center
         label.numberOfLines = 0
         return label
@@ -204,6 +277,10 @@ final class TourDetailViewController: BaseViewController {
         return indicator
     }()
 
+    /// The photo runs under the status bar, and it is dark at the top on every
+    /// record — the clock has to be light to stay legible over it.
+    override var preferredStatusBarStyle: UIStatusBarStyle { .lightContent }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
@@ -213,21 +290,14 @@ final class TourDetailViewController: BaseViewController {
 
     private func setupUI() {
         view.addSubview(scrollView)
-        scrollView.addSubview(contentStack)
+        scrollView.addSubview(sectionsStack)
         view.addSubview(footerView)
         view.addSubview(loadingIndicator)
 
-        contentStack.addArrangedSubview(heroHeader)
-        contentStack.addArrangedSubview(bodyContainer)
+        [overviewCard, parametersCardContainer, flightCard, pilotCardContainer, reviewsCardContainer]
+            .forEach(sectionsStack.addArrangedSubview)
 
-        let bodyStack = UIStackView(arrangedSubviews: [
-            titleLabel, descriptionLabel, parametersCard,
-            durationSection, departureSection, routeSection, pilotSection, reviewsSection
-        ])
-        bodyStack.axis = .vertical
-        bodyStack.alignment = .fill
-        bodyStack.spacing = Layout.sectionSpacing
-        bodyContainer.addSubview(bodyStack)
+        heroHeader.stretchImage(alongside: scrollView)
 
         footerView.addSubview(termsLabel)
         footerView.addSubview(bookButton)
@@ -241,18 +311,9 @@ final class TourDetailViewController: BaseViewController {
             make.bottom.equalTo(footerView.snp.top)
         }
 
-        contentStack.snp.makeConstraints { make in
+        sectionsStack.snp.makeConstraints { make in
             make.edges.equalTo(scrollView.contentLayoutGuide)
             make.width.equalTo(scrollView.frameLayoutGuide)
-        }
-
-        heroHeader.snp.makeConstraints { make in
-            make.height.equalTo(Layout.heroHeight)
-        }
-
-        bodyStack.snp.makeConstraints { make in
-            make.top.left.right.equalToSuperview().inset(Layout.bodyPadding)
-            make.bottom.equalToSuperview().inset(Layout.bodyPadding)
         }
 
         footerView.snp.makeConstraints { make in
@@ -325,9 +386,56 @@ final class TourDetailViewController: BaseViewController {
     private static func makeSectionTitleLabel(text: String) -> UILabel {
         let label = UILabel()
         label.text = text
-        label.applyTypography(.textMd(weight: .semibold))
+        label.applyTypography(.textLg(weight: .semibold))
         label.textColor = AppColor.PrimaryColors.Gray.color800
         return label
+    }
+
+    /// A full-bleed white card. Deliberately unclipped so `makeBleedingRow` can let
+    /// a pill row overflow the trailing padding.
+    private func makeCard(containing content: UIView) -> UIView {
+        let card = UIView()
+        card.backgroundColor = .white
+        card.layer.cornerRadius = Layout.cardCornerRadius
+        card.clipsToBounds = false
+
+        card.addSubview(content)
+        content.snp.makeConstraints { make in
+            make.edges.equalToSuperview().inset(Layout.cardPadding)
+        }
+        return card
+    }
+
+    /// Lets a horizontally scrolling row run past the card's trailing padding to
+    /// the screen edge. The design cuts the duration row off mid-pill at the edge,
+    /// which is the cue that it scrolls; stopping it at the padding would instead
+    /// read as a row that simply ends there.
+    private func makeBleedingRow(_ content: UIView) -> UIView {
+        let container = UIView()
+        container.addSubview(content)
+        content.snp.makeConstraints { make in
+            make.top.bottom.left.equalToSuperview()
+            make.right.equalToSuperview().offset(Layout.cardPadding)
+        }
+        return container
+    }
+
+    /// Same shadow recipe `TourReviewsViewController` gives its own review cards,
+    /// so one review looks identical whether it is read here or on the full list.
+    private func makeReviewCard(containing content: UIView) -> UIView {
+        let card = UIView()
+        card.backgroundColor = .white
+        card.layer.cornerRadius = Layout.reviewCardCornerRadius
+        card.layer.shadowColor = UIColor.black.cgColor
+        card.layer.shadowOpacity = 0.08
+        card.layer.shadowOffset = CGSize(width: 0, height: 4)
+        card.layer.shadowRadius = 12
+
+        card.addSubview(content)
+        content.snp.makeConstraints { make in
+            make.edges.equalToSuperview().inset(Layout.reviewCardPadding)
+        }
+        return card
     }
 }
 
@@ -347,8 +455,8 @@ extension TourDetailViewController: TourDetailViewProtocol {
             isFavorite: viewModel.isFavorite
         )
 
-        titleLabel.text = viewModel.title
-        descriptionLabel.text = viewModel.description
+        titleLabel.setText(viewModel.title)
+        descriptionLabel.setText(viewModel.description)
         descriptionLabel.isHidden = viewModel.description == nil
 
         parametersCard.configure(with: viewModel)
@@ -356,13 +464,13 @@ extension TourDetailViewController: TourDetailViewProtocol {
         durationSection.isHidden = viewModel.durationTitles.isEmpty
         durationPillRow.configure(titles: viewModel.durationTitles, selectedIndex: viewModel.selectedDurationIndex)
 
-        departureTitleLabel.text = viewModel.departureSectionTitle
+        departureTitleLabel.setText(viewModel.departureSectionTitle)
         departurePillRow.configure(
             titles: viewModel.departureTimeTitles,
             selectedIndex: viewModel.selectedDepartureTimeIndex
         )
 
-        airfieldLabel.text = viewModel.airfieldText
+        airfieldLabel.setText(viewModel.airfieldText)
         airfieldRow.isHidden = viewModel.airfieldText == nil
         routeTimeline.configure(waypoints: viewModel.routeWaypoints)
 
@@ -375,8 +483,9 @@ extension TourDetailViewController: TourDetailViewProtocol {
         viewModel.reviews.forEach {
             let card = TourReviewCardView()
             card.configure(with: $0)
-            reviewsStack.addArrangedSubview(card)
+            reviewsStack.addArrangedSubview(makeReviewCard(containing: card))
         }
+        reviewsCardContainer.isHidden = viewModel.reviews.isEmpty
 
         // Written into the configuration, not via `setTitle(_:for:)`: a legacy
         // title is only folded into a configuration at the moment one is assigned,
