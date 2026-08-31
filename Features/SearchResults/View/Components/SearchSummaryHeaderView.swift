@@ -66,7 +66,7 @@ final class SearchSummaryHeaderView: UIView {
 
     private let filterButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setImage(UIImage(systemName: "slider.horizontal.3"), for: .normal)
+        button.setImage(AssetsIcon.slider, for: .normal)
         button.tintColor = AppColor.PrimaryColors.Gray.color800
         button.isHidden = true
         return button

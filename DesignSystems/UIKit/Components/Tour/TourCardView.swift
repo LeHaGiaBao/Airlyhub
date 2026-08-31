@@ -20,14 +20,16 @@ final class TourCardView: UIView {
         /// Matches the 16:10 crop in the design.
         static let imageAspectRatio: CGFloat = 10.0 / 16.0
         static let badgeInset: CGFloat = 8
-        static let favoriteSize: CGFloat = 32
+        static let favoriteSize: CGFloat = 24
         static let favoriteInset: CGFloat = 8
         static let titleSpacing: CGFloat = 12
-        static let priceSpacing: CGFloat = 8
+        static let priceSpacing: CGFloat = 12
     }
 
-    private static let favoriteOn = UIImage(systemName: "heart.fill")
-    private static let favoriteOff = UIImage(systemName: "heart")
+    /// Sized down to sit centred inside the 24pt disc with a little breathing room.
+    private static let favoriteConfig = UIImage.SymbolConfiguration(pointSize: 10, weight: .semibold)
+    private static let favoriteOn = UIImage(systemName: "heart.fill", withConfiguration: favoriteConfig)
+    private static let favoriteOff = UIImage(systemName: "heart", withConfiguration: favoriteConfig)
     private static let placeholder = UIImage(systemName: "airplane")
 
     /// Carries the model's id so a list can act without holding an index that a
@@ -48,11 +50,13 @@ final class TourCardView: UIView {
         return imageView
     }()
 
+    /// Round scrim disc floating on the photo, heart centred inside it.
     private lazy var favoriteButton: UIButton = {
         let button = UIButton(type: .system)
         button.tintColor = .white
         button.backgroundColor = UIColor.black.withAlphaComponent(0.18)
         button.layer.cornerRadius = Layout.favoriteSize / 2
+        button.contentEdgeInsets = .zero
         button.addTarget(self, action: #selector(favoriteTapped), for: .touchUpInside)
         return button
     }()
@@ -106,7 +110,10 @@ final class TourCardView: UIView {
 
     func configure(with item: TourCardModel) {
         itemID = item.id
-        titleLabel.text = item.title
+        // `setText`, not `.text`: a plain assignment drops the textMd/semibold
+        // styling `applyTypography` baked in at init, leaving the title in the
+        // system font.
+        titleLabel.setText(item.title)
         badgeStrip.configure(ratingText: item.ratingText, badges: item.badges)
         imageView.setCachedImage(from: item.imageURL, placeholder: Self.placeholder)
         setFavorite(item.isFavorite)

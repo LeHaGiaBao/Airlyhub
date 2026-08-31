@@ -148,7 +148,7 @@ final class TourDetailViewController: BaseViewController {
 
     private let airfieldIcon: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = AssetsIcon.location
+        imageView.image = AssetsIcon.mapFlight
         imageView.contentMode = .scaleAspectFit
         return imageView
     }()
