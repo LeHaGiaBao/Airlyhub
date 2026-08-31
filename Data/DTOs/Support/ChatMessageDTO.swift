@@ -80,4 +80,12 @@ extension ChatAttachmentDTO {
     func toDomain() -> ChatAttachment {
         ChatAttachment(path: path, name: name, contentType: contentType, size: size)
     }
+
+    /// The reverse — an already-uploaded attachment on its way into a message document.
+    init(_ attachment: ChatAttachment) {
+        self.init(path: attachment.path,
+                  name: attachment.name,
+                  contentType: attachment.contentType,
+                  size: attachment.size)
+    }
 }

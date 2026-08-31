@@ -13,12 +13,25 @@ enum CustomerServiceBuilderAction {
 }
 
 final class CustomerServiceBuilder {
+    private let container: AppContainer
+
+    init(container: AppContainer = .shared) {
+        self.container = container
+    }
+
     func build() -> (UIViewController, Observable<CustomerServiceBuilderAction>) {
-        let interactor = CustomerServiceInteractor()
+        let attachments = container.chatAttachmentRepository
+        let interactor = CustomerServiceInteractor(chat: container.chatRepository,
+                                                   attachments: attachments,
+                                                   auth: container.authRepository)
         let router = CustomerServiceRouter()
         let presenter = CustomerServicePresenter(interactor: interactor,
                                                  router: router)
-        let view = CustomerServiceView(presenter: presenter, router: router)
+        let view = CustomerServiceView(
+            presenter: presenter,
+            router: router,
+            loadAttachment: { path, completion in attachments.load(path: path, completion: completion) }
+        )
         presenter.view = view
         router.viewController = view
         return (view, presenter.customerServiceBuilderAction)

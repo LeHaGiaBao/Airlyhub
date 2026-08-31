@@ -23,7 +23,7 @@ import FirebaseDatabase
 ///    the thread to re-download every image ever sent.
 /// 2. **Reads are cached in memory.** RTDB has no CDN and the free plan meters egress,
 ///    so scrolling past the same photo twice must not fetch it twice.
-final class ChatAttachmentService {
+final class ChatAttachmentService: ChatAttachmentRepositoryProtocol {
     static let shared = ChatAttachmentService()
 
     private static let rootNode = "chatAttachments"

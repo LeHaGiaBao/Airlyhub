@@ -8,8 +8,16 @@
 import UIKit
 
 final class ProfilesBuilder {
+    private let container: AppContainer
+
+    init(container: AppContainer = .shared) {
+        self.container = container
+    }
+
     func build(nav: UINavigationController) -> UIViewController {
-        let interactor = ProfilesInteractor()
+        let interactor = ProfilesInteractor(auth: container.authRepository,
+                                            users: container.userRepository,
+                                            cards: container.cardRepository)
         let router = ProfilesRouter(nav: nav)
         let presenter = ProfilesPresenter(interactor: interactor,
                                           router: router)

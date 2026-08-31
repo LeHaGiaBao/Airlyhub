@@ -13,14 +13,14 @@ enum MyTicketsBuilderAction {
 }
 
 final class MyTicketsBuilder {
-    /// Must stay pointed at the same store `CheckoutBuilder` writes to, or a
-    /// booking just paid for would not appear in this list.
-    private static func makeBookingRepository() -> BookingRepositoryProtocol {
-        BookingService.shared
+    private let container: AppContainer
+
+    init(container: AppContainer = .shared) {
+        self.container = container
     }
 
     func build() -> (UIViewController, Observable<MyTicketsBuilderAction>) {
-        let interactor = MyTicketsInteractor(bookingRepository: Self.makeBookingRepository())
+        let interactor = MyTicketsInteractor(bookingRepository: container.bookingRepository)
         let router = MyTicketsRouter()
         let presenter = MyTicketsPresenter(interactor: interactor,
                                            router: router)

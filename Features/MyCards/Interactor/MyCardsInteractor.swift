@@ -9,15 +9,22 @@ import Foundation
 import RxSwift
 
 final class MyCardsInteractor: MyCardsInteractorProtocol {
+    private let cards: CardRepositoryProtocol
+    private let auth: AuthRepositoryProtocol
+
+    init(cards: CardRepositoryProtocol, auth: AuthRepositoryProtocol) {
+        self.cards = cards
+        self.auth = auth
+    }
 
     func fetchCards() -> Observable<[CardModel]> {
-        Observable.create { observer in
-            guard let uid = AuthService.shared.getCurrentUserId() else {
+        Observable.create { [cards, auth] observer in
+            guard let uid = auth.getCurrentUserId() else {
                 observer.onError(MyCardsError.notAuthenticated)
                 return Disposables.create()
             }
 
-            CardService.shared.fetchCards(uid: uid) { result in
+            cards.fetchCards(uid: uid) { result in
                 DispatchQueue.main.async {
                     switch result {
                     case .success(let cards):
@@ -34,8 +41,8 @@ final class MyCardsInteractor: MyCardsInteractorProtocol {
     }
 
     func addCard(_ input: NewCardInput) -> Observable<Void> {
-        Observable.create { observer in
-            guard let uid = AuthService.shared.getCurrentUserId() else {
+        Observable.create { [cards, auth] observer in
+            guard let uid = auth.getCurrentUserId() else {
                 observer.onError(MyCardsError.notAuthenticated)
                 return Disposables.create()
             }
@@ -51,13 +58,13 @@ final class MyCardsInteractor: MyCardsInteractorProtocol {
 
             // Read existing cards first: the limit and the duplicate check both need them,
             // and the first card added has to become the default.
-            CardService.shared.fetchCards(uid: uid) { result in
+            cards.fetchCards(uid: uid) { result in
                 switch result {
                 case .failure(let error):
                     DispatchQueue.main.async { observer.onError(error) }
 
                 case .success(let existing):
-                    guard existing.count < CardService.maxCardsPerUser else {
+                    guard existing.count < cards.maxCardsPerUser else {
                         DispatchQueue.main.async { observer.onError(MyCardsError.cardLimitReached) }
                         return
                     }
@@ -80,7 +87,7 @@ final class MyCardsInteractor: MyCardsInteractorProtocol {
                         // `input.cvv` is deliberately not referenced — see NewCardInput.
                         let encrypted = try CardCryptoService.shared.encrypt(digits)
 
-                        let draft = CardDTO.Draft(
+                        let newCard = NewCard(
                             userId: uid,
                             brand: brand,
                             last4: last4,
@@ -88,11 +95,11 @@ final class MyCardsInteractor: MyCardsInteractorProtocol {
                             expMonth: input.expMonth,
                             expYear: input.expYear,
                             // The first card a user saves becomes their default.
-                            isDefault: existing.isEmpty
+                            isDefault: existing.isEmpty,
+                            encrypted: encrypted
                         )
-                        let dto = CardDTO.make(draft, encrypted: encrypted)
 
-                        CardService.shared.addCard(card: dto) { addResult in
+                        cards.addCard(newCard) { addResult in
                             DispatchQueue.main.async {
                                 switch addResult {
                                 case .success:
@@ -114,15 +121,15 @@ final class MyCardsInteractor: MyCardsInteractorProtocol {
     }
 
     func deleteCard(id: String) -> Observable<Void> {
-        Observable.create { observer in
+        Observable.create { [cards, auth] observer in
             // The delete is still gated on being signed in; the rules then check that
             // the document's `userId` matches the caller before allowing it through.
-            guard AuthService.shared.getCurrentUserId() != nil else {
+            guard auth.getCurrentUserId() != nil else {
                 observer.onError(MyCardsError.notAuthenticated)
                 return Disposables.create()
             }
 
-            CardService.shared.deleteCard(cardId: id) { result in
+            cards.deleteCard(cardId: id) { result in
                 DispatchQueue.main.async {
                     switch result {
                     case .success:
@@ -139,13 +146,13 @@ final class MyCardsInteractor: MyCardsInteractorProtocol {
     }
 
     func setDefaultCard(id: String) -> Observable<Void> {
-        Observable.create { observer in
-            guard let uid = AuthService.shared.getCurrentUserId() else {
+        Observable.create { [cards, auth] observer in
+            guard let uid = auth.getCurrentUserId() else {
                 observer.onError(MyCardsError.notAuthenticated)
                 return Disposables.create()
             }
 
-            CardService.shared.setDefaultCard(uid: uid, cardId: id) { result in
+            cards.setDefaultCard(uid: uid, cardId: id) { result in
                 DispatchQueue.main.async {
                     switch result {
                     case .success:

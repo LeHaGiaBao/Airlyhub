@@ -15,8 +15,16 @@ enum EditProfileBuilderAction {
 }
 
 final class EditProfileBuilder {
+    private let container: AppContainer
+
+    init(container: AppContainer = .shared) {
+        self.container = container
+    }
+
     func build() -> (UIViewController, Observable<EditProfileBuilderAction>) {
-        let interactor = EditProfileInteractor()
+        let interactor = EditProfileInteractor(auth: container.authRepository,
+                                               users: container.userRepository,
+                                               avatars: container.avatarRepository)
         let router = EditProfileRouter()
         let presenter = EditProfilePresenter(interactor: interactor, router: router)
         let view = EditProfileView(presenter: presenter)

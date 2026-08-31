@@ -83,7 +83,9 @@ final class ChatMessageCell: UITableViewCell {
         pendingAttachmentPath = nil
     }
 
-    func configure(with item: ChatBubbleItem, maxWidth: CGFloat) {
+    func configure(with item: ChatBubbleItem,
+                   maxWidth: CGFloat,
+                   loadAttachment: ChatAttachmentLoader) {
         bubbleView.backgroundColor = item.isOutgoing
             ? AppColor.PrimaryColors.Primary.color700
             : AppColor.PrimaryColors.Primary.color500
@@ -105,7 +107,7 @@ final class ChatMessageCell: UITableViewCell {
         pendingAttachmentPath = attachment?.path
 
         if let attachment {
-            ChatAttachmentService.shared.load(path: attachment.path) { [weak self] data in
+            loadAttachment(attachment.path) { [weak self] data in
                 guard let self,
                       // Still the same message? A recycled cell must not adopt this photo.
                       self.pendingAttachmentPath == attachment.path,

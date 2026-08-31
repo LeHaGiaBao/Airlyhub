@@ -9,19 +9,15 @@
 import UIKit
 
 final class SearchResultsBuilder {
-    /// The single place the catalog's source is chosen.
-    ///
-    /// Point this at `TourService.shared` once the `tours` collection is populated
-    /// and its rules and indexes are deployed; nothing else in the feature changes,
-    /// because both sides implement `TourRepositoryProtocol` and return results in
-    /// the same order.
-    private static func makeRepository() -> TourRepositoryProtocol {
-        MockTourRepository()
+    private let container: AppContainer
+
+    init(container: AppContainer = .shared) {
+        self.container = container
     }
 
     func build(context: SearchResultsContext, nav: UINavigationController) -> UIViewController {
         let view = SearchResultsViewController()
-        let interactor = SearchResultsInteractor(repository: Self.makeRepository())
+        let interactor = SearchResultsInteractor(repository: container.tourRepository)
         let router = SearchResultsRouter(nav: nav)
         let presenter = SearchResultsPresenter(view: view,
                                                interactor: interactor,

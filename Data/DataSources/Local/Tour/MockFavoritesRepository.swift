@@ -10,17 +10,15 @@ import Foundation
 
 /// Saved tours held in memory, seeded so the Favorites screen has something to show.
 ///
-/// A shared instance rather than one per screen: two screens showing hearts must
-/// agree about which ones are filled, and a per-screen copy would let them drift.
-/// State lives only for the session — persisting ids now would outlive the mock
-/// catalog they point at, and `TourService` documents will carry auto-ids that none
-/// of these match.
+/// `AppContainer` holds one instance for the whole app: two screens showing hearts
+/// must agree about which ones are filled, and a per-screen copy would let them
+/// drift. State lives only for the session — persisting ids now would outlive the
+/// mock catalog they point at, and `TourService` documents will carry auto-ids
+/// that none of these match.
 ///
 /// Completions hop to the main queue after a short delay, like `MockTourRepository`,
 /// so the screen exercises its real loading state.
 final class MockFavoritesRepository: FavoritesRepositoryProtocol {
-    static let shared = MockFavoritesRepository()
-
     /// Two of each kind, matching the design's screenshots. Picked from
     /// `TourMockData` by id, so a record renamed there breaks the seed loudly —
     /// the screen renders empty — instead of quietly showing the wrong tour.

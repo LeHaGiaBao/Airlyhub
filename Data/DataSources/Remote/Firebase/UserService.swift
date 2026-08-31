@@ -8,7 +8,7 @@
 import Foundation
 import FirebaseFirestore
 
-final class UserService {
+final class UserService: UserRepositoryProtocol {
     static let shared = UserService()
     
     private let db = Firestore.firestore()

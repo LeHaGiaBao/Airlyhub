@@ -53,7 +53,7 @@ enum MyCardsError: LocalizedError, Equatable {
         case .cardLimitReached:
             return String(
                 format: NSLocalizedString("error_card_limit_reached", comment: ""),
-                CardService.maxCardsPerUser
+                CardPolicy.maxPerUser
             )
         }
     }

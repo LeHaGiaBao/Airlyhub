@@ -10,14 +10,26 @@ import Foundation
 import RxSwift
 
 final class EditProfileInteractor: EditProfileInteractorProtocol {
+    private let auth: AuthRepositoryProtocol
+    private let users: UserRepositoryProtocol
+    private let avatars: AvatarRepositoryProtocol
+
+    init(auth: AuthRepositoryProtocol,
+         users: UserRepositoryProtocol,
+         avatars: AvatarRepositoryProtocol) {
+        self.auth = auth
+        self.users = users
+        self.avatars = avatars
+    }
+
     func fetchCurrentUser() -> Observable<EditProfileUser> {
-        Observable.create { observer in
-            guard let uid = AuthService.shared.getCurrentUserId() else {
+        Observable.create { [auth, users] observer in
+            guard let uid = auth.getCurrentUserId() else {
                 observer.onError(EditProfileError.notAuthenticated)
                 return Disposables.create()
             }
 
-            UserService.shared.fetchUserProfile(uid: uid) { result in
+            users.fetchUserProfile(uid: uid) { result in
                 DispatchQueue.main.async {
                     switch result {
                     case .success(let user):
@@ -40,14 +52,14 @@ final class EditProfileInteractor: EditProfileInteractorProtocol {
     }
 
     func updateProfile(name: String, phone: String, oldPassword: String?, newPassword: String?) -> Observable<Void> {
-        Observable.create { observer in
-            guard let uid = AuthService.shared.getCurrentUserId() else {
+        Observable.create { [auth, users] observer in
+            guard let uid = auth.getCurrentUserId() else {
                 observer.onError(EditProfileError.notAuthenticated)
                 return Disposables.create()
             }
 
             func updateFirestore(_ finish: @escaping (Result<Void, Error>) -> Void) {
-                UserService.shared.updateUserProfile(uid: uid, data: ["name": name, "phone": phone]) { result in
+                users.updateUserProfile(uid: uid, data: ["name": name, "phone": phone]) { result in
                     switch result {
                     case .success:
                         finish(.success(()))
@@ -70,10 +82,10 @@ final class EditProfileInteractor: EditProfileInteractorProtocol {
             }
 
             if let newPassword, !newPassword.isEmpty {
-                AuthService.shared.reauthenticate(password: oldPassword ?? "") { reauthResult in
+                auth.reauthenticate(password: oldPassword ?? "") { reauthResult in
                     switch reauthResult {
                     case .success:
-                        AuthService.shared.updatePassword(newPassword: newPassword) { result in
+                        auth.updatePassword(newPassword: newPassword) { result in
                             switch result {
                             case .success:
                                 updateFirestore(finish)
@@ -94,16 +106,16 @@ final class EditProfileInteractor: EditProfileInteractorProtocol {
     }
 
     func updateAvatar(imageData: Data) -> Observable<String> {
-        Observable.create { observer in
-            guard let uid = AuthService.shared.getCurrentUserId() else {
+        Observable.create { [auth, users, avatars] observer in
+            guard let uid = auth.getCurrentUserId() else {
                 observer.onError(EditProfileError.notAuthenticated)
                 return Disposables.create()
             }
 
-            AvatarService.shared.uploadAvatar(uid: uid, imageData: imageData) { uploadResult in
+            avatars.uploadAvatar(uid: uid, imageData: imageData) { uploadResult in
                 switch uploadResult {
                 case .success(let reference):
-                    UserService.shared.updateAvatar(uid: uid, avatarUrl: reference) { updateResult in
+                    users.updateAvatar(uid: uid, avatarUrl: reference) { updateResult in
                         DispatchQueue.main.async {
                             switch updateResult {
                             case .success:

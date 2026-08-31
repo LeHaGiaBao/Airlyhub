@@ -9,20 +9,31 @@ import Foundation
 import RxSwift
 
 final class CustomerServiceInteractor: CustomerServiceInteractorProtocol {
+    private let chat: ChatRepositoryProtocol
+    private let attachments: ChatAttachmentRepositoryProtocol
+    private let auth: AuthRepositoryProtocol
+
+    init(chat: ChatRepositoryProtocol,
+         attachments: ChatAttachmentRepositoryProtocol,
+         auth: AuthRepositoryProtocol) {
+        self.chat = chat
+        self.attachments = attachments
+        self.auth = auth
+    }
 
     func loadConversation() -> Observable<ChatConversationModel> {
-        Observable.create { observer in
-            guard let uid = AuthService.shared.getCurrentUserId() else {
+        Observable.create { [chat, auth] observer in
+            guard let uid = auth.getCurrentUserId() else {
                 observer.onError(CustomerServiceError.notAuthenticated)
                 return Disposables.create()
             }
 
             // Name and email are copied onto the thread so an operator reading it in the
             // Firebase console sees who they're talking to without a second lookup.
-            ChatService.shared.loadOrCreateConversation(
+            chat.loadOrCreateConversation(
                 uid: uid,
-                userName: AuthService.shared.getCurrentUserName(),
-                userEmail: AuthService.shared.getCurrentUserEmail()
+                userName: auth.getCurrentUserName(),
+                userEmail: auth.getCurrentUserEmail()
             ) { result in
                 DispatchQueue.main.async {
                     switch result {
@@ -40,13 +51,13 @@ final class CustomerServiceInteractor: CustomerServiceInteractorProtocol {
     }
 
     func observeMessages() -> Observable<[ChatMessageModel]> {
-        Observable.create { observer in
-            guard let uid = AuthService.shared.getCurrentUserId() else {
+        Observable.create { [chat, auth] observer in
+            guard let uid = auth.getCurrentUserId() else {
                 observer.onError(CustomerServiceError.notAuthenticated)
                 return Disposables.create()
             }
 
-            let registration = ChatService.shared.observeMessages(uid: uid) { result in
+            let subscription = chat.observeMessages(uid: uid) { result in
                 DispatchQueue.main.async {
                     switch result {
                     case .success(let messages):
@@ -61,13 +72,13 @@ final class CustomerServiceInteractor: CustomerServiceInteractorProtocol {
 
             // Without this the listener outlives the screen, billing reads forever and
             // retaining the observer along with it.
-            return Disposables.create { registration.remove() }
+            return Disposables.create { subscription.remove() }
         }
     }
 
     func sendMessage(text: String, attachment: ChatAttachmentDraft?) -> Observable<Void> {
-        Observable.create { observer in
-            guard let uid = AuthService.shared.getCurrentUserId() else {
+        Observable.create { [chat, attachments, auth] observer in
+            guard let uid = auth.getCurrentUserId() else {
                 observer.onError(CustomerServiceError.notAuthenticated)
                 return Disposables.create()
             }
@@ -81,19 +92,33 @@ final class CustomerServiceInteractor: CustomerServiceInteractorProtocol {
 
             // Mirrors the rules' own length check, so an over-long message is refused
             // here with a readable message instead of coming back as a permission error.
-            guard trimmed.count <= ChatService.maxMessageLength else {
+            guard trimmed.count <= ChatPolicy.maxMessageLength else {
                 observer.onError(CustomerServiceError.messageTooLong)
                 return Disposables.create()
             }
 
+            let write: ([ChatAttachment]) -> Void = { files in
+                chat.sendMessage(uid: uid, OutgoingChatMessage(text: trimmed, attachments: files)) { result in
+                    DispatchQueue.main.async {
+                        switch result {
+                        case .success:
+                            observer.onNext(())
+                            observer.onCompleted()
+                        case .failure(let error):
+                            observer.onError(error)
+                        }
+                    }
+                }
+            }
+
             guard let attachment else {
-                self.write(uid: uid, text: trimmed, attachments: [], observer: observer)
+                write([])
                 return Disposables.create()
             }
 
             // Checked before the size test so a build without Realtime Database reports
             // the real reason rather than blaming the user's photo.
-            guard ChatAttachmentService.shared.isAvailable else {
+            guard attachments.isAvailable else {
                 observer.onError(CustomerServiceError.attachmentsUnavailable)
                 return Disposables.create()
             }
@@ -105,20 +130,20 @@ final class CustomerServiceInteractor: CustomerServiceInteractorProtocol {
 
             // The payload has to be stored before the message that references it is
             // written — otherwise the thread would briefly show a broken attachment.
-            ChatAttachmentService.shared.upload(
+            attachments.upload(
                 uid: uid,
                 attachmentId: UUID().uuidString,
                 data: attachment.data
             ) { result in
                 switch result {
                 case .success(let path):
-                    let dto = ChatAttachmentDTO(
+                    let file = ChatAttachment(
                         path: path,
                         name: attachment.name,
                         contentType: attachment.contentType,
                         size: attachment.data.count
                     )
-                    self.write(uid: uid, text: trimmed, attachments: [dto], observer: observer)
+                    write([file])
 
                 case .failure:
                     // Database errors are opaque to a user (permission codes, quota text);
@@ -130,28 +155,6 @@ final class CustomerServiceInteractor: CustomerServiceInteractorProtocol {
             }
 
             return Disposables.create()
-        }
-    }
-}
-
-// MARK: - Private
-private extension CustomerServiceInteractor {
-    func write(uid: String,
-               text: String,
-               attachments: [ChatAttachmentDTO],
-               observer: AnyObserver<Void>) {
-        let message = ChatMessageDTO.make(senderId: uid, text: text, attachments: attachments)
-
-        ChatService.shared.sendMessage(uid: uid, message: message) { result in
-            DispatchQueue.main.async {
-                switch result {
-                case .success:
-                    observer.onNext(())
-                    observer.onCompleted()
-                case .failure(let error):
-                    observer.onError(error)
-                }
-            }
         }
     }
 }

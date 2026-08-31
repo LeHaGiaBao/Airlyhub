@@ -12,6 +12,7 @@ import PhotosUI
 final class CustomerServiceView: BaseViewController {
     private let presenter: CustomerServicePresenterProtocol
     private let router: CustomerServiceRouterProtocol
+    private let loadAttachment: ChatAttachmentLoader
     private let topNavigatorVC: TopNavigatorView
 
     private let tableView = UITableView(frame: .zero, style: .plain)
@@ -27,9 +28,11 @@ final class CustomerServiceView: BaseViewController {
     }
 
     init(presenter: CustomerServicePresenterProtocol,
-         router: CustomerServiceRouterProtocol) {
+         router: CustomerServiceRouterProtocol,
+         loadAttachment: @escaping ChatAttachmentLoader) {
         self.presenter = presenter
         self.router = router
+        self.loadAttachment = loadAttachment
         self.topNavigatorVC = TopNavigatorView(
             topNavigatorTile: NSLocalizedString("customer_service", comment: "")
         )
@@ -268,7 +271,9 @@ extension CustomerServiceView: UITableViewDataSource {
             ) as? ChatMessageCell else {
                 return UITableViewCell()
             }
-            cell.configure(with: item, maxWidth: tableView.bounds.width)
+            cell.configure(with: item,
+                           maxWidth: tableView.bounds.width,
+                           loadAttachment: loadAttachment)
             return cell
         }
     }

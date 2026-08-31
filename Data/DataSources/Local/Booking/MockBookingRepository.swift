@@ -12,12 +12,10 @@ import Foundation
 /// user has booked anything — the same role `MockFavoritesRepository` plays for
 /// Favorites.
 ///
-/// A shared instance rather than one per screen: a booking made on Checkout has to
-/// show up when My Tickets is opened next, and a per-screen copy would lose it the
-/// moment the app is backgrounded.
+/// When wired in via `AppContainer`, register it as one instance for the whole
+/// app: a booking made on Checkout has to show up when My Tickets is opened next,
+/// and a per-screen copy would lose it the moment the app is backgrounded.
 final class MockBookingRepository: BookingRepositoryProtocol {
-    static let shared = MockBookingRepository()
-
     /// Three seeded tickets pulled from `TourMockData` by id, the same way
     /// `MockFavoritesRepository.seed` is — a record renamed there breaks this
     /// loudly (the ticket renders empty) instead of silently showing stale copy.

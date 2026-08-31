@@ -9,9 +9,15 @@ import Foundation
 import RxSwift
 
 final class LoginInteractor: LoginInteractorProtocol {
+    private let auth: AuthRepositoryProtocol
+
+    init(auth: AuthRepositoryProtocol) {
+        self.auth = auth
+    }
+
     func login(email: String, password: String) -> Observable<Void> {
-        Observable.create { observer in
-            AuthService.shared.login(email: email, password: password) { result in
+        Observable.create { [auth] observer in
+            auth.login(email: email, password: password) { result in
                 DispatchQueue.main.async {
                     switch result {
                     case .success:

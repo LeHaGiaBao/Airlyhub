@@ -21,7 +21,7 @@ enum AvatarServiceError: Error {
 /// Stores avatars as base64 JPEG strings in Realtime Database instead of Cloud Storage,
 /// which the free plan doesn't provision. Same shape as `ChatAttachmentService`, minus
 /// the cache — a profile photo is fetched once per screen, not once per scrolled row.
-final class AvatarService {
+final class AvatarService: AvatarRepositoryProtocol {
     static let shared = AvatarService()
 
     /// Matches the `avatars/$uid` security rule, which rejects longer strings server-side.
