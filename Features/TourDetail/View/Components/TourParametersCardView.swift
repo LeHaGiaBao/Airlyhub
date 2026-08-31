@@ -10,14 +10,14 @@ import UIKit
 import SnapKit
 
 /// The "Tour parameters" box: a trip-level place-or-date row, then the passenger
-/// count, joined by a hairline inside one outlined container.
+/// count, joined by a hairline inside one softly-shadowed container.
 ///
 /// One container rather than the free-standing raised rows the search form uses —
-/// those rows sit on the app's grey background, where a shadow reads as elevation,
-/// while here they sit on a white card, where the same shadow reads as noise. The
-/// rows themselves are still `FlightsDateRowView` and `FlightsPassengersRowView`,
-/// flattened through `applyFlatStyle()` so the border draws the surface instead of
-/// each row drawing its own.
+/// each of those casts its own shadow, which reads as noise once two rows sit back
+/// to back with nothing between them. The rows themselves are still
+/// `FlightsDateRowView` and `FlightsPassengersRowView`, flattened through
+/// `applyFlatStyle()` so this view's own shadow and background are the only ones
+/// drawn.
 ///
 /// The first row is the one place the tour/flight split shows up as a type check
 /// rather than an optional field collapsing — a static city label and a tappable
@@ -100,12 +100,14 @@ final class TourParametersCardView: UIView {
         return stack
     }()
 
+    /// The white, rounded surface. Kept separate from `self` because it has to
+    /// `clipsToBounds` for the corner radius, and the shadow this view itself casts
+    /// (see `setupUI`/`layoutSubviews`) would be clipped along with it if the two
+    /// were the same layer.
     private let boxView: UIView = {
         let view = UIView()
         view.backgroundColor = .white
         view.layer.cornerRadius = Layout.cornerRadius
-        view.layer.borderWidth = 1
-        view.layer.borderColor = AppColor.PrimaryColors.Gray.color200?.cgColor
         view.clipsToBounds = true
         return view
     }()
@@ -117,6 +119,17 @@ final class TourParametersCardView: UIView {
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+
+    /// Same shadow recipe `FlightsDateRowView` and `ExploreLocationRowView` give
+    /// their own rows, so this box reads as the same kind of surface as the rest
+    /// of the app's raised cards rather than introducing a new elevation style. A
+    /// concrete `shadowPath` — rather than one Core Animation infers from the
+    /// layer — is both cheaper to render and immune to `clipsToBounds` on `boxView`
+    /// cutting it off.
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        layer.shadowPath = UIBezierPath(roundedRect: bounds, cornerRadius: Layout.cornerRadius).cgPath
     }
 
     func configure(with viewModel: TourDetailViewModel) {
@@ -136,6 +149,12 @@ final class TourParametersCardView: UIView {
         dateRow.delegate = self
         dateRow.applyFlatStyle()
         passengersView.applyFlatStyle()
+
+        backgroundColor = .clear
+        layer.shadowColor = UIColor.black.cgColor
+        layer.shadowOpacity = 0.08
+        layer.shadowOffset = CGSize(width: 0, height: 4)
+        layer.shadowRadius = 12
 
         addSubview(boxView)
         boxView.addSubview(rowsStack)
