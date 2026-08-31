@@ -16,14 +16,14 @@ import UIKit
 /// style flag on both call sites.
 final class TagBadgeView: UIView {
     private enum Layout {
-        static let height: CGFloat = 22
-        static let horizontalInset: CGFloat = 8
+        static let height: CGFloat = 21
+        static let horizontalInset: CGFloat = 6
         static let iconSize: CGFloat = 11
         static let iconSpacing: CGFloat = 3
     }
 
     var text: String? {
-        didSet { titleLabel.text = text }
+        didSet { titleLabel.setText(text) }
     }
 
     private let iconView: UIImageView = {
@@ -37,7 +37,15 @@ final class TagBadgeView: UIView {
 
     private let titleLabel: UILabel = {
         let label = UILabel()
-        label.applyTypography(.textXs(weight: .medium))
+        // Set before `applyTypography`, which bakes the current `textAlignment`
+        // into the paragraph style it builds — set afterwards, this would center
+        // the label's frame but leave the text itself pinned left.
+        label.textAlignment = .center
+        // `.natural`, not the token line height: the token's surplus leading is
+        // what kept this text sitting high in the pill however the label's own box
+        // was centered. On the font's own metrics the label's box is the text's
+        // box, so `contentStack`'s `centerY` centers the glyphs too.
+        label.applyTypography(.textXs(weight: .medium), lineHeight: .natural)
         label.textColor = AppColor.PrimaryColors.Gray.color800
         // The strip lays chips out left to right; the last one gives way first
         // rather than pushing the row past the card edge.
@@ -55,8 +63,12 @@ final class TagBadgeView: UIView {
 
     init(text: String? = nil, icon: UIImage? = nil) {
         super.init(frame: .zero)
+        // `didSet` on a property this same type declares isn't reliably called for
+        // an assignment made from within this type's own init — hence pushing into
+        // `titleLabel` again explicitly rather than trusting `self.text = text`
+        // alone to carry it there.
         self.text = text
-        titleLabel.text = text
+        titleLabel.setText(text)
         setupUI()
         setIcon(icon)
     }

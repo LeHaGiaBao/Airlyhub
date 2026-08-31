@@ -52,6 +52,9 @@ struct TourDetailViewModel {
     let routeWaypoints: [String]
 
     let pilot: PilotModel
+    /// Only the first `previewReviewLimit` reviews — the rest live behind the
+    /// "All reviews" button, which routes to the full list from `TourDetailModel`
+    /// rather than from here.
     let reviews: [TourReviewModel]
 
     /// "Book for 10 000 ₽" — already carries the currently selected duration's
@@ -61,6 +64,10 @@ struct TourDetailViewModel {
 
 // MARK: - Mapping
 extension TourDetailViewModel {
+    /// How many reviews the detail screen previews before deferring to the full
+    /// list. Two is what the design shows under "Customer reviews".
+    private static let previewReviewLimit = 2
+
     init(detail: TourDetailModel, selection: TourDetailSelection, isFavorite: Bool) {
         var badges: [String] = []
         if let airfield = detail.airfield, !airfield.isEmpty {
@@ -101,7 +108,7 @@ extension TourDetailViewModel {
             airfieldText: detail.airfield.map(TourFormatter.airfield),
             routeWaypoints: detail.routeWaypoints,
             pilot: detail.pilot,
-            reviews: detail.reviews,
+            reviews: Array(detail.reviews.prefix(Self.previewReviewLimit)),
             bookButtonText: String(
                 format: NSLocalizedString("tour_detail_book_button", comment: ""),
                 TourFormatter.price(bookPrice, currencyCode: detail.currencyCode)

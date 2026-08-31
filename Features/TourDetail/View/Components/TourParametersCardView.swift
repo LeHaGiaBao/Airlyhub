@@ -9,21 +9,27 @@
 import UIKit
 import SnapKit
 
-/// The "Tour parameters" card: a trip-level place-or-date row, then the passenger
-/// count.
+/// The "Tour parameters" box: a trip-level place-or-date row, then the passenger
+/// count, joined by a hairline inside one outlined container.
+///
+/// One container rather than the free-standing raised rows the search form uses —
+/// those rows sit on the app's grey background, where a shadow reads as elevation,
+/// while here they sit on a white card, where the same shadow reads as noise. The
+/// rows themselves are still `FlightsDateRowView` and `FlightsPassengersRowView`,
+/// flattened through `applyFlatStyle()` so the border draws the surface instead of
+/// each row drawing its own.
 ///
 /// The first row is the one place the tour/flight split shows up as a type check
 /// rather than an optional field collapsing — a static city label and a tappable
 /// date picker are different enough controls that no single view renders both.
-/// Reuses `FlightsDateRowView` and `FlightsPassengersRowView` as-is: they are
-/// already generic, and `SearchFilterBottomSheetViewController` sets the precedent
-/// of a screen outside Flights using them directly rather than re-creating them.
 final class TourParametersCardView: UIView {
     private enum Layout {
         static let rowHeight: CGFloat = 56
         static let horizontalPadding: CGFloat = 12
         static let iconSpacing: CGFloat = 12
-        static let stackSpacing: CGFloat = 12
+        static let iconSize: CGFloat = 24
+        static let cornerRadius: CGFloat = 12
+        static let separatorHeight: CGFloat = 1
     }
 
     var onDateSelected: ((Date) -> Void)?
@@ -31,9 +37,8 @@ final class TourParametersCardView: UIView {
 
     private let originIcon: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = AssetsIcon.location
-        imageView.contentMode = .left
-        imageView.tintColor = AppColor.PrimaryColors.Gray.color400
+        imageView.image = AssetsIcon.calendar
+        imageView.contentMode = .scaleAspectFit
         return imageView
     }()
 
@@ -56,13 +61,14 @@ final class TourParametersCardView: UIView {
     /// handler and no delegate of its own.
     private lazy var originRow: UIView = {
         let row = UIView()
-        row.backgroundColor = AppColor.PrimaryColors.Gray.color25
-        row.layer.cornerRadius = 8
-        row.clipsToBounds = true
         row.addSubview(originContent)
 
+        originIcon.snp.makeConstraints { make in
+            make.width.height.equalTo(Layout.iconSize)
+        }
         originContent.snp.makeConstraints { make in
             make.left.equalToSuperview().offset(Layout.horizontalPadding)
+            make.right.lessThanOrEqualToSuperview().inset(Layout.horizontalPadding)
             make.centerY.equalToSuperview()
         }
         row.snp.makeConstraints { make in
@@ -79,12 +85,29 @@ final class TourParametersCardView: UIView {
         return view
     }()
 
-    private lazy var contentStack: UIStackView = {
-        let stack = UIStackView(arrangedSubviews: [originRow, dateRow, passengersView])
+    private let separator: UIView = {
+        let view = UIView()
+        view.backgroundColor = AppColor.PrimaryColors.Gray.color200
+        return view
+    }()
+
+    private lazy var rowsStack: UIStackView = {
+        let stack = UIStackView(arrangedSubviews: [originRow, dateRow, separator, passengersView])
         stack.axis = .vertical
         stack.alignment = .fill
-        stack.spacing = Layout.stackSpacing
+        // Zero: the separator is the only thing that should show between rows.
+        stack.spacing = 0
         return stack
+    }()
+
+    private let boxView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .white
+        view.layer.cornerRadius = Layout.cornerRadius
+        view.layer.borderWidth = 1
+        view.layer.borderColor = AppColor.PrimaryColors.Gray.color200?.cgColor
+        view.clipsToBounds = true
+        return view
     }()
 
     override init(frame: CGRect) {
@@ -101,7 +124,7 @@ final class TourParametersCardView: UIView {
         originRow.isHidden = !isTour
         dateRow.isHidden = isTour
 
-        originLabel.text = viewModel.originText
+        originLabel.setText(viewModel.originText)
         if let date = viewModel.date {
             dateRow.setDate(date)
         }
@@ -110,10 +133,21 @@ final class TourParametersCardView: UIView {
 
     private func setupUI() {
         dateRow.placeholder = NSLocalizedString("flights_departure_date", comment: "")
+        dateRow.delegate = self
+        dateRow.applyFlatStyle()
+        passengersView.applyFlatStyle()
 
-        addSubview(contentStack)
-        contentStack.snp.makeConstraints { make in
+        addSubview(boxView)
+        boxView.addSubview(rowsStack)
+
+        boxView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
+        }
+        rowsStack.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
+        separator.snp.makeConstraints { make in
+            make.height.equalTo(Layout.separatorHeight)
         }
     }
 }

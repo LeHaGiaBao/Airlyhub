@@ -87,7 +87,7 @@ final class FlightsPassengersRowView: UIView {
     
     private(set) var count: Int = 1 {
         didSet {
-            countLabel.text = "\(count)"
+            countLabel.setText("\(count)")
         }
     }
 
@@ -158,9 +158,18 @@ extension FlightsPassengersRowView {
         stepperStack.addArrangedSubview(increaseBtn)
         setupStepperButton(decrementBtn)
         setupStepperButton(increaseBtn)
-        countLabel.text = "\(count)"
+        countLabel.setText("\(count)")
     }
     
+    /// Drops the raised-card chrome so the row can sit inside a container that
+    /// draws the surface itself — the tour detail's outlined parameters box, where
+    /// the search form's shadow would read as noise on an already-white card.
+    func applyFlatStyle() {
+        contentView.backgroundColor = .clear
+        contentView.layer.cornerRadius = 0
+        layer.shadowOpacity = 0
+    }
+
     private func setupStepperButton(_ button: UIButton) {
         button.tintColor = AppColor.PrimaryColors.Gray.color700
         button.backgroundColor = AppColor.PrimaryColors.Gray.color100

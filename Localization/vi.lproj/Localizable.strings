@@ -202,7 +202,7 @@
 
 // MARK: - Tour detail
 "tour_detail_parameters" = "Thông số chuyến bay";
-"tour_detail_description" = "Chuyến bay thú vị quanh khu vực %@, bao gồm các động tác nhào lộn nhẹ và trải nghiệm không trọng lực ngắn.";
+"tour_detail_description" = "Chuyến bay thú vị trên máy bay ngắm cảnh Cessna 172 quanh khu vực sân bay. Chuyến bay bao gồm các động tác nhào lộn đơn giản và chế độ không trọng lực trong thời gian ngắn.";
 "tour_detail_flight_duration" = "Thời lượng bay";
 "tour_detail_duration_minutes" = "%d phút";
 "tour_detail_start_of_flight" = "Giờ khởi hành";

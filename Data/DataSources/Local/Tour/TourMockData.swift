@@ -238,7 +238,7 @@ extension TourMockData {
             id: tour.id,
             type: tour.type,
             title: tour.title,
-            description: isTour ? description(for: tour) : nil,
+            description: isTour ? description : nil,
             imageURL: tour.imageURL,
             rating: tour.rating,
             airfield: tour.airfield,
@@ -284,9 +284,12 @@ extension TourMockData {
         return [destination]
     }
 
-    private static func description(for tour: TourModel) -> String {
-        String(format: NSLocalizedString("tour_detail_description", comment: ""),
-               tour.airfield ?? tour.title)
+    /// One blurb for the whole catalog, the way `pilot` and `reviews` below are
+    /// also shared: every `.tour` record in the mock is the same sightseeing hop in
+    /// the same airplane, so naming the individual airfield only made the copy read
+    /// as generated.
+    private static var description: String {
+        NSLocalizedString("tour_detail_description", comment: "")
     }
 
     private static let durationMinutes = [20, 35, 40, 50, 60]
