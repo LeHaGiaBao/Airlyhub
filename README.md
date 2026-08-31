@@ -15,7 +15,22 @@
 
 ## Architecture
 
-- VIPER
+VIPER per screen, layered like Clean Architecture: `Features → Domain ← Data`, with `Core` and `DesignSystem` shared across layers and `AppContainer` as the single composition root.
+
+## Folder structure
+
+```
+Sources/
+  App/            App entry point + composition root (DI/AppContainer)
+  Core/           Cross-cutting infra: config, network, security, localization, formatting, validation
+  Domain/         Entities + repository protocols (Foundation-only)
+  Data/           DTOs + repository implementations (Firebase, mocks)
+  DesignSystem/   Design tokens, base view controllers, shared UI components
+  Features/       One VIPER module per screen (Entity/Interactor/Presenter/View/Router/Builder)
+Resources/        Assets, fonts, localized strings
+Tests/            Unit/ and UI/ targets
+Playground/       DesignSystem usage examples — excluded from the app build
+```
 
 ## UI design available here: [Figma](https://www.figma.com/community/file/1348042899657539399/flights-free-app-ui-kit)
 
@@ -55,12 +70,12 @@ Per-environment values live in `Tuist/Config/{Dev,Staging,Prod}.xcconfig` and ar
 Each environment needs its own `GoogleService-Info.plist` (the bundle IDs differ, so one file cannot be shared). These files are **git-ignored** — obtain them from the Firebase console and place them at:
 
 ```
-Airlyhub/Firebase/Dev/GoogleService-Info.plist
-Airlyhub/Firebase/Staging/GoogleService-Info.plist
-Airlyhub/Firebase/Prod/GoogleService-Info.plist
+Sources/Core/Config/Firebase/Dev/GoogleService-Info.plist
+Sources/Core/Config/Firebase/Staging/GoogleService-Info.plist
+Sources/Core/Config/Firebase/Prod/GoogleService-Info.plist
 ```
 
-See `Airlyhub/Firebase/GoogleService-Info.plist.example` for the expected format. A build-phase script copies the correct file into the app bundle based on the active configuration, so the build will fail with `error: Missing .../GoogleService-Info.plist` if any are absent.
+See `Sources/Core/Config/Firebase/GoogleService-Info.plist.example` for the expected format. A build-phase script copies the correct file into the app bundle based on the active configuration, so the build will fail with `error: Missing .../GoogleService-Info.plist` if any are absent.
 
 ## Development
 

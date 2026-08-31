@@ -1,6 +1,6 @@
 # Firebase config (per-environment, kept out of the repo)
-Core/Config/Firebase/**/GoogleService-Info.plist
-!Core/Config/Firebase/**/GoogleService-Info.plist.example
+Sources/Core/Config/Firebase/**/GoogleService-Info.plist
+!Sources/Core/Config/Firebase/**/GoogleService-Info.plist.example
 
 # Tuist generated files
 *.xcodeproj

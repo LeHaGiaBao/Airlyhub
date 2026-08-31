@@ -10,7 +10,7 @@ case "${CONFIGURATION}" in
   *) echo "error: Unknown CONFIGURATION ${CONFIGURATION}"; exit 1 ;;
 esac
 
-SRC="${SRCROOT}/Core/Config/Firebase/${ENV_DIR}/GoogleService-Info.plist"
+SRC="${SRCROOT}/Sources/Core/Config/Firebase/${ENV_DIR}/GoogleService-Info.plist"
 DST="${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.app/GoogleService-Info.plist"
 
 if [ ! -f "${SRC}" ]; then
