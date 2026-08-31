@@ -15,41 +15,22 @@
 
 ## Architecture
 
-- VIPER (per-screen modules) on top of a Clean-Architecture-ish layering (`Domain` ← `Data`, `Domain` ⟵ `Features`, composition root in `AppContainer`).
+VIPER per screen, layered like Clean Architecture: `Features → Domain ← Data`, with `Core` and `DesignSystem` shared across layers and `AppContainer` as the single composition root.
 
-## Project structure
+## Folder structure
 
 ```
 Sources/
-  App/            Entry point — AppDelegate, SceneDelegate, AppRouter, AppConfig, DI/AppContainer
-  Core/           Cross-cutting infra: Config/Environment, Network, Notification, Security,
-                  Localization, Formatting, Validation, Extensions
-  Domain/         Entities/ + Repositories/ (protocols) — Foundation-only, no Firebase/UIKit imports
-  Data/           DTOs/ + DataSources/{Remote,Local}/ — repository implementations, Firebase lives here
-  DesignSystem/   Tokens/ (colors, typography, spacing, shadows) · Foundation/ (base VCs) ·
-                  Components/ (reusable UI, shared across ≥2 features) · Extensions/ (UIKit/SwiftUI)
-  Features/       One folder per screen, VIPER layout: Entity/Interactor/Presenter/View/Router/Builder
-Resources/        Assets.xcassets, Fonts, Localizable/{en,vi}.lproj — no .swift files
-Tests/
-  Unit/           AirlyhubTests target
-  UI/             AirlyhubUITests target
-Playground/       DesignSystem usage examples — excluded from the app target's sources
+  App/            App entry point + composition root (DI/AppContainer)
+  Core/           Cross-cutting infra: config, network, security, localization, formatting, validation
+  Domain/         Entities + repository protocols (Foundation-only)
+  Data/           DTOs + repository implementations (Firebase, mocks)
+  DesignSystem/   Design tokens, base view controllers, shared UI components
+  Features/       One VIPER module per screen (Entity/Interactor/Presenter/View/Router/Builder)
+Resources/        Assets, fonts, localized strings
+Tests/            Unit/ and UI/ targets
+Playground/       DesignSystem usage examples — excluded from the app build
 ```
-
-**Where does a new file go?**
-
-| You're writing... | Put it in |
-| --- | --- |
-| A new screen | `Sources/Features/<Name>/` with all 6 VIPER folders (empty `Entity` is fine: `import Foundation`) |
-| A view used only by one screen | `Features/<Name>/View/Components/` |
-| A view reused by 2+ screens | `DesignSystem/Components/` |
-| A new data source (API/Firebase/local) | protocol in `Domain/Repositories/`, implementation in `Data/DataSources/`, DTO in `Data/DTOs/`, wire it into `AppContainer` |
-| A business model | `Domain/Entities/<Area>/` |
-| A business constant (limits, policies) | `Domain/Entities/<Area>/<Area>Policy.swift` (see `CardPolicy`, `ChatPolicy`) |
-| Formatting / validation logic | `Core/Formatting/` or `Core/Validation/` |
-| Colors, fonts, spacing, shadows | `DesignSystem/Tokens/` |
-
-Dependency rule (enforced by `no_firebase_in_features` / `no_uikit_in_domain` custom SwiftLint rules): `App → Features → Domain ← Data`, with `Core` and `DesignSystem` usable by any layer above `Data`/`Domain`. Features never import Firebase directly; Domain stays Foundation-only.
 
 ## UI design available here: [Figma](https://www.figma.com/community/file/1348042899657539399/flights-free-app-ui-kit)
 
