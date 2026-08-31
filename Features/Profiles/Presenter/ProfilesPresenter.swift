@@ -26,6 +26,10 @@ final class ProfilesPresenter: ProfilesPresenterProtocol {
         return interactor.fetchMenuItems()
     }
 
+    func getCardCount() -> Observable<Int> {
+        return interactor.fetchCardCount()
+    }
+
     func goToLogout() {
         router.presentLogoutConfirmation { [weak self] in
             self?.performSignOut()
