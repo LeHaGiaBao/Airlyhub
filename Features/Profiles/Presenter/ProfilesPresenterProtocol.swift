@@ -12,5 +12,7 @@ import RxSwift
 protocol ProfilesPresenterProtocol: AnyObject, ProfilesRouterProtocol {
     func getUserProfile() -> Observable<UserProfile>
     func getMenuItems() -> [ProfilesMenuSection]
+    /// Number of saved cards, used to fill the "My cards" badge.
+    func getCardCount() -> Observable<Int>
     func goToLogout()
 }

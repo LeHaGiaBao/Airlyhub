@@ -54,7 +54,8 @@ final class ProfilesInteractor: ProfilesInteractorProtocol {
                 ProfilesMenuItem(
                     title: NSLocalizedString("my_cards", comment: ""),
                     iconName: AssetsIcon.cards,
-                    type: .cards(badge: 1),
+                    // Filled in once `fetchCardCount` returns; nil keeps the badge hidden.
+                    type: .cards(badge: nil),
                     position: .bottom
                 )
             ]),
@@ -85,6 +86,29 @@ final class ProfilesInteractor: ProfilesInteractorProtocol {
         ]
     }
     
+    func fetchCardCount() -> Observable<Int> {
+        Observable.create { observer in
+            guard let uid = AuthService.shared.getCurrentUserId() else {
+                observer.onError(ProfilesError.notAuthenticated)
+                return Disposables.create()
+            }
+
+            CardService.shared.fetchCards(uid: uid) { result in
+                DispatchQueue.main.async {
+                    switch result {
+                    case .success(let cards):
+                        observer.onNext(cards.count)
+                        observer.onCompleted()
+                    case .failure(let error):
+                        observer.onError(error)
+                    }
+                }
+            }
+
+            return Disposables.create()
+        }
+    }
+
     func signOut() -> Result<Void, Error> {
         switch AuthService.shared.logout() {
         case .success:

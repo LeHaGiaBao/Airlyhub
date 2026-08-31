@@ -12,5 +12,7 @@ import RxSwift
 protocol ProfilesInteractorProtocol: AnyObject {
     func fetchUser() -> Observable<UserProfile>
     func fetchMenuItems() -> [ProfilesMenuSection]
+    /// Total number of saved cards for the current user, for the "My cards" badge.
+    func fetchCardCount() -> Observable<Int>
     func signOut() -> Result<Void, Error>
 }

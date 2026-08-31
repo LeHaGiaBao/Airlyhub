@@ -179,12 +179,58 @@ final class ProfilesView: BaseViewController, ProfilesViewProtocol {
             .disposed(by: bag)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        // Re-read on every appearance so the badge reflects cards added or removed
+        // on the My Cards screen while this one was in the background.
+        loadCardsBadge()
+    }
+
     private func updateMenuItems() {
         let data = presenter.getMenuItems()
         menuItems = data
         tableView.reloadData()
     }
-    
+
+    /// Fills the "My cards" badge with the Firestore card count. A count of zero —
+    /// or a failed fetch — leaves it hidden.
+    private func loadCardsBadge() {
+        presenter.getCardCount()
+            .subscribe(
+                onNext: { [weak self] count in
+                    self?.applyCardsBadge(count)
+                },
+                onError: { _ in }
+            )
+            .disposed(by: bag)
+    }
+
+    private func applyCardsBadge(_ count: Int) {
+        for (sectionIndex, section) in menuItems.enumerated() {
+            guard let rowIndex = section.items.firstIndex(where: {
+                if case .cards = $0.type { return true }
+                return false
+            }) else { continue }
+
+            let current = section.items[rowIndex]
+            let updated = ProfilesMenuItem(
+                title: current.title,
+                iconName: current.iconName,
+                type: .cards(badge: count > 0 ? count : nil),
+                position: current.position
+            )
+
+            var items = section.items
+            items[rowIndex] = updated
+            menuItems[sectionIndex] = ProfilesMenuSection(items: items)
+            tableView.reloadRows(
+                at: [IndexPath(row: rowIndex, section: sectionIndex)],
+                with: .none
+            )
+            return
+        }
+    }
+
     private func setupEvents() {
         editAvatarButton.rx.tap
             .subscribe(onNext: { [weak self] in
