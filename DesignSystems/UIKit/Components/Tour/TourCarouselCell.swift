@@ -77,7 +77,8 @@ final class TourCarouselCell: UICollectionViewCell {
     }
 
     func configure(with item: TourCardModel) {
-        titleLabel.text = item.title
+        // `setText` keeps the `applyTypography` styling that a plain `.text =` drops.
+        titleLabel.setText(item.title)
         imageView.setCachedImage(from: item.imageURL, placeholder: Self.placeholder)
     }
 }

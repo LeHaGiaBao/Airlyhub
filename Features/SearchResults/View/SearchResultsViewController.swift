@@ -27,9 +27,10 @@ final class SearchResultsViewController: BaseViewController {
 
     private let headerView = SearchSummaryHeaderView()
 
-    /// White zone behind the search bar, running up under the status bar and rounded
-    /// on its lower edge — the same treatment `ExploreViewController` gives its own
-    /// search panel, so the two screens read as one surface when you navigate.
+    /// White zone behind the search bar, running up under the status bar. Its lower
+    /// edge is rounded when it stands alone (Flights), but `applyHeaderMerge` squares
+    /// it off and closes the gap below when the "Popular" rail follows, so the search
+    /// bar and the rail read as one white block.
     private let headerPanel: UIView = {
         let view = UIView()
         view.backgroundColor = .white
@@ -53,8 +54,22 @@ final class SearchResultsViewController: BaseViewController {
         return stack
     }()
 
-    private lazy var popularPanel = makePanel(containing: popularView)
+    /// Bottom corners only: the rail sits flush under the header panel and the two
+    /// read as one white block, so its top edge is square where they meet.
+    private lazy var popularPanel = makePanel(
+        containing: popularView,
+        corners: [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
+    )
     private lazy var popularView = TourCarouselView(title: NSLocalizedString("popular", comment: ""))
+
+    /// White fill sitting behind the results panel and continuing past the end of
+    /// the content, so scrolling to the bottom never exposes the grey page colour.
+    /// The only grey left on screen is the gap between this panel and the block above.
+    private let resultsBackground: UIView = {
+        let view = UIView()
+        view.backgroundColor = .white
+        return view
+    }()
 
     /// Only the top corners are rounded: this panel always reaches the bottom of the
     /// screen, so rounding its lower edge would cut a notch out of the surface.
@@ -82,6 +97,9 @@ final class SearchResultsViewController: BaseViewController {
         view.addSubview(headerPanel)
         headerPanel.addSubview(headerView)
         view.addSubview(scrollView)
+        // Behind the stack, so its white shows through the results panel and fills
+        // whatever space is left under the last card.
+        scrollView.addSubview(resultsBackground)
         scrollView.addSubview(contentStack)
         view.addSubview(loadingIndicator)
 
@@ -119,6 +137,14 @@ final class SearchResultsViewController: BaseViewController {
             // white surface reaches the bottom edge instead of stopping mid-screen
             // and leaving a grey band under it.
             make.height.greaterThanOrEqualTo(scrollView.frameLayoutGuide)
+        }
+
+        resultsBackground.snp.makeConstraints { make in
+            // Starts below the panel's rounded top so those corners still show the
+            // grey gap behind them; from there down it is solid white.
+            make.top.equalTo(resultsPanel.snp.top).offset(Layout.cornerRadius)
+            make.left.right.equalTo(scrollView.frameLayoutGuide)
+            make.bottom.equalTo(scrollView.contentLayoutGuide)
         }
 
         // Lowest hugging in the stack, so it is the panel that absorbs the slack.
@@ -184,6 +210,17 @@ final class SearchResultsViewController: BaseViewController {
 
         return panel
     }
+
+    /// Merges the header panel with the "Popular" rail into a single white block
+    /// when the rail is present: the header drops its rounded bottom and the gap
+    /// below it closes, so the only grey seam left is the one above the results.
+    /// Without a rail the header keeps its rounded bottom and the grey gap.
+    private func applyHeaderMerge(popularVisible: Bool) {
+        headerPanel.layer.cornerRadius = popularVisible ? 0 : Layout.cornerRadius
+        scrollView.snp.updateConstraints { make in
+            make.top.equalTo(headerPanel.snp.bottom).offset(popularVisible ? 0 : Layout.panelSpacing)
+        }
+    }
 }
 
 // MARK: - SearchResultsViewProtocol
@@ -220,6 +257,7 @@ extension SearchResultsViewController: SearchResultsViewProtocol {
     func showPopular(_ items: [TourCardModel]) {
         // An empty rail would leave a titled panel with nothing under it.
         popularPanel.isHidden = items.isEmpty
+        applyHeaderMerge(popularVisible: !items.isEmpty)
         popularView.configure(with: items)
     }
 

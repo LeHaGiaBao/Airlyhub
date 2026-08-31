@@ -13,23 +13,25 @@ import SnapKit
 /// a back button and a favourite toggle floating over it, and the same badge strip
 /// a search result's card shows.
 ///
-/// The back/favourite pair use the same translucent circle `TourCardView` uses for
-/// its favourite button, so a card's photo and its detail screen's photo read as
-/// one continuous surface rather than two different treatments of "controls over
-/// an image".
+/// The favourite toggle is the exact control `TourCardView` floats on its own photo
+/// — a 24pt `black @ 18%` disc with a small white heart — so a card and its detail
+/// screen read as one surface. The back button is the plain arrow the rest of the
+/// app's `TopNavigatorView` uses, with no disc behind it.
 ///
 /// The photo is anchored above this view rather than to it — see
 /// `stretchImage(alongside:)` — so it keeps reaching past the status bar even while
 /// the page is pulled down.
 final class TourHeroHeaderView: UIView {
     private enum Layout {
-        static let controlSize: CGFloat = 36
+        static let controlSize: CGFloat = 24
         static let controlInset: CGFloat = 16
         static let badgeInset: CGFloat = 12
     }
 
-    private static let favoriteOn = UIImage(systemName: "heart.fill")
-    private static let favoriteOff = UIImage(systemName: "heart")
+    /// Matches `TourCardView`: a small heart with room to breathe inside the disc.
+    private static let favoriteConfig = UIImage.SymbolConfiguration(pointSize: 10, weight: .semibold)
+    private static let favoriteOn = UIImage(systemName: "heart.fill", withConfiguration: favoriteConfig)
+    private static let favoriteOff = UIImage(systemName: "heart", withConfiguration: favoriteConfig)
     private static let placeholder = UIImage(systemName: "airplane")
 
     var onBack: (() -> Void)?
@@ -54,8 +56,15 @@ final class TourHeroHeaderView: UIView {
         return imageView
     }()
 
-    private lazy var backButton = Self.makeControl(image: UIImage(systemName: "chevron.left"))
-    private lazy var favoriteButton = Self.makeControl(image: Self.favoriteOff)
+    /// Plain arrow, no disc — the same treatment `TopNavigatorView` gives its back
+    /// button on every other screen.
+    private lazy var backButton: UIButton = {
+        let button = UIButton()
+        button.setImage(AssetsIcon.arrowLeft, for: .normal)
+        return button
+    }()
+
+    private lazy var favoriteButton = Self.makeFavoriteControl(image: Self.favoriteOff)
 
     private let badgeStrip = TourBadgeStripView()
 
@@ -146,12 +155,13 @@ final class TourHeroHeaderView: UIView {
         }
     }
 
-    private static func makeControl(image: UIImage?) -> UIButton {
+    private static func makeFavoriteControl(image: UIImage?) -> UIButton {
         let button = UIButton(type: .system)
         button.setImage(image, for: .normal)
         button.tintColor = .white
         button.backgroundColor = UIColor.black.withAlphaComponent(0.18)
         button.layer.cornerRadius = Layout.controlSize / 2
+        button.contentEdgeInsets = .zero
         return button
     }
 

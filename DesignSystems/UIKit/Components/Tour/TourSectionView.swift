@@ -72,13 +72,23 @@ final class TourSectionView: UIView {
         return button
     }()
 
+    /// Hairline between the last card and the "Show more" button, matching the
+    /// design. Tracks the button's visibility so an untitled, unpaged list
+    /// (Favorites) never draws a stray rule under its final card.
+    private lazy var showMoreSeparator: UIView = {
+        let separator = makeSeparator()
+        separator.isHidden = true
+        return separator
+    }()
+
     private lazy var contentStack: UIStackView = {
-        let stack = UIStackView(arrangedSubviews: [titleLabel, cardsStack, emptyLabel, showMoreButton])
+        let stack = UIStackView(arrangedSubviews: [titleLabel, cardsStack, emptyLabel, showMoreSeparator, showMoreButton])
         stack.axis = .vertical
         stack.alignment = .fill
         stack.setCustomSpacing(Layout.titleSpacing, after: titleLabel)
         stack.setCustomSpacing(Layout.buttonSpacing, after: cardsStack)
         stack.setCustomSpacing(Layout.buttonSpacing, after: emptyLabel)
+        stack.setCustomSpacing(Layout.buttonSpacing, after: showMoreSeparator)
         return stack
     }()
 
@@ -103,7 +113,10 @@ final class TourSectionView: UIView {
     var title: String? {
         get { titleLabel.text }
         set {
-            titleLabel.text = newValue
+            // `setText`, not `.text`: a plain assignment drops the `applyTypography`
+            // styling set at init, leaving the heading in the system font instead of
+            // textXl/bold.
+            titleLabel.setText(newValue)
             titleLabel.isHidden = newValue?.isEmpty ?? true
         }
     }
@@ -111,7 +124,7 @@ final class TourSectionView: UIView {
     /// Replaces the "no matches" line shown when the list is empty.
     var emptyMessage: String? {
         get { emptyLabel.text }
-        set { emptyLabel.text = newValue }
+        set { emptyLabel.setText(newValue) }
     }
 
     // MARK: - Content
@@ -131,6 +144,7 @@ final class TourSectionView: UIView {
         clear()
         emptyLabel.isHidden = true
         showMoreButton.isHidden = true
+        showMoreSeparator.isHidden = true
     }
 
     private func clear() {
@@ -166,6 +180,8 @@ final class TourSectionView: UIView {
 
         emptyLabel.isHidden = !cards.isEmpty
         showMoreButton.isHidden = !hasMore
+        // Only rules off the list when there is a button below it to divide from.
+        showMoreSeparator.isHidden = !hasMore || cards.isEmpty
     }
 
     /// Flips one heart without rebuilding the list.
