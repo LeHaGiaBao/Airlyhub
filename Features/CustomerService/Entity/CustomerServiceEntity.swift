@@ -51,6 +51,11 @@ struct ChatAttachmentDraft {
     let name: String
 }
 
+/// Fetches the bytes for an attachment by its stored `path`. The view hands this to
+/// each cell so `ChatMessageCell` loads images without reaching for a singleton —
+/// the builder wires it to `ChatAttachmentRepositoryProtocol.load`.
+typealias ChatAttachmentLoader = (_ path: String, _ completion: @escaping (Data?) -> Void) -> Void
+
 enum CustomerServiceError: LocalizedError, Equatable {
     case notAuthenticated
     case emptyMessage
@@ -70,7 +75,7 @@ enum CustomerServiceError: LocalizedError, Equatable {
         case .messageTooLong:
             return String(
                 format: NSLocalizedString("chat_error_message_too_long", comment: ""),
-                ChatService.maxMessageLength
+                ChatPolicy.maxMessageLength
             )
         case .attachmentTooLarge:
             return String(

@@ -17,7 +17,7 @@ enum AppRouter {
     /// where every already-loaded screen must be recreated to pick up the new locale.
     /// Restores the previously selected tab so the user stays in the same section.
     static func reloadRoot(in window: UIWindow, selectedTab: Int? = nil) {
-        if AuthService.shared.isLoggedIn() {
+        if AppContainer.shared.authRepository.isLoggedIn() {
             let root = createRootModule(nav: UINavigationController())
             if let selectedTab,
                let tabBar = root as? UITabBarController,

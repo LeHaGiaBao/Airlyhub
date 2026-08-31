@@ -8,14 +8,14 @@
 import Foundation
 import FirebaseAuth
 
-final class AuthService {
+final class AuthService: AuthRepositoryProtocol {
     static let shared = AuthService()
-    
+
     private init() {}
-    
+
     // MARK: Current User
-    var currentUser: User? {
-        Auth.auth().currentUser
+    var currentUser: AuthenticatedUser? {
+        Auth.auth().currentUser.map(AuthenticatedUser.init)
     }
     
     // MARK: GET Current User UID
@@ -49,36 +49,36 @@ final class AuthService {
     }
     
     // MARK: Register
-    func register(email: String, password: String, completion: @escaping (Result<User, Error>) -> Void) {
+    func register(email: String, password: String, completion: @escaping (Result<AuthenticatedUser, Error>) -> Void) {
         Auth.auth().createUser(withEmail: email, password: password) { result, error in
             if let error {
                 completion(.failure(error))
                 return
             }
-            
+
             guard let user = result?.user else {
                 completion(.failure(NSError(domain: "SignUpError", code: -1)))
                 return
             }
-            
-            completion(.success(user))
+
+            completion(.success(AuthenticatedUser(user)))
         }
     }
-    
+
     // MARK: Login
-    func login(email: String, password: String, completion: @escaping (Result<User, Error>) -> Void) {
+    func login(email: String, password: String, completion: @escaping (Result<AuthenticatedUser, Error>) -> Void) {
         Auth.auth().signIn(withEmail: email, password: password) { result, error in
             if let error {
                 completion(.failure(error))
                 return
             }
-            
+
             guard let user = result?.user else {
                 completion(.failure(NSError(domain: "SignInError", code: -1)))
                 return
             }
-            
-            completion(.success(user))
+
+            completion(.success(AuthenticatedUser(user)))
         }
     }
     
@@ -150,22 +150,22 @@ final class AuthService {
     }
 
     // MARK: Reload User
-    func reloadUser(completion: @escaping (Result<User, Error>) -> Void) {
+    func reloadUser(completion: @escaping (Result<AuthenticatedUser, Error>) -> Void) {
         guard let user = Auth.auth().currentUser else { return }
-        
+
         user.reload { error in
             if let error {
                 completion(.failure(error))
                 return
             }
-            completion(.success(user))
+            completion(.success(AuthenticatedUser(user)))
         }
     }
     
     // MARK: Delete Account
     func deleteAccount(completion: @escaping (Result<Bool, Error>) -> Void) {
         guard let user = Auth.auth().currentUser else { return }
-        
+
         user.delete { error in
             if let error {
                 completion(.failure(error))
@@ -173,5 +173,18 @@ final class AuthService {
             }
             completion(.success(true))
         }
+    }
+}
+
+// MARK: - SDK → Domain
+private extension AuthenticatedUser {
+    /// The one place `FirebaseAuth.User` is read into the domain shape. Everything
+    /// the feature layer knows about an account passes through here.
+    init(_ user: User) {
+        self.init(uid: user.uid,
+                  email: user.email,
+                  displayName: user.displayName,
+                  phoneNumber: user.phoneNumber,
+                  photoURL: user.photoURL)
     }
 }

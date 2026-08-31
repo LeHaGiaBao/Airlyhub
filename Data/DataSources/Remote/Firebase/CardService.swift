@@ -18,11 +18,10 @@ import FirebaseFirestore
 ///
 /// Requires the composite index `userId ASC, createdAt ASC` — see `Rules/README.md`
 /// for how indexes get created in this project (by hand, no `firestore.indexes.json`).
-final class CardService {
+final class CardService: CardRepositoryProtocol {
     static let shared = CardService()
 
-    /// Guard rail against a runaway client filling the collection.
-    static let maxCardsPerUser = 5
+    var maxCardsPerUser: Int { CardPolicy.maxPerUser }
 
     private let db = Firestore.firestore()
 
@@ -57,10 +56,24 @@ final class CardService {
     }
 
     // MARK: CREATE Card
-    func addCard(card: CardDTO, completion: @escaping (Result<String, Error>) -> Void) {
+    func addCard(_ newCard: NewCard, completion: @escaping (Result<String, Error>) -> Void) {
+        let dto = CardDTO.make(
+            CardDTO.Draft(
+                userId: newCard.userId,
+                brand: newCard.brand,
+                last4: newCard.last4,
+                holderName: newCard.holderName,
+                expMonth: newCard.expMonth,
+                expYear: newCard.expYear,
+                isDefault: newCard.isDefault
+            ),
+            token: newCard.token,
+            encrypted: newCard.encrypted
+        )
+
         do {
             let document = cardsCollection.document()
-            try document.setData(from: card) { error in
+            try document.setData(from: dto) { error in
                 if let error {
                     completion(.failure(error))
                     return

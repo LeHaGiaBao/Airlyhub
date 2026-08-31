@@ -9,14 +9,26 @@ import Foundation
 import RxSwift
 
 final class ProfilesInteractor: ProfilesInteractorProtocol {
+    private let auth: AuthRepositoryProtocol
+    private let users: UserRepositoryProtocol
+    private let cards: CardRepositoryProtocol
+
+    init(auth: AuthRepositoryProtocol,
+         users: UserRepositoryProtocol,
+         cards: CardRepositoryProtocol) {
+        self.auth = auth
+        self.users = users
+        self.cards = cards
+    }
+
     func fetchUser() -> Observable<UserProfile> {
-        Observable.create { observer in
-            guard let uid = AuthService.shared.getCurrentUserId() else {
+        Observable.create { [auth, users] observer in
+            guard let uid = auth.getCurrentUserId() else {
                 observer.onError(ProfilesError.notAuthenticated)
                 return Disposables.create()
             }
 
-            UserService.shared.fetchUserProfile(uid: uid) { result in
+            users.fetchUserProfile(uid: uid) { result in
                 DispatchQueue.main.async {
                     switch result {
                     case .success(let user):
@@ -87,13 +99,13 @@ final class ProfilesInteractor: ProfilesInteractorProtocol {
     }
     
     func fetchCardCount() -> Observable<Int> {
-        Observable.create { observer in
-            guard let uid = AuthService.shared.getCurrentUserId() else {
+        Observable.create { [auth, cards] observer in
+            guard let uid = auth.getCurrentUserId() else {
                 observer.onError(ProfilesError.notAuthenticated)
                 return Disposables.create()
             }
 
-            CardService.shared.fetchCards(uid: uid) { result in
+            cards.fetchCards(uid: uid) { result in
                 DispatchQueue.main.async {
                     switch result {
                     case .success(let cards):
@@ -110,7 +122,7 @@ final class ProfilesInteractor: ProfilesInteractorProtocol {
     }
 
     func signOut() -> Result<Void, Error> {
-        switch AuthService.shared.logout() {
+        switch auth.logout() {
         case .success:
             return .success(())
         case .failure(let error):

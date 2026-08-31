@@ -13,8 +13,15 @@ enum MyCardsBuilderAction {
 }
 
 final class MyCardsBuilder {
+    private let container: AppContainer
+
+    init(container: AppContainer = .shared) {
+        self.container = container
+    }
+
     func build() -> (UIViewController, Observable<MyCardsBuilderAction>) {
-        let interactor = MyCardsInteractor()
+        let interactor = MyCardsInteractor(cards: container.cardRepository,
+                                           auth: container.authRepository)
         let router = MyCardsRouter()
         let presenter = MyCardsPresenter(interactor: interactor,
                                          router: router)

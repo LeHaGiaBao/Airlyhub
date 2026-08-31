@@ -7,12 +7,19 @@
 
 import Foundation
 import RxSwift
-import FirebaseAuth
 
 final class RegisterInteractor: RegisterInteractorProtocol {
+    private let auth: AuthRepositoryProtocol
+    private let users: UserRepositoryProtocol
+
+    init(auth: AuthRepositoryProtocol, users: UserRepositoryProtocol) {
+        self.auth = auth
+        self.users = users
+    }
+
     func register(name: String, email: String, password: String) -> Observable<Void> {
-        Observable.create { observer in
-            AuthService.shared.register(email: email, password: password) { result in
+        Observable.create { [auth, users] observer in
+            auth.register(email: email, password: password) { result in
                 DispatchQueue.main.async {
                     switch result {
                     case .success(let user):
@@ -23,14 +30,14 @@ final class RegisterInteractor: RegisterInteractorProtocol {
                                                 name: trimmedName,
                                                 avatar: "",
                                                 phone: "",createdAt: Date())
-                        UserService.shared.createUserProfile(user: profile) { profileResult in
+                        users.createUserProfile(user: profile) { profileResult in
                             DispatchQueue.main.async {
                                 switch profileResult {
                                 case .success:
                                     observer.onNext(())
                                     observer.onCompleted()
                                 case .failure(let error):
-                                    _ = AuthService.shared.logout()
+                                    _ = auth.logout()
                                     observer.onError(error)
                                 }
                             }

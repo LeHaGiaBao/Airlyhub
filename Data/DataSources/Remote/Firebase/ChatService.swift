@@ -19,15 +19,12 @@ import FirebaseFirestore
 /// Access control is the document path, not a field: `conversations/{uid}` is only
 /// readable by `uid` (or a support operator). That also means the `messages` query
 /// needs no composite index — a single-field `createdAt` index is created automatically.
-final class ChatService {
+final class ChatService: ChatRepositoryProtocol {
     static let shared = ChatService()
 
     /// How much of the thread is kept live. Older messages stay in Firestore; the
     /// listener window is capped so a long history doesn't re-read on every change.
     static let messagePageSize = 50
-
-    /// Mirrored by the security rules, which reject anything longer.
-    static let maxMessageLength = 4000
 
     private let db = Firestore.firestore()
 
@@ -50,13 +47,12 @@ final class ChatService {
     /// pending timestamp above every real one, so it stays inside the window and lands
     /// at the bottom rather than being dropped or jumping to the top.
     ///
-    /// - Returns: the registration to remove when the screen goes away.
+    /// - Returns: the subscription to remove when the screen goes away.
     func observeMessages(uid: String,
-                         limit: Int = ChatService.messagePageSize,
-                         onChange: @escaping (Result<[ChatMessageModel], Error>) -> Void) -> ListenerRegistration {
-        messagesRef(uid: uid)
+                         onChange: @escaping (Result<[ChatMessageModel], Error>) -> Void) -> ChatSubscription {
+        let registration = messagesRef(uid: uid)
             .order(by: "createdAt", descending: true)
-            .limit(to: limit)
+            .limit(to: Self.messagePageSize)
             .addSnapshotListener { snapshot, error in
                 if let error {
                     onChange(.failure(error))
@@ -81,6 +77,8 @@ final class ChatService {
 
                 onChange(.success(messages.reversed()))
             }
+
+        return ChatSubscription { registration.remove() }
     }
 
     // MARK: READ or CREATE Conversation
@@ -123,16 +121,22 @@ final class ChatService {
     /// silent until connectivity returns, which is why the caller must not gate the UI
     /// on it and must only use it to surface a failure.
     func sendMessage(uid: String,
-                     message: ChatMessageDTO,
+                     _ message: OutgoingChatMessage,
                      completion: @escaping (Result<Void, Error>) -> Void) {
+        let dto = ChatMessageDTO.make(
+            senderId: uid,
+            text: message.text,
+            attachments: message.attachments.map { ChatAttachmentDTO($0) }
+        )
+
         do {
             let document = messagesRef(uid: uid).document()
-            try document.setData(from: message) { [weak self] error in
+            try document.setData(from: dto) { [weak self] error in
                 if let error {
                     completion(.failure(error))
                     return
                 }
-                self?.updateSummary(uid: uid, message: message)
+                self?.updateSummary(uid: uid, message: dto)
                 completion(.success(()))
             }
         } catch {

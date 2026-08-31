@@ -18,7 +18,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = scene as? UIWindowScene else { return }
         
         let window = UIWindow(windowScene: windowScene)
-        if AuthService.shared.isLoggedIn() {
+        if AppContainer.shared.authRepository.isLoggedIn() {
             window.rootViewController = AppRouter.createRootModule(nav: UINavigationController())
         } else {
             let register = LoginBuilder().build()
