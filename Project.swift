@@ -52,21 +52,12 @@ let project = Project(
             product: .app,
             bundleId: "airly.Airlyhub",
             deploymentTargets: .iOS("15.6"),
-            infoPlist: .file(path: "Airlyhub/Info.plist"),
+            infoPlist: .file(path: "Sources/App/Info.plist"),
             sources: [
-                "Airlyhub/**/*.swift",
-                "Core/**/*.swift",
-                "Data/**/*.swift",
-                "Domain/**/*.swift",
-                "DesignSystems/**/*.swift",
-                "Features/**/*.swift",
-                "Utilities/**/*.swift",
-                "Resources/**/*.swift",
-                "Localization/**/*.swift",
+                "Sources/**/*.swift",
             ],
             resources: [
-                .glob(pattern: "Resources/**", excluding: ["Resources/**/*.swift"]),
-                .glob(pattern: "Localization/**", excluding: ["Localization/**/*.swift"]),
+                .glob(pattern: "Resources/**"),
             ],
             scripts: [
                 .pre(
@@ -137,7 +128,7 @@ let project = Project(
                 ]
             ),
             additionalFiles: [
-                .folderReference(path: "Core/Config/Firebase"),
+                .folderReference(path: "Sources/Core/Config/Firebase"),
             ]
         ),
         .target(
@@ -147,7 +138,7 @@ let project = Project(
             bundleId: "airly.AirlyhubTests",
             deploymentTargets: .iOS("15.6"),
             infoPlist: .default,
-            sources: ["AirlyhubTests/**/*.swift"],
+            sources: ["Tests/Unit/**/*.swift"],
             dependencies: [
                 .target(name: "Airlyhub"),
             ]
@@ -159,7 +150,7 @@ let project = Project(
             bundleId: "airly.AirlyhubUITests",
             deploymentTargets: .iOS("15.6"),
             infoPlist: .default,
-            sources: ["AirlyhubUITests/**/*.swift"],
+            sources: ["Tests/UI/**/*.swift"],
             dependencies: [
                 .target(name: "Airlyhub"),
             ]
@@ -197,6 +188,7 @@ let project = Project(
         ".mise.toml",
         ".swiftlint.yml",
         .folderReference(path: "Rules"),
+        .folderReference(path: "Playground"),
         .glob(pattern: "Tuist/**"),
     ]
 )

@@ -1,22 +1,27 @@
 # SwiftLint configuration for Airlyhub
 # Docs: https://realm.github.io/SwiftLint/rule-directory.html
 included:
-  - Airlyhub
-  - Core
-  - Data
-  - Domain
-  - DesignSystems
-  - Features
-  - Utilities
-  - Resources
+  - Sources
 
 excluded:
   - Derived
   - Tuist/.build
   - '**/.build'
-  - AirlyhubTests
-  - AirlyhubUITests
+  - Tests
+  - Playground
   - '**/*.generated.swift'
+
+custom_rules:
+  no_firebase_in_features:
+    included: 'Sources/Features/.*\.swift'
+    regex: '^import\s+Firebase\w*'
+    message: "Features không được import Firebase trực tiếp — đi qua protocol trong Domain/Repositories và inject qua AppContainer."
+    severity: error
+  no_uikit_in_domain:
+    included: 'Sources/Domain/.*\.swift'
+    regex: '^import\s+UIKit'
+    message: "Domain nên Foundation-only. Nếu bắt buộc cần UIKit (display model hiện có), đây là nhắc nhở để cân nhắc chuyển sang DesignSystem/Features."
+    severity: warning
 
 opt_in_rules:
   - empty_count
@@ -25,11 +30,15 @@ opt_in_rules:
   - contains_over_first_not_nil
   - first_where
   - force_unwrapping
-  - implicitly_unwrapped_optional
   - vertical_whitespace_closing_braces
   - redundant_nil_coalescing
   - toggle_bool
   - fatal_error_message
+
+# implicitly_unwrapped_optional deliberately left out of opt_in_rules: every current
+# violation is the VIPER `var presenter: XPresenterProtocol!` Builder-injection pattern
+# (see viper-feature-convention) or a one-shot layout constraint set once in setup —
+# both intentional, not oversights. Re-enable only if that convention changes.
 
 disabled_rules:
   - trailing_whitespace
@@ -57,6 +66,11 @@ function_body_length:
 cyclomatic_complexity:
   warning: 15
   error: 25
+
+type_name:
+  max_length:
+    warning: 50
+    error: 60
 
 identifier_name:
   min_length:

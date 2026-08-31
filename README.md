@@ -15,7 +15,41 @@
 
 ## Architecture
 
-- VIPER
+- VIPER (per-screen modules) on top of a Clean-Architecture-ish layering (`Domain` ← `Data`, `Domain` ⟵ `Features`, composition root in `AppContainer`).
+
+## Project structure
+
+```
+Sources/
+  App/            Entry point — AppDelegate, SceneDelegate, AppRouter, AppConfig, DI/AppContainer
+  Core/           Cross-cutting infra: Config/Environment, Network, Notification, Security,
+                  Localization, Formatting, Validation, Extensions
+  Domain/         Entities/ + Repositories/ (protocols) — Foundation-only, no Firebase/UIKit imports
+  Data/           DTOs/ + DataSources/{Remote,Local}/ — repository implementations, Firebase lives here
+  DesignSystem/   Tokens/ (colors, typography, spacing, shadows) · Foundation/ (base VCs) ·
+                  Components/ (reusable UI, shared across ≥2 features) · Extensions/ (UIKit/SwiftUI)
+  Features/       One folder per screen, VIPER layout: Entity/Interactor/Presenter/View/Router/Builder
+Resources/        Assets.xcassets, Fonts, Localizable/{en,vi}.lproj — no .swift files
+Tests/
+  Unit/           AirlyhubTests target
+  UI/             AirlyhubUITests target
+Playground/       DesignSystem usage examples — excluded from the app target's sources
+```
+
+**Where does a new file go?**
+
+| You're writing... | Put it in |
+| --- | --- |
+| A new screen | `Sources/Features/<Name>/` with all 6 VIPER folders (empty `Entity` is fine: `import Foundation`) |
+| A view used only by one screen | `Features/<Name>/View/Components/` |
+| A view reused by 2+ screens | `DesignSystem/Components/` |
+| A new data source (API/Firebase/local) | protocol in `Domain/Repositories/`, implementation in `Data/DataSources/`, DTO in `Data/DTOs/`, wire it into `AppContainer` |
+| A business model | `Domain/Entities/<Area>/` |
+| A business constant (limits, policies) | `Domain/Entities/<Area>/<Area>Policy.swift` (see `CardPolicy`, `ChatPolicy`) |
+| Formatting / validation logic | `Core/Formatting/` or `Core/Validation/` |
+| Colors, fonts, spacing, shadows | `DesignSystem/Tokens/` |
+
+Dependency rule (enforced by `no_firebase_in_features` / `no_uikit_in_domain` custom SwiftLint rules): `App → Features → Domain ← Data`, with `Core` and `DesignSystem` usable by any layer above `Data`/`Domain`. Features never import Firebase directly; Domain stays Foundation-only.
 
 ## UI design available here: [Figma](https://www.figma.com/community/file/1348042899657539399/flights-free-app-ui-kit)
 
@@ -55,12 +89,12 @@ Per-environment values live in `Tuist/Config/{Dev,Staging,Prod}.xcconfig` and ar
 Each environment needs its own `GoogleService-Info.plist` (the bundle IDs differ, so one file cannot be shared). These files are **git-ignored** — obtain them from the Firebase console and place them at:
 
 ```
-Airlyhub/Firebase/Dev/GoogleService-Info.plist
-Airlyhub/Firebase/Staging/GoogleService-Info.plist
-Airlyhub/Firebase/Prod/GoogleService-Info.plist
+Sources/Core/Config/Firebase/Dev/GoogleService-Info.plist
+Sources/Core/Config/Firebase/Staging/GoogleService-Info.plist
+Sources/Core/Config/Firebase/Prod/GoogleService-Info.plist
 ```
 
-See `Airlyhub/Firebase/GoogleService-Info.plist.example` for the expected format. A build-phase script copies the correct file into the app bundle based on the active configuration, so the build will fail with `error: Missing .../GoogleService-Info.plist` if any are absent.
+See `Sources/Core/Config/Firebase/GoogleService-Info.plist.example` for the expected format. A build-phase script copies the correct file into the app bundle based on the active configuration, so the build will fail with `error: Missing .../GoogleService-Info.plist` if any are absent.
 
 ## Development
 
